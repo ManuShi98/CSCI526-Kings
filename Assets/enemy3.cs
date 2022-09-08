@@ -10,8 +10,10 @@ public class enemy3 : MonoBehaviour {
     private int wavePointIndex = 0;
 
     void Start() {
-        
+        if (Season.seasonRouteMapping[Season.season][2] == false)
+        {
             Destroy(gameObject);
+        }
 
         target = path3.points[0];    
     }
