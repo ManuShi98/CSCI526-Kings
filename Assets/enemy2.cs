@@ -10,14 +10,15 @@ public class enemy2 : MonoBehaviour {
     private int wavePointIndex = 0;
 
     void Start() {
-        if (Season.seasonRouteMapping[Season.season][1] == false)
-        {
-            Destroy(gameObject);
-        }
+
         target = path2.points[0];    
     }
 
     void Update() { 
+        if (Season.seasonRouteMapping[Season.season][1] == false)
+        {
+            Destroy(gameObject);
+        }
         if(transform.position == target.position) {
             GetNextPath2Point();
         } else {
