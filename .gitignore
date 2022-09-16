@@ -64,3 +64,6 @@ crashlytics-build.properties
 
 # UserSettings
 [Uu]serSettings/
+
+# Rider config files
+/.idea/
