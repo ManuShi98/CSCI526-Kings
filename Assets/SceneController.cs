@@ -1,31 +1,57 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 
 public class SceneController : MonoBehaviour
 {
-
-    string[] inGameSceneNames = { "Path", "Monster" };
-
-    public void LoadLevel()
+    public enum Season
     {
-        foreach (string name in inGameSceneNames)
-        {
-            SceneManager.LoadSceneAsync(name, LoadSceneMode.Additive);
-        }
+        SPRING,
+        SUMMER,
+        AUTUMN,
+        WINTER
     }
+
+    public enum Weather
+    {
+        SUNNY,
+        RAINY,
+        CLOUDY,
+        SNOWY
+    }
+
+    private static Season currentSeason;
+    private static Weather currentWeather;
 
     // Start is called before the first frame update
     void Start()
     {
-        LoadLevel();
+        currentSeason = Season.SPRING;
+        currentWeather = Weather.SUNNY;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    public void SetSeason(Season season)
+    {
+        currentSeason = season;
+    }
+
+    public Season GetSeason()
+    {
+        return currentSeason;
+    }
+
+    public void SetWeather(Weather weather)
+    {
+        currentWeather = weather;
+    }
+
+    public Weather GetWeather()
+    {
+        return currentWeather;
     }
 }
