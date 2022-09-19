@@ -2,6 +2,7 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 
 public class SceneController : MonoBehaviour
 {
@@ -46,11 +47,67 @@ public class SceneController : MonoBehaviour
     private static Season currentSeason;
     private static Weather currentWeather;
 
+    public Tile winterTree;
+    public Tile summerTree;
+    public Tile winterRiver;
+    public Tile summerRiver;
+    public Season testSeason;
+
     // Start is called before the first frame update
     void Start()
     {
         currentSeason = Season.SPRING;
         currentWeather = Weather.SUNNY;
+        SetSeason(testSeason);
+        Tile tree = null;
+        Tile river = null;
+        switch (GetSeason())
+        {
+            case Season.SPRING: ;
+                break;
+            case Season.SUMMER:
+            {
+                tree = summerTree;
+                river = summerRiver;
+            }
+                break;
+            case Season.AUTUMN: ;
+                break;
+            case Season.WINTER:
+            {
+                tree = winterTree;
+                river = winterRiver;
+            }
+                
+                break;
+            default: ;
+                break;
+        }
+        maps[0].SetTile(new Vector3Int(-5,-4,0), tree);
+        maps[0].SetTile(new Vector3Int(-4,-4,0), tree);
+        maps[0].SetTile(new Vector3Int(-3,-4,0), tree);
+        maps[0].SetTile(new Vector3Int(-2,-4,0), tree);
+        maps[0].SetTile(new Vector3Int(-1,-4,0), tree);
+        maps[0].SetTile(new Vector3Int(-1,-3,0), tree);
+        maps[0].SetTile(new Vector3Int(-1,-2,0), tree);
+        maps[0].SetTile(new Vector3Int(6,3,0), river);
+        maps[0].SetTile(new Vector3Int(6,2,0), river);
+        maps[0].SetTile(new Vector3Int(6,1,0), river);
+        maps[0].SetTile(new Vector3Int(6,0,0), river);
+        maps[0].SetTile(new Vector3Int(6,-1,0), river);
+        maps[0].SetTile(new Vector3Int(6,-2,0), river);
+        maps[0].SetTile(new Vector3Int(6,-3,0), river);
+        maps[0].SetTile(new Vector3Int(6,-4,0), river);
+        maps[0].SetTile(new Vector3Int(5,-4,0), river);
+        maps[0].SetTile(new Vector3Int(4,-4,0), river);
+        maps[0].SetTile(new Vector3Int(3,-4,0), river);
+        maps[0].SetTile(new Vector3Int(3,-3,0), river);
+        maps[0].SetTile(new Vector3Int(3,-2,0), river);
+        maps[0].SetTile(new Vector3Int(3,-1,0), river);
+        maps[0].SetTile(new Vector3Int(3,-1,0), river);
+        maps[0].SetTile(new Vector3Int(2,-1,0), river);
+        maps[0].SetTile(new Vector3Int(1,-1,0), river);
+        maps[0].SetTile(new Vector3Int(0,-1,0), river);
     }
 
     // Update is called once per frame
@@ -71,6 +128,7 @@ public class SceneController : MonoBehaviour
                 }
             }
         }
+        
     }
 
     public void SetSeason(Season season)
