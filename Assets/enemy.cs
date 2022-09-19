@@ -6,11 +6,11 @@ public class enemy : MonoBehaviour {
 
     public float speed;
 
-    private Transform target;
+    public Transform target;
     private int wavePointIndex = 0;
 
     void Start() {
-        target = path1.points[0];    
+        
     }
 
     void Update() { 
