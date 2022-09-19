@@ -2,94 +2,125 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.EventSystems;
 
 public class SceneController : MonoBehaviour
 {
 
-    [SerializeField]
-    private List<Tilemap> maps;
+  [SerializeField]
+  private List<Tilemap> maps;
 
-    [SerializeField]
-    private List<TileData> tileDatas;
+  [SerializeField]
+  private List<TileData> tileDatas;
 
-    private Dictionary<TileBase, TileData> dataFromTiles;
+  private Dictionary<TileBase, TileData> dataFromTiles;
 
-    private void Awake()
+  [SerializeField]
+  private GameObject towerPrefab;
+
+  private TowerBtn ClickedBtn;
+
+  private void Awake()
+  {
+    dataFromTiles = new Dictionary<TileBase, TileData>();
+
+    foreach (var tileData in tileDatas)
     {
-        dataFromTiles = new Dictionary<TileBase, TileData>();
+      foreach (var tile in tileData.tiles)
+      {
+        dataFromTiles.Add(tile, tileData);
+      }
+    }
+  }
 
-        foreach (var tileData in tileDatas)
+  public enum Season
+  {
+    SPRING,
+    SUMMER,
+    AUTUMN,
+    WINTER
+  }
+
+  public enum Weather
+  {
+    SUNNY,
+    RAINY,
+    CLOUDY,
+    SNOWY
+  }
+
+  private static Season currentSeason;
+  private static Weather currentWeather;
+
+  // Start is called before the first frame update
+  void Start()
+  {
+    currentSeason = Season.SPRING;
+    currentWeather = Weather.SUNNY;
+    this.ClickedBtn = null;
+  }
+
+  // Update is called once per frame
+  void Update()
+  {
+    if (Input.GetMouseButtonDown(0))
+    {
+      Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+      foreach (var map in maps)
+      {
+        Vector3Int gridPosition = map.WorldToCell(mousePosition);
+        TileBase clickedTile = map.GetTile(gridPosition);
+        if (clickedTile != null)
         {
-            foreach(var tile in tileData.tiles)
-            {
-                dataFromTiles.Add(tile, tileData);
-            }
+          string tag = dataFromTiles[clickedTile].tag;
+          // print("At position " + gridPosition + " " + tag);
+          PlaceTower(gridPosition, tag);
+          break;
         }
+      }
     }
+  }
 
-    public enum Season
+  public void SetSeason(Season season)
+  {
+    currentSeason = season;
+  }
+
+  public Season GetSeason()
+  {
+    return currentSeason;
+  }
+
+  public void SetWeather(Weather weather)
+  {
+    currentWeather = weather;
+  }
+
+  public Weather GetWeather()
+  {
+    return currentWeather;
+  }
+
+  public void PlaceTower(Vector3Int gridPosition, string tag)
+  {
+    if (!EventSystem.current.IsPointerOverGameObject() && this.ClickedBtn != null)
     {
-        SPRING,
-        SUMMER,
-        AUTUMN,
-        WINTER
+      if (string.Compare(tag, "\"wall\"") == 0)
+      {
+        Instantiate(towerPrefab, gridPosition, Quaternion.identity);
+      }
+      else
+      {
+        print("You cannot build tower on the path!");
+      }
+      this.ClickedBtn = null;
     }
 
-    public enum Weather
-    {
-        SUNNY,
-        RAINY,
-        CLOUDY,
-        SNOWY
-    }
+  }
 
-    private static Season currentSeason;
-    private static Weather currentWeather;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        currentSeason = Season.SPRING;
-        currentWeather = Weather.SUNNY;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        if(Input.GetMouseButtonDown(0))
-        {
-            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            foreach(var map in maps)
-            {
-                Vector3Int gridPosition = map.WorldToCell(mousePosition);
-                TileBase clickedTile = map.GetTile(gridPosition);
-                if(clickedTile != null)
-                {
-                    string tag = dataFromTiles[clickedTile].tag;
-                    print("At position " + gridPosition + " " + tag);
-                    break;
-                }
-            }
-        }
-    }
-
-    public void SetSeason(Season season)
-    {
-        currentSeason = season;
-    }
-
-    public Season GetSeason()
-    {
-        return currentSeason;
-    }
-
-    public void SetWeather(Weather weather)
-    {
-        currentWeather = weather;
-    }
-
-    public Weather GetWeather()
-    {
-        return currentWeather;
-    }
+  public void PickTower(TowerBtn towerBtn)
+  {
+    this.ClickedBtn = towerBtn;
+    //print(this.ClickedBtn);
+  }
 }
