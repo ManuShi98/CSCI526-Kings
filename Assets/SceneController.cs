@@ -69,12 +69,13 @@ public class SceneController : MonoBehaviour
       foreach (var map in maps)
       {
         Vector3Int gridPosition = map.WorldToCell(mousePosition);
+        Vector3 gridCenterPosition = map.GetCellCenterWorld(gridPosition);
         TileBase clickedTile = map.GetTile(gridPosition);
         if (clickedTile != null)
         {
           string tag = dataFromTiles[clickedTile].tag;
-          // print("At position " + gridPosition + " " + tag);
-          PlaceTower(gridPosition, tag);
+          print("At position " + gridPosition + " " + tag);
+          PlaceTower(gridCenterPosition, tag);
           break;
         }
       }
@@ -101,13 +102,13 @@ public class SceneController : MonoBehaviour
     return currentWeather;
   }
 
-  public void PlaceTower(Vector3Int gridPosition, string tag)
+  public void PlaceTower(Vector3 gridCenterPosition, string tag)
   {
     if (!EventSystem.current.IsPointerOverGameObject() && this.ClickedBtn != null)
     {
       if (string.Compare(tag, "\"wall\"") == 0)
       {
-        Instantiate(towerPrefab, gridPosition, Quaternion.identity);
+        Instantiate(towerPrefab, gridCenterPosition, Quaternion.identity);
       }
       else
       {
