@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5457106064813893342}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.52, y: 0, z: 0}
+  m_LocalPosition: {x: -0.26, y: 1.37, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -44,7 +44,7 @@ GameObject:
   - component: {fileID: 5457106064871300682}
   m_Layer: 0
   m_Name: Tower
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -58,8 +58,8 @@ Transform:
   m_GameObject: {fileID: 5457106064871300683}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -1.52, y: 0.49, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 5457106064813893341}
   m_Father: {fileID: 0}
@@ -106,7 +106,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 2
-  m_Sprite: {fileID: 21300000, guid: f8c9467a892580344bb697526dac0d13, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 055381e127a974fafb0e6acd7dbe9d4a, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -129,6 +129,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b26b321168f944aca821c47839f4df0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  radius: 100
+  FiringRate: 10
   firePoint: {fileID: 5457106064813893341}
-  FiringRate: 2
+  enemy: {fileID: 0}
   bulletPrefab: {fileID: 2963120297229977119, guid: f504e23636e444ba2ae3e50fad167b7f, type: 3}
