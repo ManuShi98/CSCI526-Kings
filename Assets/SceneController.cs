@@ -15,8 +15,9 @@ public class SceneController : MonoBehaviour
 
   private Dictionary<TileBase, TileData> dataFromTiles;
 
-  [SerializeField]
-  private GameObject towerPrefab;
+  // TODO: towerfab变量，按钮用到
+  // [SerializeField]
+  // private GameObject towerPrefab;
 
   private TowerBtn ClickedBtn;
 
