@@ -75,7 +75,7 @@ public class SceneController : MonoBehaviour
         {
           string tag = dataFromTiles[clickedTile].tag;
           print("At position " + gridPosition + " " + tag);
-          PlaceTower(gridCenterPosition, tag);
+          // PlaceTower(gridCenterPosition, tag);
           break;
         }
       }
