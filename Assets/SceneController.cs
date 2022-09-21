@@ -103,26 +103,26 @@ public class SceneController : MonoBehaviour
     return currentWeather;
   }
 
-  public void PlaceTower(Vector3 gridCenterPosition, string tag)
-  {
-    if (!EventSystem.current.IsPointerOverGameObject() && this.ClickedBtn != null)
-    {
-      if (string.Compare(tag, "\"wall\"") == 0)
-      {
-        Instantiate(towerPrefab, gridCenterPosition, Quaternion.identity);
-      }
-      else
-      {
-        print("You cannot build tower on the path!");
-      }
-      this.ClickedBtn = null;
-    }
+  // public void PlaceTower(Vector3 gridCenterPosition, string tag)
+  // {
+  //   if (!EventSystem.current.IsPointerOverGameObject() && this.ClickedBtn != null)
+  //   {
+  //     if (string.Compare(tag, "\"wall\"") == 0)
+  //     {
+  //       Instantiate(towerPrefab, gridCenterPosition, Quaternion.identity);
+  //     }
+  //     else
+  //     {
+  //       print("You cannot build tower on the path!");
+  //     }
+  //     this.ClickedBtn = null;
+  //   }
 
-  }
+  // }
 
-  public void PickTower(TowerBtn towerBtn)
-  {
-    this.ClickedBtn = towerBtn;
-    //print(this.ClickedBtn);
-  }
+  // public void PickTower(TowerBtn towerBtn)
+  // {
+  //   this.ClickedBtn = towerBtn;
+  //   //print(this.ClickedBtn);
+  // }
 }
