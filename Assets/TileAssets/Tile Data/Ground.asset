@@ -12,5 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce4f94ac8dc4e409c9c7aa6cb6322d4c, type: 3}
   m_Name: Ground
   m_EditorClassIdentifier: 
-  tiles: []
-  tag: 
+  tiles:
+  - {fileID: 11400000, guid: 201aaf6d7b58b4b63b69a0949a50bafe, type: 2}
+  tag: path
