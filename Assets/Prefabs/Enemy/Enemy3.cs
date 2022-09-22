@@ -20,7 +20,11 @@ public class Enemy3 : MonoBehaviour
 
     void Move()
     {
-        if (index > positions.Length - 1) return;
+        if (index > positions.Length - 1) 
+        {
+            Destroy(gameObject);
+            return;
+        }
         transform.Translate((positions[index].position - transform.position).normalized * Time.deltaTime * speed);
         if (Vector3.Distance(positions[index].position, transform.position) < 0.3f)
         {
