@@ -22,6 +22,7 @@ public class Enemy3 : MonoBehaviour
     {
         if (index > positions.Length - 1) 
         {
+            Singleton.Instance.numOfReachEndMonster++;
             Destroy(gameObject);
             return;
         }
