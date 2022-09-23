@@ -3,6 +3,7 @@ using UnityEngine.Tilemaps;
 using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
+using UnityEngine.EventSystems;
 
 public class SceneController : MonoBehaviour
 {
@@ -15,10 +16,7 @@ public class SceneController : MonoBehaviour
 
     private Dictionary<TileBase, TileData> dataFromTiles;
 
-    // [SerializeField]
-    // private GameObject towerPrefab;
-
-    private TowerBtn towerBtn;
+    private TowerBtn ClickedBtn;
 
     private void Awake()
     {
@@ -124,13 +122,13 @@ public class SceneController : MonoBehaviour
             foreach(var map in maps)
             {
                 Vector3Int gridPosition = map.WorldToCell(mousePosition);
-                // Vector3 gridCenterPosition = map.GetCellCenterWorld(gridPosition);
+                Vector3 gridCenterPosition = map.GetCellCenterWorld(gridPosition);
                 TileBase clickedTile = map.GetTile(gridPosition);
                 if(clickedTile != null)
                 {
                     string tag = dataFromTiles[clickedTile].tag;
                     print("At position " + gridPosition + " " + tag);
-                    // PlaceTower(gridCenterPosition, tag);
+                    PlaceTower(gridCenterPosition, tag);
                     break;
                 }
             }
@@ -140,7 +138,11 @@ public class SceneController : MonoBehaviour
 
     public void SetSeason(Season season)
     {
-        currentSeason = season;
+        // currentSeason = season;
+        int num = Random.Range(0,10);
+        if (num > 5) currentSeason = Season.SUMMER;
+        else currentSeason = Season.WINTER;
+
     }
 
     public Season GetSeason()
@@ -158,25 +160,25 @@ public class SceneController : MonoBehaviour
         return currentWeather;
     }
 
-    // public void PlaceTower(Vector3Int gridPosition, string tag)
-    // {
-    //   if (!EventSystem.current.IsPointerOverGameObject() && this.ClickedBtn != null)
-    //   {
-    //     if (string.Compare(tag, "\"wall\"") == 0)
-    //     {
-    //       Instantiate(towerPrefab, gridPosition, Quaternion.identity);
-    //     }
-    //     else
-    //     {
-    //       print("You cannot build tower on the path!");
-    //     }
-    //     this.ClickedBtn = null;
-    //   }
+    public void PlaceTower(Vector3 gridCenterPosition, string tag)
+    {
+      if (!EventSystem.current.IsPointerOverGameObject() && this.ClickedBtn != null)
+      {
+        if (string.Compare(tag, "wall") == 0)
+        {
+          Instantiate(this.ClickedBtn.TowerPrefab, gridCenterPosition, Quaternion.identity);
+        }
+        else
+        {
+          print("You cannot build tower on the path!");
+        }
+        this.ClickedBtn = null;
+      }
 
-    // }
+    }
 
-    // public void PickTower(TowerBtn towerBtn)
-    // {
-    //   this.ClickedBtn = towerBtn;
-    // }
+    public void PickTower(TowerBtn towerBtn)
+    {
+      this.ClickedBtn = towerBtn;
+    }
 }
