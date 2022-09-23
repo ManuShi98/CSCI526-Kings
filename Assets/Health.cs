@@ -12,6 +12,7 @@ public class Health : MonoBehaviour
 
         if(health <= 0)
         {
+            Singleton.Instance.numOfSurviveMonster--;
             Destroy(gameObject);
         }
     }

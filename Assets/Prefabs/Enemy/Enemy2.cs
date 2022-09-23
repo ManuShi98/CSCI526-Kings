@@ -9,7 +9,7 @@ public class Enemy2 : MonoBehaviour
     private int index = 0;
 
     void Start()
-    {
+    {   
         positions = Path2.positions2;
     }
 
@@ -22,6 +22,7 @@ public class Enemy2 : MonoBehaviour
     {
         if (index > positions.Length - 1) 
         {
+            Singleton.Instance.numOfReachEndMonster++;
             Destroy(gameObject);
             return;
         }
