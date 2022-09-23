@@ -29,12 +29,12 @@ public class EnemySpawner : MonoBehaviour
         int timeSpend = (int)(now - Singleton.Instance.beginTime).TotalMilliseconds;
         
         if(timeSpend % 5000 == 0 && flag == true){
-            // Debug.Log("This game has running for " + (timeSpend / 1000) + "seconds");
-            // Debug.Log("The number of original monster is " + Singleton.Instance.numOfOriginalMonster);
-            // Debug.Log("The number of survival monster is " + Singleton.Instance.numOfSurviveMonster);
-            // Debug.Log("The number of miss monster is " + Singleton.Instance.numOfReachEndMonster);
-            // Debug.Log("The number of died monster is " + (Singleton.Instance.numOfOriginalMonster - Singleton.Instance.numOfSurviveMonster));
-            // Debug.Log("**************************************************************************************");
+            Debug.Log("This game has running for " + (timeSpend / 1000) + "seconds");
+            Debug.Log("The number of original monster is " + Singleton.Instance.numOfOriginalMonster);
+            Debug.Log("The number of survival monster is " + Singleton.Instance.numOfSurviveMonster);
+            Debug.Log("The number of miss monster is " + Singleton.Instance.numOfReachEndMonster);
+            Debug.Log("The number of died monster is " + (Singleton.Instance.numOfOriginalMonster - Singleton.Instance.numOfSurviveMonster));
+            Debug.Log("**************************************************************************************");
             
             dataUnit unit = new dataUnit()
             {
@@ -47,13 +47,14 @@ public class EnemySpawner : MonoBehaviour
             Singleton.Instance.list.Add(unit);
         }
 
-        if(timeSpend == 10000){
-            Debug.Log("hywhahaha");
+        if(timeSpend % 10000 == 0){
+            Debug.Log("the json file has stored in the desktop");
             flag = false;
             string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
             string json = JsonConvert.SerializeObject(Singleton.Instance.list, Formatting.Indented);
             Debug.Log(desktopPath);
-            using (FileStream fs = new FileStream(string.Format("{0}\\info.json", desktopPath), FileMode.Create))
+                
+            using (FileStream fs = new FileStream(string.Format("{0}/info.json", desktopPath), FileMode.Create))
             {
                 //写入
                 using (StreamWriter sw = new StreamWriter(fs))
@@ -62,6 +63,7 @@ public class EnemySpawner : MonoBehaviour
                 }
 
             }
+                
         }
 
         
