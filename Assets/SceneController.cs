@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class SceneController : MonoBehaviour
 {
@@ -180,5 +181,10 @@ public class SceneController : MonoBehaviour
     public void PickTower(TowerBtn towerBtn)
     {
       this.ClickedBtn = towerBtn;
+    }
+
+    public void ResetGame()
+    {
+      SceneManager.LoadScene(0);
     }
 }
