@@ -10,13 +10,11 @@ public class Singleton : MonoBehaviour
     public int numOfReachEndMonster = 0;
     public bool globalStatus = true;
     public System.DateTime beginTime = System.DateTime.Now;
+    public List<dataUnit> list = new List<dataUnit>();
 
 
     private static Singleton instance;
-    // Start is called before the first frame update
 
-
-    // public method to get dataManager
     public static Singleton Instance{
         get{
             if(instance == null)
