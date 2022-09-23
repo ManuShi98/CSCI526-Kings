@@ -9,6 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Runtime.InteropServices;
 
 
 
@@ -53,16 +54,32 @@ public class EnemySpawner : MonoBehaviour
             string desktopPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory);
             string json = JsonConvert.SerializeObject(Singleton.Instance.list, Formatting.Indented);
             Debug.Log(desktopPath);
-                
-            using (FileStream fs = new FileStream(string.Format("{0}/info.json", desktopPath), FileMode.Create))
-            {
-                //写入
-                using (StreamWriter sw = new StreamWriter(fs))
-                {
-                    sw.WriteLine(json);
-                }
 
-            }
+
+            if (RuntimeInformation.IsOSPlatform(OSPlatform.Windows))
+            {
+                // Windows 相关逻辑
+                using (FileStream fs = new FileStream(string.Format("{0}\\info.json", desktopPath), FileMode.Create))
+                {
+                    //写入
+                    using (StreamWriter sw = new StreamWriter(fs))
+                    {
+                        sw.WriteLine(json);
+                    }
+
+                }
+            }else{
+                using (FileStream fs = new FileStream(string.Format("{0}/info.json", desktopPath), FileMode.Create))
+                {
+                    //写入
+                    using (StreamWriter sw = new StreamWriter(fs))
+                    {
+                        sw.WriteLine(json);
+                    }
+
+                }
+            }    
+            
                 
         }
 
