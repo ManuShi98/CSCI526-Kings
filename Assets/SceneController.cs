@@ -138,7 +138,11 @@ public class SceneController : MonoBehaviour
 
     public void SetSeason(Season season)
     {
-        currentSeason = season;
+        // currentSeason = season;
+        int num = Random.Range(0,10);
+        if (num > 5) currentSeason = Season.SUMMER;
+        else currentSeason = Season.WINTER;
+
     }
 
     public Season GetSeason()
