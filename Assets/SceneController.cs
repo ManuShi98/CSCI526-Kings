@@ -1,12 +1,8 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
-using System.Collections;
 using System.Collections.Generic;
-using System.Security.Cryptography;
-using Unity.VisualScripting;
-using UnityEditor;
-using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
+using System;
 
 public class SceneController : MonoBehaviour
 {
@@ -57,6 +53,9 @@ public class SceneController : MonoBehaviour
   private static Season currentSeason;
   private static Weather currentWeather;
 
+  // Season change sender
+  public static event EventHandler OnSeasonChangeHandler;
+
   private Queue<GameObject> currentSeasonalMap;
 
   public GameObject springMapPrefab;
@@ -96,7 +95,7 @@ public class SceneController : MonoBehaviour
 
   }
 
-  public Season GetSeason()
+  public static Season GetSeason()
   {
     return currentSeason;
   }
@@ -132,6 +131,13 @@ public class SceneController : MonoBehaviour
   public void PickSeason(SeasonBtn seasonBtn)
   {
     string changedSeason = seasonBtn.GetSeason();
+    // Notify that season has changed
+    if (changedSeason != currentSeason.ToString().ToLower() && OnSeasonChangeHandler != null)
+    {
+      OnSeasonChangeHandler(gameObject, new SeasonArgs(changedSeason));
+    }
+
+    // Change current season
     if (changedSeason == "spring")
     {
       currentSeason = Season.SPRING;
@@ -148,8 +154,9 @@ public class SceneController : MonoBehaviour
     {
       currentSeason = Season.WINTER;
     }
+
+    // Change map according current season
     ChangeSeasonalMap();
-    Debug.Log(currentSeason);
   }
 
   private void ChangeSeasonalMap()

@@ -170,4 +170,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 1
+  startSpeed: 1
   health: 100
+  startHealth: 100
