@@ -95,7 +95,7 @@ public class SceneController : MonoBehaviour
 
   }
 
-  public Season GetSeason()
+  public static Season GetSeason()
   {
     return currentSeason;
   }

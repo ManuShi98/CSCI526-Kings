@@ -6,7 +6,9 @@ using System;
 public class EnemyUnit : MonoBehaviour
 {
   public float speed = 1;
+  public float startSpeed = 1;
   public float health = 400;
+  public float startHealth = 400;
   private Transform[] positions;
   private int index = 0;
   private Path path;
@@ -15,6 +17,7 @@ public class EnemyUnit : MonoBehaviour
   {
     positions = path.positions;
     SceneController.OnSeasonChangeHandler += ReceiveSeasonChangedValue;
+    ReceiveSeasonChangedValue(gameObject, new SeasonArgs(SceneController.GetSeason().ToString().ToLower()));
   }
 
   void Update()
@@ -60,21 +63,22 @@ public class EnemyUnit : MonoBehaviour
     // Debug.Log(seasonArgs.CurrentSeason);
     if (seasonArgs.CurrentSeason == "spring")
     {
-
+      speed = startSpeed;
     }
     else if (seasonArgs.CurrentSeason == "summer")
     {
-      health *= 0.8f;
+      speed = startSpeed;
+      health = 0.8f * startHealth;
     }
     else if (seasonArgs.CurrentSeason == "autumn")
     {
-      speed *= 0.8f;
+      speed = 0.8f * startSpeed;
     }
     else if (seasonArgs.CurrentSeason == "winter")
     {
-      speed *= 0.7f;
+      speed = 0.7f * startSpeed;
     }
-    // Debug.Log("health: " + health);
-    // Debug.Log("speed: " + speed);
+    Debug.Log("health: " + health);
+    Debug.Log("speed: " + speed);
   }
 }
