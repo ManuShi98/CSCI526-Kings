@@ -53,7 +53,7 @@ public class SceneController : MonoBehaviour
   private static Season currentSeason;
   private static Weather currentWeather;
 
-  private Grid currentSeasonalMap;
+  private Queue<GameObject> currentSeasonalMap;
 
   public GameObject springMapPrefab;
   public GameObject summerMapPrefab;
@@ -63,6 +63,7 @@ public class SceneController : MonoBehaviour
   // Start is called before the first frame update
   void Start()
   {
+    currentSeasonalMap = new Queue<GameObject>();
     currentSeason = Season.SPRING;//initial season is spring
     currentWeather = Weather.SUNNY;
     ChangeSeasonalMap();
@@ -162,32 +163,37 @@ public class SceneController : MonoBehaviour
 
   private void ChangeSeasonalMap()
   {
-    Destroy(currentSeasonalMap);
+    if (currentSeasonalMap.Count > 0)
+    {
+        Destroy(currentSeasonalMap.Dequeue());
+    }
+    GameObject currentSeasonalGrid = null;
     switch (GetSeason())
     {
       case Season.SPRING:
       {
-        currentSeasonalMap = Instantiate(springMapPrefab).GetComponent<Grid>();
+        currentSeasonalGrid = Instantiate(springMapPrefab);
       }
         break;
       case Season.SUMMER:
       {
-        currentSeasonalMap = Instantiate(summerMapPrefab).GetComponent<Grid>();
+        currentSeasonalGrid = Instantiate(summerMapPrefab);
       }
         break;
       case Season.AUTUMN:
       {
-        currentSeasonalMap = Instantiate(autumnMapPrefab).GetComponent<Grid>();
+        currentSeasonalGrid = Instantiate(autumnMapPrefab);
       }
         break;
       case Season.WINTER:
       {
-        currentSeasonalMap = Instantiate(winterMapPrefab).GetComponent<Grid>();
+        currentSeasonalGrid = Instantiate(winterMapPrefab);
       }
         break;
       default:
         ;
         break;
     }
+    currentSeasonalMap.Enqueue(currentSeasonalGrid);
   }
 }
