@@ -62,34 +62,8 @@ public class SceneController : MonoBehaviour
   {
     currentSeason = Season.SPRING;
     currentWeather = Weather.SUNNY;
-    SetSeason(testSeason);
     Tile tree = null;
     Tile river = null;
-    switch (GetSeason())
-    {
-      case Season.SPRING:
-        ;
-        break;
-      case Season.SUMMER:
-        {
-          tree = summerTree;
-          river = summerRiver;
-        }
-        break;
-      case Season.AUTUMN:
-        ;
-        break;
-      case Season.WINTER:
-        {
-          tree = winterTree;
-          river = winterRiver;
-        }
-
-        break;
-      default:
-        ;
-        break;
-    }
     maps[0].SetTile(new Vector3Int(-5, -4, 0), tree);
     maps[0].SetTile(new Vector3Int(-4, -4, 0), tree);
     maps[0].SetTile(new Vector3Int(-3, -4, 0), tree);
@@ -141,15 +115,6 @@ public class SceneController : MonoBehaviour
 
   }
 
-  public void SetSeason(Season season)
-  {
-    // currentSeason = season;
-    int num = Random.Range(0, 10);
-    if (num > 5) currentSeason = Season.SUMMER;
-    else currentSeason = Season.WINTER;
-
-  }
-
   public Season GetSeason()
   {
     return currentSeason;
@@ -193,5 +158,27 @@ public class SceneController : MonoBehaviour
     {
       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
+  }
+
+  public void PickSeason(SeasonBtn seasonBtn)
+  {
+    string changedSeason = seasonBtn.GetSeason();
+    if (changedSeason == "spring")
+    {
+      currentSeason = Season.SPRING;
+    }
+    else if (changedSeason == "summer")
+    {
+      currentSeason = Season.SUMMER;
+    }
+    else if (changedSeason == "autumn")
+    {
+      currentSeason = Season.AUTUMN;
+    }
+    else if (changedSeason == "winter")
+    {
+      currentSeason = Season.WINTER;
+    }
+    Debug.Log(currentSeason);
   }
 }
