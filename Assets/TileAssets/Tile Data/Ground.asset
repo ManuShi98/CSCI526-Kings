@@ -18,4 +18,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e54f1034866d6e04f9ddf192071ca799, type: 2}
   - {fileID: 11400000, guid: 8c52f370c6745974c857bb534f6d5bc4, type: 2}
   - {fileID: 11400000, guid: e15a3d8d4319bd54dbbc94f3b63bed29, type: 2}
+  - {fileID: 11400000, guid: bed847bcffcd543c99bc4edf2c65ff5a, type: 2}
   tag: path

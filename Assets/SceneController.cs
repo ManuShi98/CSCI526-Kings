@@ -17,10 +17,14 @@ public class SceneController : MonoBehaviour
 
   private Dictionary<TileBase, TileData> dataFromTiles;
 
-  private TowerBtn ClickedBtn;
+  public EnemySpawner[] SpawnerList;
+
+  public bool StartGeneratingEnemies;
 
   private void Awake()
   {
+    StartGeneratingEnemies = false;
+
     dataFromTiles = new Dictionary<TileBase, TileData>();
 
     foreach (var tileData in tileDatas)
@@ -107,7 +111,6 @@ public class SceneController : MonoBehaviour
         {
           string tag = dataFromTiles[clickedTile].tag;
           // print("At position " + gridPosition + " " + tag);
-          PlaceTower(gridCenterPosition, tag);
           break;
         }
       }
@@ -128,28 +131,6 @@ public class SceneController : MonoBehaviour
   public Weather GetWeather()
   {
     return currentWeather;
-  }
-
-  public void PlaceTower(Vector3 gridCenterPosition, string tag)
-  {
-    if (!EventSystem.current.IsPointerOverGameObject() && this.ClickedBtn != null)
-    {
-      if (string.Compare(tag, "wall") == 0)
-      {
-        Instantiate(this.ClickedBtn.TowerPrefab, gridCenterPosition, Quaternion.identity);
-      }
-      else
-      {
-        print("You cannot build tower on the path!");
-      }
-      this.ClickedBtn = null;
-    }
-
-  }
-
-  public void PickTower(TowerBtn towerBtn)
-  {
-    this.ClickedBtn = towerBtn;
   }
 
   private void GameOver()
@@ -180,5 +161,15 @@ public class SceneController : MonoBehaviour
       currentSeason = Season.WINTER;
     }
     Debug.Log(currentSeason);
+  }
+
+  public void GameBegin(GameObject ReadyBtn)
+  {
+    foreach (EnemySpawner spawner in SpawnerList)
+    {
+      spawner.OnGenerateEnemyBtnClicked();
+    }
+    Destroy(ReadyBtn);
+    StartGeneratingEnemies = true;
   }
 }

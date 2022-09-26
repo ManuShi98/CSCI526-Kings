@@ -15,7 +15,10 @@ public class EnemySpawner : MonoBehaviour
 
   void Start()
   {
-    StartCoroutine(SpawnEnemy());
+    foreach (Wave wave in waves)
+    {
+      Singleton.Instance.numOfOriginalMonster += wave.count;
+    }
   }
 
   void Update()
@@ -85,13 +88,13 @@ public class EnemySpawner : MonoBehaviour
 
   }
 
+  public void OnGenerateEnemyBtnClicked()
+  {
+    StartCoroutine(SpawnEnemy());
+  }
+
   IEnumerator SpawnEnemy()
   {
-    foreach (Wave wave in waves)
-    {
-      Singleton.Instance.numOfOriginalMonster += wave.count;
-    }
-
     foreach (Wave wave in waves)
     {
 
