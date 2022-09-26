@@ -8,7 +8,7 @@ public class EnemyUnit : MonoBehaviour
   public float speed = 1;
   public float startSpeed = 1;
   public float health = 400;
-  public float startHealth = 400;
+  private float previousHealthRate = 1f;
   private Transform[] positions;
   private int index = 0;
   private Path path;
@@ -64,19 +64,26 @@ public class EnemyUnit : MonoBehaviour
     if (seasonArgs.CurrentSeason == "spring")
     {
       speed = startSpeed;
+      health = health / previousHealthRate * 1f;
+      previousHealthRate = 1f;
     }
     else if (seasonArgs.CurrentSeason == "summer")
     {
       speed = startSpeed;
-      health = 0.8f * startHealth;
+      health = health / previousHealthRate * 0.8f;
+      previousHealthRate = 0.8f;
     }
     else if (seasonArgs.CurrentSeason == "autumn")
     {
       speed = 0.8f * startSpeed;
+      health = health / previousHealthRate * 1f;
+      previousHealthRate = 1f;
     }
     else if (seasonArgs.CurrentSeason == "winter")
     {
       speed = 0.7f * startSpeed;
+      health = health / previousHealthRate * 1f;
+      previousHealthRate = 1f;
     }
     Debug.Log("health: " + health);
     Debug.Log("speed: " + speed);
