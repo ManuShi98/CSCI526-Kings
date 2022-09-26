@@ -2,7 +2,9 @@ using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography;
 using Unity.VisualScripting;
+using UnityEditor;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
@@ -51,44 +53,20 @@ public class SceneController : MonoBehaviour
   private static Season currentSeason;
   private static Weather currentWeather;
 
-  public Tile winterTree;
-  public Tile summerTree;
-  public Tile winterRiver;
-  public Tile summerRiver;
-  public Season testSeason;
+  private Queue<GameObject> currentSeasonalMap;
 
+  public GameObject springMapPrefab;
+  public GameObject summerMapPrefab;
+  public GameObject autumnMapPrefab;
+  public GameObject winterMapPrefab;
+  
   // Start is called before the first frame update
   void Start()
   {
-    currentSeason = Season.SPRING;
+    currentSeasonalMap = new Queue<GameObject>();
+    currentSeason = Season.SPRING;//initial season is spring
     currentWeather = Weather.SUNNY;
-    Tile tree = null;
-    Tile river = null;
-    maps[0].SetTile(new Vector3Int(-5, -4, 0), tree);
-    maps[0].SetTile(new Vector3Int(-4, -4, 0), tree);
-    maps[0].SetTile(new Vector3Int(-3, -4, 0), tree);
-    maps[0].SetTile(new Vector3Int(-2, -4, 0), tree);
-    maps[0].SetTile(new Vector3Int(-1, -4, 0), tree);
-    maps[0].SetTile(new Vector3Int(-1, -3, 0), tree);
-    maps[0].SetTile(new Vector3Int(-1, -2, 0), tree);
-    maps[0].SetTile(new Vector3Int(6, 3, 0), river);
-    maps[0].SetTile(new Vector3Int(6, 2, 0), river);
-    maps[0].SetTile(new Vector3Int(6, 1, 0), river);
-    maps[0].SetTile(new Vector3Int(6, 0, 0), river);
-    maps[0].SetTile(new Vector3Int(6, -1, 0), river);
-    maps[0].SetTile(new Vector3Int(6, -2, 0), river);
-    maps[0].SetTile(new Vector3Int(6, -3, 0), river);
-    maps[0].SetTile(new Vector3Int(6, -4, 0), river);
-    maps[0].SetTile(new Vector3Int(5, -4, 0), river);
-    maps[0].SetTile(new Vector3Int(4, -4, 0), river);
-    maps[0].SetTile(new Vector3Int(3, -4, 0), river);
-    maps[0].SetTile(new Vector3Int(3, -3, 0), river);
-    maps[0].SetTile(new Vector3Int(3, -2, 0), river);
-    maps[0].SetTile(new Vector3Int(3, -1, 0), river);
-    maps[0].SetTile(new Vector3Int(3, -1, 0), river);
-    maps[0].SetTile(new Vector3Int(2, -1, 0), river);
-    maps[0].SetTile(new Vector3Int(1, -1, 0), river);
-    maps[0].SetTile(new Vector3Int(0, -1, 0), river);
+    ChangeSeasonalMap();
   }
 
   // Update is called once per frame
@@ -179,6 +157,43 @@ public class SceneController : MonoBehaviour
     {
       currentSeason = Season.WINTER;
     }
+    ChangeSeasonalMap();
     Debug.Log(currentSeason);
+  }
+
+  private void ChangeSeasonalMap()
+  {
+    if (currentSeasonalMap.Count > 0)
+    {
+        Destroy(currentSeasonalMap.Dequeue());
+    }
+    GameObject currentSeasonalGrid = null;
+    switch (GetSeason())
+    {
+      case Season.SPRING:
+      {
+        currentSeasonalGrid = Instantiate(springMapPrefab);
+      }
+        break;
+      case Season.SUMMER:
+      {
+        currentSeasonalGrid = Instantiate(summerMapPrefab);
+      }
+        break;
+      case Season.AUTUMN:
+      {
+        currentSeasonalGrid = Instantiate(autumnMapPrefab);
+      }
+        break;
+      case Season.WINTER:
+      {
+        currentSeasonalGrid = Instantiate(winterMapPrefab);
+      }
+        break;
+      default:
+        ;
+        break;
+    }
+    currentSeasonalMap.Enqueue(currentSeasonalGrid);
   }
 }
