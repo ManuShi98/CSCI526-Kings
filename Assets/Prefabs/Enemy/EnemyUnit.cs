@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class EnemyUnit : MonoBehaviour
 {
   public float speed = 1;
-  public int health = 400;
+  public float health = 400;
   private Transform[] positions;
   private int index = 0;
   private Path path;
@@ -13,6 +14,7 @@ public class EnemyUnit : MonoBehaviour
   void Start()
   {
     positions = path.positions;
+    SceneController.OnSeasonChangeHandler += ReceiveSeasonChangedValue;
   }
 
   void Update()
@@ -40,7 +42,7 @@ public class EnemyUnit : MonoBehaviour
     this.path = path;
   }
 
-  public void TakeDamage(int damage)
+  public void TakeDamage(float damage)
   {
     health -= damage;
 
@@ -50,5 +52,29 @@ public class EnemyUnit : MonoBehaviour
       Singleton.Instance.numOfDiedMonster++;
       Destroy(gameObject);
     }
+  }
+
+  private void ReceiveSeasonChangedValue(object sender, System.EventArgs args)
+  {
+    SeasonArgs seasonArgs = (SeasonArgs)args;
+    // Debug.Log(seasonArgs.CurrentSeason);
+    if (seasonArgs.CurrentSeason == "spring")
+    {
+
+    }
+    else if (seasonArgs.CurrentSeason == "summer")
+    {
+      health *= 0.8f;
+    }
+    else if (seasonArgs.CurrentSeason == "autumn")
+    {
+      speed *= 0.8f;
+    }
+    else if (seasonArgs.CurrentSeason == "winter")
+    {
+      speed *= 0.7f;
+    }
+    // Debug.Log("health: " + health);
+    // Debug.Log("speed: " + speed);
   }
 }

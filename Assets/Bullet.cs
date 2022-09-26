@@ -5,6 +5,7 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {
   public float speed = 10f;
+  public float damage = 20f;
   public Rigidbody2D bullet;
 
   void Start()
@@ -26,7 +27,7 @@ public class Bullet : MonoBehaviour
 
     if (enemy.health > 0)
     {
-      enemy.TakeDamage(20);
+      enemy.TakeDamage(damage);
     }
     Destroy(gameObject);    // gameObject指代自身
   }
