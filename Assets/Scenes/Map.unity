@@ -3581,11 +3581,10 @@ MonoBehaviour:
   tileDatas:
   - {fileID: 11400000, guid: 8abe59d39a016490ab5e6c493a8aedd1, type: 2}
   - {fileID: 11400000, guid: 8f5653e550fa6423fbeddab303a10240, type: 2}
-  winterTree: {fileID: 11400000, guid: e15a3d8d4319bd54dbbc94f3b63bed29, type: 2}
-  summerTree: {fileID: 11400000, guid: e54f1034866d6e04f9ddf192071ca799, type: 2}
-  winterRiver: {fileID: 11400000, guid: 8c52f370c6745974c857bb534f6d5bc4, type: 2}
-  summerRiver: {fileID: 11400000, guid: bce13c15e08497c45a4b1d4d2f12fb4c, type: 2}
-  testSeason: 1
+  springMapPrefab: {fileID: 315502018619574126, guid: f58965663d36665448ab3ded9085ed2f, type: 3}
+  summerMapPrefab: {fileID: 5521037936943276892, guid: ce312a6a35ad167418d164ec0bd0f653, type: 3}
+  autumnMapPrefab: {fileID: 2497232367846252640, guid: c77e94db42fe0d84e8b9ec4b59db9ee2, type: 3}
+  winterMapPrefab: {fileID: 7309806200010280303, guid: 626aa55624ff9044da2f09637cd1789a, type: 3}
 --- !u!4 &1731515873
 Transform:
   m_ObjectHideFlags: 0
