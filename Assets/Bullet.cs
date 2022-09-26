@@ -4,30 +4,30 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {
-    public float speed = 10f;
-    public Rigidbody2D bullet;
+  public float speed = 10f;
+  public Rigidbody2D bullet;
 
-    void Start()
+  void Start()
+  {
+    bullet.velocity = transform.up * speed;
+  }
+
+  public void OnBecameInvisible()
+  {
+    Destroy(gameObject);
+  }
+
+  private void OnTriggerEnter2D(Collider2D collision)
+  {
+    if (!collision.CompareTag("Enemy"))
+      return;
+
+    EnemyUnit enemy = collision.GetComponent<EnemyUnit>();
+
+    if (enemy.health > 0)
     {
-        bullet.velocity = transform.up * speed;
+      enemy.TakeDamage(20);
     }
-
-    public void OnBecameInvisible()
-    {
-        Destroy(gameObject);
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (!collision.CompareTag("Enemy"))
-            return;
-
-        Health enemyHealth = collision.GetComponent<Health>();
-        
-        if(enemyHealth != null)
-        {
-            enemyHealth.TakeDamage(20);
-        }
-        Destroy(gameObject);    // gameObject指代自身
-    }
+    Destroy(gameObject);    // gameObject指代自身
+  }
 }

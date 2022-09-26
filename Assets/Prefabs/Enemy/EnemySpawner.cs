@@ -11,6 +11,7 @@ public class EnemySpawner : MonoBehaviour
 {
   public Wave[] waves;
   public Transform START;
+  public Path path;
 
   void Start()
   {
@@ -97,8 +98,9 @@ public class EnemySpawner : MonoBehaviour
       Singleton.Instance.numOfSurviveMonster += wave.count;
       for (int i = 0; i < wave.count; i++)
       {
-
-        GameObject.Instantiate(wave.enemyPrefab, START.position, Quaternion.identity);
+        EnemyUnit newEnemy = GameObject.Instantiate(wave.enemyPrefab, START.position, Quaternion.identity).GetComponent<EnemyUnit>();
+        newEnemy.SetPath(path);
+        // GameObject.Instantiate(wave.enemyPrefab, START.position, Quaternion.identity);
         yield return new WaitForSeconds(wave.rate);
       }
     }
