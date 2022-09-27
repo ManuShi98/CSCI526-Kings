@@ -82,17 +82,26 @@ public class SceneController : MonoBehaviour
     if (Input.GetMouseButtonDown(0))
     {
       Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-      foreach (var map in maps)
+      // foreach (var map in maps)
+      // {
+      //   Vector3Int gridPosition = map.WorldToCell(mousePosition);
+      //   Vector3 gridCenterPosition = map.GetCellCenterWorld(gridPosition);
+      //   TileBase clickedTile = map.GetTile(gridPosition);
+      //   if (clickedTile != null)
+      //   {
+      //     string tag = dataFromTiles[clickedTile].tag;
+      //     print("At position " + gridPosition + " " + tag);
+      //     break;
+      //   }
+      // }
+      var map = currentSeasonalMap.Peek().transform.Find("Tower").GetComponent<Tilemap>();
+      Vector3Int gridPosition = map.WorldToCell(mousePosition);
+      Vector3 gridCenterPosition = map.GetCellCenterWorld(gridPosition);
+      TileBase clickedTile = map.GetTile(gridPosition);
+      if (clickedTile != null)
       {
-        Vector3Int gridPosition = map.WorldToCell(mousePosition);
-        Vector3 gridCenterPosition = map.GetCellCenterWorld(gridPosition);
-        TileBase clickedTile = map.GetTile(gridPosition);
-        if (clickedTile != null)
-        {
-          string tag = dataFromTiles[clickedTile].tag;
-          print("At position " + gridPosition + " " + tag);
-          break;
-        }
+        string tag = dataFromTiles[clickedTile].tag;
+        print("At position " + gridPosition + " " + tag);
       }
     }
 
