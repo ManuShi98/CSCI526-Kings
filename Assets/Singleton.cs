@@ -27,6 +27,8 @@ public class Singleton : MonoBehaviour
   // Flag to indicate that whether there are any enemyies on the map
   private bool isNoEnemyOnMap;
 
+  private int currentLevel = 1;
+
   private static Singleton instance;
 
   public static Singleton Instance
@@ -55,8 +57,13 @@ public class Singleton : MonoBehaviour
     // then there are no monsters on the map
     if (numOfDiedMonster + numOfReachEndMonster == numOfOriginalMonster)
     {
-      print(numOfDiedMonster + " " + numOfReachEndMonster + " " + numOfOriginalMonster);
-      this.isNoEnemyOnMap = true;
+      if(currentLevel == 1)
+      {
+        GameObject dialog = GameObject.Find("Map/Dialog");
+        dialog.SetActive(true);
+        print(numOfDiedMonster + " " + numOfReachEndMonster + " " + numOfOriginalMonster);
+      }
+      
     }
   }
   void Awake()
@@ -67,5 +74,10 @@ public class Singleton : MonoBehaviour
   public bool GetEnemyMapStatus()
   {
     return this.isNoEnemyOnMap;
+  }
+
+  public int GetCurrentLevel()
+  {
+    return this.currentLevel;
   }
 }
