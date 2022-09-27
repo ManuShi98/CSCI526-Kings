@@ -51,7 +51,6 @@ public class EnemyUnit : MonoBehaviour
 
     if (health <= 0)
     {
-      Singleton.Instance.numOfSurviveMonster--;
       Singleton.Instance.numOfDiedMonster++;
       Destroy(gameObject);
     }

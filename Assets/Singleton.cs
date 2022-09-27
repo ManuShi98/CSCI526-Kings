@@ -5,12 +5,24 @@ using UnityEngine;
 public class Singleton : MonoBehaviour
 // public sealed class Singleton
 {
-  public volatile int numOfSurviveMonster = 0;
   public volatile int numOfOriginalMonster = 0;
   public volatile int numOfReachEndMonster = 0;
   public volatile int numOfDiedMonster = 0;
   public System.DateTime beginTime = System.DateTime.Now;
-  public List<dataUnit> list = new List<dataUnit>();
+
+  public volatile int numOfSpringReachEndMonster = 0;
+  public volatile int numOfSummerReachEndMonster = 0;
+  public volatile int numOfFallReachEndMonster = 0;
+  public volatile int numOfWinterReachEndMonster = 0;
+
+  public volatile int timeOfSpring = 0;
+  public volatile int timeOfSummer = 0;
+  public volatile int timeOfFall = 0;
+  public volatile int timeOfWinter = 0;
+  public System.DateTime lastEndTime = System.DateTime.Now;
+
+  public volatile int numOfCoins = 0;
+  public volatile int totalTime = 0;
 
   // Flag to indicate that whether there are any enemyies on the map
   private bool isNoEnemyOnMap;
