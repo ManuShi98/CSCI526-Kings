@@ -85,7 +85,5 @@ public class EnemyUnit : MonoBehaviour
       health = health / previousHealthRate * 1f;
       previousHealthRate = 1f;
     }
-    Debug.Log("health: " + health);
-    Debug.Log("speed: " + speed);
   }
 }
