@@ -17,6 +17,8 @@ public class SceneController : MonoBehaviour
 
   public EnemySpawner[] SpawnerList;
 
+  private TowerBtn clickedTowerBtn;
+
   public bool StartGeneratingEnemies;
 
   private void Awake()
@@ -76,6 +78,7 @@ public class SceneController : MonoBehaviour
   void Update()
   {
     GameOver();
+    HandlerEscape();
     if (Input.GetMouseButtonDown(0))
     {
       Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
@@ -87,7 +90,7 @@ public class SceneController : MonoBehaviour
         if (clickedTile != null)
         {
           string tag = dataFromTiles[clickedTile].tag;
-          // print("At position " + gridPosition + " " + tag);
+          print("At position " + gridPosition + " " + tag);
           break;
         }
       }
@@ -193,5 +196,35 @@ public class SceneController : MonoBehaviour
         break;
     }
     currentSeasonalMap.Enqueue(currentSeasonalGrid);
+  }
+
+  public void PlaceTower()
+  {
+    Vector3 mousePos = Input.mousePosition;
+    mousePos.z = Camera.main.nearClipPlane;
+    Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePos);
+    Instantiate(clickedTowerBtn.towerPrefab, worldPosition, Quaternion.identity);
+    BuyTower();
+  }
+
+  public void PickTower(TowerBtn towerBtn)
+  {
+    clickedTowerBtn = towerBtn;
+    Hover.Instance.Activate(towerBtn.sprite);
+  }
+
+  public void BuyTower()
+  {
+    Hover.Instance.Deactivate();
+    clickedTowerBtn = null;
+  }
+
+  private void HandlerEscape()
+  {
+    if (Input.GetKeyDown(KeyCode.Escape))
+    {
+      Hover.Instance.Deactivate();
+      clickedTowerBtn = null;
+    }
   }
 }
