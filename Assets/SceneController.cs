@@ -3,6 +3,7 @@ using UnityEngine.Tilemaps;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using System;
+using UnityEngine.EventSystems;
 
 public class SceneController : MonoBehaviour
 {
@@ -77,24 +78,40 @@ public class SceneController : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    GameOver();
+    // GameOver();
     HandlerEscape();
-    if (Input.GetMouseButtonDown(0))
-    {
-      Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-      foreach (var map in maps)
-      {
-        Vector3Int gridPosition = map.WorldToCell(mousePosition);
-        Vector3 gridCenterPosition = map.GetCellCenterWorld(gridPosition);
-        TileBase clickedTile = map.GetTile(gridPosition);
-        if (clickedTile != null)
-        {
-          string tag = dataFromTiles[clickedTile].tag;
-          print("At position " + gridPosition + " " + tag);
-          break;
-        }
-      }
-    }
+    // if (Input.GetMouseButtonDown(0))
+    // {
+    //   Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+    //   // foreach (var map in maps)
+    //   // {
+    //   //   Vector3Int gridPosition = map.WorldToCell(mousePosition);
+    //   //   Vector3 gridCenterPosition = map.GetCellCenterWorld(gridPosition);
+    //   //   TileBase clickedTile = map.GetTile(gridPosition);
+    //   //   if (clickedTile != null)
+    //   //   {
+    //   //     string tag = dataFromTiles[clickedTile].tag;
+    //   //     print("At position " + gridPosition + " " + tag);
+    //   //     break;
+    //   //   }
+    //   // }
+    //   var map = currentSeasonalMap.Peek().transform.Find("Tower").GetComponent<Tilemap>();
+    //   Vector3Int gridPosition = map.WorldToCell(mousePosition);
+    //   Vector3 gridCenterPosition = map.GetCellCenterWorld(gridPosition);
+    //   TileBase clickedTile = map.GetTile(gridPosition);
+    //   string tag;
+    //   if (clickedTile != null)
+    //   {
+    //     tag = dataFromTiles[clickedTile].tag;
+    //   }
+    //   else
+    //   {
+    //     tag = "not tower";
+    //   }
+    //   print("At position " + gridPosition + " " + tag);
+    //   PlaceTower(gridCenterPosition, tag);
+    // }
+    PlaceTower();
 
   }
 
@@ -113,13 +130,13 @@ public class SceneController : MonoBehaviour
     return currentWeather;
   }
 
-  private void GameOver()
-  {
-    if (Singleton.Instance.GetEnemyMapStatus())
-    {
-      SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-  }
+  // private void GameOver()
+  // {
+  //   if (Singleton.Instance.GetEnemyMapStatus())
+  //   {
+  //     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+  //   }
+  // }
 
   public void GameBegin(GameObject ReadyBtn)
   {
@@ -139,7 +156,7 @@ public class SceneController : MonoBehaviour
     {
       OnSeasonChangeHandler(gameObject, new SeasonArgs(changedSeason));
     }
-
+    UpdateTimeData();
     // Change current season
     if (changedSeason == "spring")
     {
@@ -200,11 +217,25 @@ public class SceneController : MonoBehaviour
 
   public void PlaceTower()
   {
-    Vector3 mousePos = Input.mousePosition;
-    mousePos.z = Camera.main.nearClipPlane;
-    Vector3 worldPosition = Camera.main.ScreenToWorldPoint(mousePos);
-    Instantiate(clickedTowerBtn.towerPrefab, worldPosition, Quaternion.identity);
-    BuyTower();
+    if (Input.GetMouseButtonDown(0))
+    {
+      Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+      var map = currentSeasonalMap.Peek().transform.Find("Tower").GetComponent<Tilemap>();
+      Vector3Int gridPosition = map.WorldToCell(mousePosition);
+      Vector3 gridCenterPosition = map.GetCellCenterWorld(gridPosition);
+      TileBase clickedTile = map.GetTile(gridPosition);
+      if (clickedTile != null)
+      {
+        print("clicked");
+        string tag = dataFromTiles[clickedTile].tag;
+        if (!EventSystem.current.IsPointerOverGameObject() && this.clickedTowerBtn != null)
+        {
+          Instantiate(clickedTowerBtn.towerPrefab, gridCenterPosition, Quaternion.identity);
+
+        }
+      }
+      HoverReset();
+    }
   }
 
   public void PickTower(TowerBtn towerBtn)
@@ -213,7 +244,7 @@ public class SceneController : MonoBehaviour
     Hover.Instance.Activate(towerBtn.sprite);
   }
 
-  public void BuyTower()
+  public void HoverReset()
   {
     Hover.Instance.Deactivate();
     clickedTowerBtn = null;
@@ -226,5 +257,28 @@ public class SceneController : MonoBehaviour
       Hover.Instance.Deactivate();
       clickedTowerBtn = null;
     }
+  }
+
+  private void UpdateTimeData()
+  {
+    int gapTime = (int)(System.DateTime.Now - Singleton.Instance.lastEndTime).TotalSeconds;
+    if(currentSeason == Season.SPRING)
+    {
+      Singleton.Instance.timeOfSpring += gapTime;
+    }
+    else if(currentSeason == Season.SUMMER)
+    {
+      Singleton.Instance.timeOfSummer += gapTime;
+    }
+    else if(currentSeason == Season.AUTUMN)
+    {
+      Singleton.Instance.timeOfFall += gapTime;
+    }
+    else if(currentSeason == Season.WINTER)
+    {
+      Singleton.Instance.timeOfWinter += gapTime;
+    }
+
+    Singleton.Instance.lastEndTime = System.DateTime.Now;
   }
 }
