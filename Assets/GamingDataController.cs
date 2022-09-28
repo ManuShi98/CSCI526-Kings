@@ -16,8 +16,30 @@ public class GamingDataController : MonoBehaviour
     public GameObject maxRoundDigit;
     public GameObject currRoundDigit;
 
+    private GamingDataController() { }
+
+    private static GamingDataController controller;
+    private static readonly object locker = new object();
+
+    public static GamingDataController getInstance()
+    {
+        if (controller == null)
+        {
+            lock (locker)
+            {
+                //GameObject obj = new GameObject();
+                //obj.name = "GamingDataController";
+                //controller = obj.AddComponent<GamingDataController>();
+                GameObject obj = GameObject.Find("GamingDataController");
+                controller = obj.GetComponent<GamingDataController>();
+            }
+        }
+        return controller;
+    }
+
     private void Start()
     {
+        getInstance();
         maxRoundDigit.GetComponent<TextMeshProUGUI>().text = maxRound.ToString();
         updateGamingData();
     }
@@ -26,7 +48,7 @@ public class GamingDataController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(isDataChanged)
+        if (isDataChanged)
         {
             updateGamingData();
             isDataChanged = false;
@@ -76,6 +98,18 @@ public class GamingDataController : MonoBehaviour
     {
         int currCoins = coins - val;
         setCoinCount(currCoins);
+    }
+
+    public void reduceHealth(int val = 1)
+    { 
+        int currHealth = Mathf.Max(health - val, 0);
+        //Debug.Log("Call reduceHealth" + "   " + currHealth.ToString());
+        setHealth(currHealth);
+    }
+
+    public bool isAlive()
+    {
+        return health > 0;
     }
 
     public void updateGamingData()
