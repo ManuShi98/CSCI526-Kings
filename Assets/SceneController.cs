@@ -156,7 +156,7 @@ public class SceneController : MonoBehaviour
     {
       OnSeasonChangeHandler(gameObject, new SeasonArgs(changedSeason));
     }
-
+    UpdateTimeData();
     // Change current season
     if (changedSeason == "spring")
     {
@@ -257,5 +257,28 @@ public class SceneController : MonoBehaviour
       Hover.Instance.Deactivate();
       clickedTowerBtn = null;
     }
+  }
+
+  private void UpdateTimeData()
+  {
+    int gapTime = (int)(System.DateTime.Now - Singleton.Instance.lastEndTime).TotalSeconds;
+    if(currentSeason == Season.SPRING)
+    {
+      Singleton.Instance.timeOfSpring += gapTime;
+    }
+    else if(currentSeason == Season.SUMMER)
+    {
+      Singleton.Instance.timeOfSummer += gapTime;
+    }
+    else if(currentSeason == Season.AUTUMN)
+    {
+      Singleton.Instance.timeOfFall += gapTime;
+    }
+    else if(currentSeason == Season.WINTER)
+    {
+      Singleton.Instance.timeOfWinter += gapTime;
+    }
+
+    Singleton.Instance.lastEndTime = System.DateTime.Now;
   }
 }

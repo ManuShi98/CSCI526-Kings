@@ -29,7 +29,7 @@ public class EnemyUnit : MonoBehaviour
   {
     if (index > positions.Length - 1)
     {
-      Singleton.Instance.numOfReachEndMonster++;
+      updateReachEndData();
       Destroy(gameObject);
       return;
     }
@@ -83,6 +83,28 @@ public class EnemyUnit : MonoBehaviour
       speed = 0.7f * startSpeed;
       health = health / previousHealthRate * 1f;
       previousHealthRate = 1f;
+    }
+  }
+
+  private void updateReachEndData()
+  {
+    Singleton.Instance.numOfReachEndMonster++;
+    ;
+    if(SceneController.GetSeason() == SceneController.Season.SPRING)
+    {
+      Singleton.Instance.numOfSpringReachEndMonster++;
+    }
+    else if(SceneController.GetSeason() == SceneController.Season.SUMMER)
+    {
+      Singleton.Instance.numOfSummerReachEndMonster++;
+    }
+    else if(SceneController.GetSeason() == SceneController.Season.AUTUMN)
+    {
+      Singleton.Instance.numOfFallReachEndMonster++;
+    }
+    else if(SceneController.GetSeason() == SceneController.Season.WINTER)
+    {
+      Singleton.Instance.numOfWinterReachEndMonster++;
     }
   }
 }
