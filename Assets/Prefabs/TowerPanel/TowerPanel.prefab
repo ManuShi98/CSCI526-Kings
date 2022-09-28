@@ -136,8 +136,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab611874b314d48b3bb683ea23369841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 5457106064871300683, guid: d813fd18fd6544d3dbdd51ad02414bd7, type: 3}
-  sprite: {fileID: 21300000, guid: e9dad403c5c964dba9a7c385fa1e08a7, type: 3}
+  towerPrefab: {fileID: 7061294995574057117, guid: a28fa3500d9cd438b89e0c03f08a337f, type: 3}
+  sprite: {fileID: 1831714741, guid: ae2dd6575590248439e78444867d0c98, type: 3}
 --- !u!1 &1648492007680334918
 GameObject:
   m_ObjectHideFlags: 0
@@ -383,8 +383,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab611874b314d48b3bb683ea23369841, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerPrefab: {fileID: 5457106064871300683, guid: d813fd18fd6544d3dbdd51ad02414bd7, type: 3}
-  sprite: {fileID: 21300000, guid: e9dad403c5c964dba9a7c385fa1e08a7, type: 3}
+  towerPrefab: {fileID: 3751219579955933509, guid: dabbd9fe2b8cb4bfd95d6bbe0ff30408, type: 3}
+  sprite: {fileID: 1798089722, guid: ae2dd6575590248439e78444867d0c98, type: 3}
 --- !u!1 &4783164222543859189
 GameObject:
   m_ObjectHideFlags: 0
@@ -946,7 +946,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 055381e127a974fafb0e6acd7dbe9d4a, type: 3}
+  m_Sprite: {fileID: 1831714741, guid: ae2dd6575590248439e78444867d0c98, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1022,7 +1022,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 055381e127a974fafb0e6acd7dbe9d4a, type: 3}
+  m_Sprite: {fileID: 1798089722, guid: ae2dd6575590248439e78444867d0c98, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
