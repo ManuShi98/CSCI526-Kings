@@ -98,11 +98,16 @@ public class SceneController : MonoBehaviour
       Vector3Int gridPosition = map.WorldToCell(mousePosition);
       Vector3 gridCenterPosition = map.GetCellCenterWorld(gridPosition);
       TileBase clickedTile = map.GetTile(gridPosition);
+      string tag;
       if (clickedTile != null)
       {
-        string tag = dataFromTiles[clickedTile].tag;
-        print("At position " + gridPosition + " " + tag);
+        tag = dataFromTiles[clickedTile].tag;
       }
+      else
+      {
+        tag = "not tower";
+      }
+      print("At position " + gridPosition + " " + tag);
     }
 
   }
