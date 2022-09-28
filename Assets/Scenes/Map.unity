@@ -982,7 +982,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 5
+  m_SortingOrder: 11
   m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3655,6 +3655,7 @@ MonoBehaviour:
   tileDatas:
   - {fileID: 11400000, guid: 8abe59d39a016490ab5e6c493a8aedd1, type: 2}
   - {fileID: 11400000, guid: 8f5653e550fa6423fbeddab303a10240, type: 2}
+  - {fileID: 11400000, guid: e9b594fd42e2c274cb96c862614fc044, type: 2}
   SpawnerList:
   - {fileID: 730641025}
   - {fileID: 731686733}
