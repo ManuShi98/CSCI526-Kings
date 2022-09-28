@@ -234,7 +234,7 @@ public class SceneController : MonoBehaviour
 
         }
       }
-      BuyTower();
+      HoverReset();
     }
   }
 
@@ -244,7 +244,7 @@ public class SceneController : MonoBehaviour
     Hover.Instance.Activate(towerBtn.sprite);
   }
 
-  public void BuyTower()
+  public void HoverReset()
   {
     Hover.Instance.Deactivate();
     clickedTowerBtn = null;
