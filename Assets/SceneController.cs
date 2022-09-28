@@ -78,7 +78,7 @@ public class SceneController : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-    GameOver();
+    // GameOver();
     HandlerEscape();
     // if (Input.GetMouseButtonDown(0))
     // {
@@ -130,13 +130,13 @@ public class SceneController : MonoBehaviour
     return currentWeather;
   }
 
-  private void GameOver()
-  {
-    if (Singleton.Instance.GetEnemyMapStatus())
-    {
-      SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-    }
-  }
+  // private void GameOver()
+  // {
+  //   if (Singleton.Instance.GetEnemyMapStatus())
+  //   {
+  //     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+  //   }
+  // }
 
   public void GameBegin(GameObject ReadyBtn)
   {

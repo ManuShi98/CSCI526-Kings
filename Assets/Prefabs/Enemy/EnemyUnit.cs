@@ -52,6 +52,7 @@ public class EnemyUnit : MonoBehaviour
     if (health <= 0)
     {
       Singleton.Instance.numOfDiedMonster++;
+      Singleton.Instance.curDiedMonster++;
       Destroy(gameObject);
     }
   }
@@ -89,7 +90,7 @@ public class EnemyUnit : MonoBehaviour
   private void updateReachEndData()
   {
     Singleton.Instance.numOfReachEndMonster++;
-    ;
+    Singleton.Instance.curReachEndMonster++;
     if(SceneController.GetSeason() == SceneController.Season.SPRING)
     {
       Singleton.Instance.numOfSpringReachEndMonster++;

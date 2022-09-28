@@ -7,6 +7,7 @@ public class Singleton : MonoBehaviour
 {
 
   public volatile int curOriginalMonster = 0;
+  public volatile int curMonsterNum = 0;
   public volatile int curDiedMonster = 0;
   public volatile int curReachEndMonster = 0;
   public volatile int curLevel = 1;
@@ -59,11 +60,11 @@ public class Singleton : MonoBehaviour
   {
     // If num of survive monster is equal to num of reach end monster
     // then there are no monsters on the map
-    if (numOfDiedMonster + numOfReachEndMonster == numOfOriginalMonster)
-    {
-      print(numOfDiedMonster + " " + numOfReachEndMonster + " " + numOfOriginalMonster);
-      this.isNoEnemyOnMap = true;
-    }
+    // if (numOfDiedMonster + numOfReachEndMonster == numOfOriginalMonster)
+    // {
+    //   print(numOfDiedMonster + " " + numOfReachEndMonster + " " + numOfOriginalMonster);
+    //   this.isNoEnemyOnMap = true;
+    // }
   }
   void Awake()
   {
