@@ -77,7 +77,6 @@ public class Weapon : MonoBehaviour
 
   private void ReceiveSeasonChangedValue(object sender, System.EventArgs args)
   {
-    print("change season");
     SeasonArgs seasonArgs = (SeasonArgs)args;
     if (seasonArgs.CurrentSeason == "spring")
     {
