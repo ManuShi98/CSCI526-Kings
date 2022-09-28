@@ -18,6 +18,7 @@ public class EnemySpawner : MonoBehaviour
     foreach (Wave wave in waves)
     {
       Singleton.Instance.numOfOriginalMonster += wave.count;
+      Singleton.Instance.curOriginalMonster += wave.count;
     }
   }
 
@@ -37,6 +38,8 @@ public class EnemySpawner : MonoBehaviour
     {
       for (int i = 0; i < wave.count; i++)
       {
+        
+        Singleton.Instance.curMonsterNum++;
         EnemyUnit newEnemy = GameObject.Instantiate(wave.enemyPrefab, START.position, Quaternion.identity).GetComponent<EnemyUnit>();
         newEnemy.SetPath(path);
         yield return new WaitForSeconds(wave.rate);
