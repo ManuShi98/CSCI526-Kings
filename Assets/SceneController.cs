@@ -80,37 +80,6 @@ public class SceneController : MonoBehaviour
   {
     // GameOver();
     HandlerEscape();
-    // if (Input.GetMouseButtonDown(0))
-    // {
-    //   Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-    //   // foreach (var map in maps)
-    //   // {
-    //   //   Vector3Int gridPosition = map.WorldToCell(mousePosition);
-    //   //   Vector3 gridCenterPosition = map.GetCellCenterWorld(gridPosition);
-    //   //   TileBase clickedTile = map.GetTile(gridPosition);
-    //   //   if (clickedTile != null)
-    //   //   {
-    //   //     string tag = dataFromTiles[clickedTile].tag;
-    //   //     print("At position " + gridPosition + " " + tag);
-    //   //     break;
-    //   //   }
-    //   // }
-    //   var map = currentSeasonalMap.Peek().transform.Find("Tower").GetComponent<Tilemap>();
-    //   Vector3Int gridPosition = map.WorldToCell(mousePosition);
-    //   Vector3 gridCenterPosition = map.GetCellCenterWorld(gridPosition);
-    //   TileBase clickedTile = map.GetTile(gridPosition);
-    //   string tag;
-    //   if (clickedTile != null)
-    //   {
-    //     tag = dataFromTiles[clickedTile].tag;
-    //   }
-    //   else
-    //   {
-    //     tag = "not tower";
-    //   }
-    //   print("At position " + gridPosition + " " + tag);
-    //   PlaceTower(gridCenterPosition, tag);
-    // }
     PlaceTower();
 
   }
@@ -220,13 +189,12 @@ public class SceneController : MonoBehaviour
     if (Input.GetMouseButtonDown(0))
     {
       Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-      var map = currentSeasonalMap.Peek().transform.Find("Tower").GetComponent<Tilemap>();
+      var map = currentSeasonalMap.Peek().transform.Find("tower").GetComponent<Tilemap>();
       Vector3Int gridPosition = map.WorldToCell(mousePosition);
       Vector3 gridCenterPosition = map.GetCellCenterWorld(gridPosition);
       TileBase clickedTile = map.GetTile(gridPosition);
       if (clickedTile != null)
       {
-        print("clicked");
         string tag = dataFromTiles[clickedTile].tag;
         if (!EventSystem.current.IsPointerOverGameObject() && this.clickedTowerBtn != null)
         {
@@ -262,19 +230,19 @@ public class SceneController : MonoBehaviour
   private void UpdateTimeData()
   {
     int gapTime = (int)(System.DateTime.Now - Singleton.Instance.lastEndTime).TotalSeconds;
-    if(currentSeason == Season.SPRING)
+    if (currentSeason == Season.SPRING)
     {
       Singleton.Instance.timeOfSpring += gapTime;
     }
-    else if(currentSeason == Season.SUMMER)
+    else if (currentSeason == Season.SUMMER)
     {
       Singleton.Instance.timeOfSummer += gapTime;
     }
-    else if(currentSeason == Season.AUTUMN)
+    else if (currentSeason == Season.AUTUMN)
     {
       Singleton.Instance.timeOfFall += gapTime;
     }
-    else if(currentSeason == Season.WINTER)
+    else if (currentSeason == Season.WINTER)
     {
       Singleton.Instance.timeOfWinter += gapTime;
     }

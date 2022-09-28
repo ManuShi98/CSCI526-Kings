@@ -1240,6 +1240,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: TowerPanel
       objectReference: {fileID: 0}
+    - target: {fileID: 5481050122844570632, guid: d48c4c1b318964ac6946bb545261c3b7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 904.51
+      objectReference: {fileID: 0}
+    - target: {fileID: 5481050122844570632, guid: d48c4c1b318964ac6946bb545261c3b7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -194
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d48c4c1b318964ac6946bb545261c3b7, type: 3}
 --- !u!114 &730641025 stripped
