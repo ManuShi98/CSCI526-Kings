@@ -186,7 +186,7 @@ public class SceneController : MonoBehaviour
 
   public void PlaceTower()
   {
-    if (Input.GetMouseButtonDown(0))
+    if (Input.GetMouseButtonDown(0) && this.clickedTowerBtn != null)
     {
       Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
       var map = currentSeasonalMap.Peek().transform.Find("tower").GetComponent<Tilemap>();
@@ -196,10 +196,10 @@ public class SceneController : MonoBehaviour
       if (clickedTile != null)
       {
         string tag = dataFromTiles[clickedTile].tag;
-        if (!EventSystem.current.IsPointerOverGameObject() && this.clickedTowerBtn != null)
+        if (!EventSystem.current.IsPointerOverGameObject())
         {
           Instantiate(clickedTowerBtn.towerPrefab, gridCenterPosition, Quaternion.identity);
-
+          GamingDataController.getInstance().reduceCoins(this.clickedTowerBtn.GetPrice());
         }
       }
       HoverReset();
