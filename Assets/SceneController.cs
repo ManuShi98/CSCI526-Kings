@@ -22,6 +22,9 @@ public class SceneController : MonoBehaviour
 
   public bool StartGeneratingEnemies;
 
+  [SerializeField]
+  private GameObject PausePanelPrefab;
+
   private void Awake()
   {
     StartGeneratingEnemies = false;
@@ -115,6 +118,11 @@ public class SceneController : MonoBehaviour
     }
     Destroy(ReadyBtn);
     StartGeneratingEnemies = true;
+  }
+
+  public void GamePause()
+  {
+    Instantiate(PausePanelPrefab, transform.position, Quaternion.identity);
   }
 
   public void PickSeason(SeasonBtn seasonBtn)
