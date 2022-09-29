@@ -5,8 +5,8 @@ using static SceneController;
 public class GamingDataController : MonoBehaviour
 {
 
-    public volatile static int coins = 20;
-    public volatile static int health = 3;
+    public volatile int coins = 20;
+    public volatile int health = 3;
     public int maxRound = 1;
     public int currRound = 1;
 
@@ -56,7 +56,7 @@ public class GamingDataController : MonoBehaviour
         }
     }
 
-    public static int getCoinCount()
+    public int getCoinCount()
     {
         return coins;
     }
@@ -67,7 +67,7 @@ public class GamingDataController : MonoBehaviour
         isDataChanged = true;
     }
 
-    public static int getHealth()
+    public int getHealth()
     {
         return health;
     }
@@ -109,7 +109,7 @@ public class GamingDataController : MonoBehaviour
         setHealth(currHealth);
     }
 
-    public static bool isAlive()
+    public bool isAlive()
     {
         return health > 0;
     }

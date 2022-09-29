@@ -15,7 +15,7 @@ public class EnemyGeneratorController : MonoBehaviour
 
     void Update()
     {
-        if(!GamingDataController.isAlive())
+        if(!GamingDataController.getInstance().isAlive())
         {
             Destroy(generatorGroup);
         }

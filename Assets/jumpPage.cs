@@ -31,8 +31,8 @@ public class jumpPage : MonoBehaviour
         //need to change...(temp solution)
         if(SceneManager.GetActiveScene().buildIndex <= lastTutorialIndex)
         {
-            GamingDataController.health = 3;
-            GamingDataController.coins = 20;
+            GamingDataController.getInstance().health = 3;
+            GamingDataController.getInstance().coins = 20;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
         else if(SceneManager.GetActiveScene().buildIndex > lastTutorialIndex
@@ -41,7 +41,7 @@ public class jumpPage : MonoBehaviour
           
             if(SceneManager.GetActiveScene().buildIndex == lastLevel)
             {
-                GamingDataController.health = endGameTrigger;
+                GamingDataController.getInstance().health = endGameTrigger;
             }
             else
             {

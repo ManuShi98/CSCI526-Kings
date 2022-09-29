@@ -43,7 +43,7 @@ public class TowerBtn : MonoBehaviour
 
   private void ChangeBtnStatus()
   {
-    int currentCoins = GamingDataController.getCoinCount();
+    int currentCoins = GamingDataController.getInstance().getCoinCount();
     if (currentCoins < price)
     {
       Btn.enabled = false;

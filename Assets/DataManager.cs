@@ -20,7 +20,7 @@ public class DataManager : MonoBehaviour
     public static volatile int timeOfWinter = 0; //finished
 
     public static volatile int totalTime = 0; // finished
-    public static volatile int numOfCoins = 20;
+    public static volatile int numOfCoins = 0;
 
     // Start is called before the first frame update
     void Start()

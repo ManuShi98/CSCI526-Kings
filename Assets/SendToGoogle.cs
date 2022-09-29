@@ -39,7 +39,7 @@ public class SendToGoogle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool aliveTag = GamingDataController.isAlive();
+        bool aliveTag = GamingDataController.getInstance().isAlive();
         if (aliveTag == false && Singleton.Instance.isGameOver == false)
         {
             
