@@ -33,7 +33,7 @@ public class SendToGoogle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gameOverPageIndex = 6;
+        gameOverPageIndex = 7;
     }
 
     // Update is called once per frame

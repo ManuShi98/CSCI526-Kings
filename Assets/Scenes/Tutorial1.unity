@@ -3806,12 +3806,20 @@ PrefabInstance:
       value: returnMenu
       objectReference: {fileID: 0}
     - target: {fileID: 6962931531213641539, guid: 074100f2036a73c4db02c4a053f4b306, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962931531213641539, guid: 074100f2036a73c4db02c4a053f4b306, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962931531213641539, guid: 074100f2036a73c4db02c4a053f4b306, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 68
+      value: 80
       objectReference: {fileID: 0}
     - target: {fileID: 6962931531213641539, guid: 074100f2036a73c4db02c4a053f4b306, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -3
+      value: 13.26
       objectReference: {fileID: 0}
     - target: {fileID: 6962931531826469187, guid: 074100f2036a73c4db02c4a053f4b306, type: 3}
       propertyPath: m_AdditionalShaderChannelsFlag
@@ -3834,12 +3842,20 @@ PrefabInstance:
       value: jump
       objectReference: {fileID: 0}
     - target: {fileID: 6962931531898864639, guid: 074100f2036a73c4db02c4a053f4b306, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962931531898864639, guid: 074100f2036a73c4db02c4a053f4b306, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962931531898864639, guid: 074100f2036a73c4db02c4a053f4b306, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -66
+      value: -120
       objectReference: {fileID: 0}
     - target: {fileID: 6962931531898864639, guid: 074100f2036a73c4db02c4a053f4b306, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -2
+      value: 13.26
       objectReference: {fileID: 0}
     - target: {fileID: 6962931532374976256, guid: 074100f2036a73c4db02c4a053f4b306, type: 3}
       propertyPath: m_Name
@@ -4018,6 +4034,7 @@ MonoBehaviour:
   - {fileID: 730641025}
   - {fileID: 731686733}
   StartGeneratingEnemies: 0
+  PausePanelPrefab: {fileID: 0}
   springMapPrefab: {fileID: 315502018619574126, guid: f58965663d36665448ab3ded9085ed2f, type: 3}
   summerMapPrefab: {fileID: 5521037936943276892, guid: ce312a6a35ad167418d164ec0bd0f653, type: 3}
   autumnMapPrefab: {fileID: 2497232367846252640, guid: c77e94db42fe0d84e8b9ec4b59db9ee2, type: 3}

@@ -15,8 +15,8 @@ public class jumpPage : MonoBehaviour
     {
         menuPage = 0;
         lastTutorialIndex = 3;
-        gameOverIndex = 6;
-        lastLevel = 5;
+        gameOverIndex = 7;
+        lastLevel = 6;
         endGameTrigger = -1;
     }
 
