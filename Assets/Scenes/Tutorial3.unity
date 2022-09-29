@@ -1456,12 +1456,24 @@ PrefabInstance:
       value: returnMenu
       objectReference: {fileID: 0}
     - target: {fileID: 6962931531898864638, guid: 074100f2036a73c4db02c4a053f4b306, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962931531898864638, guid: 074100f2036a73c4db02c4a053f4b306, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1731515874}
     - target: {fileID: 6962931531898864638, guid: 074100f2036a73c4db02c4a053f4b306, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962931531898864638, guid: 074100f2036a73c4db02c4a053f4b306, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: jumpPage, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962931531898864638, guid: 074100f2036a73c4db02c4a053f4b306, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6962931532374976256, guid: 074100f2036a73c4db02c4a053f4b306, type: 3}
       propertyPath: m_Name

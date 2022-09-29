@@ -1,11 +1,12 @@
 using TMPro;
 using UnityEngine;
+using static SceneController;
 
 public class GamingDataController : MonoBehaviour
 {
 
-    public volatile int coins = 20;
-    public volatile int health = 3;
+    public volatile static int coins = 20;
+    public volatile static int health = 3;
     public int maxRound = 1;
     public int currRound = 1;
 
@@ -55,7 +56,7 @@ public class GamingDataController : MonoBehaviour
         }
     }
 
-    public int getCoinCount()
+    public static int getCoinCount()
     {
         return coins;
     }
@@ -66,7 +67,7 @@ public class GamingDataController : MonoBehaviour
         isDataChanged = true;
     }
 
-    public int getHealth()
+    public static int getHealth()
     {
         return health;
     }
@@ -92,6 +93,7 @@ public class GamingDataController : MonoBehaviour
     {
         int currCoins = coins + val;
         setCoinCount(currCoins);
+        Singleton.Instance.numOfCoins += val;
     }
 
     public void reduceCoins(int val)
@@ -107,7 +109,7 @@ public class GamingDataController : MonoBehaviour
         setHealth(currHealth);
     }
 
-    public bool isAlive()
+    public static bool isAlive()
     {
         return health > 0;
     }

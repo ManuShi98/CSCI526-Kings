@@ -10,12 +10,12 @@ public class EnemyGeneratorController : MonoBehaviour
 
     private void Start()
     {
-        gamingDataController = GamingDataController.getInstance();
+        
     }
 
     void Update()
     {
-        if(!gamingDataController.isAlive())
+        if(!GamingDataController.isAlive())
         {
             Destroy(generatorGroup);
         }
