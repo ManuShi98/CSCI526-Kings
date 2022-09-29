@@ -16,11 +16,16 @@ public class ActivateDialog : MonoBehaviour
     {
         if ((Singleton.Instance.curDiedMonster + Singleton.Instance.numOfReachEndMonster == Singleton.Instance.curOriginalMonster) && (Singleton.Instance.curOriginalMonster == Singleton.Instance.curMonsterNum))
             {
+                
                 Singleton.Instance.curDiedMonster = 0;
                 Singleton.Instance.curMonsterNum = 0;
                 Singleton.Instance.curOriginalMonster = 0;
                 Singleton.Instance.curReachEndMonster = 0;
+
                 dialogBox.SetActive(true);
+
+
+                
             }
     }
 }

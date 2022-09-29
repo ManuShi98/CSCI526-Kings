@@ -5,19 +5,11 @@ using UnityEngine.SceneManagement;
 
 public class jumpPage : MonoBehaviour
 {
-    private static int menuPage;
-    private static int lastTutorialIndex;
-    private static int gameOverIndex;
-    private static int lastLevel;
-    private static int endGameTrigger;
+    private static int maxRounds;
     // Start is called before the first frame update
     void Start()
     {
-        menuPage = 0;
-        lastTutorialIndex = 3;
-        gameOverIndex = 6;
-        lastLevel = 5;
-        endGameTrigger = -1;
+        maxRounds = 6;
     }
 
     // Update is called once per frame
@@ -28,35 +20,18 @@ public class jumpPage : MonoBehaviour
 
     public void jump()
     {
-        //need to change...(temp solution)
-        if(SceneManager.GetActiveScene().buildIndex <= lastTutorialIndex)
+        if(SceneManager.GetActiveScene().buildIndex != maxRounds)
         {
-            GamingDataController.getInstance().health = 3;
-            GamingDataController.getInstance().coins = 20;
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
-        else if(SceneManager.GetActiveScene().buildIndex > lastTutorialIndex
-            && SceneManager.GetActiveScene().buildIndex < gameOverIndex)
+        else
         {
-          
-            if(SceneManager.GetActiveScene().buildIndex == lastLevel)
-            {
-                GamingDataController.getInstance().health = endGameTrigger;
-            }
-            else
-            {
-                Singleton.Instance.updateTime();
-                DataManager.sumCurrentLevelData();
-                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-            }
+            returnMenu();
         }
-        
-        
     }
 
     public void returnMenu()
     {
-       
-        SceneManager.LoadScene(menuPage);
+        SceneManager.LoadScene(0);
     }
 }
