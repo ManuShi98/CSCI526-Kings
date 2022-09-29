@@ -43,7 +43,7 @@ public class EnemyUnit : MonoBehaviour
   {
     if (index > positions.Length - 1)
     {
-      updateReachEndData();
+      Singleton.Instance.numOfReachEndMonster++;
       gamingDataController.reduceHealth();
       Destroy(gameObject);
       return;
