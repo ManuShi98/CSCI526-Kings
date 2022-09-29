@@ -42,9 +42,10 @@ GameObject:
   - component: {fileID: 155040475823712392}
   - component: {fileID: 9137465264854217653}
   - component: {fileID: 3238043121949641328}
+  - component: {fileID: 41239820564931834}
   m_Layer: 0
   m_Name: Tower1
-  m_TagString: Untagged
+  m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -131,7 +132,33 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   radius: 100
   FiringRate: 10
-  damage: 20
+  startDamage: 20
   firePoint: {fileID: 4243429886321603087}
   enemy: {fileID: 0}
   bulletPrefab: {fileID: 1838902653398818568, guid: 2ea6783290a96450db43983c477c9cc2, type: 3}
+--- !u!61 &41239820564931834
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7061294995574057117}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.93, y: 1.03}
+    newSize: {x: 0.93, y: 1.03}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.93, y: 1.03}
+  m_EdgeRadius: 0
