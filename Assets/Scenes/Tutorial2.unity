@@ -207,12 +207,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4541090966456842089, guid: 7e9d41285102d48028c32b0f879b9903, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 235.1639
+      objectReference: {fileID: 0}
+    - target: {fileID: 4541090966456842089, guid: 7e9d41285102d48028c32b0f879b9903, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 60.6534
+      objectReference: {fileID: 0}
+    - target: {fileID: 4541090966456842089, guid: 7e9d41285102d48028c32b0f879b9903, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 381
+      value: 834
       objectReference: {fileID: 0}
     - target: {fileID: 4541090966456842089, guid: 7e9d41285102d48028c32b0f879b9903, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 174
+      value: 499
+      objectReference: {fileID: 0}
+    - target: {fileID: 8657089136807611129, guid: 7e9d41285102d48028c32b0f879b9903, type: 3}
+      propertyPath: m_fontSize
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 8657089136807611129, guid: 7e9d41285102d48028c32b0f879b9903, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 30
       objectReference: {fileID: 0}
     - target: {fileID: 8950102670965236063, guid: 7e9d41285102d48028c32b0f879b9903, type: 3}
       propertyPath: m_Name
@@ -897,12 +913,20 @@ PrefabInstance:
       value: TowerPanel
       objectReference: {fileID: 0}
     - target: {fileID: 5481050122844570632, guid: d48c4c1b318964ac6946bb545261c3b7, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 145.5538
+      objectReference: {fileID: 0}
+    - target: {fileID: 5481050122844570632, guid: d48c4c1b318964ac6946bb545261c3b7, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 269.9388
+      objectReference: {fileID: 0}
+    - target: {fileID: 5481050122844570632, guid: d48c4c1b318964ac6946bb545261c3b7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 382
+      value: 874
       objectReference: {fileID: 0}
     - target: {fileID: 5481050122844570632, guid: d48c4c1b318964ac6946bb545261c3b7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -64
+      value: -377
       objectReference: {fileID: 0}
     - target: {fileID: 6912152393894069309, guid: d48c4c1b318964ac6946bb545261c3b7, type: 3}
       propertyPath: m_IsActive
@@ -4498,17 +4522,53 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7135742042177172553, guid: c214c43078f30164eac4f955b9aa5809, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135742042177172554, guid: c214c43078f30164eac4f955b9aa5809, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: -1332.0892
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135742042177172554, guid: c214c43078f30164eac4f955b9aa5809, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: -841.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135742042177172554, guid: c214c43078f30164eac4f955b9aa5809, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 37
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135742042177172554, guid: c214c43078f30164eac4f955b9aa5809, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 42
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135742043175787084, guid: c214c43078f30164eac4f955b9aa5809, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 383.2397
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135742043175787084, guid: c214c43078f30164eac4f955b9aa5809, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 117.0676
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135742043175787084, guid: c214c43078f30164eac4f955b9aa5809, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135742043175787084, guid: c214c43078f30164eac4f955b9aa5809, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -46
+      objectReference: {fileID: 0}
     - target: {fileID: 7135742043175787085, guid: c214c43078f30164eac4f955b9aa5809, type: 3}
       propertyPath: m_text
       value: CLICK! Build your own tower!
       objectReference: {fileID: 0}
     - target: {fileID: 7135742043175787085, guid: c214c43078f30164eac4f955b9aa5809, type: 3}
       propertyPath: m_fontSize
-      value: 26
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7135742043175787085, guid: c214c43078f30164eac4f955b9aa5809, type: 3}
       propertyPath: m_fontSizeBase
-      value: 26
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 7135742043556577736, guid: c214c43078f30164eac4f955b9aa5809, type: 3}
       propertyPath: m_RootOrder
@@ -4557,6 +4617,10 @@ PrefabInstance:
     - target: {fileID: 7135742043556577743, guid: c214c43078f30164eac4f955b9aa5809, type: 3}
       propertyPath: m_Name
       value: DialogTutorial
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135742043556577743, guid: c214c43078f30164eac4f955b9aa5809, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c214c43078f30164eac4f955b9aa5809, type: 3}
