@@ -188,6 +188,13 @@ public class SceneController : MonoBehaviour
   {
     if (Input.GetMouseButtonDown(0) && this.clickedTowerBtn != null)
     {
+      // If there is a tower on current hole, you cannot place overlap towers
+      RaycastHit2D towerHit = Physics2D.Raycast(Camera.main.ScreenToWorldPoint(Input.mousePosition), Vector2.zero);
+      if (towerHit.collider)
+      {
+        HoverReset();
+        return;
+      }
       Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
       var map = currentSeasonalMap.Peek().transform.Find("tower").GetComponent<Tilemap>();
       Vector3Int gridPosition = map.WorldToCell(mousePosition);
