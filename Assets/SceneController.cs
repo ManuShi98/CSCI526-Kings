@@ -255,5 +255,6 @@ public class SceneController : MonoBehaviour
     }
 
     Singleton.Instance.lastEndTime = System.DateTime.Now;
-  }
+    Singleton.Instance.totalTime += gapTime;
+    }
 }

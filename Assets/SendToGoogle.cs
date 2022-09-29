@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
+using UnityEngine.SceneManagement;
 
 public class SendToGoogle : MonoBehaviour
 {
@@ -27,19 +28,45 @@ public class SendToGoogle : MonoBehaviour
     private int _numOfFallReachEndMonster;
     private int _numOfWinterReachEndMonster;
 
+    private int gameOverPageIndex; 
+
     // Start is called before the first frame update
     void Start()
     {
-        
+        gameOverPageIndex = 6;
     }
 
     // Update is called once per frame
     void Update()
     {
-        // int timeSpend = (int)(System.DateTime.Now - DataCollector.Instance.beginTime).TotalMilliseconds;
-        // if(timeSpend % 10000 == 0){
-        //     Send();
-        // }
+        bool aliveTag = GamingDataController.getInstance().isAlive();
+        if (aliveTag == false && Singleton.Instance.isGameOver == false)
+        {
+            
+            Singleton.Instance.updateTime();
+            DataManager.sumCurrentLevelData();
+
+            Singleton.Instance.isGameOver = true;
+
+
+
+            //Debug.Log("numOfOriginalMonster: " + Singleton.Instance.numOfOriginalMonster);
+            //Debug.Log("totalTime: " + Singleton.Instance.totalTime);
+            //Debug.Log("numOfCoins: " + Singleton.Instance.numOfCoins);
+            //Debug.Log("numOfDiedMonster: " + Singleton.Instance.numOfDiedMonster);
+            //Debug.Log("numOfReachEndMonster: " + Singleton.Instance.numOfReachEndMonster);
+            //Debug.Log("timeOfSpring: " + Singleton.Instance.timeOfSpring);
+            //Debug.Log("timeOfSummer: " + Singleton.Instance.timeOfSummer);
+            //Debug.Log("timeOfFall: " + Singleton.Instance.timeOfFall);
+            //Debug.Log("timeOfWinter: " + Singleton.Instance.timeOfWinter);
+            //Debug.Log("numOfSpringReachEndMonster: " + Singleton.Instance.numOfSpringReachEndMonster);
+            //Debug.Log("numOfSummerReachEndMonster: " + Singleton.Instance.numOfSummerReachEndMonster);
+            //Debug.Log("numOfFallReachEndMonster: " + Singleton.Instance.numOfFallReachEndMonster);
+            //Debug.Log("numOfWinterReachEndMonster: " + Singleton.Instance.numOfWinterReachEndMonster);
+            Send();
+            SceneManager.LoadScene(gameOverPageIndex);
+
+        }
     }
 
     void Awake(){
@@ -50,19 +77,19 @@ public class SendToGoogle : MonoBehaviour
     {
 
        
-        _gameTime = ((int)(System.DateTime.Now - Singleton.Instance.beginTime).TotalMilliseconds) / 1000;
-        _originalMonsterNumber = Singleton.Instance.numOfOriginalMonster;
-        _diedMonsterNumber = Singleton.Instance.numOfReachEndMonster;
-        _totalCoins = Singleton.Instance.numOfCoins;
-        _numOfReachEndMonster = Singleton.Instance.numOfReachEndMonster;
-        _numOfSpringReachEndMonster = Singleton.Instance.numOfSpringReachEndMonster;
-        _numOfSummerReachEndMonster = Singleton.Instance.numOfSummerReachEndMonster;
-        _numOfFallReachEndMonster = Singleton.Instance.numOfFallReachEndMonster;
-        _numOfWinterReachEndMonster = Singleton.Instance.numOfWinterReachEndMonster;
-        _timeOfSpring = Singleton.Instance.timeOfSpring;
-        _timeOfSummer = Singleton.Instance.timeOfSummer;
-        _timeOfFall = Singleton.Instance.timeOfFall;
-        _timeOfWinter = Singleton.Instance.timeOfWinter;
+        _gameTime = DataManager.totalTime;
+        _originalMonsterNumber = DataManager.numOfOriginalMonster;
+        _diedMonsterNumber = DataManager.numOfDiedMonster;
+        _totalCoins = DataManager.numOfCoins;
+        _numOfReachEndMonster = DataManager.numOfReachEndMonster;
+        _numOfSpringReachEndMonster = DataManager.numOfSpringReachEndMonster;
+        _numOfSummerReachEndMonster = DataManager.numOfSummerReachEndMonster;
+        _numOfFallReachEndMonster = DataManager.numOfFallReachEndMonster;
+        _numOfWinterReachEndMonster = DataManager.numOfWinterReachEndMonster;
+        _timeOfSpring = DataManager.timeOfSpring;
+        _timeOfSummer = DataManager.timeOfSummer;
+        _timeOfFall = DataManager.timeOfFall;
+        _timeOfWinter = DataManager.timeOfWinter;
 
         
         StartCoroutine(Post(_sessionId.ToString(), _gameTime.ToString(), _originalMonsterNumber.ToString(), _diedMonsterNumber.ToString(),
@@ -75,6 +102,8 @@ public class SendToGoogle : MonoBehaviour
     string numOfReachEndMonster, string numOfSpringReachEndMonster, string numOfSummerReachEndMonster, string numOfFallReachEndMonster,
     string numOfWinterReachEndMonster, string timeOfSpring, string timeOfSummer, string timeOfFall, string timeOfWinter)
     {
+        
+
         WWWForm form = new WWWForm();
         form.AddField("entry.585129582", sessionID);
         form.AddField("entry.1378326867", gameTime);

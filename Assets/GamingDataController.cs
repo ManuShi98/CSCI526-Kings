@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using static SceneController;
 
 public class GamingDataController : MonoBehaviour
 {
@@ -92,6 +93,7 @@ public class GamingDataController : MonoBehaviour
     {
         int currCoins = coins + val;
         setCoinCount(currCoins);
+        Singleton.Instance.numOfCoins += val;
     }
 
     public void reduceCoins(int val)
