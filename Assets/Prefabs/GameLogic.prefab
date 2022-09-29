@@ -57,6 +57,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   StartGeneratingEnemies: 0
+  PausePanelPrefab: {fileID: 8899160771267677115, guid: af9f4c8446d3d4227b27ba6ca75db7e1, type: 3}
   springMapPrefab: {fileID: 0}
   summerMapPrefab: {fileID: 0}
   autumnMapPrefab: {fileID: 0}
@@ -3757,6 +3758,34 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7937574466510233471}
     m_Modifications:
+    - target: {fileID: 3748024267687827730, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3748024267687827730, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3748024267687827730, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3323727297783418597}
+    - target: {fileID: 3748024267687827730, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3748024267687827730, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: GamePause
+      objectReference: {fileID: 0}
+    - target: {fileID: 3748024267687827730, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SceneController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3748024267687827730, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4943642612960478686, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -3788,6 +3817,14 @@ PrefabInstance:
     - target: {fileID: 4943642612960478686, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: SeasonBtn, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5742241827198371596, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 869
+      objectReference: {fileID: 0}
+    - target: {fileID: 5742241827198371596, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 506
       objectReference: {fileID: 0}
     - target: {fileID: 6241351776775508994, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
       propertyPath: m_RootOrder
@@ -3900,6 +3937,14 @@ PrefabInstance:
     - target: {fileID: 7882995724237395930, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 8137884363656329407, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 742.71
+      objectReference: {fileID: 0}
+    - target: {fileID: 8137884363656329407, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 506
       objectReference: {fileID: 0}
     - target: {fileID: 8568049806513866308, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
