@@ -123,7 +123,7 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1001 &539259237
+--- !u!1001 &1874531260
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -133,19 +133,19 @@ PrefabInstance:
     - target: {fileID: 3323727297783418597, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: autumnMapPrefab
       value: 
-      objectReference: {fileID: 315502018619574126, guid: 4cad02cdfd039c44981dcda84fa51dad, type: 3}
+      objectReference: {fileID: 315502018619574126, guid: fa477648cc774d14992fcb598d6271a3, type: 3}
     - target: {fileID: 3323727297783418597, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: springMapPrefab
       value: 
-      objectReference: {fileID: 315502018619574126, guid: 1f9e3bf1ea6f3a042aad419c08638dc6, type: 3}
+      objectReference: {fileID: 315502018619574126, guid: f4543f0d0262e0c468fe083a00ccadb4, type: 3}
     - target: {fileID: 3323727297783418597, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: summerMapPrefab
       value: 
-      objectReference: {fileID: 315502018619574126, guid: 56c98bf62b325194983c0fa98bdb725e, type: 3}
+      objectReference: {fileID: 315502018619574126, guid: 5ec2a371908969543af9c635b2fa7008, type: 3}
     - target: {fileID: 3323727297783418597, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: winterMapPrefab
       value: 
-      objectReference: {fileID: 315502018619574126, guid: 3ecee16fbe4a0904abba13cd9225e496, type: 3}
+      objectReference: {fileID: 315502018619574126, guid: 59425d499dcb6724fa7c7161f4d17308, type: 3}
     - target: {fileID: 5163251106941325198, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: m_Name
       value: GameLogic
