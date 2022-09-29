@@ -28,12 +28,10 @@ public class SendToGoogle : MonoBehaviour
     private int _numOfFallReachEndMonster;
     private int _numOfWinterReachEndMonster;
 
-    private int gameOverPageIndex; 
 
     // Start is called before the first frame update
     void Start()
     {
-        gameOverPageIndex = 7;
     }
 
     // Update is called once per frame
@@ -44,11 +42,9 @@ public class SendToGoogle : MonoBehaviour
         {
             
             Singleton.Instance.updateTime();
-            DataManager.sumCurrentLevelData();
+            DataManager.SumCurrentLevelData();
 
             Singleton.Instance.isGameOver = true;
-
-
 
             //Debug.Log("numOfOriginalMonster: " + Singleton.Instance.numOfOriginalMonster);
             //Debug.Log("totalTime: " + Singleton.Instance.totalTime);
@@ -64,7 +60,18 @@ public class SendToGoogle : MonoBehaviour
             //Debug.Log("numOfFallReachEndMonster: " + Singleton.Instance.numOfFallReachEndMonster);
             //Debug.Log("numOfWinterReachEndMonster: " + Singleton.Instance.numOfWinterReachEndMonster);
             Send();
-            SceneManager.LoadScene(gameOverPageIndex);
+            DataManager.currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
+            DataManager.Init();
+            if (DataManager.isPass == true)
+            {
+                SceneManager.LoadScene("Menu");
+                DataManager.isPass = false;
+            }
+            else
+            {
+                SceneManager.LoadScene("GameOver");
+            }
+            
 
         }
     }

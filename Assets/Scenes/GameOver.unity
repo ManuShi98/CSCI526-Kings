@@ -748,7 +748,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1393226805}
         m_TargetAssemblyTypeName: jumpPage, Assembly-CSharp
-        m_MethodName: returnMenu
+        m_MethodName: restart
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

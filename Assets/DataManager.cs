@@ -22,6 +22,9 @@ public class DataManager : MonoBehaviour
     public static volatile int totalTime = 0; // finished
     public static volatile int numOfCoins = 0;
 
+    public static volatile int currentLevelIndex = 0;
+    public static volatile bool isPass = false;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -35,7 +38,7 @@ public class DataManager : MonoBehaviour
     }
 
 
-    public static void sumCurrentLevelData()
+    public static void SumCurrentLevelData()
     {
         DataManager.numOfOriginalMonster += Singleton.Instance.numOfOriginalMonster;
         DataManager.numOfReachEndMonster += Singleton.Instance.numOfReachEndMonster;
@@ -50,5 +53,22 @@ public class DataManager : MonoBehaviour
         DataManager.timeOfWinter += Singleton.Instance.timeOfWinter;
         DataManager.numOfCoins += Singleton.Instance.numOfCoins;
         DataManager.totalTime += Singleton.Instance.totalTime;
+    }
+
+    public static void Init()
+    {
+        DataManager.numOfOriginalMonster = 0;
+        DataManager.numOfReachEndMonster = 0;
+        DataManager.numOfDiedMonster = 0;
+        DataManager.numOfSpringReachEndMonster = 0;
+        DataManager.numOfSummerReachEndMonster = 0;
+        DataManager.numOfFallReachEndMonster = 0;
+        DataManager.numOfWinterReachEndMonster = 0;
+        DataManager.timeOfSpring = 0;
+        DataManager.timeOfSummer = 0;
+        DataManager.timeOfFall = 0;
+        DataManager.timeOfWinter = 0;
+        DataManager.numOfCoins = 0;
+        DataManager.totalTime = 0;
     }
 }
