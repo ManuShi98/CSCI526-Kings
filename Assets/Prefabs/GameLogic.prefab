@@ -3602,6 +3602,38 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7937574466510233471}
     m_Modifications:
+    - target: {fileID: 161785957023786636, guid: d48c4c1b318964ac6946bb545261c3b7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 161785957023786636, guid: d48c4c1b318964ac6946bb545261c3b7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 161785957023786636, guid: d48c4c1b318964ac6946bb545261c3b7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3323727297783418597}
+    - target: {fileID: 161785957023786636, guid: d48c4c1b318964ac6946bb545261c3b7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 161785957023786636, guid: d48c4c1b318964ac6946bb545261c3b7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: PickTower
+      objectReference: {fileID: 0}
+    - target: {fileID: 161785957023786636, guid: d48c4c1b318964ac6946bb545261c3b7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SceneController, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 161785957023786636, guid: d48c4c1b318964ac6946bb545261c3b7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 3434887898545312178}
+    - target: {fileID: 161785957023786636, guid: d48c4c1b318964ac6946bb545261c3b7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: TowerBtn, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 1610192155292155836, guid: d48c4c1b318964ac6946bb545261c3b7, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -3716,14 +3748,25 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5481050122844570632, guid: d48c4c1b318964ac6946bb545261c3b7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 904.51
+      value: 855
       objectReference: {fileID: 0}
     - target: {fileID: 5481050122844570632, guid: d48c4c1b318964ac6946bb545261c3b7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -194
+      value: -190
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d48c4c1b318964ac6946bb545261c3b7, type: 3}
+--- !u!114 &3434887898545312178 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 111301389106062871, guid: d48c4c1b318964ac6946bb545261c3b7, type: 3}
+  m_PrefabInstance: {fileID: 3323727299026122661}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ab611874b314d48b3bb683ea23369841, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3991756281751749613 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1821091895775278152, guid: d48c4c1b318964ac6946bb545261c3b7, type: 3}

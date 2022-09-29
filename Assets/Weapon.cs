@@ -1,4 +1,11 @@
 using UnityEngine;
+using System.Collections;
+
+public enum TowerType
+{
+  NORMAL,
+  SPRING_TOWER,
+}
 
 public class Weapon : MonoBehaviour
 {
@@ -8,6 +15,9 @@ public class Weapon : MonoBehaviour
   [SerializeField]
   private float startDamage = 20f;
   private float damage = 20f;
+
+  [SerializeField]
+  private TowerType towerType;
 
   public Transform firePoint;
 
@@ -93,6 +103,40 @@ public class Weapon : MonoBehaviour
     else if (seasonArgs.CurrentSeason == "winter")
     {
       damage = startDamage;
+    }
+
+    if (towerType == TowerType.SPRING_TOWER)
+    {
+      SpringTowerFunc(seasonArgs.CurrentSeason);
+    }
+  }
+
+  // Spring tower special
+  private void SpringTowerFunc(string currentSeason)
+  {
+    if (currentSeason == "spring")
+    {
+      // Current season is spring
+      // Increase damage with coroutine
+      StartCoroutine("StartSpringTowerCoroutine");
+    }
+    else
+    {
+      // Current season is not spring
+      // Reset damage and stop coroutine
+      StopCoroutine("StartSpringTowerCoroutine");
+      damage = startDamage;
+      Debug.Log("spring down " + damage);
+    }
+  }
+
+  private IEnumerator StartSpringTowerCoroutine()
+  {
+    for (int i = 0; i < 10; ++i)
+    {
+      yield return new WaitForSeconds(5f);
+      damage += 2f;
+      Debug.Log("spring up " + damage);
     }
   }
 }
