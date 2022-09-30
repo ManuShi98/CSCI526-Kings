@@ -1,33 +1,29 @@
 using UnityEngine;
 using System.Collections;
 
-public enum TowerType
-{
-  NORMAL,
-  SPRING_TOWER,
-}
-
 public class Weapon : MonoBehaviour
 {
   public double radius = 100; // Weapon's firing radius
   public double FiringRate = 10;  // Fire per second
 
   [SerializeField]
-  private float startDamage = 20f;
-  private float damage = 20f;
-
-  [SerializeField]
-  private TowerType towerType;
+  protected float startDamage = 20f;
+  protected float damage = 20f;
 
   public Transform firePoint;
 
   public GameObject enemy; // Locked enemy instance
   public GameObject bulletPrefab;
 
-  private double FiringIntervalTime;
-  private double timer;
+  protected double FiringIntervalTime;
+  protected double timer;
 
   void Start()
+  {
+    OnStart();
+  }
+
+  protected virtual void OnStart()
   {
     damage = startDamage;
     FiringIntervalTime = 1.0 / FiringRate;
@@ -35,9 +31,16 @@ public class Weapon : MonoBehaviour
 
     SceneController.OnSeasonChangeHandler += ReceiveSeasonChangedValue;
     ReceiveSeasonChangedValue(gameObject, new SeasonArgs(SceneController.GetSeason().ToString().ToLower()));
+
+    Debug.Log("fa start");
   }
 
   void Update()
+  {
+    OnUpdate();
+  }
+
+  protected virtual void OnUpdate()
   {
     if (enemy != null)
     {
@@ -103,40 +106,6 @@ public class Weapon : MonoBehaviour
     else if (seasonArgs.CurrentSeason == "winter")
     {
       damage = startDamage;
-    }
-
-    if (towerType == TowerType.SPRING_TOWER)
-    {
-      SpringTowerFunc(seasonArgs.CurrentSeason);
-    }
-  }
-
-  // Spring tower special
-  private void SpringTowerFunc(string currentSeason)
-  {
-    if (currentSeason == "spring")
-    {
-      // Current season is spring
-      // Increase damage with coroutine
-      StartCoroutine("StartSpringTowerCoroutine");
-    }
-    else
-    {
-      // Current season is not spring
-      // Reset damage and stop coroutine
-      StopCoroutine("StartSpringTowerCoroutine");
-      damage = startDamage;
-      Debug.Log("spring down " + damage);
-    }
-  }
-
-  private IEnumerator StartSpringTowerCoroutine()
-  {
-    for (int i = 0; i < 10; ++i)
-    {
-      yield return new WaitForSeconds(5f);
-      damage += 2f;
-      Debug.Log("spring up " + damage);
     }
   }
 }

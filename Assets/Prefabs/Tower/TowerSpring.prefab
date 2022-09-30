@@ -41,8 +41,8 @@ GameObject:
   m_Component:
   - component: {fileID: 155040475823712392}
   - component: {fileID: 9137465264854217653}
-  - component: {fileID: 3238043121949641328}
   - component: {fileID: 41239820564931834}
+  - component: {fileID: -6051768134737418691}
   m_Layer: 0
   m_Name: TowerSpring
   m_TagString: Tower
@@ -118,25 +118,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &3238043121949641328
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7061294995574057117}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b26b321168f944aca821c47839f4df0f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  radius: 100
-  FiringRate: 10
-  startDamage: 20
-  towerType: 1
-  firePoint: {fileID: 4243429886321603087}
-  enemy: {fileID: 0}
-  bulletPrefab: {fileID: 1838902653398818568, guid: 59a8fa8e5b1c84a13ab44031fa6a44e9, type: 3}
 --- !u!61 &41239820564931834
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -163,3 +144,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.93, y: 1.03}
   m_EdgeRadius: 0
+--- !u!114 &-6051768134737418691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7061294995574057117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b810cf3cb64c24213ae1e17ac852fe32, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  radius: 100
+  FiringRate: 10
+  startDamage: 20
+  firePoint: {fileID: 4243429886321603087}
+  enemy: {fileID: 0}
+  bulletPrefab: {fileID: 1838902653398818568, guid: 59a8fa8e5b1c84a13ab44031fa6a44e9, type: 3}

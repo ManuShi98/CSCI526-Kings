@@ -3602,6 +3602,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 7937574466510233471}
     m_Modifications:
+    - target: {fileID: 111301389106062871, guid: d48c4c1b318964ac6946bb545261c3b7, type: 3}
+      propertyPath: towerPrefab
+      value: 
+      objectReference: {fileID: 7061294995574057117, guid: 235fc537366ee4fff88deb015ea5b373, type: 3}
     - target: {fileID: 161785957023786636, guid: d48c4c1b318964ac6946bb545261c3b7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
