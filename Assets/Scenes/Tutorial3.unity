@@ -910,6 +910,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 161785957023786636, guid: d48c4c1b318964ac6946bb545261c3b7, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1610192155292155836, guid: d48c4c1b318964ac6946bb545261c3b7, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -1028,11 +1032,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5481050122844570632, guid: d48c4c1b318964ac6946bb545261c3b7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 879
+      value: 855
       objectReference: {fileID: 0}
     - target: {fileID: 5481050122844570632, guid: d48c4c1b318964ac6946bb545261c3b7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -378
+      value: -190
       objectReference: {fileID: 0}
     - target: {fileID: 6870204076144333887, guid: d48c4c1b318964ac6946bb545261c3b7, type: 3}
       propertyPath: price
