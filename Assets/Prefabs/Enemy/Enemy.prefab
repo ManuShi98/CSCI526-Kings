@@ -169,6 +169,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c82af749e1b68486987cdc9382299740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
-  startSpeed: 1
-  health: 100
+  startSpeed: 5
+  health: 500
+  startCoinValue: 1
