@@ -131,7 +131,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   radius: 100
-  FiringRate: 10
+  FiringRate: 5
   startDamage: 20
   firePoint: {fileID: 8833303033463313959}
   enemy: {fileID: 0}
