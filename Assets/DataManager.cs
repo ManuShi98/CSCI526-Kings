@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class DataManager : MonoBehaviour
 {
@@ -24,6 +25,16 @@ public class DataManager : MonoBehaviour
 
     public static volatile int currentLevelIndex = 0;
     public static volatile bool isPass = false;
+
+    public static volatile int endLevel = 0;
+    public static volatile int level1Time = 0;
+    public static volatile int level2Time = 0;
+    public static volatile int level3Time = 0;
+
+
+    public static int level1Index = 4;
+    public static int level2Index = 5;
+    public static int level3Index = 6;
 
     // Start is called before the first frame update
     void Start()
@@ -53,6 +64,7 @@ public class DataManager : MonoBehaviour
         DataManager.timeOfWinter += Singleton.Instance.timeOfWinter;
         DataManager.numOfCoins += Singleton.Instance.numOfCoins;
         DataManager.totalTime += Singleton.Instance.totalTime;
+        
     }
 
     public static void Init()
@@ -70,5 +82,9 @@ public class DataManager : MonoBehaviour
         DataManager.timeOfWinter = 0;
         DataManager.numOfCoins = 0;
         DataManager.totalTime = 0;
+        DataManager.endLevel = 0;
+        DataManager.level1Time = 0;
+        DataManager.level2Time = 0;
+        DataManager.level3Time = 0;
     }
 }
