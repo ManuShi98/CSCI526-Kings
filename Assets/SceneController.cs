@@ -120,12 +120,11 @@ public class SceneController : MonoBehaviour
     StartGeneratingEnemies = true;
   }
 
-  public void GamePause()
-  {
-    Instantiate(PausePanelPrefab, transform.position, Quaternion.identity);
-  }
-
-  public void PickSeason(SeasonBtn seasonBtn)
+   public void GamePause()
+   {
+        Instantiate(PausePanelPrefab, transform.position, Quaternion.identity);
+   }
+    public void PickSeason(SeasonBtn seasonBtn)
   {
     string changedSeason = seasonBtn.GetSeason();
     // Notify that season has changed
@@ -263,5 +262,6 @@ public class SceneController : MonoBehaviour
     }
 
     Singleton.Instance.lastEndTime = System.DateTime.Now;
-  }
+    Singleton.Instance.totalTime += gapTime;
+    }
 }

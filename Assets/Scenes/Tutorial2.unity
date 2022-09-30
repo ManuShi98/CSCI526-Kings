@@ -800,6 +800,14 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 161785957023786636, guid: d48c4c1b318964ac6946bb545261c3b7, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 161785957023786636, guid: d48c4c1b318964ac6946bb545261c3b7, type: 3}
+      propertyPath: m_Interactable
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1610192155292155836, guid: d48c4c1b318964ac6946bb545261c3b7, type: 3}
       propertyPath: m_RootOrder
       value: 9
@@ -914,19 +922,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5481050122844570632, guid: d48c4c1b318964ac6946bb545261c3b7, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 145.5538
+      value: 210
       objectReference: {fileID: 0}
     - target: {fileID: 5481050122844570632, guid: d48c4c1b318964ac6946bb545261c3b7, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 269.9388
+      value: 700
       objectReference: {fileID: 0}
     - target: {fileID: 5481050122844570632, guid: d48c4c1b318964ac6946bb545261c3b7, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 874
+      value: 855
       objectReference: {fileID: 0}
     - target: {fileID: 5481050122844570632, guid: d48c4c1b318964ac6946bb545261c3b7, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -377
+      value: -190
       objectReference: {fileID: 0}
     - target: {fileID: 6912152393894069309, guid: d48c4c1b318964ac6946bb545261c3b7, type: 3}
       propertyPath: m_IsActive
@@ -3693,6 +3701,22 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: returnMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 6962931531213641539, guid: 074100f2036a73c4db02c4a053f4b306, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962931531213641539, guid: 074100f2036a73c4db02c4a053f4b306, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962931531213641539, guid: 074100f2036a73c4db02c4a053f4b306, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 80
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962931531213641539, guid: 074100f2036a73c4db02c4a053f4b306, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 13.26
+      objectReference: {fileID: 0}
     - target: {fileID: 6962931531898864638, guid: 074100f2036a73c4db02c4a053f4b306, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -3700,6 +3724,22 @@ PrefabInstance:
     - target: {fileID: 6962931531898864638, guid: 074100f2036a73c4db02c4a053f4b306, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: jump
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962931531898864639, guid: 074100f2036a73c4db02c4a053f4b306, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962931531898864639, guid: 074100f2036a73c4db02c4a053f4b306, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962931531898864639, guid: 074100f2036a73c4db02c4a053f4b306, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -120
+      objectReference: {fileID: 0}
+    - target: {fileID: 6962931531898864639, guid: 074100f2036a73c4db02c4a053f4b306, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 13.26
       objectReference: {fileID: 0}
     - target: {fileID: 6962931532374976256, guid: 074100f2036a73c4db02c4a053f4b306, type: 3}
       propertyPath: m_Name
@@ -3879,6 +3919,7 @@ MonoBehaviour:
   - {fileID: 730641025}
   - {fileID: 731686733}
   StartGeneratingEnemies: 0
+  PausePanelPrefab: {fileID: 0}
   springMapPrefab: {fileID: 315502018619574126, guid: f58965663d36665448ab3ded9085ed2f, type: 3}
   summerMapPrefab: {fileID: 5521037936943276892, guid: ce312a6a35ad167418d164ec0bd0f653, type: 3}
   autumnMapPrefab: {fileID: 2497232367846252640, guid: c77e94db42fe0d84e8b9ec4b59db9ee2, type: 3}
