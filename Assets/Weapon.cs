@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class Weapon : MonoBehaviour
 {
@@ -6,18 +7,23 @@ public class Weapon : MonoBehaviour
   public double FiringRate = 10;  // Fire per second
 
   [SerializeField]
-  private float startDamage = 20f;
-  private float damage = 20f;
+  protected float startDamage = 20f;
+  protected float damage = 20f;
 
   public Transform firePoint;
 
   public GameObject enemy; // Locked enemy instance
   public GameObject bulletPrefab;
 
-  private double FiringIntervalTime;
-  private double timer;
+  protected double FiringIntervalTime;
+  protected double timer;
 
   void Start()
+  {
+    OnStart();
+  }
+
+  protected virtual void OnStart()
   {
     damage = startDamage;
     FiringIntervalTime = 1.0 / FiringRate;
@@ -25,9 +31,16 @@ public class Weapon : MonoBehaviour
 
     SceneController.OnSeasonChangeHandler += ReceiveSeasonChangedValue;
     ReceiveSeasonChangedValue(gameObject, new SeasonArgs(SceneController.GetSeason().ToString().ToLower()));
+
+    Debug.Log("fa start");
   }
 
   void Update()
+  {
+    OnUpdate();
+  }
+
+  protected virtual void OnUpdate()
   {
     if (enemy != null)
     {
