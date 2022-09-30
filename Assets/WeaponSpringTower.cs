@@ -6,18 +6,26 @@ using TMPro;
 
 public class WeaponSpringTower : Weapon
 {
+  private float passedTime;
+  private float timeInterval;
+  private int maxIncreaseTime;
+  private bool isSpring;
 
-  // [SerializeField]
-  // private GameObject ReminderText;
+  [SerializeField]
+  private TextMeshProUGUI ReminderText;
   // Start is called before the first frame update
   void Start()
   {
     OnStart();
 
+    timeInterval = 5f;
+
+    maxIncreaseTime = 5;
+
+    isSpring = false;
+
     SceneController.OnSeasonChangeHandler += SpringTowerReceiveSeasonChangedValue;
     SpringTowerReceiveSeasonChangedValue(gameObject, new SeasonArgs(SceneController.GetSeason().ToString().ToLower()));
-
-    // ReminderText.transform.position = new Vector3(transform.position.x, transform.position.y + 3, 0);
 
     Debug.Log("son start");
   }
@@ -26,44 +34,52 @@ public class WeaponSpringTower : Weapon
   void Update()
   {
     OnUpdate();
+
+    SpringTowerFunc();
   }
 
   private void SpringTowerReceiveSeasonChangedValue(object sender, System.EventArgs args)
   {
     SeasonArgs seasonArgs = (SeasonArgs)args;
-    SpringTowerFunc(seasonArgs.CurrentSeason);
+    isSpring = seasonArgs.CurrentSeason == "spring" ? true : false;
   }
 
   // Spring tower special
-  private void SpringTowerFunc(string currentSeason)
+  private void SpringTowerFunc()
   {
-    if (currentSeason == "spring")
+    if (isSpring && maxIncreaseTime > 0)
     {
-      // Current season is spring
-      // Increase damage with coroutine
-      // ReminderText.enabled = true;
-      StartCoroutine("StartSpringTowerCoroutine");
+      IncreaseSpringTower();
     }
     else
     {
-      // Current season is not spring
-      // Reset damage and stop coroutine
-      // ReminderText.enabled = false;
-      StopCoroutine("StartSpringTowerCoroutine");
-      damage = startDamage;
-      Debug.Log("spring down " + damage);
+      ResetSpringTowerAttributes();
     }
   }
 
-  private IEnumerator StartSpringTowerCoroutine()
+  // Season is spring, increase the damage
+  private void IncreaseSpringTower()
   {
-    for (int i = 0; i < 5; ++i)
+    ReminderText.enabled = true;
+    if (passedTime > timeInterval)
     {
-      yield return new WaitForSeconds(5f);
       damage += 5f;
-      GameObject.Find("TextCanvas").GetComponentInChildren<TextMeshProUGUI>().text = damage.ToString();
-      // ReminderText.text = "Up: " + damage.ToString();
+      ReminderText.text = "Up: " + damage.ToString();
+      passedTime = 0f;
+      maxIncreaseTime--;
       Debug.Log("spring up " + damage);
     }
+    passedTime += Time.deltaTime;
+  }
+
+  // Season is not spring, reset
+  private void ResetSpringTowerAttributes()
+  {
+    ReminderText.enabled = false;
+    ReminderText.text = "";
+    passedTime = 0f;
+    maxIncreaseTime = 5;
+    damage = startDamage;
+    Debug.Log("spring down " + damage);
   }
 }
