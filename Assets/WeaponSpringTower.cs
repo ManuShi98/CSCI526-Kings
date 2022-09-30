@@ -1,10 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 
 public class WeaponSpringTower : Weapon
 {
+
   // [SerializeField]
   // private GameObject ReminderText;
   // Start is called before the first frame update
@@ -59,6 +61,7 @@ public class WeaponSpringTower : Weapon
     {
       yield return new WaitForSeconds(5f);
       damage += 5f;
+      GameObject.Find("TextCanvas").GetComponentInChildren<TextMeshProUGUI>().text = damage.ToString();
       // ReminderText.text = "Up: " + damage.ToString();
       Debug.Log("spring up " + damage);
     }
