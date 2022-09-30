@@ -31,8 +31,6 @@ public class Weapon : MonoBehaviour
 
     SceneController.OnSeasonChangeHandler += ReceiveSeasonChangedValue;
     ReceiveSeasonChangedValue(gameObject, new SeasonArgs(SceneController.GetSeason().ToString().ToLower()));
-
-    Debug.Log("fa start");
   }
 
   void Update()

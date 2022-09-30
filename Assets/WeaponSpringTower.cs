@@ -26,8 +26,6 @@ public class WeaponSpringTower : Weapon
 
     SceneController.OnSeasonChangeHandler += SpringTowerReceiveSeasonChangedValue;
     SpringTowerReceiveSeasonChangedValue(gameObject, new SeasonArgs(SceneController.GetSeason().ToString().ToLower()));
-
-    Debug.Log("son start");
   }
 
   // Update is called once per frame
@@ -67,7 +65,6 @@ public class WeaponSpringTower : Weapon
       ReminderText.text = "Up: " + damage.ToString();
       passedTime = 0f;
       maxIncreaseTime--;
-      Debug.Log("spring up " + damage);
     }
     passedTime += Time.deltaTime;
   }
@@ -80,6 +77,5 @@ public class WeaponSpringTower : Weapon
     passedTime = 0f;
     maxIncreaseTime = 5;
     damage = startDamage;
-    Debug.Log("spring down " + damage);
   }
 }
