@@ -48,7 +48,7 @@ public class WeaponSpringTower : Weapon
       // Reset damage and stop coroutine
       // ReminderText.enabled = false;
       StopCoroutine("StartSpringTowerCoroutine");
-      damage = startDamage / 2;
+      damage = startDamage;
       Debug.Log("spring down " + damage);
     }
   }
