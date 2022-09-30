@@ -2,27 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using UnityEngine.SceneManagement;
 
 public class jumpPage : MonoBehaviour
-{
-    private static int menuPage;
+{ 
     private static int lastTutorialIndex;
-    private static int gameOverIndex;
     private static int endGameTrigger;
-    private static int level1Index;
-    private static int level2Index;
-    private static int level3Index;
+
     // Start is called before the first frame update
     void Start()
     {
-        menuPage = 0;
         lastTutorialIndex = 3;
-        gameOverIndex = 7;
         endGameTrigger = -1;
-        level1Index = 4;
-        level2Index = 5;
-        level3Index = 6;
+
     }
 
     // Update is called once per frame
@@ -43,7 +34,7 @@ public class jumpPage : MonoBehaviour
         else if(SceneManager.GetActiveScene().buildIndex > lastTutorialIndex)
         {
           
-            if(SceneManager.GetActiveScene().buildIndex == level3Index)
+            if(SceneManager.GetActiveScene().buildIndex == DataManager.level3Index)
             {
                 DataManager.isPass = true;
                 GamingDataController.getInstance().health = endGameTrigger;
@@ -66,15 +57,15 @@ public class jumpPage : MonoBehaviour
 
     public void restart()
     {
-        if(DataManager.currentLevelIndex == level1Index)
+        if(DataManager.currentLevelIndex == DataManager.level1Index)
         {
             SceneManager.LoadScene("Map");
         }
-        else if(DataManager.currentLevelIndex == level2Index)
+        else if(DataManager.currentLevelIndex == DataManager.level2Index)
         {
             SceneManager.LoadScene("level2");
         }
-        else if(DataManager.currentLevelIndex == level3Index)
+        else if(DataManager.currentLevelIndex == DataManager.level3Index)
         {
             SceneManager.LoadScene("level3");
         }

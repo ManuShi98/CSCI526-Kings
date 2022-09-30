@@ -27,11 +27,17 @@ public class SendToGoogle : MonoBehaviour
     private int _numOfSummerReachEndMonster;
     private int _numOfFallReachEndMonster;
     private int _numOfWinterReachEndMonster;
+    private int _endLevel;
+    private int _level1Time;
+    private int _level2Time;
+    private int _level3Time;
+    private int gapIndex;
 
 
     // Start is called before the first frame update
     void Start()
     {
+        gapIndex = 3;
     }
 
     // Update is called once per frame
@@ -59,8 +65,24 @@ public class SendToGoogle : MonoBehaviour
             //Debug.Log("numOfSummerReachEndMonster: " + Singleton.Instance.numOfSummerReachEndMonster);
             //Debug.Log("numOfFallReachEndMonster: " + Singleton.Instance.numOfFallReachEndMonster);
             //Debug.Log("numOfWinterReachEndMonster: " + Singleton.Instance.numOfWinterReachEndMonster);
-            Send();
+
             DataManager.currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
+            DataManager.endLevel = SceneManager.GetActiveScene().buildIndex - gapIndex; 
+            if(DataManager.currentLevelIndex == DataManager.level1Index)
+            {
+                DataManager.level1Time += Singleton.Instance.totalTime;
+            }
+            else if(DataManager.currentLevelIndex == DataManager.level2Index)
+            {
+                DataManager.level2Time += Singleton.Instance.totalTime;
+            }
+            else if(DataManager.currentLevelIndex == DataManager.level3Index)
+            {
+                DataManager.level3Time += Singleton.Instance.totalTime;
+            }
+
+            Send();
+
             DataManager.Init();
             if (DataManager.isPass == true)
             {
@@ -97,17 +119,22 @@ public class SendToGoogle : MonoBehaviour
         _timeOfSummer = DataManager.timeOfSummer;
         _timeOfFall = DataManager.timeOfFall;
         _timeOfWinter = DataManager.timeOfWinter;
+        _endLevel = DataManager.endLevel;
+        _level1Time = DataManager.level1Time;
+        _level2Time = DataManager.level2Time;
+        _level3Time = DataManager.level3Time;
 
         
         StartCoroutine(Post(_sessionId.ToString(), _gameTime.ToString(), _originalMonsterNumber.ToString(), _diedMonsterNumber.ToString(),
         _totalCoins.ToString(), _numOfReachEndMonster.ToString(), _numOfSpringReachEndMonster.ToString(), _numOfSummerReachEndMonster.ToString(),
         _numOfFallReachEndMonster.ToString(), _numOfWinterReachEndMonster.ToString(), _timeOfSpring.ToString(), _timeOfSummer.ToString(),
-        _timeOfFall.ToString(), _timeOfWinter.ToString()));
+        _timeOfFall.ToString(), _timeOfWinter.ToString(), _endLevel.ToString(), _level1Time.ToString(), _level2Time.ToString(), _level3Time.ToString()));
     }
 
     private IEnumerator Post(string sessionID, string gameTime, string originalMonsterNumber, string diedMonsterNumber, string totalCoins,
     string numOfReachEndMonster, string numOfSpringReachEndMonster, string numOfSummerReachEndMonster, string numOfFallReachEndMonster,
-    string numOfWinterReachEndMonster, string timeOfSpring, string timeOfSummer, string timeOfFall, string timeOfWinter)
+    string numOfWinterReachEndMonster, string timeOfSpring, string timeOfSummer, string timeOfFall, string timeOfWinter, string endLevel,
+    string level1Time, string level2Time, string level3Time)
     {
         
 
@@ -126,6 +153,10 @@ public class SendToGoogle : MonoBehaviour
         form.AddField("entry.1083367176", timeOfSummer);
         form.AddField("entry.750371371", timeOfFall);
         form.AddField("entry.759825660", timeOfWinter);
+        form.AddField("entry.734859192", endLevel);
+        form.AddField("entry.1118265377", level1Time);
+        form.AddField("entry.223071512", level2Time);
+        form.AddField("entry.857080875", level3Time);
 
         using(UnityWebRequest www = UnityWebRequest.Post(URL, form))
         {
