@@ -32,9 +32,9 @@ public class DataManager : MonoBehaviour
     public static volatile int level3Time = 0;
 
 
-    public static int level1Index = 4;
-    public static int level2Index = 5;
-    public static int level3Index = 6;
+    public static int level1Index = 5;
+    public static int level2Index = 6;
+    public static int level3Index = 7;
 
     // Start is called before the first frame update
     void Start()

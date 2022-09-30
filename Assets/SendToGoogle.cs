@@ -37,14 +37,16 @@ public class SendToGoogle : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        gapIndex = 3;
+        gapIndex = 4;
     }
 
     // Update is called once per frame
     void Update()
     {
         bool aliveTag = GamingDataController.getInstance().isAlive();
-        if (aliveTag == false && Singleton.Instance.isGameOver == false)
+        if(SceneManager.GetActiveScene().buildIndex >= DataManager.level1Index)
+        {
+            if (aliveTag == false && Singleton.Instance.isGameOver == false)
         {
             
             Singleton.Instance.updateTime();
@@ -95,6 +97,7 @@ public class SendToGoogle : MonoBehaviour
             }
             
 
+        }
         }
     }
 
