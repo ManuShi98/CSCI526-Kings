@@ -8,7 +8,7 @@ public class TowerBase : MonoBehaviour
     // The build tree
     public GameObject towerRoulette;
 
-    public GameObject rangeImage;
+    private GameObject rangeImage;
 
     private Collider2D thisCollider;
 
@@ -90,8 +90,6 @@ public class TowerBase : MonoBehaviour
 
     private void ShowRange(bool flag)
     {
-        Debug.Log("Show Range");
-        Debug.Log(rangeImage == null);
         if (rangeImage != null)
         {
             rangeImage.SetActive(flag);

@@ -261,4 +261,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerRoulette: {fileID: 1911646862957551930, guid: 14e2f895d999749cdac6ed0454c938b2, type: 3}
-  rangeImage: {fileID: 2470580317993851389, guid: c15cfce57a4db45f6bcb598288b34840, type: 3}
