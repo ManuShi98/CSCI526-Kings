@@ -29,6 +29,7 @@ public class UIManager : MonoBehaviour
                 {
                     foreach (RaycastResult res in results)
                     {
+                        Debug.Log(res.gameObject.tag);
                         if (res.gameObject.CompareTag("ClickableIcon"))
                         {
                             hittedObj = res.gameObject;

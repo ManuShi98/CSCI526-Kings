@@ -45,7 +45,7 @@ GameObject:
   - component: {fileID: 41239820564931834}
   - component: {fileID: -7996182963538475910}
   m_Layer: 0
-  m_Name: Tower1
+  m_Name: Tower1_2
   m_TagString: Tower
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -108,7 +108,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 11
-  m_Sprite: {fileID: 1831714741, guid: ae2dd6575590248439e78444867d0c98, type: 3}
+  m_Sprite: {fileID: -1490777923, guid: ae2dd6575590248439e78444867d0c98, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -154,7 +154,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.93, y: 1.03}
+    oldSize: {x: 0.91, y: 1.08}
     newSize: {x: 0.93, y: 1.03}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
