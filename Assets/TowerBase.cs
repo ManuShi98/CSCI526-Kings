@@ -27,6 +27,7 @@ public class TowerBase : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        rangeImage = transform.Find("Range").gameObject;
         thisCollider = GetComponent<Collider2D>();
     }
 
@@ -89,6 +90,8 @@ public class TowerBase : MonoBehaviour
 
     private void ShowRange(bool flag)
     {
+        Debug.Log("Show Range");
+        Debug.Log(rangeImage == null);
         if (rangeImage != null)
         {
             rangeImage.SetActive(flag);
