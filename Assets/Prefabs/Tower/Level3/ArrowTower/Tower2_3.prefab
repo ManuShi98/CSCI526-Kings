@@ -260,4 +260,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f3901a8aef824252becc37c44125b64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerRoulette: {fileID: 0}
+  towerRoulette: {fileID: 1911646862957551930, guid: 65697e66cf00143c89467a122e289d21, type: 3}

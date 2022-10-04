@@ -279,7 +279,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f3901a8aef824252becc37c44125b64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  towerRoulette: {fileID: 0}
+  towerRoulette: {fileID: 1911646862957551930, guid: e9f4999d1477b4a839be09a700158505, type: 3}
 --- !u!1 &7332292668646061192
 GameObject:
   m_ObjectHideFlags: 0
