@@ -27,7 +27,10 @@ public class TowerBase : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        rangeImage = transform.Find("Range").gameObject;
+        if (transform.Find("Range") != null)
+        {
+            rangeImage = transform.Find("Range").gameObject;
+        }
         thisCollider = GetComponent<Collider2D>();
     }
 
