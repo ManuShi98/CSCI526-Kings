@@ -23,6 +23,6 @@ public class MainMenu : MonoBehaviour
 
   public void GotoTutorial()
   {
-    SceneManager.LoadScene("Tutorial1");
+    SceneManager.LoadScene("TutorialLevels");
   }
 }
