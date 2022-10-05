@@ -11,7 +11,7 @@ public class jumpPage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lastTutorialIndex = 3;
+        lastTutorialIndex = 4;
         endGameTrigger = -1;
 
     }
@@ -29,6 +29,7 @@ public class jumpPage : MonoBehaviour
         {
             GamingDataController.getInstance().health = 3;
             GamingDataController.getInstance().coins = 20;
+            DataManager.Init();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
         else if(SceneManager.GetActiveScene().buildIndex > lastTutorialIndex)

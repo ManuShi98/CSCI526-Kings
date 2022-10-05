@@ -45,9 +45,12 @@ public class WeaponSpringTower : Weapon
   // Spring tower special
   private void SpringTowerFunc()
   {
-    if (isSpring && maxIncreaseTime > 0)
+    if (isSpring)
     {
-      IncreaseSpringTower();
+      if (maxIncreaseTime > 0)
+      {
+        IncreaseSpringTower();
+      }
     }
     else
     {
@@ -62,7 +65,7 @@ public class WeaponSpringTower : Weapon
     if (passedTime > timeInterval)
     {
       damage += 5f;
-      ReminderText.text = "Up: " + damage.ToString();
+      ReminderText.text = "Damage: " + damage.ToString();
       passedTime = 0f;
       maxIncreaseTime--;
     }
