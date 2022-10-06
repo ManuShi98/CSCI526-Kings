@@ -3,6 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
+public class UIClickEvent : IEventData
+{
+    public GameObject obj { get; set; }
+}
+public class CollidersClickEvent : IEventData
+{
+    public GameObject obj { get; set; }
+}
+
 public class UIManager : MonoBehaviour
 {
     public bool paused;
@@ -36,7 +45,7 @@ public class UIManager : MonoBehaviour
                             break;
                         }
                     }
-                    EventBus.TriggerEvent("UserUIClick", hittedObj, null);
+                    EventBus.post(new UIClickEvent() { obj = hittedObj });
                 }
                 else
                 {
@@ -50,7 +59,7 @@ public class UIManager : MonoBehaviour
                             break;
                         }
                     }
-                    EventBus.TriggerEvent("UserClick", hittedObj, null);
+                    EventBus.post(new CollidersClickEvent() { obj = hittedObj });
                 }
             }
         }
