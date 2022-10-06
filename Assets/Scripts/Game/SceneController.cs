@@ -38,16 +38,6 @@ public class SceneController : MonoBehaviour, IEventData, IEventHandler<SeasonCh
     }
   }
 
-  public enum Weather
-  {
-    SUNNY,
-    RAINY,
-    CLOUDY,
-    SNOWY
-  }
-
-  private static Weather currentWeather;
-
   private Queue<GameObject> currentSeasonalMap;
 
   public GameObject springMapPrefab;
@@ -59,7 +49,6 @@ public class SceneController : MonoBehaviour, IEventData, IEventHandler<SeasonCh
   void Start()
   {
     currentSeasonalMap = new Queue<GameObject>();
-    currentWeather = Weather.SUNNY;
     ChangeSeasonalMap();
     EventBus.register<SeasonChangeEvent>(this);
   }
@@ -68,16 +57,6 @@ public class SceneController : MonoBehaviour, IEventData, IEventHandler<SeasonCh
   void Update()
   {
 
-  }
-
-  public void SetWeather(Weather weather)
-  {
-    currentWeather = weather;
-  }
-
-  public Weather GetWeather()
-  {
-    return currentWeather;
   }
 
   public void GameBegin(GameObject ReadyBtn)
