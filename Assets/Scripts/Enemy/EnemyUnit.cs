@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class EnemyUnit : MonoBehaviour
+public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>
 {
   private float speed = 1;
 
@@ -14,22 +14,31 @@ public class EnemyUnit : MonoBehaviour
   private float health = 400;
   private float previousHealthRate = 1f;
   private int coinValue = 1;
+  private Vector3 startScale;
+  private Color startColor;
 
   [SerializeField]
   private int startCoinValue = 1;
   private Transform[] positions;
   private int index = 0;
   private Path path;
+  private SpriteRenderer spriteRenderer;
   private GamingDataController gamingDataController;
 
   void Start()
   {
     speed = startSpeed;
     coinValue = startCoinValue;
+    startScale = transform.localScale;
+
+    spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+    startColor = spriteRenderer.color;
 
     positions = path.positions;
-    SceneController.OnSeasonChangeHandler += ReceiveSeasonChangedValue;
-    ReceiveSeasonChangedValue(gameObject, new SeasonArgs(SceneController.GetSeason().ToString().ToLower()));
+
+    EventBus.register<SeasonChangeEvent>(this);
+
+    HandleEvent(new SeasonChangeEvent() { changedSeason = SeasonController.GetSeason() });
 
     gamingDataController = GamingDataController.getInstance();
   }
@@ -55,6 +64,11 @@ public class EnemyUnit : MonoBehaviour
     }
   }
 
+  void OnDestroy()
+  {
+    EventBus.unregister<SeasonChangeEvent>(this);
+  }
+
   public void SetPath(Path path)
   {
     this.path = path;
@@ -78,58 +92,75 @@ public class EnemyUnit : MonoBehaviour
     return health;
   }
 
-  private void ReceiveSeasonChangedValue(object sender, System.EventArgs args)
+  // Season change handler
+  public void HandleEvent(SeasonChangeEvent eventData)
   {
-    SeasonArgs seasonArgs = (SeasonArgs)args;
-    if (seasonArgs.CurrentSeason == "spring")
+    if (eventData.changedSeason == Season.SPRING)
     {
       speed = startSpeed;
       health = health / previousHealthRate * 1f;
       previousHealthRate = 1f;
       coinValue += 2;
     }
-    else if (seasonArgs.CurrentSeason == "summer")
+    else if (eventData.changedSeason == Season.SUMMER)
     {
       speed = startSpeed;
       health = health / previousHealthRate * 0.8f;
       previousHealthRate = 0.8f;
       coinValue = startCoinValue;
     }
-    else if (seasonArgs.CurrentSeason == "autumn")
+    else if (eventData.changedSeason == Season.AUTUMN)
     {
       speed = 0.8f * startSpeed;
       health = health / previousHealthRate * 1f;
       previousHealthRate = 1f;
       coinValue += 1;
     }
-    else if (seasonArgs.CurrentSeason == "winter")
+    else if (eventData.changedSeason == Season.WINTER)
     {
       speed = 0.7f * startSpeed;
       health = health / previousHealthRate * 1f;
       previousHealthRate = 1f;
       coinValue = startCoinValue;
     }
+    SizeAndColorChange();
   }
 
   private void updateReachEndData()
   {
     Singleton.Instance.numOfReachEndMonster++;
     Singleton.Instance.curReachEndMonster++;
-    if (SceneController.GetSeason() == SceneController.Season.SPRING)
+    if (SeasonController.GetSeason() == Season.SPRING)
     {
       Singleton.Instance.numOfSpringReachEndMonster++;
     }
-    else if (SceneController.GetSeason() == SceneController.Season.SUMMER)
+    else if (SeasonController.GetSeason() == Season.SUMMER)
     {
       Singleton.Instance.numOfSummerReachEndMonster++;
     }
-    else if (SceneController.GetSeason() == SceneController.Season.AUTUMN)
+    else if (SeasonController.GetSeason() == Season.AUTUMN)
     {
       Singleton.Instance.numOfFallReachEndMonster++;
     }
-    else if (SceneController.GetSeason() == SceneController.Season.WINTER)
+    else if (SeasonController.GetSeason() == Season.WINTER)
     {
       Singleton.Instance.numOfWinterReachEndMonster++;
     }
+  }
+
+  // Enemy will grow big and turn red in summer
+  private void SizeAndColorChange()
+  {
+    if (SeasonController.GetSeason() == Season.SUMMER)
+    {
+      transform.localScale = new Vector3(startScale.x * 1.5f, startScale.y * 1.5f, startScale.z);
+      spriteRenderer.color = Color.red;
+    }
+    else
+    {
+      transform.localScale = startScale;
+      spriteRenderer.color = startColor;
+    }
+
   }
 }
