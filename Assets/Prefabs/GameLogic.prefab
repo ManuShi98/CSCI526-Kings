@@ -3489,6 +3489,50 @@ MonoBehaviour:
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
+--- !u!1 &4918105721254566031
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2984479292517855650}
+  - component: {fileID: 7287749192345756891}
+  m_Layer: 0
+  m_Name: SeasonController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2984479292517855650
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4918105721254566031}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7937574466510233471}
+  m_RootOrder: 11
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &7287749192345756891
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4918105721254566031}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1411f568ad8f44305b6f9edd452f9ed3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5163251106941325198
 GameObject:
   m_ObjectHideFlags: 0
@@ -3528,6 +3572,7 @@ Transform:
   - {fileID: 3323727298136139874}
   - {fileID: 2730569927826721164}
   - {fileID: 8700387136592987470}
+  - {fileID: 2984479292517855650}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3851,6 +3896,10 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -38
       objectReference: {fileID: 0}
+    - target: {fileID: 1815493204201485227, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: season
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3748024267687827730, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
       value: 1
@@ -3890,7 +3939,7 @@ PrefabInstance:
     - target: {fileID: 4943642612960478686, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 3323727297783418597}
+      objectReference: {fileID: 7287749192345756891}
     - target: {fileID: 4943642612960478686, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -3901,7 +3950,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4943642612960478686, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SceneController, Assembly-CSharp
+      value: SeasonController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 4943642612960478686, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
@@ -3982,7 +4031,7 @@ PrefabInstance:
     - target: {fileID: 7288818659230266737, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 3323727297783418597}
+      objectReference: {fileID: 7287749192345756891}
     - target: {fileID: 7288818659230266737, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -3993,7 +4042,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7288818659230266737, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SceneController, Assembly-CSharp
+      value: SeasonController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7288818659230266737, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
@@ -4055,6 +4104,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
+    - target: {fileID: 7887664914594773447, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: season
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 8137884363656329407, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
       propertyPath: m_AnchorMax.y
       value: 1
@@ -4082,7 +4135,7 @@ PrefabInstance:
     - target: {fileID: 8568049806513866308, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 3323727297783418597}
+      objectReference: {fileID: 7287749192345756891}
     - target: {fileID: 8568049806513866308, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -4093,7 +4146,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8568049806513866308, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SceneController, Assembly-CSharp
+      value: SeasonController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8568049806513866308, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
@@ -4114,7 +4167,7 @@ PrefabInstance:
     - target: {fileID: 8815123768187521756, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 3323727297783418597}
+      objectReference: {fileID: 7287749192345756891}
     - target: {fileID: 8815123768187521756, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
       value: 2
@@ -4125,7 +4178,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8815123768187521756, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: SceneController, Assembly-CSharp
+      value: SeasonController, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8815123768187521756, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
@@ -4134,6 +4187,10 @@ PrefabInstance:
     - target: {fileID: 8815123768187521756, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: SeasonBtn, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8971189053117991836, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: season
+      value: 2
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}

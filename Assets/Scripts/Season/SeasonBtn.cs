@@ -2,13 +2,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum Season
+{
+  SPRING,
+  SUMMER,
+  AUTUMN,
+  WINTER
+}
+
 public class SeasonBtn : MonoBehaviour
 {
   [SerializeField]
-  private string season;
-
-  public string GetSeason()
-  {
-    return this.season;
-  }
+  public Season season;
 }

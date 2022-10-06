@@ -34,61 +34,61 @@ public class Singleton : MonoBehaviour
 
 
 
-    private static Singleton instance;
+  private static Singleton instance;
 
-    public static Singleton Instance
+  public static Singleton Instance
+  {
+    get
     {
-        get
-        {
-            if (instance == null)
-            {
-                GameObject obj = new GameObject();
-                obj.name = "Singleton";
-                instance = obj.AddComponent<Singleton>();
-            }
-            return instance;
-        }
+      if (instance == null)
+      {
+        GameObject obj = new GameObject();
+        obj.name = "Singleton";
+        instance = obj.AddComponent<Singleton>();
+      }
+      return instance;
     }
+  }
 
-    void Start()
+  void Start()
+  {
+
+  }
+
+  // Update is called once per frame
+  void Update()
+  {
+
+  }
+  void Awake()
+  {
+    instance = this;
+  }
+
+
+
+  public void updateTime()
+  {
+    int gapTime = (int)(System.DateTime.Now - Singleton.Instance.lastEndTime).TotalSeconds;
+    if (SeasonController.GetSeason() == Season.SPRING)
     {
-    
+      Singleton.Instance.timeOfSpring += gapTime;
     }
-
-    // Update is called once per frame
-    void Update()
+    else if (SeasonController.GetSeason() == Season.SUMMER)
     {
-    
+      Singleton.Instance.timeOfSummer += gapTime;
     }
-    void Awake()
+    else if (SeasonController.GetSeason() == Season.AUTUMN)
     {
-        instance = this;
+      Singleton.Instance.timeOfFall += gapTime;
     }
-
- 
-
-    public void updateTime()
+    else if (SeasonController.GetSeason() == Season.WINTER)
     {
-        int gapTime = (int)(System.DateTime.Now - Singleton.Instance.lastEndTime).TotalSeconds;
-        if (SceneController.GetSeason() == SceneController.Season.SPRING)
-        {
-            Singleton.Instance.timeOfSpring += gapTime;
-        }
-        else if (SceneController.GetSeason() == SceneController.Season.SUMMER)
-        {
-            Singleton.Instance.timeOfSummer += gapTime;
-        }
-        else if (SceneController.GetSeason() == SceneController.Season.AUTUMN)
-        {
-            Singleton.Instance.timeOfFall += gapTime;
-        }
-        else if (SceneController.GetSeason() == SceneController.Season.WINTER)
-        {
-            Singleton.Instance.timeOfWinter += gapTime;
-        }
-        Singleton.Instance.totalTime += gapTime;
-
-        Singleton.Instance.lastEndTime = System.DateTime.Now;
+      Singleton.Instance.timeOfWinter += gapTime;
     }
+    Singleton.Instance.totalTime += gapTime;
+
+    Singleton.Instance.lastEndTime = System.DateTime.Now;
+  }
 
 }

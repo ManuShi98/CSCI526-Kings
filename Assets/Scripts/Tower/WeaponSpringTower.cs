@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
-public class WeaponSpringTower : Weapon
+public class WeaponSpringTower : Weapon, IEventHandler<SeasonChangeEvent>
 {
   private float passedTime;
   private float timeInterval;
@@ -22,10 +22,7 @@ public class WeaponSpringTower : Weapon
 
     maxIncreaseTime = 5;
 
-    isSpring = false;
-
-    SceneController.OnSeasonChangeHandler += SpringTowerReceiveSeasonChangedValue;
-    SpringTowerReceiveSeasonChangedValue(gameObject, new SeasonArgs(SceneController.GetSeason().ToString().ToLower()));
+    isSpring = SeasonController.GetSeason() == Season.SPRING ? true : false;
   }
 
   // Update is called once per frame
@@ -36,10 +33,10 @@ public class WeaponSpringTower : Weapon
     SpringTowerFunc();
   }
 
-  private void SpringTowerReceiveSeasonChangedValue(object sender, System.EventArgs args)
+  public void HandleEvent(SeasonChangeEvent eventData)
   {
-    SeasonArgs seasonArgs = (SeasonArgs)args;
-    isSpring = seasonArgs.CurrentSeason == "spring" ? true : false;
+    SeasonChangeHandleEvent(eventData);
+    isSpring = eventData.changedSeason == Season.SPRING ? true : false;
   }
 
   // Spring tower special
