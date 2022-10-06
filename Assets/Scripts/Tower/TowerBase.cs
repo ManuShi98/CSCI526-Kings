@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TowerBase : MonoBehaviour
+public class TowerBase : MonoBehaviour, IEventHandler<CollidersClickEvent>
 {
 
     // The build tree
@@ -16,12 +16,12 @@ public class TowerBase : MonoBehaviour
 
     private void OnEnable()
     {
-        EventBus.registerEvent("UserClick", UserClick);
+        EventBus.register<CollidersClickEvent>(this);
     }
 
     private void OnDisable()
     {
-        EventBus.unregisterEvent("UserClick", UserClick);
+        EventBus.unregister<CollidersClickEvent>(this);
     }
 
     // Start is called before the first frame update
@@ -74,9 +74,17 @@ public class TowerBase : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void UserClick(GameObject obj, string param)
+    private void ShowRange(bool flag)
     {
-        if (obj == gameObject)
+        if (rangeImage != null)
+        {
+            rangeImage.SetActive(flag);
+        }
+    }
+
+    public void HandleEvent(CollidersClickEvent eventData)
+    {
+        if (eventData.obj == gameObject)
         {
             ShowRange(true);
             if (activeBuildingTree == null)
@@ -88,14 +96,6 @@ public class TowerBase : MonoBehaviour
         {
             ShowRange(false);
             CloseBuildingTree();
-        }
-    }
-
-    private void ShowRange(bool flag)
-    {
-        if (rangeImage != null)
-        {
-            rangeImage.SetActive(flag);
         }
     }
 }

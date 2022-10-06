@@ -1,7 +1,17 @@
+using System;
 using System.Collections;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+
+public interface IEventData
+{
+}
+public interface IEventHandler<TEventData> where TEventData : IEventData
+{
+    void HandleEvent(TEventData eventData);
+}
 
 // Use eventbus to prevent too many interactions between different parts.
 public class EventBus : MonoBehaviour
@@ -9,14 +19,19 @@ public class EventBus : MonoBehaviour
     // Singleton
     public static EventBus instance;
 
-    private Dictionary<string, UnityEvent<GameObject, string>> eventDictionary = new Dictionary<string, UnityEvent<GameObject, string>>();
+    private EventBus()
+    {
+
+    }
+
+    private ConcurrentDictionary<Type, List<object>> eventDictionary = new ConcurrentDictionary<Type, List<object>>();
 
     private void OnDestroy()
     {
         instance = null;
     }
 
-    public static void registerEvent(string eventName, UnityAction<GameObject, string> listener)
+    public static void register<TEventData>(IEventHandler<TEventData> eventHandler) where TEventData : IEventData
     {
         if (instance == null)
         {
@@ -27,42 +42,46 @@ public class EventBus : MonoBehaviour
                 return;
             }
         }
-        UnityEvent<GameObject, string> thisEvent = null;
-        if (instance.eventDictionary.TryGetValue(eventName, out thisEvent))
+        if (!instance.eventDictionary.ContainsKey(typeof(TEventData)))
         {
-            thisEvent.AddListener(listener);
+            instance.eventDictionary[typeof(TEventData)] = new List<object>();
         }
-        else
-        {
-            thisEvent = new UnityEvent<GameObject, string>();
-            thisEvent.AddListener(listener);
-            instance.eventDictionary.Add(eventName, thisEvent);
-        }
+        instance.eventDictionary[typeof(TEventData)].Add(eventHandler);
     }
 
-    public static void unregisterEvent(string eventName, UnityAction<GameObject, string> listener)
+    public static void unregister<TEventData>(IEventHandler<TEventData> eventHandler) where TEventData : IEventData
     {
         if (instance == null)
         {
             return;
         }
-        UnityEvent<GameObject, string> thisEvent = null;
-        if (instance.eventDictionary.TryGetValue(eventName, out thisEvent))
+        List<object> handlers = instance.eventDictionary[typeof(TEventData)];
+        if (handlers != null && handlers.Contains(eventHandler))
         {
-            thisEvent.RemoveListener(listener);
+            handlers.Remove(eventHandler);
         }
     }
 
-    public static void TriggerEvent(string eventName, GameObject obj, string param)
+    public static void post<TEventData>(TEventData eventData) where TEventData : IEventData
     {
         if (instance == null)
         {
             return;
         }
-        UnityEvent<GameObject, string> thisEvent = null;
-        if (instance.eventDictionary.TryGetValue(eventName, out thisEvent))
+        if (instance.eventDictionary.ContainsKey(eventData.GetType()))
         {
-            thisEvent.Invoke(obj, param);
+            List<object> handlers = new List<object>(instance.eventDictionary[eventData.GetType()]);
+            if (handlers != null && handlers.Count > 0)
+            {
+                foreach (var handler in handlers)
+                {
+                    if (handler != null)
+                    {
+                        var eventHandler = handler as IEventHandler<TEventData>;
+                        eventHandler.HandleEvent(eventData);
+                    }
+                }
+            }
         }
     }
 }

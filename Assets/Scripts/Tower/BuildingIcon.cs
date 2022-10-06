@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class BuildingIcon : MonoBehaviour
+public class BuildingIcon : MonoBehaviour, IEventHandler<UIClickEvent>
 {
 
     public int price;
@@ -14,12 +14,12 @@ public class BuildingIcon : MonoBehaviour
 
     private void OnEnable()
     {
-        EventBus.registerEvent("UserUIClick", UserUIClick);
+        EventBus.register<UIClickEvent>(this);
     }
 
     private void OnDisable()
     {
-        EventBus.unregisterEvent("UserUIClick", UserUIClick);
+        EventBus.unregister<UIClickEvent>(this);
     }
 
     // Update is called once per frame
@@ -37,9 +37,9 @@ public class BuildingIcon : MonoBehaviour
         }
     }
 
-    private void UserUIClick(GameObject obj, string param)
+    public void HandleEvent(UIClickEvent eventData)
     {
-        if (obj == gameObject)
+        if (eventData.obj == gameObject)
         {
             towerRoulette.Build(towerPrefab);
         }
