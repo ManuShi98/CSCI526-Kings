@@ -18,8 +18,6 @@ public class SceneController : MonoBehaviour, IEventData, IEventHandler<SeasonCh
 
   public EnemySpawner[] SpawnerList;
 
-  private TowerBtn clickedTowerBtn;
-
   public bool StartGeneratingEnemies;
 
   [SerializeField]
@@ -69,9 +67,6 @@ public class SceneController : MonoBehaviour, IEventData, IEventHandler<SeasonCh
   // Update is called once per frame
   void Update()
   {
-    // GameOver();
-    HandlerEscape();
-    //PlaceTower();
 
   }
 
@@ -84,14 +79,6 @@ public class SceneController : MonoBehaviour, IEventData, IEventHandler<SeasonCh
   {
     return currentWeather;
   }
-
-  // private void GameOver()
-  // {
-  //   if (Singleton.Instance.GetEnemyMapStatus())
-  //   {
-  //     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-  //   }
-  // }
 
   public void GameBegin(GameObject ReadyBtn)
   {
@@ -142,27 +129,6 @@ public class SceneController : MonoBehaviour, IEventData, IEventHandler<SeasonCh
         break;
     }
     currentSeasonalMap.Enqueue(currentSeasonalGrid);
-  }
-
-  public void PickTower(TowerBtn towerBtn)
-  {
-    clickedTowerBtn = towerBtn;
-    Hover.Instance.Activate(towerBtn.sprite);
-  }
-
-  public void HoverReset()
-  {
-    Hover.Instance.Deactivate();
-    clickedTowerBtn = null;
-  }
-
-  private void HandlerEscape()
-  {
-    if (Input.GetKeyDown(KeyCode.Escape))
-    {
-      Hover.Instance.Deactivate();
-      clickedTowerBtn = null;
-    }
   }
 
   private void UpdateTimeData()
