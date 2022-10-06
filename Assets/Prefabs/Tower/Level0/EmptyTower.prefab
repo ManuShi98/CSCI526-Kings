@@ -49,7 +49,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerRoulette: {fileID: 1911646862957551930, guid: 92accac52beaf4f16ab749d19a9f622b, type: 3}
-  rangeImage: {fileID: 0}
 --- !u!58 &2260237771195470972
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -169,7 +168,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: 11
   m_Sprite: {fileID: 1179853401, guid: b34fb79cff08942a5b5dec276a4d28e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -253,7 +252,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 10
   m_Sprite: {fileID: 2023312233, guid: b34fb79cff08942a5b5dec276a4d28e0, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
