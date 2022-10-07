@@ -91,7 +91,6 @@ MonoBehaviour:
   - {fileID: 0}
   StartGeneratingEnemies: 0
   PausePanelPrefab: {fileID: 8899160771267677115, guid: af9f4c8446d3d4227b27ba6ca75db7e1, type: 3}
-  Sandstorm: {fileID: 2369802373514735216}
   springMapPrefab: {fileID: 0}
   summerMapPrefab: {fileID: 0}
   autumnMapPrefab: {fileID: 0}
@@ -3904,7 +3903,8 @@ PrefabInstance:
       propertyPath: season
       value: 2
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 7379086796719106357, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
 --- !u!114 &3968143156303979239 stripped
 MonoBehaviour:
@@ -4037,17 +4037,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b2df455c287184004aaa2698ee96771c, type: 3}
---- !u!114 &2369802373514735216 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 1421148190164055653, guid: b2df455c287184004aaa2698ee96771c, type: 3}
-  m_PrefabInstance: {fileID: 3700784667403999253}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fb2c6cb266b6345c1ba3783bb2d3c65c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!4 &8742845166310518254 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5336492155093267963, guid: b2df455c287184004aaa2698ee96771c, type: 3}

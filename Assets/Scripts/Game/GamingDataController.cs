@@ -6,7 +6,7 @@ using static SceneController;
 public class GamingDataController : MonoBehaviour
 {
 
-    public volatile int coins = 20;
+    public volatile int coins;
     public volatile int health = 3;
     public static int maxRound = 7;
     public static int currRound = 1;
