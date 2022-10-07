@@ -1,6 +1,5 @@
 using UnityEngine;
 
-//todo: 【性能优化】将子弹以对象池的方式实现
 public class Bullet : MonoBehaviour
 {
     public float speed = 10f;
@@ -19,9 +18,6 @@ public class Bullet : MonoBehaviour
     public void fire(GameObject enemy)
     {
         target = enemy;
-
-        //transform.rotation = rotation;
-        //bullet.velocity = transform.right * speed;
     }
 
     public void OnBecameInvisible()

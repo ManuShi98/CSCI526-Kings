@@ -136,7 +136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fb32128b4c27e4ed4a6394c97a2e0d17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 4.99
+  speed: 5
   damage: 20
   bullet: {fileID: -829909105936934594}
   effect: {fileID: 8727870703176322827, guid: be95a8d0dddf7491f90aec336053b720, type: 3}
