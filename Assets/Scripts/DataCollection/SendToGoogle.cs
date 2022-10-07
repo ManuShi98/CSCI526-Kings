@@ -31,6 +31,10 @@ public class SendToGoogle : MonoBehaviour
     private int _level1Time;
     private int _level2Time;
     private int _level3Time;
+    private int _level4Time;
+    private int _level5Time;
+    private int _level6Time;
+    private int _level7Time;
 
 
     // Start is called before the first frame update
@@ -46,74 +50,74 @@ public class SendToGoogle : MonoBehaviour
         if(SceneManager.GetActiveScene().buildIndex >= DataManager.level1Index)
         {
             if (aliveTag == false && Singleton.Instance.isGameOver == false)
-        {
+            {
             
-            Singleton.Instance.updateTime();
-            DataManager.SumCurrentLevelData();
+                Singleton.Instance.updateTime();
+                DataManager.SumCurrentLevelData();
 
-            Singleton.Instance.isGameOver = true;
+                Singleton.Instance.isGameOver = true;
 
-            //Debug.Log("numOfOriginalMonster: " + Singleton.Instance.numOfOriginalMonster);
-            //Debug.Log("totalTime: " + Singleton.Instance.totalTime);
-            //Debug.Log("numOfCoins: " + Singleton.Instance.numOfCoins);
-            //Debug.Log("numOfDiedMonster: " + Singleton.Instance.numOfDiedMonster);
-            //Debug.Log("numOfReachEndMonster: " + Singleton.Instance.numOfReachEndMonster);
-            //Debug.Log("timeOfSpring: " + Singleton.Instance.timeOfSpring);
-            //Debug.Log("timeOfSummer: " + Singleton.Instance.timeOfSummer);
-            //Debug.Log("timeOfFall: " + Singleton.Instance.timeOfFall);
-            //Debug.Log("timeOfWinter: " + Singleton.Instance.timeOfWinter);
-            //Debug.Log("numOfSpringReachEndMonster: " + Singleton.Instance.numOfSpringReachEndMonster);
-            //Debug.Log("numOfSummerReachEndMonster: " + Singleton.Instance.numOfSummerReachEndMonster);
-            //Debug.Log("numOfFallReachEndMonster: " + Singleton.Instance.numOfFallReachEndMonster);
-            //Debug.Log("numOfWinterReachEndMonster: " + Singleton.Instance.numOfWinterReachEndMonster);
+                //Debug.Log("numOfOriginalMonster: " + Singleton.Instance.numOfOriginalMonster);
+                //Debug.Log("totalTime: " + Singleton.Instance.totalTime);
+                //Debug.Log("numOfCoins: " + Singleton.Instance.numOfCoins);
+                //Debug.Log("numOfDiedMonster: " + Singleton.Instance.numOfDiedMonster);
+                //Debug.Log("numOfReachEndMonster: " + Singleton.Instance.numOfReachEndMonster);
+                //Debug.Log("timeOfSpring: " + Singleton.Instance.timeOfSpring);
+                //Debug.Log("timeOfSummer: " + Singleton.Instance.timeOfSummer);
+                //Debug.Log("timeOfFall: " + Singleton.Instance.timeOfFall);
+                //Debug.Log("timeOfWinter: " + Singleton.Instance.timeOfWinter);
+                //Debug.Log("numOfSpringReachEndMonster: " + Singleton.Instance.numOfSpringReachEndMonster);
+                //Debug.Log("numOfSummerReachEndMonster: " + Singleton.Instance.numOfSummerReachEndMonster);
+                //Debug.Log("numOfFallReachEndMonster: " + Singleton.Instance.numOfFallReachEndMonster);
+                //Debug.Log("numOfWinterReachEndMonster: " + Singleton.Instance.numOfWinterReachEndMonster);
 
-            DataManager.currentLevelIndex = SceneManager.GetActiveScene().name;
-                Debug.Log(DataManager.currentLevelIndex);
-                DataManager.endLevel = SceneManager.GetActiveScene().name;
-            if(DataManager.currentLevelIndex == "level1")
-            {
-                DataManager.level1Time += Singleton.Instance.totalTime;
-            }
-            else if(DataManager.currentLevelIndex == "level2")
-            {
-                DataManager.level2Time += Singleton.Instance.totalTime;
-            }
-            else if(DataManager.currentLevelIndex == "level3")
-            {
-                DataManager.level3Time += Singleton.Instance.totalTime;
-            }
-            //else if (DataManager.currentLevelIndex == "level4")
-            //{
-            //    DataManager.level4Time += Singleton.Instance.totalTime;
-            //}
-            //else if (DataManager.currentLevelIndex == "level5")
-            //{
-            //    DataManager.level5Time += Singleton.Instance.totalTime;
-            //}
-            //else if (DataManager.currentLevelIndex == "level6")
-            //{
-            //    DataManager.level6Time += Singleton.Instance.totalTime;
-            //}
-            //else if (DataManager.currentLevelIndex == "level7")
-            //{
-            //    DataManager.level7Time += Singleton.Instance.totalTime;
-            //}
+                DataManager.currentLevelIndex = SceneManager.GetActiveScene().name;
+                    Debug.Log(DataManager.currentLevelIndex);
+                    DataManager.endLevel = SceneManager.GetActiveScene().name;
+                if(DataManager.currentLevelIndex == "level1")
+                {
+                    DataManager.level1Time += Singleton.Instance.totalTime;
+                }
+                else if(DataManager.currentLevelIndex == "level2")
+                {
+                    DataManager.level2Time += Singleton.Instance.totalTime;
+                }
+                else if(DataManager.currentLevelIndex == "level3")
+                {
+                    DataManager.level3Time += Singleton.Instance.totalTime;
+                }
+                else if (DataManager.currentLevelIndex == "level4")
+                {
+                    DataManager.level4Time += Singleton.Instance.totalTime;
+                }
+                else if (DataManager.currentLevelIndex == "level5")
+                {
+                    DataManager.level5Time += Singleton.Instance.totalTime;
+                }
+                else if (DataManager.currentLevelIndex == "level6")
+                {
+                    DataManager.level6Time += Singleton.Instance.totalTime;
+                }
+                else if (DataManager.currentLevelIndex == "level7")
+                {
+                    DataManager.level7Time += Singleton.Instance.totalTime;
+                }
 
                 Send();
 
-                DataManager.Init();
-            if (DataManager.isPass == true)
-            {
-                SceneManager.LoadScene("Menu");
-                DataManager.isPass = false;
-            }
-            else
-            {
-                SceneManager.LoadScene("GameOver");
-            }
+                    //DataManager.Init();
+                if (DataManager.isPass == true)
+                {
+                    SceneManager.LoadScene("Menu");
+                    DataManager.isPass = false;
+                }
+                else
+                {
+                    SceneManager.LoadScene("GameOver");
+                }
             
 
-        }
+            }
         }
     }
 
@@ -142,18 +146,23 @@ public class SendToGoogle : MonoBehaviour
         _level1Time = DataManager.level1Time;
         _level2Time = DataManager.level2Time;
         _level3Time = DataManager.level3Time;
+        _level4Time = DataManager.level4Time;
+        _level5Time = DataManager.level5Time;
+        _level6Time = DataManager.level6Time;
+        _level7Time = DataManager.level7Time;
 
         
         StartCoroutine(Post(_sessionId.ToString(), _gameTime.ToString(), _originalMonsterNumber.ToString(), _diedMonsterNumber.ToString(),
         _totalCoins.ToString(), _numOfReachEndMonster.ToString(), _numOfSpringReachEndMonster.ToString(), _numOfSummerReachEndMonster.ToString(),
         _numOfFallReachEndMonster.ToString(), _numOfWinterReachEndMonster.ToString(), _timeOfSpring.ToString(), _timeOfSummer.ToString(),
-        _timeOfFall.ToString(), _timeOfWinter.ToString(), _endLevel.ToString(), _level1Time.ToString(), _level2Time.ToString(), _level3Time.ToString()));
+        _timeOfFall.ToString(), _timeOfWinter.ToString(), _endLevel.ToString(), _level1Time.ToString(), _level2Time.ToString(), _level3Time.ToString(),
+        _level4Time.ToString(), _level5Time.ToString(), _level6Time.ToString(), _level7Time.ToString()));
     }
 
     private IEnumerator Post(string sessionID, string gameTime, string originalMonsterNumber, string diedMonsterNumber, string totalCoins,
     string numOfReachEndMonster, string numOfSpringReachEndMonster, string numOfSummerReachEndMonster, string numOfFallReachEndMonster,
     string numOfWinterReachEndMonster, string timeOfSpring, string timeOfSummer, string timeOfFall, string timeOfWinter, string endLevel,
-    string level1Time, string level2Time, string level3Time)
+    string level1Time, string level2Time, string level3Time, string level4Time, string level5Time, string level6Time, string level7Time)
     {
         
 
@@ -176,8 +185,12 @@ public class SendToGoogle : MonoBehaviour
         form.AddField("entry.1118265377", level1Time);
         form.AddField("entry.223071512", level2Time);
         form.AddField("entry.857080875", level3Time);
+        form.AddField("entry.1187604322", level4Time);
+        form.AddField("entry.391897502", level5Time);
+        form.AddField("entry.401723518", level6Time);
+        form.AddField("entry.1675488209", level7Time);
 
-        using(UnityWebRequest www = UnityWebRequest.Post(URL, form))
+        using (UnityWebRequest www = UnityWebRequest.Post(URL, form))
         {
             yield return www.SendWebRequest();
             if(www.result != UnityWebRequest.Result.Success)

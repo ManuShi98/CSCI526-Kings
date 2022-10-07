@@ -44,6 +44,7 @@ public class jumpPage : MonoBehaviour
             {
                 Singleton.Instance.updateTime();
                 DataManager.SumCurrentLevelData();
+                recordLevelTime();
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
         }
@@ -88,5 +89,37 @@ public class jumpPage : MonoBehaviour
             SceneManager.LoadScene("level7");
         }
 
+    }
+
+    private void recordLevelTime()
+    {
+        if (SceneManager.GetActiveScene().name == "level1")
+        {
+            DataManager.level1Time += Singleton.Instance.totalTime;
+        }
+        else if (SceneManager.GetActiveScene().name == "level2")
+        {
+            DataManager.level2Time += Singleton.Instance.totalTime;
+        }
+        else if (SceneManager.GetActiveScene().name == "level3")
+        {
+            DataManager.level3Time += Singleton.Instance.totalTime;
+        }
+        else if (SceneManager.GetActiveScene().name == "level4")
+        {
+            DataManager.level4Time += Singleton.Instance.totalTime;
+        }
+        else if (SceneManager.GetActiveScene().name == "level5")
+        {
+            DataManager.level5Time += Singleton.Instance.totalTime;
+        }
+        else if (SceneManager.GetActiveScene().name == "level6")
+        {
+            DataManager.level6Time += Singleton.Instance.totalTime;
+        }
+        else if (SceneManager.GetActiveScene().name == "level7")
+        {
+            DataManager.level7Time += Singleton.Instance.totalTime;
+        }
     }
 }
