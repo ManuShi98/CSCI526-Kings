@@ -49,6 +49,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerRoulette: {fileID: 1911646862957551930, guid: 5120ec341076443748c5ea083dcff8f6, type: 3}
+  downGradeObject: {fileID: 250404430451689136}
 --- !u!58 &2260237771195470972
 CircleCollider2D:
   m_ObjectHideFlags: 0
