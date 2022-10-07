@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using static SceneController;
 
 public class GamingDataController : MonoBehaviour
@@ -7,8 +8,8 @@ public class GamingDataController : MonoBehaviour
 
     public volatile int coins = 20;
     public volatile int health = 3;
-    public int maxRound = 1;
-    public int currRound = 1;
+    public static int maxRound = 7;
+    public static int currRound = 1;
 
     private bool isDataChanged = false;
 
@@ -118,6 +119,40 @@ public class GamingDataController : MonoBehaviour
     {
         coinDigit.GetComponent<TextMeshProUGUI>().text = coins.ToString();
         healthDigit.GetComponent<TextMeshProUGUI>().text = health.ToString();
-        currRoundDigit.GetComponent<TextMeshProUGUI>().text = currRound.ToString();
+        updateLevelNumber();
+    }
+
+    private void updateLevelNumber()
+    {
+        if(SceneManager.GetActiveScene().name == "level1")
+        {
+            currRoundDigit.GetComponent<TextMeshProUGUI>().text = "1";
+        }
+        else if (SceneManager.GetActiveScene().name == "level2")
+        {
+            currRoundDigit.GetComponent<TextMeshProUGUI>().text = "2";
+        }
+        else if (SceneManager.GetActiveScene().name == "level3")
+        {
+            currRoundDigit.GetComponent<TextMeshProUGUI>().text = "3";
+        }
+        else if (SceneManager.GetActiveScene().name == "level4")
+        {
+            currRoundDigit.GetComponent<TextMeshProUGUI>().text = "4";
+        }
+        else if (SceneManager.GetActiveScene().name == "level5")
+        {
+            currRoundDigit.GetComponent<TextMeshProUGUI>().text = "5";
+        }
+        else if (SceneManager.GetActiveScene().name == "level6")
+        {
+            currRoundDigit.GetComponent<TextMeshProUGUI>().text = "6";
+        }
+        else if (SceneManager.GetActiveScene().name == "level7")
+        {
+            currRoundDigit.GetComponent<TextMeshProUGUI>().text = "7";
+        }
+
+
     }
 }
