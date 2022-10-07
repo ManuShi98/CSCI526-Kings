@@ -1,8 +1,10 @@
 using UnityEngine;
 
-public class Weapon : MonoBehaviour, IEventHandler<SeasonChangeEvent>
+public class Weapon : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHandler<SandstormStartEvent>
 {
-    public double radius = 5; // Weapon's firing radius
+    [SerializeField]
+    protected double startRadius = 100;
+    protected double radius = 5; // Weapon's firing radius
     public double FiringRate = 10;  // Fire per second
 
     [SerializeField]
@@ -29,6 +31,7 @@ public class Weapon : MonoBehaviour, IEventHandler<SeasonChangeEvent>
         timer = FiringIntervalTime;
 
         EventBus.register<SeasonChangeEvent>(this);
+        EventBus.register<SandstormStartEvent>(this);
 
         SeasonChangeHandleEvent(new SeasonChangeEvent() { changedSeason = SeasonController.GetSeason() });
     }
@@ -41,6 +44,7 @@ public class Weapon : MonoBehaviour, IEventHandler<SeasonChangeEvent>
     void OnDestroy()
     {
         EventBus.unregister<SeasonChangeEvent>(this);
+        EventBus.unregister<SandstormStartEvent>(this);
     }
 
     protected virtual void OnUpdate()
@@ -97,23 +101,40 @@ public class Weapon : MonoBehaviour, IEventHandler<SeasonChangeEvent>
         SeasonChangeHandleEvent(eventData);
     }
 
+    // Sandstorm start handler
+    public void HandleEvent(SandstormStartEvent eventData)
+    {
+        if (eventData.isSandstormStart)
+        {
+            radius = startRadius / 2;
+        }
+        else
+        {
+            radius = startRadius;
+        }
+        Debug.Log(radius);
+    }
+
     protected virtual void SeasonChangeHandleEvent(SeasonChangeEvent eventData)
     {
         if (eventData.changedSeason == Season.SPRING)
         {
-            damage *= 0.7f;
-        }
-        else if (eventData.changedSeason == Season.SUMMER)
-        {
-            damage = startDamage;
-        }
-        else if (eventData.changedSeason == Season.AUTUMN)
-        {
-            damage = startDamage;
-        }
-        else if (eventData.changedSeason == Season.WINTER)
-        {
-            damage = startDamage;
+            if (eventData.changedSeason == Season.SPRING)
+            {
+                damage *= 0.7f;
+            }
+            else if (eventData.changedSeason == Season.SUMMER)
+            {
+                damage = startDamage;
+            }
+            else if (eventData.changedSeason == Season.AUTUMN)
+            {
+                damage = startDamage;
+            }
+            else if (eventData.changedSeason == Season.WINTER)
+            {
+                damage = startDamage;
+            }
         }
     }
 }
