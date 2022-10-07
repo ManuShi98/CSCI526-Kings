@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: c78c2131e24f45a42a793e60ef031e13
   - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 8907a45362a8f42d19d3af5a9ce3c66d
+  - enabled: 1
     path: Assets/Scenes/Tutorial1.unity
     guid: 26c4f924aad85f84cb3df310a61b1b70
   - enabled: 1
@@ -41,9 +44,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/level7.unity
     guid: 4ac164bc18820d54ea55be02619ec6c2
-  - enabled: 1
-    path: Assets/Scenes/GameOver.unity
-    guid: 8907a45362a8f42d19d3af5a9ce3c66d
   - enabled: 1
     path: Assets/Scenes/TutorialLevels.unity
     guid: 1f15f9de8d51a485c924fa7dfe87ad80

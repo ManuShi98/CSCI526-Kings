@@ -27,17 +27,16 @@ public class SendToGoogle : MonoBehaviour
     private int _numOfSummerReachEndMonster;
     private int _numOfFallReachEndMonster;
     private int _numOfWinterReachEndMonster;
-    private int _endLevel;
+    private string _endLevel;
     private int _level1Time;
     private int _level2Time;
     private int _level3Time;
-    private int gapIndex;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        gapIndex = 4;
+
     }
 
     // Update is called once per frame
@@ -68,24 +67,41 @@ public class SendToGoogle : MonoBehaviour
             //Debug.Log("numOfFallReachEndMonster: " + Singleton.Instance.numOfFallReachEndMonster);
             //Debug.Log("numOfWinterReachEndMonster: " + Singleton.Instance.numOfWinterReachEndMonster);
 
-            DataManager.currentLevelIndex = SceneManager.GetActiveScene().buildIndex;
-            DataManager.endLevel = SceneManager.GetActiveScene().buildIndex - gapIndex; 
-            if(DataManager.currentLevelIndex == DataManager.level1Index)
+            DataManager.currentLevelIndex = SceneManager.GetActiveScene().name;
+                Debug.Log(DataManager.currentLevelIndex);
+                DataManager.endLevel = SceneManager.GetActiveScene().name;
+            if(DataManager.currentLevelIndex == "level1")
             {
                 DataManager.level1Time += Singleton.Instance.totalTime;
             }
-            else if(DataManager.currentLevelIndex == DataManager.level2Index)
+            else if(DataManager.currentLevelIndex == "level2")
             {
                 DataManager.level2Time += Singleton.Instance.totalTime;
             }
-            else if(DataManager.currentLevelIndex == DataManager.level3Index)
+            else if(DataManager.currentLevelIndex == "level3")
             {
                 DataManager.level3Time += Singleton.Instance.totalTime;
             }
+            //else if (DataManager.currentLevelIndex == "level4")
+            //{
+            //    DataManager.level4Time += Singleton.Instance.totalTime;
+            //}
+            //else if (DataManager.currentLevelIndex == "level5")
+            //{
+            //    DataManager.level5Time += Singleton.Instance.totalTime;
+            //}
+            //else if (DataManager.currentLevelIndex == "level6")
+            //{
+            //    DataManager.level6Time += Singleton.Instance.totalTime;
+            //}
+            //else if (DataManager.currentLevelIndex == "level7")
+            //{
+            //    DataManager.level7Time += Singleton.Instance.totalTime;
+            //}
 
-            Send();
+                Send();
 
-            DataManager.Init();
+                DataManager.Init();
             if (DataManager.isPass == true)
             {
                 SceneManager.LoadScene("Menu");
