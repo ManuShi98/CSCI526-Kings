@@ -116,7 +116,7 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>
       speed = startSpeed;
       health = health / previousHealthRate * 1f;
       previousHealthRate = 1f;
-      coinValue += 2;
+      coinValue += 1;
     }
     else if (eventData.changedSeason == Season.SUMMER)
     {
