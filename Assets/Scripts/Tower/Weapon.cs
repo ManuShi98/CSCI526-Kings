@@ -1,8 +1,11 @@
 using UnityEngine;
 
-public class Weapon : MonoBehaviour, IEventHandler<SeasonChangeEvent>
+public class Weapon : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHandler<SandstormStartEvent>
 {
-  public double radius = 100; // Weapon's firing radius
+  [SerializeField]
+  protected double startRadius = 100;
+  protected double radius = 100; // Weapon's firing radius
+
   public double FiringRate = 10;  // Fire per second
 
   [SerializeField]
@@ -25,10 +28,12 @@ public class Weapon : MonoBehaviour, IEventHandler<SeasonChangeEvent>
   protected virtual void OnStart()
   {
     damage = startDamage;
+    radius = startRadius;
     FiringIntervalTime = 1.0 / FiringRate;
     timer = FiringIntervalTime;
 
     EventBus.register<SeasonChangeEvent>(this);
+    EventBus.register<SandstormStartEvent>(this);
 
     SeasonChangeHandleEvent(new SeasonChangeEvent() { changedSeason = SeasonController.GetSeason() });
   }
@@ -41,6 +46,7 @@ public class Weapon : MonoBehaviour, IEventHandler<SeasonChangeEvent>
   void OnDestroy()
   {
     EventBus.unregister<SeasonChangeEvent>(this);
+    EventBus.unregister<SandstormStartEvent>(this);
   }
 
   protected virtual void OnUpdate()
@@ -95,6 +101,20 @@ public class Weapon : MonoBehaviour, IEventHandler<SeasonChangeEvent>
   public void HandleEvent(SeasonChangeEvent eventData)
   {
     SeasonChangeHandleEvent(eventData);
+  }
+
+  // Sandstorm start handler
+  public void HandleEvent(SandstormStartEvent eventData)
+  { 
+    if (eventData.isSandstormStart)
+    {
+        radius = startRadius / 2;
+    }
+    else
+    {
+        radius = startRadius;
+    }
+    Debug.Log(radius);
   }
 
   protected virtual void SeasonChangeHandleEvent(SeasonChangeEvent eventData)

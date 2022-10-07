@@ -3,6 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
+public class SandstormEnemyChangeEvent : IEventData
+{
+    public int numberOfEnemy { get; set; }
+}
+
 public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>
 {
   private float speed = 1;
@@ -25,6 +30,8 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>
   private SpriteRenderer spriteRenderer;
   private GamingDataController gamingDataController;
 
+  public bool canCauseSandstorm;
+
   void Start()
   {
     speed = startSpeed;
@@ -41,6 +48,11 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>
     HandleEvent(new SeasonChangeEvent() { changedSeason = SeasonController.GetSeason() });
 
     gamingDataController = GamingDataController.getInstance();
+
+    if (canCauseSandstorm)
+    {
+        EventBus.post(new SandstormEnemyChangeEvent() { numberOfEnemy = 1 });
+    }
   }
 
   void Update()
@@ -66,7 +78,11 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>
 
   void OnDestroy()
   {
-    EventBus.unregister<SeasonChangeEvent>(this);
+        if (canCauseSandstorm)
+        {
+            EventBus.post(new SandstormEnemyChangeEvent() { numberOfEnemy = -1 });
+        }
+        EventBus.unregister<SeasonChangeEvent>(this);
   }
 
   public void SetPath(Path path)
