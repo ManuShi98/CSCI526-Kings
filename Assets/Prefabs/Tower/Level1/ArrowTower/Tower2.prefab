@@ -132,7 +132,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b26b321168f944aca821c47839f4df0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  radius: 5
+  startRadius: 100
   FiringRate: 5
   startDamage: 20
   firePoint: {fileID: 8833303033463313959}
@@ -177,6 +177,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   towerRoulette: {fileID: 1911646862957551930, guid: 7d1caec574da747019b40cf9a1488361, type: 3}
+  downGradeObject: {fileID: 250404430451689136, guid: 0243939f3d8c541059aff726d3469ae6, type: 3}
+  canBeDestroyedByThunder: 1
 --- !u!1 &7649369351030457650
 GameObject:
   m_ObjectHideFlags: 0
