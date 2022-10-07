@@ -1,10 +1,12 @@
 using UnityEngine;
 
+//todo: 【性能优化】将子弹以对象池的方式实现
 public class Bullet : MonoBehaviour
 {
     public float speed = 10f;
     public float damage = 20f;
     public Rigidbody2D bullet;
+    public GameObject effect;
 
     private GameObject target;
 
@@ -38,6 +40,7 @@ public class Bullet : MonoBehaviour
         {
             enemy.TakeDamage(damage);
         }
+        Instantiate(effect, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 
