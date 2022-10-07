@@ -101,39 +101,40 @@ public class Weapon : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHan
         SeasonChangeHandleEvent(eventData);
     }
 
-  // Sandstorm start handler
-  public void HandleEvent(SandstormStartEvent eventData)
-  { 
-    if (eventData.isSandstormStart)
+    // Sandstorm start handler
+    public void HandleEvent(SandstormStartEvent eventData)
     {
-        radius = startRadius / 2;
+        if (eventData.isSandstormStart)
+        {
+            radius = startRadius / 2;
+        }
+        else
+        {
+            radius = startRadius;
+        }
+        Debug.Log(radius);
     }
-    else
-    {
-        radius = startRadius;
-    }
-    Debug.Log(radius);
-  }
 
-  protected virtual void SeasonChangeHandleEvent(SeasonChangeEvent eventData)
-  {
-    if (eventData.changedSeason == Season.SPRING)
+    protected virtual void SeasonChangeHandleEvent(SeasonChangeEvent eventData)
     {
         if (eventData.changedSeason == Season.SPRING)
         {
-            damage *= 0.7f;
-        }
-        else if (eventData.changedSeason == Season.SUMMER)
-        {
-            damage = startDamage;
-        }
-        else if (eventData.changedSeason == Season.AUTUMN)
-        {
-            damage = startDamage;
-        }
-        else if (eventData.changedSeason == Season.WINTER)
-        {
-            damage = startDamage;
+            if (eventData.changedSeason == Season.SPRING)
+            {
+                damage *= 0.7f;
+            }
+            else if (eventData.changedSeason == Season.SUMMER)
+            {
+                damage = startDamage;
+            }
+            else if (eventData.changedSeason == Season.AUTUMN)
+            {
+                damage = startDamage;
+            }
+            else if (eventData.changedSeason == Season.WINTER)
+            {
+                damage = startDamage;
+            }
         }
     }
 }
