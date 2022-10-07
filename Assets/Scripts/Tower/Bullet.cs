@@ -5,6 +5,7 @@ public class Bullet : MonoBehaviour
     public float speed = 10f;
     public float damage = 20f;
     public Rigidbody2D bullet;
+    public GameObject effect;
 
     private GameObject target;
 
@@ -17,9 +18,6 @@ public class Bullet : MonoBehaviour
     public void fire(GameObject enemy)
     {
         target = enemy;
-
-        //transform.rotation = rotation;
-        //bullet.velocity = transform.right * speed;
     }
 
     public void OnBecameInvisible()
@@ -38,6 +36,7 @@ public class Bullet : MonoBehaviour
         {
             enemy.TakeDamage(damage);
         }
+        Instantiate(effect, transform.position, transform.rotation);
         Destroy(gameObject);
     }
 
