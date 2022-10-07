@@ -23,13 +23,18 @@ public class DataManager : MonoBehaviour
     public static volatile int totalTime = 0; // finished
     public static volatile int numOfCoins = 0;
 
-    public static volatile int currentLevelIndex = 0;
+    public static volatile string currentLevelIndex = "";
     public static volatile bool isPass = false;
 
-    public static volatile int endLevel = 0;
+    public static volatile string endLevel = "";
     public static volatile int level1Time = 0;
     public static volatile int level2Time = 0;
     public static volatile int level3Time = 0;
+    public static volatile int level4Time = 0;
+    public static volatile int level5Time = 0;
+    public static volatile int level6Time = 0;
+    public static volatile int level7Time = 0;
+
 
 
     public static int level1Index = 5;
@@ -82,9 +87,13 @@ public class DataManager : MonoBehaviour
         DataManager.timeOfWinter = 0;
         DataManager.numOfCoins = 0;
         DataManager.totalTime = 0;
-        DataManager.endLevel = 0;
+        DataManager.endLevel = "";
         DataManager.level1Time = 0;
         DataManager.level2Time = 0;
         DataManager.level3Time = 0;
+        DataManager.level4Time = 0;
+        DataManager.level5Time = 0;
+        DataManager.level6Time = 0;
+        DataManager.level7Time = 0;
     }
 }
