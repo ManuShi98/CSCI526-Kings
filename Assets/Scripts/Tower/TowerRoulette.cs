@@ -19,8 +19,8 @@ public class TowerRoulette : MonoBehaviour
         
     }
 
-    public void Build(GameObject prefab)
+    public void Build(GameObject prefab, string price)
     {
-        myTower.BuildTower(prefab);
+        myTower.BuildTower(prefab, price);
     }
 }

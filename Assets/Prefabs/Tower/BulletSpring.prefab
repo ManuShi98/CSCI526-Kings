@@ -139,3 +139,4 @@ MonoBehaviour:
   speed: 10
   damage: 20
   bullet: {fileID: -829909105936934594}
+  effect: {fileID: 8727870703176322827, guid: be95a8d0dddf7491f90aec336053b720, type: 3}
