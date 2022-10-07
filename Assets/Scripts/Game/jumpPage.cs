@@ -11,7 +11,7 @@ public class jumpPage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lastTutorialIndex = 4;
+        lastTutorialIndex = 5;
         endGameTrigger = -1;
 
     }
@@ -35,7 +35,7 @@ public class jumpPage : MonoBehaviour
         else if(SceneManager.GetActiveScene().buildIndex > lastTutorialIndex)
         {
           
-            if(SceneManager.GetActiveScene().buildIndex == DataManager.level3Index)
+            if(DataManager.currentLevelIndex == "level7")
             {
                 DataManager.isPass = true;
                 GamingDataController.getInstance().health = endGameTrigger;
@@ -44,6 +44,7 @@ public class jumpPage : MonoBehaviour
             {
                 Singleton.Instance.updateTime();
                 DataManager.SumCurrentLevelData();
+                recordLevelTime();
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
         }
@@ -58,18 +59,67 @@ public class jumpPage : MonoBehaviour
 
     public void restart()
     {
-        if(DataManager.currentLevelIndex == DataManager.level1Index)
+        Debug.Log(SceneManager.GetActiveScene().name);
+        if(DataManager.currentLevelIndex == "level1")
         {
-            SceneManager.LoadScene("Map");
+            SceneManager.LoadScene("level1");
         }
-        else if(DataManager.currentLevelIndex == DataManager.level2Index)
+        else if(DataManager.currentLevelIndex == "level2")
         {
             SceneManager.LoadScene("level2");
         }
-        else if(DataManager.currentLevelIndex == DataManager.level3Index)
+        else if (DataManager.currentLevelIndex == "level3")
         {
             SceneManager.LoadScene("level3");
         }
-        
+        else if (DataManager.currentLevelIndex == "level4")
+        {
+            SceneManager.LoadScene("level4");
+        }
+        else if (DataManager.currentLevelIndex == "level5")
+        {
+            SceneManager.LoadScene("level5");
+        }
+        else if (DataManager.currentLevelIndex == "level6")
+        {
+            SceneManager.LoadScene("level6");
+        }
+        else if (DataManager.currentLevelIndex == "level7")
+        {
+            SceneManager.LoadScene("level7");
+        }
+
+    }
+
+    private void recordLevelTime()
+    {
+        if (SceneManager.GetActiveScene().name == "level1")
+        {
+            DataManager.level1Time += Singleton.Instance.totalTime;
+        }
+        else if (SceneManager.GetActiveScene().name == "level2")
+        {
+            DataManager.level2Time += Singleton.Instance.totalTime;
+        }
+        else if (SceneManager.GetActiveScene().name == "level3")
+        {
+            DataManager.level3Time += Singleton.Instance.totalTime;
+        }
+        else if (SceneManager.GetActiveScene().name == "level4")
+        {
+            DataManager.level4Time += Singleton.Instance.totalTime;
+        }
+        else if (SceneManager.GetActiveScene().name == "level5")
+        {
+            DataManager.level5Time += Singleton.Instance.totalTime;
+        }
+        else if (SceneManager.GetActiveScene().name == "level6")
+        {
+            DataManager.level6Time += Singleton.Instance.totalTime;
+        }
+        else if (SceneManager.GetActiveScene().name == "level7")
+        {
+            DataManager.level7Time += Singleton.Instance.totalTime;
+        }
     }
 }
