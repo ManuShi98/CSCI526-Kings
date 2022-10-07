@@ -63,11 +63,18 @@ public class TowerBase : MonoBehaviour, IEventHandler<CollidersClickEvent>
         }
     }
 
-    public void BuildTower(GameObject towerPrefab)
+    public void BuildTower(GameObject towerPrefab, string price)
     {
         Debug.Log("Build Tower");
         CloseBuildingTree();
-        // TODO: Add money system here
+        int cost = int.Parse(price);
+        if (GamingDataController.getInstance().getCoinCount() < cost)
+        {
+            //TODO:添加金额不足提示
+            return;
+        }
+
+        GamingDataController.getInstance().reduceCoins(cost);
         GameObject newTower = Instantiate<GameObject>(towerPrefab, transform.parent);
         newTower.transform.position = transform.position;
         newTower.transform.rotation = transform.rotation;
