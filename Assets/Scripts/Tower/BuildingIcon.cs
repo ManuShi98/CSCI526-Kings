@@ -41,7 +41,7 @@ public class BuildingIcon : MonoBehaviour, IEventHandler<UIClickEvent>
     {
         if (eventData.obj == gameObject)
         {
-            towerRoulette.Build(towerPrefab);
+            towerRoulette.Build(towerPrefab, price.ToString());
         }
     }
 }
