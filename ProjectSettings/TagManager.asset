@@ -8,6 +8,7 @@ TagManager:
   - Enemy
   - ClickableIcon
   - LevelUI
+  - ReadyBtn
   layers:
   - Default
   - TransparentFX
