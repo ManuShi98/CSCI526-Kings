@@ -1064,7 +1064,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: introductiuons.Array.data[0]
-      value: Wait, Wolf is coming except FALL?
+      value: Wait, Wolf is coming except AUTUMN?
       objectReference: {fileID: 0}
     - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: introductiuons.Array.data[1]
