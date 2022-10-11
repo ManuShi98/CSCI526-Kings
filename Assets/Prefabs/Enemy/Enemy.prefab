@@ -148,5 +148,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startSpeed: 2
   health: 80
-  startCoinValue: 1
+  startCoinValue: 2
   canCauseSandstorm: 0

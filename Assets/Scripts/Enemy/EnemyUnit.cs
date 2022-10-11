@@ -116,28 +116,28 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>
       speed = startSpeed;
       health = health / previousHealthRate * 1f;
       previousHealthRate = 1f;
-      coinValue += 1;
+      coinValue = startCoinValue + 1;
     }
     else if (eventData.changedSeason == Season.SUMMER)
     {
       speed = startSpeed;
       health = health / previousHealthRate * 0.8f;
       previousHealthRate = 0.8f;
-      coinValue = startCoinValue;
+      coinValue = startCoinValue - 1;
     }
     else if (eventData.changedSeason == Season.AUTUMN)
     {
       speed = 0.8f * startSpeed;
       health = health / previousHealthRate * 1f;
       previousHealthRate = 1f;
-      coinValue += 1;
+      coinValue = startCoinValue + 1;
     }
     else if (eventData.changedSeason == Season.WINTER)
     {
       speed = 0.7f * startSpeed;
       health = health / previousHealthRate * 1f;
       previousHealthRate = 1f;
-      coinValue = startCoinValue;
+      coinValue = startCoinValue - 1;
     }
     SizeAndColorChange();
   }
