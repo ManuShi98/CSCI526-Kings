@@ -1,7 +1,6 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-using static SceneController;
 
 public class GamingDataController : MonoBehaviour
 {
@@ -21,17 +20,14 @@ public class GamingDataController : MonoBehaviour
     private GamingDataController() { }
 
     private static GamingDataController controller;
-    private static readonly object locker = new object();
+    private static readonly object locker = new();
 
-    public static GamingDataController getInstance()
+    public static GamingDataController GetInstance()
     {
         if (controller == null)
         {
             lock (locker)
             {
-                //GameObject obj = new GameObject();
-                //obj.name = "GamingDataController";
-                //controller = obj.AddComponent<GamingDataController>();
                 GameObject obj = GameObject.Find("GamingDataController");
                 controller = obj.GetComponent<GamingDataController>();
             }
@@ -41,9 +37,9 @@ public class GamingDataController : MonoBehaviour
 
     private void Start()
     {
-        getInstance();
+        GetInstance();
         maxRoundDigit.GetComponent<TextMeshProUGUI>().text = maxRound.ToString();
-        updateGamingData();
+        UpdateGamingData();
     }
 
 
@@ -52,62 +48,62 @@ public class GamingDataController : MonoBehaviour
     {
         if (isDataChanged)
         {
-            updateGamingData();
+            UpdateGamingData();
             isDataChanged = false;
         }
     }
 
-    public int getCoinCount()
+    public int GetCoinCount()
     {
         return coins;
     }
 
-    public void setCoinCount(int val)
+    public void SetCoinCount(int val)
     {
         coins = val;
         isDataChanged = true;
     }
 
-    public int getHealth()
+    public int GetHealth()
     {
         return health;
     }
 
-    public void setHealth(int val)
+    public void SetHealth(int val)
     {
         health = val;
         isDataChanged = true;
     }
 
-    public int getMaxRound()
+    public int GetMaxRound()
     {
         return maxRound;
     }
 
-    public void setCurrRound()
+    public void SetCurrRound()
     {
         currRound = currRound + 1;
         isDataChanged = true;
     }
 
-    public void addCoins(int val)
+    public void AddCoins(int val)
     {
         int currCoins = coins + val;
-        setCoinCount(currCoins);
+        SetCoinCount(currCoins);
         Singleton.Instance.numOfCoins += val;
     }
 
-    public void reduceCoins(int val)
+    public void ReduceCoins(int val)
     {
         int currCoins = coins - val;
-        setCoinCount(currCoins);
+        SetCoinCount(currCoins);
     }
 
-    public void reduceHealth(int val = 1)
-    { 
+    public void ReduceHealth(int val = 1)
+    {
         int currHealth = Mathf.Max(health - val, 0);
         //Debug.Log("Call reduceHealth" + "   " + currHealth.ToString());
-        setHealth(currHealth);
+        SetHealth(currHealth);
     }
 
     public bool isAlive()
@@ -115,16 +111,16 @@ public class GamingDataController : MonoBehaviour
         return health > 0;
     }
 
-    public void updateGamingData()
+    public void UpdateGamingData()
     {
         coinDigit.GetComponent<TextMeshProUGUI>().text = coins.ToString();
         healthDigit.GetComponent<TextMeshProUGUI>().text = health.ToString();
-        updateLevelNumber();
+        UpdateLevelNumber();
     }
 
-    private void updateLevelNumber()
+    private void UpdateLevelNumber()
     {
-        if(SceneManager.GetActiveScene().name == "level1")
+        if (SceneManager.GetActiveScene().name == "level1")
         {
             currRoundDigit.GetComponent<TextMeshProUGUI>().text = "1";
         }
@@ -152,7 +148,5 @@ public class GamingDataController : MonoBehaviour
         {
             currRoundDigit.GetComponent<TextMeshProUGUI>().text = "7";
         }
-
-
     }
 }

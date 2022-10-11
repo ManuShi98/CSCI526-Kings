@@ -60,6 +60,7 @@ sysinfo.txt
 crashlytics-build.properties
 
 # MacOS generated file
+.DS_Store
 */.DS_Store
 
 # UserSettings

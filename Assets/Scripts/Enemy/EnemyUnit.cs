@@ -47,7 +47,7 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>
 
     HandleEvent(new SeasonChangeEvent() { changedSeason = SeasonController.GetSeason() });
 
-    gamingDataController = GamingDataController.getInstance();
+    gamingDataController = GamingDataController.GetInstance();
 
     if (canCauseSandstorm)
     {
@@ -65,7 +65,7 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>
     if (index > positions.Length - 1)
     {
       updateReachEndData();
-      gamingDataController.reduceHealth();
+      gamingDataController.ReduceHealth();
       Destroy(gameObject);
       return;
     }
@@ -98,7 +98,7 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>
     {
       Singleton.Instance.numOfDiedMonster++;
       Singleton.Instance.curDiedMonster++;
-      GamingDataController.getInstance().addCoins(coinValue);
+      GamingDataController.GetInstance().AddCoins(coinValue);
       Destroy(gameObject);
     }
   }

@@ -15,9 +15,15 @@ public class Bullet : MonoBehaviour
     /// so the bullet prefabs need to guarantee their head is to the right side.
     /// </summary>
     /// <param name="rotation"></param>
-    public void fire(GameObject enemy)
+    public void Fire(GameObject enemy)
     {
         target = enemy;
+
+        Vector2 dir = target.transform.position - transform.position;
+        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+
+        bullet.velocity = transform.right * speed;
     }
 
     public void OnBecameInvisible()
@@ -42,13 +48,13 @@ public class Bullet : MonoBehaviour
 
     private void Update()
     {
-        if(target != null)
-        {
-            Vector2 dir = target.transform.position - transform.position;
-            float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+        //if(target != null)
+        //{
+        //    Vector2 dir = target.transform.position - transform.position;
+        //    float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+        //    transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 
-            bullet.velocity = transform.right * speed;
-        }
+        //    bullet.velocity = transform.right * speed;
+        //}
     }
 }
