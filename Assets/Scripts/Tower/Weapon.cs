@@ -122,18 +122,22 @@ public class Weapon : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHan
             if (eventData.changedSeason == Season.SPRING)
             {
                 damage *= 0.7f;
+                radius = startRadius;
             }
             else if (eventData.changedSeason == Season.SUMMER)
             {
                 damage = startDamage;
+                radius = startRadius;
             }
             else if (eventData.changedSeason == Season.AUTUMN)
             {
                 damage = startDamage;
+                radius = startRadius / 2;
             }
             else if (eventData.changedSeason == Season.WINTER)
             {
                 damage = startDamage;
+                radius = startRadius;
             }
         }
     }
