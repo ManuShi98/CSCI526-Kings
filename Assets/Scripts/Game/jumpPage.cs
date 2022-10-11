@@ -27,8 +27,8 @@ public class jumpPage : MonoBehaviour
         //need to change...(temp solution)
         if(SceneManager.GetActiveScene().buildIndex <= lastTutorialIndex)
         {
-            GamingDataController.getInstance().health = 3;
-            GamingDataController.getInstance().coins = 20;
+            GamingDataController.GetInstance().health = 3;
+            GamingDataController.GetInstance().coins = 20;
             DataManager.Init();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
@@ -38,7 +38,7 @@ public class jumpPage : MonoBehaviour
             if(DataManager.currentLevelIndex == "level7")
             {
                 DataManager.isPass = true;
-                GamingDataController.getInstance().health = endGameTrigger;
+                GamingDataController.GetInstance().health = endGameTrigger;
             }
             else
             {

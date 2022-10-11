@@ -216,7 +216,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b26b321168f944aca821c47839f4df0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startRadius: 100
+  startRadius: 8
   FiringRate: 5
   startDamage: 20
   firePoint: {fileID: 8833303033463313959}
