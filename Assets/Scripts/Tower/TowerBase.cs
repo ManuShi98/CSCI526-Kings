@@ -83,13 +83,13 @@ public class TowerBase : MonoBehaviour, IEventHandler<CollidersClickEvent>, IEve
         Debug.Log("Build Tower");
         CloseBuildingTree();
         int cost = int.Parse(price);
-        if (GamingDataController.getInstance().getCoinCount() < cost)
+        if (GamingDataController.GetInstance().GetCoinCount() < cost)
         {
             //TODO:添加金额不足提示
             return;
         }
 
-        GamingDataController.getInstance().reduceCoins(cost);
+        GamingDataController.GetInstance().ReduceCoins(cost);
         GameObject newTower = Instantiate<GameObject>(towerPrefab, transform.parent);
         newTower.transform.position = transform.position;
         newTower.transform.rotation = transform.rotation;

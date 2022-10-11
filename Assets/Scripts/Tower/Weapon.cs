@@ -3,7 +3,7 @@ using UnityEngine;
 public class Weapon : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHandler<SandstormStartEvent>
 {
     [SerializeField]
-    protected double startRadius = 100;
+    protected double startRadius = 5;
     protected double radius = 5; // Weapon's firing radius
     public double FiringRate = 10;  // Fire per second
 
@@ -62,7 +62,7 @@ public class Weapon : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHan
             {
                 Bullet newBullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation).GetComponent<Bullet>();
                 newBullet.damage = damage;
-                newBullet.fire(enemy);
+                newBullet.Fire(enemy);
                 timer = FiringIntervalTime;
             }
         }
