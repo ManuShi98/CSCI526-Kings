@@ -1026,6 +1026,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameLogic
       objectReference: {fileID: 0}
+    - target: {fileID: 5255592382626886334, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5255592382626886334, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5255592382626886334, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5255592382626886334, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
+      objectReference: {fileID: 0}
     - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: images.Array.size
       value: 3
@@ -1033,30 +1049,30 @@ PrefabInstance:
     - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: images.Array.data[0]
       value: 
-      objectReference: {fileID: 1527358001, guid: 4f028244c7b3a4b25976f08d6cb56f83, type: 3}
+      objectReference: {fileID: 1288447892, guid: 4f028244c7b3a4b25976f08d6cb56f83, type: 3}
     - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: images.Array.data[1]
       value: 
-      objectReference: {fileID: 1162006220, guid: 4f028244c7b3a4b25976f08d6cb56f83, type: 3}
+      objectReference: {fileID: 21300000, guid: 52ac04949bf83544e87c2ab61109e0f9, type: 3}
     - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: images.Array.data[2]
       value: 
-      objectReference: {fileID: 1288447892, guid: 4f028244c7b3a4b25976f08d6cb56f83, type: 3}
+      objectReference: {fileID: 21300000, guid: 1f4a53ddd47f1d54f8eda7ed16fbd715, type: 3}
     - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: introductiuons.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: introductiuons.Array.data[0]
-      value: Enemy
+      value: Wait, Wolf is coming?
       objectReference: {fileID: 0}
     - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: introductiuons.Array.data[1]
-      value: Enemy2
+      value: OMG! Did the the wolf bring the sandstorm? Good news, No stroms in AUTUMN!
       objectReference: {fileID: 0}
     - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: introductiuons.Array.data[2]
-      value: SandstormEnemy
+      value: Bad news! Your tower can't attack as far when it's in SANDSTORM!
       objectReference: {fileID: 0}
     - target: {fileID: 6481905474466119037, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: m_RootOrder
