@@ -29,8 +29,9 @@ public class DisplayCircleAttackRange : MonoBehaviour
         spriteRenderer.sprite = CreateSprite();
     }
 
-    private void Update()
+    private void OnEnable()
     {
+        Debug.Log("调用");
         if ((int)towerWeapon.GetRadius() * radiusZoomFactor != radius)
         {
             radius = (int)towerWeapon.GetRadius() * radiusZoomFactor;

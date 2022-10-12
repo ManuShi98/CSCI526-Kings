@@ -136,6 +136,8 @@ public class Weapon : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHan
             damage = startDamage;
             radius = startRadius;
         }
+
+        Debug.Log("当前武器: " + gameObject.name + "    攻击半径: " + radius);
     }
 
     public double GetRadius()
