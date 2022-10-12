@@ -50,12 +50,13 @@ public class TowerTutorial : MonoBehaviour, IEventHandler<CollidersClickEvent>, 
         thirdArrow = transform.FindDeepChild("Arrow 3");
         forthArrow = transform.FindDeepChild("Arrow 4");
         fifthArrow = transform.FindDeepChild("Arrow 5");
-        
+
         targetTower = GameObject.Find("TutorialTowerBase");
         if (firstArrow == null)
         {
             Debug.Log("Can't find first arrow for tutorial 2");
-        } else
+        }
+        else
         {
             firstX = firstArrow.position.x;
         }
@@ -120,7 +121,7 @@ public class TowerTutorial : MonoBehaviour, IEventHandler<CollidersClickEvent>, 
 
     public void HandleEvent(CollidersClickEvent eventData)
     {
-        if(eventData.obj == null)
+        if (eventData.obj == null)
         {
             if (step == 1)
             {
@@ -137,14 +138,14 @@ public class TowerTutorial : MonoBehaviour, IEventHandler<CollidersClickEvent>, 
         }
         else if (eventData.obj == targetTower)
         {
-            if(step==0)
+            if (step == 0)
             {
                 step1.gameObject.SetActive(false);
                 step2.gameObject.SetActive(true);
                 step = 1;
-            } 
+            }
         }
-        else if(eventData.obj.tag == "Tower")
+        else if (eventData.obj.tag == "Tower")
         {
             if (step == 2)
             {
@@ -160,13 +161,13 @@ public class TowerTutorial : MonoBehaviour, IEventHandler<CollidersClickEvent>, 
         Debug.Log("1");
         if (eventData.obj != null && eventData.obj.tag == "ClickableIcon")
         {
-            if(step==1)
+            if (step == 1)
             {
                 step2.gameObject.SetActive(false);
                 step3.gameObject.SetActive(true);
                 step = 2;
             }
-            else if(step == 3)
+            else if (step == 3)
             {
                 step4.gameObject.SetActive(false);
                 step = 4;
