@@ -3,9 +3,9 @@ using UnityEngine;
 public class Weapon : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHandler<SandstormStartEvent>
 {
     [SerializeField]
-    protected double startRadius = 5;
-    protected double radius = 5; // Weapon's firing radius
-    public double FiringRate = 10;  // Fire per second
+    protected float startRadius = 5;
+    protected float radius = 5; // Weapon's firing radius
+    public float FiringRate = 10;  // Fire per second
 
     [SerializeField]
     protected float startDamage = 20f;
@@ -16,8 +16,8 @@ public class Weapon : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHan
     public GameObject enemy; // Locked enemy instance
     public GameObject bulletPrefab;
 
-    protected double FiringIntervalTime;
-    protected double timer;
+    protected float FiringIntervalTime;
+    protected float timer;
 
     void Start()
     {
@@ -27,7 +27,7 @@ public class Weapon : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHan
     protected virtual void OnStart()
     {
         damage = startDamage;
-        FiringIntervalTime = 1.0 / FiringRate;
+        FiringIntervalTime = 1.0f / FiringRate;
         timer = FiringIntervalTime;
 
         EventBus.register<SeasonChangeEvent>(this);
@@ -51,7 +51,7 @@ public class Weapon : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHan
     {
         if (enemy != null)
         {
-            if(TwoPointDistance2D(transform.position, enemy.transform.position) > radius)
+            if (TwoPointDistance2D(transform.position, enemy.transform.position) > radius)
             {
                 enemy = null;
             }
@@ -106,39 +106,40 @@ public class Weapon : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHan
     {
         if (eventData.isSandstormStart)
         {
-            radius = startRadius / 2;
+            radius = (float)(startRadius * 0.8);
         }
         else
         {
             radius = startRadius;
         }
-        Debug.Log(radius);
     }
 
     protected virtual void SeasonChangeHandleEvent(SeasonChangeEvent eventData)
     {
         if (eventData.changedSeason == Season.SPRING)
         {
-            if (eventData.changedSeason == Season.SPRING)
-            {
-                damage *= 0.7f;
-                radius = startRadius;
-            }
-            else if (eventData.changedSeason == Season.SUMMER)
-            {
-                damage = startDamage;
-                radius = startRadius;
-            }
-            else if (eventData.changedSeason == Season.AUTUMN)
-            {
-                damage = startDamage;
-                radius = startRadius / 2;
-            }
-            else if (eventData.changedSeason == Season.WINTER)
-            {
-                damage = startDamage;
-                radius = startRadius;
-            }
+            damage *= 0.7f;
+            radius = startRadius;
         }
+        else if (eventData.changedSeason == Season.SUMMER)
+        {
+            damage = startDamage;
+            radius = startRadius;
+        }
+        else if (eventData.changedSeason == Season.AUTUMN)
+        {
+            damage = startDamage;
+            radius = (float)(startRadius * 0.8);
+        }
+        else if (eventData.changedSeason == Season.WINTER)
+        {
+            damage = startDamage;
+            radius = startRadius;
+        }
+    }
+
+    public double GetRadius()
+    {
+        return Mathf.Max(radius, 0);
     }
 }

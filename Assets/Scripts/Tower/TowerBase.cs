@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class TowerBase : MonoBehaviour, IEventHandler<CollidersClickEvent>, IEventHandler<ThunderHitEvent>
@@ -40,19 +38,13 @@ public class TowerBase : MonoBehaviour, IEventHandler<CollidersClickEvent>, IEve
     {
         // 雷电充能塔，临时
         powered = 1;
-        
+
         if (transform.Find("Range") != null)
         {
             rangeImage = transform.Find("Range").gameObject;
         }
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         thisCollider = GetComponent<Collider2D>();
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 
     private void OpenBuildingTree()
@@ -90,7 +82,7 @@ public class TowerBase : MonoBehaviour, IEventHandler<CollidersClickEvent>, IEve
         }
 
         GamingDataController.GetInstance().ReduceCoins(cost);
-        GameObject newTower = Instantiate<GameObject>(towerPrefab, transform.parent);
+        GameObject newTower = Instantiate(towerPrefab, transform.parent);
         newTower.transform.position = transform.position;
         newTower.transform.rotation = transform.rotation;
         Destroy(gameObject);
@@ -103,6 +95,7 @@ public class TowerBase : MonoBehaviour, IEventHandler<CollidersClickEvent>, IEve
             rangeImage.SetActive(flag);
         }
     }
+
 
     public void HandleEvent(CollidersClickEvent eventData)
     {
@@ -123,7 +116,7 @@ public class TowerBase : MonoBehaviour, IEventHandler<CollidersClickEvent>, IEve
 
     public void HandleEvent(ThunderHitEvent eventData)
     {
-        if(eventData.obj != gameObject)
+        if (eventData.obj != gameObject)
         {
             return;
         }
@@ -134,9 +127,10 @@ public class TowerBase : MonoBehaviour, IEventHandler<CollidersClickEvent>, IEve
             newTower.transform.position = transform.position;
             newTower.transform.rotation = transform.rotation;
             Destroy(gameObject);
-        } else
+        }
+        else
         {
-            if(powered < 4)
+            if (powered < 4)
             {
                 powered++;
                 switch (powered)
