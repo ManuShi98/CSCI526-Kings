@@ -63,6 +63,7 @@ public class PreGamePanel : MonoBehaviour
         //GameObject.Find("Canvas/Panel/ContentImage").GetComponent<Image>().sprite = images[curIndex];
         //GameObject.Find("Canvas/Panel/ContentText").GetComponent<TextMeshProUGUI>().text = introductiuons[curIndex];
         contentImage.sprite = images[curIndex];
+        contentImage.preserveAspect = true;
         contentText.text = introductiuons[curIndex];
     }
 

@@ -244,6 +244,87 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7e9d41285102d48028c32b0f879b9903, type: 3}
+--- !u!1001 &31644005
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 4084610899421585321, guid: 689ab82378313448486fe572c4092089, type: 3}
+      propertyPath: m_RootOrder
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4084610899421585321, guid: 689ab82378313448486fe572c4092089, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4084610899421585321, guid: 689ab82378313448486fe572c4092089, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4084610899421585321, guid: 689ab82378313448486fe572c4092089, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4084610899421585321, guid: 689ab82378313448486fe572c4092089, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4084610899421585321, guid: 689ab82378313448486fe572c4092089, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4084610899421585321, guid: 689ab82378313448486fe572c4092089, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4084610899421585321, guid: 689ab82378313448486fe572c4092089, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4084610899421585321, guid: 689ab82378313448486fe572c4092089, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4084610899421585321, guid: 689ab82378313448486fe572c4092089, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4084610899421585321, guid: 689ab82378313448486fe572c4092089, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6245817976338410482, guid: 689ab82378313448486fe572c4092089, type: 3}
+      propertyPath: m_Name
+      value: PreGamePanel
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014359555695979642, guid: 689ab82378313448486fe572c4092089, type: 3}
+      propertyPath: images.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014359555695979642, guid: 689ab82378313448486fe572c4092089, type: 3}
+      propertyPath: images.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: e5205f30161ce5a4bbbd55f43563de59, type: 3}
+    - target: {fileID: 9014359555695979642, guid: 689ab82378313448486fe572c4092089, type: 3}
+      propertyPath: images.Array.data[1]
+      value: 
+      objectReference: {fileID: 1162006220, guid: 4f028244c7b3a4b25976f08d6cb56f83, type: 3}
+    - target: {fileID: 9014359555695979642, guid: 689ab82378313448486fe572c4092089, type: 3}
+      propertyPath: introductiuons.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014359555695979642, guid: 689ab82378313448486fe572c4092089, type: 3}
+      propertyPath: introductiuons.Array.data[0]
+      value: Try to build towers yourself!
+      objectReference: {fileID: 0}
+    - target: {fileID: 9014359555695979642, guid: 689ab82378313448486fe572c4092089, type: 3}
+      propertyPath: introductiuons.Array.data[1]
+      value: 'New enemy: slow and strong'
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 689ab82378313448486fe572c4092089, type: 3}
 --- !u!1 &127065202
 GameObject:
   m_ObjectHideFlags: 0
