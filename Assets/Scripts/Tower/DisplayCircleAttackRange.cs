@@ -23,7 +23,7 @@ public class DisplayCircleAttackRange : MonoBehaviour
         spriteRenderer = gameObject.AddComponent<SpriteRenderer>();
         spriteRenderer.sortingOrder = 11;
         towerWeapon = gameObject.GetComponentInParent<Weapon>();
-        radius = (int)towerWeapon.GetRadius() * radiusZoomFactor;
+        radius = (int)(towerWeapon.GetRadius() * radiusZoomFactor);
         Debug.Log("init radius: " + radius);
         border = radius;
         spriteRenderer.sprite = CreateSprite();
@@ -32,9 +32,9 @@ public class DisplayCircleAttackRange : MonoBehaviour
     private void OnEnable()
     {
         Debug.Log("调用");
-        if ((int)towerWeapon.GetRadius() * radiusZoomFactor != radius)
+        if ((int)(towerWeapon.GetRadius() * radiusZoomFactor) != radius)
         {
-            radius = (int)towerWeapon.GetRadius() * radiusZoomFactor;
+            radius = (int)(towerWeapon.GetRadius() * radiusZoomFactor);
             border = radius;
             Debug.Log("New origin radius: " + towerWeapon.GetRadius());
             Debug.Log("New inted radius: " + radius);
