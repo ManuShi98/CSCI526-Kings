@@ -19,6 +19,8 @@ public class Weapon : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHan
     protected float FiringIntervalTime;
     protected float timer;
 
+    private GameObject range;
+
     void Start()
     {
         OnStart();
@@ -29,6 +31,7 @@ public class Weapon : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHan
         damage = startDamage;
         FiringIntervalTime = 1.0f / FiringRate;
         timer = FiringIntervalTime;
+        range = gameObject.transform.Find("Range").gameObject;
 
         EventBus.register<SeasonChangeEvent>(this);
         EventBus.register<SandstormStartEvent>(this);
@@ -138,6 +141,12 @@ public class Weapon : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHan
         }
 
         Debug.Log("当前武器: " + gameObject.name + "    攻击半径: " + radius);
+        // 如果正在展示攻击范围，则通过开关Active状态来刷新攻击范围。
+        if(range.activeSelf)
+        {
+            range.SetActive(false);
+            range.SetActive(true);
+        }
     }
 
     public double GetRadius()

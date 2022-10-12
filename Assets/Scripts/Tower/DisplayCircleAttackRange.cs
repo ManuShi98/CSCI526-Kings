@@ -42,6 +42,11 @@ public class DisplayCircleAttackRange : MonoBehaviour
         }
     }
 
+    public void RedrawAttackRange()
+    {
+        spriteRenderer.sprite = CreateSprite(); 
+    }
+
     private Sprite CreateSprite()
     {
         //图片尺寸
