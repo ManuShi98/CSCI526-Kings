@@ -21,6 +21,8 @@ public class TowerBase : MonoBehaviour, IEventHandler<CollidersClickEvent>, IEve
 
     private SpriteRenderer spriteRenderer;
 
+    private Weapon weapon;
+
     private void OnEnable()
     {
         EventBus.register<CollidersClickEvent>(this);
@@ -38,7 +40,7 @@ public class TowerBase : MonoBehaviour, IEventHandler<CollidersClickEvent>, IEve
     {
         // 雷电充能塔，临时
         powered = 1;
-
+        weapon = gameObject.GetComponent<Weapon>();
         if (transform.Find("Range") != null)
         {
             rangeImage = transform.Find("Range").gameObject;
@@ -132,6 +134,7 @@ public class TowerBase : MonoBehaviour, IEventHandler<CollidersClickEvent>, IEve
         {
             if (powered < 4)
             {
+                weapon.rate *= 2;
                 powered++;
                 switch (powered)
                 {

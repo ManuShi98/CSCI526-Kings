@@ -10,6 +10,7 @@ public class Weapon : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHan
     [SerializeField]
     protected float startDamage = 20f;
     protected float damage = 20f;
+    public float rate = 1.0f;
 
     public Transform firePoint;
 
@@ -64,7 +65,7 @@ public class Weapon : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHan
             if (timer <= 0)
             {
                 Bullet newBullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation).GetComponent<Bullet>();
-                newBullet.damage = damage;
+                newBullet.damage = damage*rate;
                 newBullet.Fire(enemy);
                 timer = FiringIntervalTime;
             }
