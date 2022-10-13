@@ -72,6 +72,7 @@ public class SceneController : MonoBehaviour, IEventData, IEventHandler<SeasonCh
     public void GameBegin(GameObject ReadyBtn)
     {
         isPaused = false;
+        EventBus.post<GameStartEvent>(new GameStartEvent() { });
         foreach (EnemySpawner spawner in SpawnerList)
         {
             spawner.OnGenerateEnemyBtnClicked();
@@ -83,6 +84,7 @@ public class SceneController : MonoBehaviour, IEventData, IEventHandler<SeasonCh
     public void GamePause()
     {
         isPaused = true;
+        EventBus.post<GamePauseEvent>(new GamePauseEvent() { });
         Instantiate(PausePanelPrefab, transform.position, Quaternion.identity);
     }
 

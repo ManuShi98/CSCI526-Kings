@@ -14,24 +14,25 @@ public class PausePanel : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void BackToGame()
     {
-      Time.timeScale = 1;
-      Destroy(gameObject);
+        EventBus.post<GameStartEvent>(new GameStartEvent() { });
+        Time.timeScale = 1;
+        Destroy(gameObject);
     }
 
     public void BackToMainMenu()
     {
-      Time.timeScale = 1;
-      SceneManager.LoadScene("Menu");
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Menu");
     }
 
     public void RestartGame()
     {
-      Time.timeScale = 1;
-      SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Time.timeScale = 1;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 }
