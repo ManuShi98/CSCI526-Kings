@@ -1254,87 +1254,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 5208281054239666937, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
   m_PrefabInstance: {fileID: 3323727299443071749}
   m_PrefabAsset: {fileID: 0}
---- !u!1001 &1658936741
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4084610899421585321, guid: 689ab82378313448486fe572c4092089, type: 3}
-      propertyPath: m_RootOrder
-      value: 7
-      objectReference: {fileID: 0}
-    - target: {fileID: 4084610899421585321, guid: 689ab82378313448486fe572c4092089, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4084610899421585321, guid: 689ab82378313448486fe572c4092089, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4084610899421585321, guid: 689ab82378313448486fe572c4092089, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4084610899421585321, guid: 689ab82378313448486fe572c4092089, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4084610899421585321, guid: 689ab82378313448486fe572c4092089, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4084610899421585321, guid: 689ab82378313448486fe572c4092089, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4084610899421585321, guid: 689ab82378313448486fe572c4092089, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4084610899421585321, guid: 689ab82378313448486fe572c4092089, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4084610899421585321, guid: 689ab82378313448486fe572c4092089, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4084610899421585321, guid: 689ab82378313448486fe572c4092089, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6245817976338410482, guid: 689ab82378313448486fe572c4092089, type: 3}
-      propertyPath: m_Name
-      value: PreGamePanel
-      objectReference: {fileID: 0}
-    - target: {fileID: 9014359555695979642, guid: 689ab82378313448486fe572c4092089, type: 3}
-      propertyPath: images.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9014359555695979642, guid: 689ab82378313448486fe572c4092089, type: 3}
-      propertyPath: images.Array.data[0]
-      value: 
-      objectReference: {fileID: 21300000, guid: 896670a14a1af3549bab7c7b800033c3, type: 3}
-    - target: {fileID: 9014359555695979642, guid: 689ab82378313448486fe572c4092089, type: 3}
-      propertyPath: images.Array.data[1]
-      value: 
-      objectReference: {fileID: 21300000, guid: 9694fc3e25c56ee41a5c9cda268a23ef, type: 3}
-    - target: {fileID: 9014359555695979642, guid: 689ab82378313448486fe572c4092089, type: 3}
-      propertyPath: introductiuons.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 9014359555695979642, guid: 689ab82378313448486fe572c4092089, type: 3}
-      propertyPath: introductiuons.Array.data[0]
-      value: Weather System ready!
-      objectReference: {fileID: 0}
-    - target: {fileID: 9014359555695979642, guid: 689ab82378313448486fe572c4092089, type: 3}
-      propertyPath: introductiuons.Array.data[1]
-      value: A new  tower can be charged in rainy days!
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 689ab82378313448486fe572c4092089, type: 3}
 --- !u!4 &1688743948 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3420531260697940125, guid: 0243939f3d8c541059aff726d3469ae6, type: 3}
@@ -1879,23 +1798,22 @@ PrefabInstance:
     - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: images.Array.data[0]
       value: 
-      objectReference: {fileID: 21300000, guid: c3d645e7c32154162b56096a74729735, type: 3}
+      objectReference: {fileID: 21300000, guid: 896670a14a1af3549bab7c7b800033c3, type: 3}
     - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: images.Array.data[1]
       value: 
-      objectReference: {fileID: 21300000, guid: d2e8ecb174d744b08aa82a30ea07deca, type: 3}
+      objectReference: {fileID: 21300000, guid: 9694fc3e25c56ee41a5c9cda268a23ef, type: 3}
     - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: introductiuons.Array.size
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: introductiuons.Array.data[0]
-      value: New tower, which is chargeable during weather RAINY.
+      value: Weather System ready!
       objectReference: {fileID: 0}
     - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: introductiuons.Array.data[1]
-      value: The tower can be charged at most three times. Every charge will increase
-        the power of the tower
+      value: A new  tower can be charged in rainy days!
       objectReference: {fileID: 0}
     - target: {fileID: 5964091669926470054, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
