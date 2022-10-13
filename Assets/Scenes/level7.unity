@@ -583,6 +583,14 @@ PrefabInstance:
       propertyPath: START
       value: 
       objectReference: {fileID: 305903188}
+    - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
+      propertyPath: waves.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
+      propertyPath: waves.Array.data[1].count
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 73061382936717426, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -854,6 +862,14 @@ PrefabInstance:
       propertyPath: START
       value: 
       objectReference: {fileID: 1555948970}
+    - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
+      propertyPath: waves.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
+      propertyPath: waves.Array.data[1].count
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 73061382936717426, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -930,6 +946,14 @@ PrefabInstance:
       propertyPath: START
       value: 
       objectReference: {fileID: 869618246}
+    - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
+      propertyPath: waves.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
+      propertyPath: waves.Array.data[1].count
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 73061382936717426, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1567,6 +1591,14 @@ PrefabInstance:
       propertyPath: START
       value: 
       objectReference: {fileID: 1587280918}
+    - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
+      propertyPath: waves.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
+      propertyPath: waves.Array.data[1].count
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 73061382936717426, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
       propertyPath: m_RootOrder
       value: 3
