@@ -157,7 +157,6 @@ public class TowerTutorial : MonoBehaviour, IEventHandler<CollidersClickEvent>, 
 
     public void HandleEvent(UIClickEvent eventData)
     {
-        Debug.Log("1");
         if (eventData.obj != null && eventData.obj.tag == "ClickableIcon")
         {
             if(step==1)

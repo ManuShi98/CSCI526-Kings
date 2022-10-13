@@ -13,6 +13,8 @@ public class ChargeableTowerTutorial : MonoBehaviour, IEventHandler<WeatherEvent
     private float secondX;
     private float thirdX;
 
+    public GameObject[] blockTowers;
+
     public GameObject targetTower;
 
     private void OnEnable()
@@ -26,11 +28,15 @@ public class ChargeableTowerTutorial : MonoBehaviour, IEventHandler<WeatherEvent
     {
         EventBus.unregister<WeatherEvent>(this);
         EventBus.unregister<CollidersClickEvent>(this);
-        EventBus.register<UIClickEvent>(this);
+        EventBus.unregister<UIClickEvent>(this);
     }
     // Start is called before the first frame update
     void Start()
     {
+        foreach(var tower in blockTowers)
+        {
+            UIManager.blockTower(tower);
+        }
         step = 1;
         arrow1 = transform.FindDeepChild("Arrow 1");
         arrow2 = transform.FindDeepChild("Arrow 2");
@@ -110,6 +116,10 @@ public class ChargeableTowerTutorial : MonoBehaviour, IEventHandler<WeatherEvent
         {
             step = 4;
             arrow3.gameObject.SetActive(false);
+            foreach (var tower in blockTowers)
+            {
+                UIManager.unblockTower(tower);
+            }
         }
     }
 }

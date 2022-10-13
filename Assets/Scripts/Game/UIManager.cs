@@ -15,10 +15,24 @@ public class CollidersClickEvent : IEventData
 public class UIManager : MonoBehaviour
 {
     public bool paused;
+    private static List<GameObject> blockedTowers = new List<GameObject>();
     // Start is called before the first frame update
     void Start()
     {
         paused = false;
+    }
+
+    public static void blockTower(GameObject tower)
+    {
+        blockedTowers.Add(tower);
+    }
+
+    public static void unblockTower(GameObject tower)
+    {
+        if (blockedTowers.Contains(tower))
+        {
+            blockedTowers.Remove(tower);
+        }
     }
 
     // Update is called once per frame
@@ -53,7 +67,7 @@ public class UIManager : MonoBehaviour
                     RaycastHit2D[] hits = Physics2D.RaycastAll(Camera.main.ScreenToWorldPoint(Input.mousePosition), Camera.main.transform.forward);
                     foreach (RaycastHit2D hit in hits)
                     {
-                        if (hit.collider.gameObject.CompareTag("Tower"))
+                        if (hit.collider.gameObject.CompareTag("Tower") && !blockedTowers.Contains(hit.collider.gameObject))
                         {
                             hittedObj = hit.collider.gameObject;
                             break;
