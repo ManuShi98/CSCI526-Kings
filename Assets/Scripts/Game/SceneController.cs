@@ -5,140 +5,154 @@ using UnityEngine.SceneManagement;
 using System;
 using UnityEngine.EventSystems;
 
+public class GameStartEvent : IEventData
+{
+}
+public class GamePauseEvent : IEventData
+{
+}
+
 public class SceneController : MonoBehaviour, IEventData, IEventHandler<SeasonChangeEvent>
 {
 
-  [SerializeField]
-  private List<Tilemap> maps;
+    [SerializeField]
+    private List<Tilemap> maps;
 
-  [SerializeField]
-  private List<TileData> tileDatas;
+    [SerializeField]
+    private List<TileData> tileDatas;
 
-  private Dictionary<TileBase, TileData> dataFromTiles;
+    public static bool isPaused;
 
-  public EnemySpawner[] SpawnerList;
+    private Dictionary<TileBase, TileData> dataFromTiles;
 
-  public bool StartGeneratingEnemies;
+    public EnemySpawner[] SpawnerList;
 
-  [SerializeField]
-  private GameObject PausePanelPrefab;
+    public bool StartGeneratingEnemies;
 
-  private void Awake()
-  {
-    StartGeneratingEnemies = false;
+    [SerializeField]
+    private GameObject PausePanelPrefab;
 
-    dataFromTiles = new Dictionary<TileBase, TileData>();
-
-    foreach (var tileData in tileDatas)
+    private void Awake()
     {
-      foreach (var tile in tileData.tiles)
-      {
-        dataFromTiles.Add(tile, tileData);
-      }
-    }
-  }
+        StartGeneratingEnemies = false;
 
-  private Queue<GameObject> currentSeasonalMap;
+        dataFromTiles = new Dictionary<TileBase, TileData>();
 
-  public GameObject springMapPrefab;
-  public GameObject summerMapPrefab;
-  public GameObject autumnMapPrefab;
-  public GameObject winterMapPrefab;
-
-  // Start is called before the first frame update
-  void Start()
-  {
-    currentSeasonalMap = new Queue<GameObject>();
-    ChangeSeasonalMap();
-    EventBus.register<SeasonChangeEvent>(this);
-  }
-
-  // Update is called once per frame
-  void Update()
-  {
-
-  }
-
-  public void GameBegin(GameObject ReadyBtn)
-  {
-    foreach (EnemySpawner spawner in SpawnerList)
-    {
-      spawner.OnGenerateEnemyBtnClicked();
-    }
-    Destroy(ReadyBtn);
-    StartGeneratingEnemies = true;
-  }
-
-  public void GamePause()
-  {
-    Instantiate(PausePanelPrefab, transform.position, Quaternion.identity);
-  }
-
-  private void ChangeSeasonalMap()
-  {
-    if (currentSeasonalMap.Count > 0)
-    {
-      Destroy(currentSeasonalMap.Dequeue());
-    }
-    GameObject currentSeasonalGrid = null;
-    switch (SeasonController.GetSeason())
-    {
-      case Season.SPRING:
+        foreach (var tileData in tileDatas)
         {
-          currentSeasonalGrid = Instantiate(springMapPrefab);
+            foreach (var tile in tileData.tiles)
+            {
+                dataFromTiles.Add(tile, tileData);
+            }
         }
-        break;
-      case Season.SUMMER:
-        {
-          currentSeasonalGrid = Instantiate(summerMapPrefab);
-        }
-        break;
-      case Season.AUTUMN:
-        {
-          currentSeasonalGrid = Instantiate(autumnMapPrefab);
-        }
-        break;
-      case Season.WINTER:
-        {
-          currentSeasonalGrid = Instantiate(winterMapPrefab);
-        }
-        break;
-      default:
-        ;
-        break;
-    }
-    currentSeasonalMap.Enqueue(currentSeasonalGrid);
-  }
-
-  private void UpdateTimeData()
-  {
-    int gapTime = (int)(System.DateTime.Now - Singleton.Instance.lastEndTime).TotalSeconds;
-    Season currentSeason = SeasonController.GetSeason();
-    if (currentSeason == Season.SPRING)
-    {
-      Singleton.Instance.timeOfSpring += gapTime;
-    }
-    else if (currentSeason == Season.SUMMER)
-    {
-      Singleton.Instance.timeOfSummer += gapTime;
-    }
-    else if (currentSeason == Season.AUTUMN)
-    {
-      Singleton.Instance.timeOfFall += gapTime;
-    }
-    else if (currentSeason == Season.WINTER)
-    {
-      Singleton.Instance.timeOfWinter += gapTime;
     }
 
-    Singleton.Instance.lastEndTime = System.DateTime.Now;
-    Singleton.Instance.totalTime += gapTime;
-  }
+    private Queue<GameObject> currentSeasonalMap;
 
-  // Handle Season Change
-  public void HandleEvent(SeasonChangeEvent eventData)
-  {
-    UpdateTimeData();
-    ChangeSeasonalMap();
-  }
+    public GameObject springMapPrefab;
+    public GameObject summerMapPrefab;
+    public GameObject autumnMapPrefab;
+    public GameObject winterMapPrefab;
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        isPaused = true;
+        currentSeasonalMap = new Queue<GameObject>();
+        ChangeSeasonalMap();
+        EventBus.register<SeasonChangeEvent>(this);
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+
+    }
+
+    public void GameBegin(GameObject ReadyBtn)
+    {
+        isPaused = false;
+        EventBus.post<GameStartEvent>(new GameStartEvent() { });
+        foreach (EnemySpawner spawner in SpawnerList)
+        {
+            spawner.OnGenerateEnemyBtnClicked();
+        }
+        Destroy(ReadyBtn);
+        StartGeneratingEnemies = true;
+    }
+
+    public void GamePause()
+    {
+        isPaused = true;
+        EventBus.post<GamePauseEvent>(new GamePauseEvent() { });
+        Instantiate(PausePanelPrefab, transform.position, Quaternion.identity);
+    }
+
+    private void ChangeSeasonalMap()
+    {
+        if (currentSeasonalMap.Count > 0)
+        {
+            Destroy(currentSeasonalMap.Dequeue());
+        }
+        GameObject currentSeasonalGrid = null;
+        switch (SeasonController.GetSeason())
+        {
+            case Season.SPRING:
+                {
+                    currentSeasonalGrid = Instantiate(springMapPrefab);
+                }
+                break;
+            case Season.SUMMER:
+                {
+                    currentSeasonalGrid = Instantiate(summerMapPrefab);
+                }
+                break;
+            case Season.AUTUMN:
+                {
+                    currentSeasonalGrid = Instantiate(autumnMapPrefab);
+                }
+                break;
+            case Season.WINTER:
+                {
+                    currentSeasonalGrid = Instantiate(winterMapPrefab);
+                }
+                break;
+            default:
+                ;
+                break;
+        }
+        currentSeasonalMap.Enqueue(currentSeasonalGrid);
+    }
+
+    private void UpdateTimeData()
+    {
+        int gapTime = (int)(System.DateTime.Now - Singleton.Instance.lastEndTime).TotalSeconds;
+        Season currentSeason = SeasonController.GetSeason();
+        if (currentSeason == Season.SPRING)
+        {
+            Singleton.Instance.timeOfSpring += gapTime;
+        }
+        else if (currentSeason == Season.SUMMER)
+        {
+            Singleton.Instance.timeOfSummer += gapTime;
+        }
+        else if (currentSeason == Season.AUTUMN)
+        {
+            Singleton.Instance.timeOfFall += gapTime;
+        }
+        else if (currentSeason == Season.WINTER)
+        {
+            Singleton.Instance.timeOfWinter += gapTime;
+        }
+
+        Singleton.Instance.lastEndTime = System.DateTime.Now;
+        Singleton.Instance.totalTime += gapTime;
+    }
+
+    // Handle Season Change
+    public void HandleEvent(SeasonChangeEvent eventData)
+    {
+        UpdateTimeData();
+        ChangeSeasonalMap();
+    }
 }

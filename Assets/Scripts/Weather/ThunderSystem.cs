@@ -7,7 +7,7 @@ public class ThunderHitEvent : IEventData
     public GameObject obj { get; set; }
 }
 
-public class ThunderSystem : MonoBehaviour, IEventHandler<WeatherEvent>
+public class ThunderSystem : MonoBehaviour, IEventHandler<WeatherEvent>, IEventHandler<GameStartEvent>, IEventHandler<GamePauseEvent>
 {
 
     public GameObject thunderObject;
@@ -18,11 +18,15 @@ public class ThunderSystem : MonoBehaviour, IEventHandler<WeatherEvent>
     private void OnEnable()
     {
         EventBus.register<WeatherEvent>(this);
+        EventBus.register<GameStartEvent>(this);
+        EventBus.register<GamePauseEvent>(this);
     }
 
     private void OnDisable()
     {
         EventBus.unregister<WeatherEvent>(this);
+        EventBus.unregister<GameStartEvent>(this);
+        EventBus.unregister<GamePauseEvent>(this);
     }
 
     // Start is called before the first frame update
@@ -41,6 +45,10 @@ public class ThunderSystem : MonoBehaviour, IEventHandler<WeatherEvent>
 
     public void HandleEvent(WeatherEvent eventData)
     {
+        if (SceneController.isPaused == true)
+        {
+            return;
+        }
         Debug.Log("Thunder system ready");
         if (eventData.weather == Weather.RAINY && paused)
         {
@@ -65,5 +73,20 @@ public class ThunderSystem : MonoBehaviour, IEventHandler<WeatherEvent>
         thunder.transform.position = position;
         Destroy(thunder, 2f);
         EventBus.post<ThunderHitEvent>(new ThunderHitEvent() { obj = towers[target] });
+    }
+
+    public void HandleEvent(GameStartEvent eventData)
+    {
+        if(WeatherSystem.GetWeather() == Weather.RAINY && paused)
+        {
+            paused = false;
+            InvokeRepeating("generateThunder", 2.0f, 10.0f);
+        }
+    }
+
+    public void HandleEvent(GamePauseEvent eventData)
+    {
+        paused = true;
+        CancelInvoke();
     }
 }

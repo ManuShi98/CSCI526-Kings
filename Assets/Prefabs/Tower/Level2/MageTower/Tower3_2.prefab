@@ -189,8 +189,8 @@ GameObject:
   - component: {fileID: 155040475823712392}
   - component: {fileID: 9137465264854217653}
   - component: {fileID: 41239820564931834}
-  - component: {fileID: -6051768134737418691}
   - component: {fileID: 2610397280616894877}
+  - component: {fileID: 756637203513333610}
   m_Layer: 0
   m_Name: Tower3_2
   m_TagString: Tower
@@ -294,25 +294,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.93, y: 1.03}
   m_EdgeRadius: 0
---- !u!114 &-6051768134737418691
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7061294995574057117}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b810cf3cb64c24213ae1e17ac852fe32, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  startRadius: 8
-  FiringRate: 5
-  startDamage: 10
-  firePoint: {fileID: 4243429886321603087}
-  enemy: {fileID: 0}
-  bulletPrefab: {fileID: 1838902653398818568, guid: 59a8fa8e5b1c84a13ab44031fa6a44e9, type: 3}
-  ReminderText: {fileID: 3353896687710475130}
 --- !u!114 &2610397280616894877
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -328,6 +309,24 @@ MonoBehaviour:
   towerRoulette: {fileID: 1911646862957551930, guid: b3885408e79484172bf8533e28186df2, type: 3}
   downGradeObject: {fileID: 7061294995574057117, guid: 235fc537366ee4fff88deb015ea5b373, type: 3}
   canBeDestroyedByThunder: 0
+--- !u!114 &756637203513333610
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7061294995574057117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b26b321168f944aca821c47839f4df0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startRadius: 5
+  FiringRate: 5
+  startDamage: 15
+  firePoint: {fileID: 4243429886321603087}
+  enemy: {fileID: 0}
+  bulletPrefab: {fileID: 1838902653398818568, guid: 59a8fa8e5b1c84a13ab44031fa6a44e9, type: 3}
 --- !u!1 &7332292668646061192
 GameObject:
   m_ObjectHideFlags: 0
