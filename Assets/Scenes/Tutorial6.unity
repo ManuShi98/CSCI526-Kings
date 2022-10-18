@@ -307,11 +307,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &103568421 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 250404430451689136, guid: 0243939f3d8c541059aff726d3469ae6, type: 3}
-  m_PrefabInstance: {fileID: 609985437}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &166993722
 GameObject:
   m_ObjectHideFlags: 0
@@ -476,11 +471,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5749f81d9969a6e4aa2b2e87a4590333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &595610917 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 250404430451689136, guid: 0243939f3d8c541059aff726d3469ae6, type: 3}
-  m_PrefabInstance: {fileID: 1783933874}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &609985437
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -688,11 +678,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0243939f3d8c541059aff726d3469ae6, type: 3}
---- !u!1 &860355794 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 250404430451689136, guid: 0243939f3d8c541059aff726d3469ae6, type: 3}
-  m_PrefabInstance: {fileID: 740173916}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1036064991
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1037,7 +1022,7 @@ GameObject:
   - component: {fileID: 1136448410}
   - component: {fileID: 1136448411}
   m_Layer: 0
-  m_Name: ChargeableTowerTutorial
+  m_Name: FoggyTutorial
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1068,15 +1053,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 1136448409}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 64bc601fc87e64e93a29ea60dfd75dd3, type: 3}
+  m_Script: {fileID: 11500000, guid: e920c2cea8e9646f092890c46e6fd342, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  blockTowers:
-  - {fileID: 595610917}
-  - {fileID: 2047629092}
-  - {fileID: 1893098156}
-  - {fileID: 860355794}
-  targetTower: {fileID: 103568421}
 --- !u!4 &1200540901 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3420531260697940125, guid: 0243939f3d8c541059aff726d3469ae6, type: 3}
@@ -1412,11 +1391,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b0b7f63a025c43c4f822d7356ecad644, type: 3}
---- !u!1 &1893098156 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 250404430451689136, guid: 0243939f3d8c541059aff726d3469ae6, type: 3}
-  m_PrefabInstance: {fileID: 532438156}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1949775129 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3420531260697940125, guid: 0243939f3d8c541059aff726d3469ae6, type: 3}
@@ -1492,11 +1466,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0243939f3d8c541059aff726d3469ae6, type: 3}
---- !u!1 &2047629092 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 250404430451689136, guid: 0243939f3d8c541059aff726d3469ae6, type: 3}
-  m_PrefabInstance: {fileID: 2044343170}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &2059607823
 PrefabInstance:
   m_ObjectHideFlags: 0
