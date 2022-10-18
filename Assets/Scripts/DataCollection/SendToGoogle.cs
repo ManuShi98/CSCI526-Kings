@@ -44,6 +44,14 @@ public class SendToGoogle : MonoBehaviour
     private int _buttonClickLevel6Season;
     private int _buttonClickLevel7Season;
 
+    private int _buttonClickLevel1Weather;
+    private int _buttonClickLevel2Weather;
+    private int _buttonClickLevel3Weather;
+    private int _buttonClickLevel4Weather;
+    private int _buttonClickLevel5Weather;
+    private int _buttonClickLevel6Weather;
+    private int _buttonClickLevel7Weather;
+
 
     // Start is called before the first frame update
     void Start()
@@ -152,15 +160,24 @@ public class SendToGoogle : MonoBehaviour
         _buttonClickLevel5Season = DataManager.buttonClickLevel5Season;
         _buttonClickLevel6Season = DataManager.buttonClickLevel6Season;
         _buttonClickLevel7Season = DataManager.buttonClickLevel7Season;
+        _buttonClickLevel1Weather = DataManager.buttonClickLevel1Weather;
+        _buttonClickLevel2Weather = DataManager.buttonClickLevel2Weather;
+        _buttonClickLevel3Weather = DataManager.buttonClickLevel3Weather;
+        _buttonClickLevel4Weather = DataManager.buttonClickLevel4Weather;
+        _buttonClickLevel5Weather = DataManager.buttonClickLevel5Weather;
+        _buttonClickLevel6Weather = DataManager.buttonClickLevel6Weather;
+        _buttonClickLevel7Weather = DataManager.buttonClickLevel7Weather;
 
-        
+
         StartCoroutine(Post(_sessionId.ToString(), _gameTime.ToString(), _originalMonsterNumber.ToString(), _diedMonsterNumber.ToString(),
         _totalCoins.ToString(), _numOfReachEndMonster.ToString(), _numOfSpringReachEndMonster.ToString(), _numOfSummerReachEndMonster.ToString(),
         _numOfFallReachEndMonster.ToString(), _numOfWinterReachEndMonster.ToString(), _timeOfSpring.ToString(), _timeOfSummer.ToString(),
         _timeOfFall.ToString(), _timeOfWinter.ToString(), _endLevel.ToString(), _level1Time.ToString(), _level2Time.ToString(), _level3Time.ToString(),
         _level4Time.ToString(), _level5Time.ToString(), _level6Time.ToString(), _level7Time.ToString(), _buttonClickLevel1Season.ToString(),
         _buttonClickLevel2Season.ToString(), _buttonClickLevel3Season.ToString(), _buttonClickLevel4Season.ToString(), _buttonClickLevel5Season.ToString(),
-        _buttonClickLevel6Season.ToString(), _buttonClickLevel7Season.ToString()));
+        _buttonClickLevel6Season.ToString(), _buttonClickLevel7Season.ToString(), _buttonClickLevel1Weather.ToString(),
+        _buttonClickLevel2Weather.ToString(), _buttonClickLevel3Weather.ToString(), _buttonClickLevel4Weather.ToString(), _buttonClickLevel5Weather.ToString(),
+        _buttonClickLevel6Weather.ToString(), _buttonClickLevel7Weather.ToString()));
     }
 
     private IEnumerator Post(string sessionID, string gameTime, string originalMonsterNumber, string diedMonsterNumber, string totalCoins,
@@ -168,7 +185,9 @@ public class SendToGoogle : MonoBehaviour
     string numOfWinterReachEndMonster, string timeOfSpring, string timeOfSummer, string timeOfFall, string timeOfWinter, string endLevel,
     string level1Time, string level2Time, string level3Time, string level4Time, string level5Time, string level6Time, string level7Time,
     string buttonClickLevel1Season, string buttonClickLevel2Season, string buttonClickLevel3Season, string buttonClickLevel4Season,
-    string buttonClickLevel5Season, string buttonClickLevel6Season, string buttonClickLevel7Season)
+    string buttonClickLevel5Season, string buttonClickLevel6Season, string buttonClickLevel7Season, string buttonClickLevel1Weather, string buttonClickLevel2Weather,
+    string buttonClickLevel3Weather, string buttonClickLevel4Weather,
+    string buttonClickLevel5Weather, string buttonClickLevel6Weather, string buttonClickLevel7Weather)
     {
         
 
@@ -202,7 +221,14 @@ public class SendToGoogle : MonoBehaviour
         form.AddField("entry.860121711", buttonClickLevel5Season);
         form.AddField("entry.725998613", buttonClickLevel6Season);
         form.AddField("entry.232639601", buttonClickLevel7Season);
-        
+        form.AddField("entry.1014111333", buttonClickLevel1Weather);
+        form.AddField("entry.1920850982", buttonClickLevel2Weather);
+        form.AddField("entry.857166681", buttonClickLevel3Weather);
+        form.AddField("entry.1882204795", buttonClickLevel4Weather);
+        form.AddField("entry.120758482", buttonClickLevel5Weather);
+        form.AddField("entry.1055238420", buttonClickLevel6Weather);
+        form.AddField("entry.1889252841", buttonClickLevel7Weather);
+
 
         using (UnityWebRequest www = UnityWebRequest.Post(URL, form))
         {

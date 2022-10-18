@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Singleton : MonoBehaviour, IEventHandler<SeasonChangeEvent>
+public class Singleton : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHandler<WeatherEvent>
 // public sealed class Singleton
 {
 
@@ -54,6 +54,7 @@ public class Singleton : MonoBehaviour, IEventHandler<SeasonChangeEvent>
   void Start()
   {
         EventBus.register<SeasonChangeEvent>(this);
+        EventBus.register<WeatherEvent>(this);
         HandleEvent(new SeasonChangeEvent() { changedSeason = SeasonController.GetSeason() });
 
     }
@@ -71,6 +72,7 @@ public class Singleton : MonoBehaviour, IEventHandler<SeasonChangeEvent>
     void OnDestroy()
     {
         EventBus.unregister<SeasonChangeEvent>(this);
+        EventBus.unregister<WeatherEvent>(this);
     }
 
 
@@ -102,11 +104,9 @@ public class Singleton : MonoBehaviour, IEventHandler<SeasonChangeEvent>
     public void HandleEvent(SeasonChangeEvent eventData)
     {
 
-        Debug.Log("已经出发" + SceneManager.GetActiveScene().name);
         if (SceneManager.GetActiveScene().name == "level1")
         {
             DataManager.buttonClickLevel1Season++;
-            Debug.Log("已经出发" + SceneManager.GetActiveScene().name);
         }
         else if (SceneManager.GetActiveScene().name == "level2")
         {
@@ -135,5 +135,36 @@ public class Singleton : MonoBehaviour, IEventHandler<SeasonChangeEvent>
 
     }
 
+    public void HandleEvent(WeatherEvent eventData)
+    {
+        if (SceneManager.GetActiveScene().name == "level1")
+        {
+            DataManager.buttonClickLevel1Weather++;
+        }
+        else if (SceneManager.GetActiveScene().name == "level2")
+        {
+            DataManager.buttonClickLevel2Weather++;
+        }
+        else if (SceneManager.GetActiveScene().name == "level3")
+        {
+            DataManager.buttonClickLevel3Weather++;
+        }
+        else if (SceneManager.GetActiveScene().name == "level4")
+        {
+            DataManager.buttonClickLevel4Weather++;
+        }
+        else if (SceneManager.GetActiveScene().name == "level5")
+        {
+            DataManager.buttonClickLevel5Weather++;
+        }
+        else if (SceneManager.GetActiveScene().name == "level6")
+        {
+            DataManager.buttonClickLevel6Weather++;
+        }
+        else if (SceneManager.GetActiveScene().name == "level7")
+        {
+            DataManager.buttonClickLevel7Weather++;
+        }
 
+    }
 }

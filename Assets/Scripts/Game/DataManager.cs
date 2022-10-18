@@ -43,6 +43,14 @@ public class DataManager : MonoBehaviour
     public static volatile int buttonClickLevel6Season = 0;
     public static volatile int buttonClickLevel7Season = 0;
 
+    public static volatile int buttonClickLevel1Weather = 0;
+    public static volatile int buttonClickLevel2Weather = 0;
+    public static volatile int buttonClickLevel3Weather = 0;
+    public static volatile int buttonClickLevel4Weather = 0;
+    public static volatile int buttonClickLevel5Weather = 0;
+    public static volatile int buttonClickLevel6Weather = 0;
+    public static volatile int buttonClickLevel7Weather = 0;
+
 
 
     public static int level1Index = 8;
