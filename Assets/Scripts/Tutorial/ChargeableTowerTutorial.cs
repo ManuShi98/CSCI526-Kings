@@ -38,7 +38,12 @@ public class ChargeableTowerTutorial : MonoBehaviour, IEventHandler<WeatherEvent
             UIManager.blockTower(tower);
         }
         step = 1;
+        GameObject rainyBtn = GameObject.Find("RainyBtn");
         arrow1 = transform.FindDeepChild("Arrow 1");
+        Vector3 pos = Camera.main.ScreenToWorldPoint(rainyBtn.transform.position);
+        pos.y -= 1.5f;
+        pos.z = 0;
+        arrow1.position = pos;
         arrow2 = transform.FindDeepChild("Arrow 2");
         arrow3 = transform.FindDeepChild("Arrow 3");
         if (arrow1 == null)
