@@ -37,7 +37,7 @@ public class Weapon : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHan
         EventBus.register<SeasonChangeEvent>(this);
         EventBus.register<SandstormStartEvent>(this);
 
-        SeasonChangeHandleEvent(new SeasonChangeEvent() { changedSeason = SeasonController.GetSeason() });
+        SeasonChangeHandleEvent(new SeasonChangeEvent() { ChangedSeason = SeasonController.GetSeason() });
     }
 
     void Update()
@@ -120,22 +120,22 @@ public class Weapon : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHan
 
     protected virtual void SeasonChangeHandleEvent(SeasonChangeEvent eventData)
     {
-        if (eventData.changedSeason == Season.SPRING)
+        if (eventData.ChangedSeason == Season.SPRING)
         {
             damage *= 0.7f;
             radius = startRadius;
         }
-        else if (eventData.changedSeason == Season.SUMMER)
+        else if (eventData.ChangedSeason == Season.SUMMER)
         {
             damage = startDamage;
             radius = startRadius;
         }
-        else if (eventData.changedSeason == Season.AUTUMN)
+        else if (eventData.ChangedSeason == Season.AUTUMN)
         {
             damage = startDamage;
             radius = (float)(startRadius * 0.8);
         }
-        else if (eventData.changedSeason == Season.WINTER)
+        else if (eventData.ChangedSeason == Season.WINTER)
         {
             damage = startDamage;
             radius = startRadius;

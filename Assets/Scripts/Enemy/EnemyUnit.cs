@@ -45,7 +45,7 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>
 
     EventBus.register<SeasonChangeEvent>(this);
 
-    HandleEvent(new SeasonChangeEvent() { changedSeason = SeasonController.GetSeason() });
+    HandleEvent(new SeasonChangeEvent() { ChangedSeason = SeasonController.GetSeason() });
 
     gamingDataController = GamingDataController.GetInstance();
 
@@ -111,28 +111,28 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>
   // Season change handler
   public void HandleEvent(SeasonChangeEvent eventData)
   {
-    if (eventData.changedSeason == Season.SPRING)
+    if (eventData.ChangedSeason == Season.SPRING)
     {
       speed = startSpeed;
       health = health / previousHealthRate * 1f;
       previousHealthRate = 1f;
       coinValue = startCoinValue + 1;
     }
-    else if (eventData.changedSeason == Season.SUMMER)
+    else if (eventData.ChangedSeason == Season.SUMMER)
     {
       speed = startSpeed;
       health = health / previousHealthRate * 0.8f;
       previousHealthRate = 0.8f;
       coinValue = startCoinValue - 1;
     }
-    else if (eventData.changedSeason == Season.AUTUMN)
+    else if (eventData.ChangedSeason == Season.AUTUMN)
     {
       speed = 0.8f * startSpeed;
       health = health / previousHealthRate * 1f;
       previousHealthRate = 1f;
       coinValue = startCoinValue + 1;
     }
-    else if (eventData.changedSeason == Season.WINTER)
+    else if (eventData.ChangedSeason == Season.WINTER)
     {
       speed = 0.7f * startSpeed;
       health = health / previousHealthRate * 1f;

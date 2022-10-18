@@ -36,7 +36,7 @@ public class WeaponSpringTower : Weapon, IEventHandler<SeasonChangeEvent>
   public void HandleEvent(SeasonChangeEvent eventData)
   {
     SeasonChangeHandleEvent(eventData);
-    isSpring = eventData.changedSeason == Season.SPRING ? true : false;
+    isSpring = eventData.ChangedSeason == Season.SPRING ? true : false;
   }
 
   // Spring tower special

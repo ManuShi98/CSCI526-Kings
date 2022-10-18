@@ -20,7 +20,7 @@ public class Sandstorm : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
         isAutumn = false;
         EventBus.register<SeasonChangeEvent>(this);
         EventBus.register<SandstormEnemyChangeEvent>(this);
-        HandleEvent(new SeasonChangeEvent() { changedSeason = SeasonController.GetSeason() });
+        HandleEvent(new SeasonChangeEvent() { ChangedSeason = SeasonController.GetSeason() });
     }
 
     // Update is called once per frame
@@ -37,7 +37,7 @@ public class Sandstorm : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
 
     public void HandleEvent(SeasonChangeEvent eventData)
     {
-        if (eventData.changedSeason == Season.AUTUMN)
+        if (eventData.ChangedSeason == Season.AUTUMN)
         {
             isAutumn = true;
         }
