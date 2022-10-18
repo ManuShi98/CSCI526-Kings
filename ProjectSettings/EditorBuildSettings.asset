@@ -24,6 +24,12 @@ EditorBuildSettings:
     path: Assets/Scenes/Tutorial4.unity
     guid: b22fb5f4b1b066147bdd5fcdf6192b61
   - enabled: 1
+    path: Assets/Scenes/Tutorial5_Season_Spring.unity
+    guid: 4c804bc95189147fbad12c97956d17c5
+  - enabled: 1
+    path: Assets/Scenes/Tutorial6.unity
+    guid: 15eb53c2ad49f41b8a404996cd5bd762
+  - enabled: 1
     path: Assets/Scenes/level1.unity
     guid: b21ff35cfe2cf484abff0b9a2f0a6ba2
   - enabled: 1
