@@ -36,6 +36,14 @@ public class SendToGoogle : MonoBehaviour
     private int _level6Time;
     private int _level7Time;
 
+    private int _buttonClickLevel1Season;
+    private int _buttonClickLevel2Season;
+    private int _buttonClickLevel3Season;
+    private int _buttonClickLevel4Season;
+    private int _buttonClickLevel5Season;
+    private int _buttonClickLevel6Season;
+    private int _buttonClickLevel7Season;
+
 
     // Start is called before the first frame update
     void Start()
@@ -57,20 +65,7 @@ public class SendToGoogle : MonoBehaviour
 
                 Singleton.Instance.isGameOver = true;
 
-                //Debug.Log("numOfOriginalMonster: " + Singleton.Instance.numOfOriginalMonster);
-                //Debug.Log("totalTime: " + Singleton.Instance.totalTime);
-                //Debug.Log("numOfCoins: " + Singleton.Instance.numOfCoins);
-                //Debug.Log("numOfDiedMonster: " + Singleton.Instance.numOfDiedMonster);
-                //Debug.Log("numOfReachEndMonster: " + Singleton.Instance.numOfReachEndMonster);
-                //Debug.Log("timeOfSpring: " + Singleton.Instance.timeOfSpring);
-                //Debug.Log("timeOfSummer: " + Singleton.Instance.timeOfSummer);
-                //Debug.Log("timeOfFall: " + Singleton.Instance.timeOfFall);
-                //Debug.Log("timeOfWinter: " + Singleton.Instance.timeOfWinter);
-                //Debug.Log("numOfSpringReachEndMonster: " + Singleton.Instance.numOfSpringReachEndMonster);
-                //Debug.Log("numOfSummerReachEndMonster: " + Singleton.Instance.numOfSummerReachEndMonster);
-                //Debug.Log("numOfFallReachEndMonster: " + Singleton.Instance.numOfFallReachEndMonster);
-                //Debug.Log("numOfWinterReachEndMonster: " + Singleton.Instance.numOfWinterReachEndMonster);
-
+                
                 DataManager.currentLevelIndex = SceneManager.GetActiveScene().name;
                     Debug.Log(DataManager.currentLevelIndex);
                     DataManager.endLevel = SceneManager.GetActiveScene().name;
@@ -150,19 +145,30 @@ public class SendToGoogle : MonoBehaviour
         _level5Time = DataManager.level5Time;
         _level6Time = DataManager.level6Time;
         _level7Time = DataManager.level7Time;
+        _buttonClickLevel1Season = DataManager.buttonClickLevel1Season;
+        _buttonClickLevel2Season = DataManager.buttonClickLevel2Season;
+        _buttonClickLevel3Season = DataManager.buttonClickLevel3Season;
+        _buttonClickLevel4Season = DataManager.buttonClickLevel4Season;
+        _buttonClickLevel5Season = DataManager.buttonClickLevel5Season;
+        _buttonClickLevel6Season = DataManager.buttonClickLevel6Season;
+        _buttonClickLevel7Season = DataManager.buttonClickLevel7Season;
 
         
         StartCoroutine(Post(_sessionId.ToString(), _gameTime.ToString(), _originalMonsterNumber.ToString(), _diedMonsterNumber.ToString(),
         _totalCoins.ToString(), _numOfReachEndMonster.ToString(), _numOfSpringReachEndMonster.ToString(), _numOfSummerReachEndMonster.ToString(),
         _numOfFallReachEndMonster.ToString(), _numOfWinterReachEndMonster.ToString(), _timeOfSpring.ToString(), _timeOfSummer.ToString(),
         _timeOfFall.ToString(), _timeOfWinter.ToString(), _endLevel.ToString(), _level1Time.ToString(), _level2Time.ToString(), _level3Time.ToString(),
-        _level4Time.ToString(), _level5Time.ToString(), _level6Time.ToString(), _level7Time.ToString()));
+        _level4Time.ToString(), _level5Time.ToString(), _level6Time.ToString(), _level7Time.ToString(), _buttonClickLevel1Season.ToString(),
+        _buttonClickLevel2Season.ToString(), _buttonClickLevel3Season.ToString(), _buttonClickLevel4Season.ToString(), _buttonClickLevel5Season.ToString(),
+        _buttonClickLevel6Season.ToString(), _buttonClickLevel7Season.ToString()));
     }
 
     private IEnumerator Post(string sessionID, string gameTime, string originalMonsterNumber, string diedMonsterNumber, string totalCoins,
     string numOfReachEndMonster, string numOfSpringReachEndMonster, string numOfSummerReachEndMonster, string numOfFallReachEndMonster,
     string numOfWinterReachEndMonster, string timeOfSpring, string timeOfSummer, string timeOfFall, string timeOfWinter, string endLevel,
-    string level1Time, string level2Time, string level3Time, string level4Time, string level5Time, string level6Time, string level7Time)
+    string level1Time, string level2Time, string level3Time, string level4Time, string level5Time, string level6Time, string level7Time,
+    string buttonClickLevel1Season, string buttonClickLevel2Season, string buttonClickLevel3Season, string buttonClickLevel4Season,
+    string buttonClickLevel5Season, string buttonClickLevel6Season, string buttonClickLevel7Season)
     {
         
 
@@ -189,6 +195,14 @@ public class SendToGoogle : MonoBehaviour
         form.AddField("entry.391897502", level5Time);
         form.AddField("entry.401723518", level6Time);
         form.AddField("entry.1675488209", level7Time);
+        form.AddField("entry.779801300", buttonClickLevel1Season);
+        form.AddField("entry.2114881390", buttonClickLevel2Season);
+        form.AddField("entry.1595674512", buttonClickLevel3Season);
+        form.AddField("entry.1407407311", buttonClickLevel4Season);
+        form.AddField("entry.860121711", buttonClickLevel5Season);
+        form.AddField("entry.725998613", buttonClickLevel6Season);
+        form.AddField("entry.232639601", buttonClickLevel7Season);
+        
 
         using (UnityWebRequest www = UnityWebRequest.Post(URL, form))
         {

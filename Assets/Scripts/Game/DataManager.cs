@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DataManager : MonoBehaviour
+public class DataManager : MonoBehaviour, IEventHandler<SeasonChangeEvent>
 {
 
     public static volatile int numOfOriginalMonster = 0; //finished
@@ -35,11 +35,18 @@ public class DataManager : MonoBehaviour
     public static volatile int level6Time = 0;
     public static volatile int level7Time = 0;
 
+    public static volatile int buttonClickLevel1Season = 0;
+    public static volatile int buttonClickLevel2Season = 0;
+    public static volatile int buttonClickLevel3Season = 0;
+    public static volatile int buttonClickLevel4Season = 0;
+    public static volatile int buttonClickLevel5Season = 0;
+    public static volatile int buttonClickLevel6Season = 0;
+    public static volatile int buttonClickLevel7Season = 0;
 
 
-    public static int level1Index = 5;
-    public static int level2Index = 6;
-    public static int level3Index = 7;
+
+    public static int level1Index = 8;
+
 
     // Start is called before the first frame update
     void Start()
@@ -95,5 +102,40 @@ public class DataManager : MonoBehaviour
         DataManager.level5Time = 0;
         DataManager.level6Time = 0;
         DataManager.level7Time = 0;
+    }
+
+    public void HandleEvent(SeasonChangeEvent eventData)
+    {
+        Debug.Log("已经出发" + SceneManager.GetActiveScene().name);
+        if (SceneManager.GetActiveScene().name == "level1")
+        {
+            DataManager.buttonClickLevel1Season++;
+            Debug.Log("已经出发" + SceneManager.GetActiveScene().name);
+        }
+        else if (SceneManager.GetActiveScene().name == "level2")
+        {
+            DataManager.buttonClickLevel2Season++;
+        }
+        else if (SceneManager.GetActiveScene().name == "level3")
+        {
+            DataManager.buttonClickLevel3Season++;
+        }
+        else if (SceneManager.GetActiveScene().name == "level4")
+        {
+            DataManager.buttonClickLevel4Season++;
+        }
+        else if (SceneManager.GetActiveScene().name == "level5")
+        {
+            DataManager.buttonClickLevel5Season++;
+        }
+        else if (SceneManager.GetActiveScene().name == "level6")
+        {
+            DataManager.buttonClickLevel6Season++;
+        }
+        else if (SceneManager.GetActiveScene().name == "level7")
+        {
+            DataManager.buttonClickLevel7Season++;
+        }
+
     }
 }

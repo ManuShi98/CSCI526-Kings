@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Singleton : MonoBehaviour
 // public sealed class Singleton
@@ -91,4 +92,5 @@ public class Singleton : MonoBehaviour
     Singleton.Instance.lastEndTime = System.DateTime.Now;
   }
 
+  
 }
