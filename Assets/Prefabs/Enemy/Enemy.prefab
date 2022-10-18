@@ -149,4 +149,5 @@ MonoBehaviour:
   startSpeed: 2
   health: 80
   startCoinValue: 2
+  _rigidbody: {fileID: 4474539147077633830}
   canCauseSandstorm: 0

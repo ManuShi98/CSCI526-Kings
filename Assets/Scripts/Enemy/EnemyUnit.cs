@@ -8,12 +8,15 @@ public class SandstormEnemyChangeEvent : IEventData
     public int numberOfEnemy { get; set; }
 }
 
-public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>
+public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHandler<WeatherEvent>
 {
   private float speed = 1;
 
   [SerializeField]
   private float startSpeed = 1;
+
+  // Foggy paused speed
+  private float pausedSpeed = 1;
 
   [SerializeField]
   private float health = 400;
@@ -44,8 +47,10 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>
     positions = path.positions;
 
     EventBus.register<SeasonChangeEvent>(this);
+    EventBus.register<WeatherEvent>(this);
 
     HandleEvent(new SeasonChangeEvent() { changedSeason = SeasonController.GetSeason() });
+    HandleEvent(new WeatherEvent() { weather = WeatherSystem.GetWeather() });
 
     gamingDataController = GamingDataController.GetInstance();
 
@@ -83,6 +88,7 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>
             EventBus.post(new SandstormEnemyChangeEvent() { numberOfEnemy = -1 });
         }
         EventBus.unregister<SeasonChangeEvent>(this);
+        EventBus.unregister<WeatherEvent>(this);
   }
 
   public void SetPath(Path path)
@@ -179,4 +185,32 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>
     }
 
   }
+
+    // Weather change handler
+    public void HandleEvent(WeatherEvent eventData)
+    {
+        if (eventData.weather == Weather.FOGGY)
+        {
+            System.Random rd = new System.Random();
+            int num = rd.Next(1, 11);
+            if (num <= 2)
+            {
+                FoggyPause();
+                Invoke("FoggyResume", 2);
+            }
+        }
+    }
+
+    // Foggy effects
+    private void FoggyPause()
+    {
+        pausedSpeed = speed;
+        speed = 0;
+    }
+
+    private void FoggyResume()
+    {
+        speed = pausedSpeed;
+        HandleEvent(new SeasonChangeEvent() { changedSeason = SeasonController.GetSeason() });
+    }
 }
