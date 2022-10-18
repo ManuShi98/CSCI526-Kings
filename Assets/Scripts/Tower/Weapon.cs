@@ -78,7 +78,7 @@ public class Weapon : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHan
             foreach (GameObject e in enemies)
             {
                 double currDistance = TwoPointDistance2D(e.transform.position, transform.position);
-                Debug.Log(currDistance);
+                //Debug.Log(currDistance);
                 if (currDistance <= radius && currDistance < minDistance)
                 {
                     minDistance = currDistance;

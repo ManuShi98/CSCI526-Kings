@@ -211,6 +211,6 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
     private void FoggyResume()
     {
         speed = pausedSpeed;
-        HandleEvent(new SeasonChangeEvent() { changedSeason = SeasonController.GetSeason() });
+        HandleEvent(new SeasonChangeEvent() { ChangedSeason = SeasonController.GetSeason() });
     }
 }
