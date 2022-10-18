@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class DataManager : MonoBehaviour, IEventHandler<SeasonChangeEvent>
+public class DataManager : MonoBehaviour
 {
 
     public static volatile int numOfOriginalMonster = 0; //finished
@@ -51,7 +51,7 @@ public class DataManager : MonoBehaviour, IEventHandler<SeasonChangeEvent>
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -104,38 +104,5 @@ public class DataManager : MonoBehaviour, IEventHandler<SeasonChangeEvent>
         DataManager.level7Time = 0;
     }
 
-    public void HandleEvent(SeasonChangeEvent eventData)
-    {
-        Debug.Log("已经出发" + SceneManager.GetActiveScene().name);
-        if (SceneManager.GetActiveScene().name == "level1")
-        {
-            DataManager.buttonClickLevel1Season++;
-            Debug.Log("已经出发" + SceneManager.GetActiveScene().name);
-        }
-        else if (SceneManager.GetActiveScene().name == "level2")
-        {
-            DataManager.buttonClickLevel2Season++;
-        }
-        else if (SceneManager.GetActiveScene().name == "level3")
-        {
-            DataManager.buttonClickLevel3Season++;
-        }
-        else if (SceneManager.GetActiveScene().name == "level4")
-        {
-            DataManager.buttonClickLevel4Season++;
-        }
-        else if (SceneManager.GetActiveScene().name == "level5")
-        {
-            DataManager.buttonClickLevel5Season++;
-        }
-        else if (SceneManager.GetActiveScene().name == "level6")
-        {
-            DataManager.buttonClickLevel6Season++;
-        }
-        else if (SceneManager.GetActiveScene().name == "level7")
-        {
-            DataManager.buttonClickLevel7Season++;
-        }
-
-    }
+   
 }
