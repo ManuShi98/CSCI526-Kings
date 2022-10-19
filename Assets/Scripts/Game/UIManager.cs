@@ -53,7 +53,7 @@ public class UIManager : MonoBehaviour
                     foreach (RaycastResult res in results)
                     {
                         Debug.Log(res.gameObject.tag);
-                        if (res.gameObject.CompareTag("ClickableIcon"))
+                        if (res.gameObject.CompareTag("ClickableIcon") || res.gameObject.CompareTag("StartButton"))
                         {
                             hittedObj = res.gameObject;
                             break;
