@@ -11,7 +11,7 @@ public class jumpPage : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        lastTutorialIndex = 7;
+        lastTutorialIndex = 6;
         endGameTrigger = -1;
 
     }

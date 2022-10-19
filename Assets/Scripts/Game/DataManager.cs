@@ -53,7 +53,7 @@ public class DataManager : MonoBehaviour
 
 
 
-    public static int level1Index = 8;
+    public static int level1Index = 7;
 
 
     // Start is called before the first frame update
