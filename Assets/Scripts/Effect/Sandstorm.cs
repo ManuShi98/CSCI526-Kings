@@ -50,7 +50,7 @@ public class Sandstorm : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
 
     public void HandleEvent(SandstormEnemyChangeEvent eventData)
     {
-        int numberOfChange = eventData.numberOfEnemy;
+        int numberOfChange = eventData.NumberOfEnemy;
         SandstormEnemyNumber += numberOfChange;
         StartSandstorm();
     }

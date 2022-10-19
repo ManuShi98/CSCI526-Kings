@@ -1,11 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 public class SandstormEnemyChangeEvent : IEventData
 {
-    public int numberOfEnemy { get; set; }
+    public int NumberOfEnemy { get; set; }
 }
 
 public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHandler<WeatherEvent>
@@ -56,7 +53,7 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
 
     if (canCauseSandstorm)
     {
-        EventBus.post(new SandstormEnemyChangeEvent() { numberOfEnemy = 1 });
+        EventBus.post(new SandstormEnemyChangeEvent() { NumberOfEnemy = 1 });
     }
   }
 
@@ -85,7 +82,7 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
   {
         if (canCauseSandstorm)
         {
-            EventBus.post(new SandstormEnemyChangeEvent() { numberOfEnemy = -1 });
+            EventBus.post(new SandstormEnemyChangeEvent() { NumberOfEnemy = -1 });
         }
         EventBus.unregister<SeasonChangeEvent>(this);
         EventBus.unregister<WeatherEvent>(this);

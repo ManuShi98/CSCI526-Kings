@@ -697,11 +697,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6943716003264899386, guid: 12b724dfd9d5144b1ae435727f709998, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.11
+      value: -4.97
       objectReference: {fileID: 0}
     - target: {fileID: 6943716003264899386, guid: 12b724dfd9d5144b1ae435727f709998, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.32
+      value: 4.03
       objectReference: {fileID: 0}
     - target: {fileID: 6943716003264899386, guid: 12b724dfd9d5144b1ae435727f709998, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1200,13 +1200,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 1136448409}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b322b22c9da6449d2920269214798c90, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c6caa4d306c14632b54b15b933334f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   blockTowers:
   - {fileID: 2047629092}
-  - {fileID: 1893098156}
   - {fileID: 595610917}
+  - {fileID: 1893098156}
   - {fileID: 860355794}
   targetTower: {fileID: 103568421}
 --- !u!4 &1200540901 stripped
@@ -1867,50 +1867,46 @@ PrefabInstance:
       propertyPath: health
       value: 100
       objectReference: {fileID: 0}
+    - target: {fileID: 5208281055558755134, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 3323727299443071752}
+    - target: {fileID: 5208281055558755134, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5208281055558755134, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: m_SortingOrder
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 5255592382626886334, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: m_text
       value: New tower, chargeable during weather RAINY.
       objectReference: {fileID: 0}
     - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: images.Array.size
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: images.Array.data[0]
       value: 
-      objectReference: {fileID: 21300000, guid: 6f00d315a6108475f985543cb8f7fb14, type: 3}
+      objectReference: {fileID: 21300000, guid: 49c0995dc45854a73a08fca6257348a0, type: 3}
     - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: images.Array.data[1]
       value: 
-      objectReference: {fileID: 21300000, guid: 6f00d315a6108475f985543cb8f7fb14, type: 3}
-    - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
-      propertyPath: images.Array.data[2]
-      value: 
-      objectReference: {fileID: 21300000, guid: d5a2070db4fb549469649e26e35381f1, type: 3}
-    - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
-      propertyPath: images.Array.data[3]
-      value: 
-      objectReference: {fileID: 21300000, guid: 60574fb369fb94f409ff0f5ca0312148, type: 3}
+      objectReference: {fileID: 21300000, guid: 9694fc3e25c56ee41a5c9cda268a23ef, type: 3}
     - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: introductiuons.Array.size
-      value: 4
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: introductiuons.Array.data[0]
-      value: In autumn, autumn winds can blow away diffuse effects (such as sandstorms),
-        weakening the abilities of special monsters.
+      value: During winter, the movement speed of monsters and the player's gain
+        will be significantly reduced.
       objectReference: {fileID: 0}
     - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: introductiuons.Array.data[1]
-      value: But the HP of the monster will increase.
-      objectReference: {fileID: 0}
-    - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
-      propertyPath: introductiuons.Array.data[2]
-      value: The presence of Sandstorm Wolves will reduce the attack radius of towers.
-      objectReference: {fileID: 0}
-    - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
-      propertyPath: introductiuons.Array.data[3]
-      value: You can click on an already built tower to see its current attack radius.
+      value: A new  tower can be charged in rainy days!
       objectReference: {fileID: 0}
     - target: {fileID: 5964091669926470054, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -2026,5 +2022,10 @@ Transform:
 --- !u!4 &3323727299443071751 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6481905474466119037, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+  m_PrefabInstance: {fileID: 3323727299443071749}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &3323727299443071752 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 3323727299272450938, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
   m_PrefabInstance: {fileID: 3323727299443071749}
   m_PrefabAsset: {fileID: 0}
