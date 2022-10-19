@@ -27,6 +27,10 @@ public class WeatherSystem : MonoBehaviour
 
     public static void setWeather(Weather weather)
     {
+        if(weather == currentWeather)
+        {
+            return;
+        }
         currentWeather = weather;
         EventBus.post<WeatherEvent>(new WeatherEvent() { weather = weather });
     }
