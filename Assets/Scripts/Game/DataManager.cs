@@ -35,16 +35,31 @@ public class DataManager : MonoBehaviour
     public static volatile int level6Time = 0;
     public static volatile int level7Time = 0;
 
+    public static volatile int buttonClickLevel1Season = 0;
+    public static volatile int buttonClickLevel2Season = 0;
+    public static volatile int buttonClickLevel3Season = 0;
+    public static volatile int buttonClickLevel4Season = 0;
+    public static volatile int buttonClickLevel5Season = 0;
+    public static volatile int buttonClickLevel6Season = 0;
+    public static volatile int buttonClickLevel7Season = 0;
+
+    public static volatile int buttonClickLevel1Weather = 0;
+    public static volatile int buttonClickLevel2Weather = 0;
+    public static volatile int buttonClickLevel3Weather = 0;
+    public static volatile int buttonClickLevel4Weather = 0;
+    public static volatile int buttonClickLevel5Weather = 0;
+    public static volatile int buttonClickLevel6Weather = 0;
+    public static volatile int buttonClickLevel7Weather = 0;
 
 
-    public static int level1Index = 5;
-    public static int level2Index = 6;
-    public static int level3Index = 7;
+
+    public static int level1Index = 7;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -96,4 +111,6 @@ public class DataManager : MonoBehaviour
         DataManager.level6Time = 0;
         DataManager.level7Time = 0;
     }
+
+   
 }
