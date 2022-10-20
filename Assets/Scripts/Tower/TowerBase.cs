@@ -1,5 +1,25 @@
 using UnityEngine;
 
+public enum TowerType
+{
+    CANNON_TOWER_1,
+    CANNON_TOWER_2,
+    CANNON_TOWER_3,
+    ARROW_TOWER_1,
+    ARROW_TOWER_2,
+    ARROW_TOWER_3,
+    MAGE_TOWER_1,
+    MAGE_TOWER_2,
+    MAGE_TOWER_3,
+    DESTROY_TOWER
+}
+
+public class TowerBuildEvent : IEventData
+{
+    public int price;
+    public TowerType towerType;
+}
+
 public class TowerBase : MonoBehaviour, IEventHandler<CollidersClickEvent>, IEventHandler<ThunderHitEvent>
 {
 
@@ -72,7 +92,7 @@ public class TowerBase : MonoBehaviour, IEventHandler<CollidersClickEvent>, IEve
         }
     }
 
-    public void BuildTower(GameObject towerPrefab, string price)
+    public void BuildTower(GameObject towerPrefab, string price, TowerType towerType)
     {
         Debug.Log("Build Tower");
         CloseBuildingTree();
@@ -82,7 +102,7 @@ public class TowerBase : MonoBehaviour, IEventHandler<CollidersClickEvent>, IEve
             //TODO:添加金额不足提示
             return;
         }
-
+        EventBus.post<TowerBuildEvent>(new TowerBuildEvent() { price = cost, towerType = towerType});
         GamingDataController.GetInstance().ReduceCoins(cost);
         GameObject newTower = Instantiate(towerPrefab, transform.parent);
         newTower.transform.position = transform.position;
