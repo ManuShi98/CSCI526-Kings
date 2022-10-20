@@ -1589,7 +1589,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 191574262936969224, guid: 2c696652a79c7044c9004a216461aa49, type: 3}
       propertyPath: m_text
-      value: Enemy waves!
+      value: Current levels!
       objectReference: {fileID: 0}
     - target: {fileID: 191574263099341402, guid: 2c696652a79c7044c9004a216461aa49, type: 3}
       propertyPath: m_text
