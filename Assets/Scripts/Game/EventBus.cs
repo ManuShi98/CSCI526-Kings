@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
-public interface IEventData
+public class IEventData
 {
 }
 public interface IEventHandler<TEventData> where TEventData : IEventData
@@ -25,13 +25,14 @@ public class EventBus : MonoBehaviour
     }
 
     private ConcurrentDictionary<Type, List<object>> eventDictionary = new ConcurrentDictionary<Type, List<object>>();
+    private ConcurrentDictionary<Type, List<object>> stickyEvents = new ConcurrentDictionary<Type, List<object>>();
 
     private void OnDestroy()
     {
         instance = null;
     }
 
-    public static void register<TEventData>(IEventHandler<TEventData> eventHandler) where TEventData : IEventData
+    public static void register<TEventData>(IEventHandler<TEventData> eventHandler, bool sticky = false) where TEventData : IEventData
     {
         if (instance == null)
         {
@@ -45,6 +46,14 @@ public class EventBus : MonoBehaviour
         if (!instance.eventDictionary.ContainsKey(typeof(TEventData)))
         {
             instance.eventDictionary[typeof(TEventData)] = new List<object>();
+        }
+        if (sticky == true && instance.stickyEvents.ContainsKey(typeof(TEventData)))
+        {
+            foreach (var stickyevent in instance.stickyEvents[typeof(TEventData)])
+            {
+                var currentStickyEvent = stickyevent as TEventData;
+                eventHandler.HandleEvent(currentStickyEvent);
+            }
         }
         instance.eventDictionary[typeof(TEventData)].Add(eventHandler);
     }
@@ -83,5 +92,15 @@ public class EventBus : MonoBehaviour
                 }
             }
         }
+    }
+
+    public static void postSticky<TEventData>(TEventData eventData) where TEventData : IEventData
+    {
+        if (!instance.stickyEvents.ContainsKey(typeof(TEventData)))
+        {
+            instance.stickyEvents[typeof(TEventData)] = new List<object>();
+        }
+        instance.stickyEvents[typeof(TEventData)].Add(eventData);
+        post<TEventData>(eventData);
     }
 }

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class Weapon : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHandler<SandstormStartEvent>
+public class Weapon : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHandler<SandstormStartEvent>, IEventHandler<WeatherEvent>
 {
     [SerializeField]
     protected float startRadius = 5;
@@ -36,6 +36,7 @@ public class Weapon : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHan
 
         EventBus.register<SeasonChangeEvent>(this);
         EventBus.register<SandstormStartEvent>(this);
+        EventBus.register<WeatherEvent>(this, true);
 
         SeasonChangeHandleEvent(new SeasonChangeEvent() { ChangedSeason = SeasonController.GetSeason() });
     }
@@ -49,6 +50,7 @@ public class Weapon : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHan
     {
         EventBus.unregister<SeasonChangeEvent>(this);
         EventBus.unregister<SandstormStartEvent>(this);
+        EventBus.unregister<WeatherEvent>(this);
     }
 
     protected virtual void OnUpdate()
@@ -153,5 +155,19 @@ public class Weapon : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHan
     public double GetRadius()
     {
         return Mathf.Max(radius, 0);
+    }
+
+    public void HandleEvent(WeatherEvent eventData)
+    {
+        if (eventData.weather == Weather.CLOUDY)
+        {
+            FiringRate = 4f;
+            FiringIntervalTime = 1.0f / FiringRate;
+        }
+        else
+        {
+            FiringRate = 10f;
+            FiringIntervalTime = 1.0f / FiringRate;
+        }
     }
 }
