@@ -1,11 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using System;
 
 public class SandstormEnemyChangeEvent : IEventData
 {
-    public int numberOfEnemy { get; set; }
+    public int NumberOfEnemy { get; set; }
 }
 
 public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHandler<WeatherEvent>
@@ -49,14 +46,14 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
     EventBus.register<SeasonChangeEvent>(this);
     EventBus.register<WeatherEvent>(this);
 
-    HandleEvent(new SeasonChangeEvent() { changedSeason = SeasonController.GetSeason() });
+    HandleEvent(new SeasonChangeEvent() { ChangedSeason = SeasonController.GetSeason() });
     HandleEvent(new WeatherEvent() { weather = WeatherSystem.GetWeather() });
 
     gamingDataController = GamingDataController.GetInstance();
 
     if (canCauseSandstorm)
     {
-        EventBus.post(new SandstormEnemyChangeEvent() { numberOfEnemy = 1 });
+        EventBus.post(new SandstormEnemyChangeEvent() { NumberOfEnemy = 1 });
     }
   }
 
@@ -85,7 +82,7 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
   {
         if (canCauseSandstorm)
         {
-            EventBus.post(new SandstormEnemyChangeEvent() { numberOfEnemy = -1 });
+            EventBus.post(new SandstormEnemyChangeEvent() { NumberOfEnemy = -1 });
         }
         EventBus.unregister<SeasonChangeEvent>(this);
         EventBus.unregister<WeatherEvent>(this);
@@ -117,28 +114,28 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
   // Season change handler
   public void HandleEvent(SeasonChangeEvent eventData)
   {
-    if (eventData.changedSeason == Season.SPRING)
+    if (eventData.ChangedSeason == Season.SPRING)
     {
       speed = startSpeed;
       health = health / previousHealthRate * 1f;
       previousHealthRate = 1f;
       coinValue = startCoinValue + 1;
     }
-    else if (eventData.changedSeason == Season.SUMMER)
+    else if (eventData.ChangedSeason == Season.SUMMER)
     {
       speed = startSpeed;
       health = health / previousHealthRate * 0.8f;
       previousHealthRate = 0.8f;
       coinValue = startCoinValue - 1;
     }
-    else if (eventData.changedSeason == Season.AUTUMN)
+    else if (eventData.ChangedSeason == Season.AUTUMN)
     {
       speed = 0.8f * startSpeed;
       health = health / previousHealthRate * 1f;
       previousHealthRate = 1f;
       coinValue = startCoinValue + 1;
     }
-    else if (eventData.changedSeason == Season.WINTER)
+    else if (eventData.ChangedSeason == Season.WINTER)
     {
       speed = 0.7f * startSpeed;
       health = health / previousHealthRate * 1f;
@@ -211,6 +208,6 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
     private void FoggyResume()
     {
         speed = pausedSpeed;
-        HandleEvent(new SeasonChangeEvent() { changedSeason = SeasonController.GetSeason() });
+        HandleEvent(new SeasonChangeEvent() { ChangedSeason = SeasonController.GetSeason() });
     }
 }

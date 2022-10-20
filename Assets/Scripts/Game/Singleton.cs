@@ -7,67 +7,63 @@ public class Singleton : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
 // public sealed class Singleton
 {
 
-  public volatile int curOriginalMonster = 0;
-  public volatile int curMonsterNum = 0;
-  public volatile int curDiedMonster = 0;
-  public volatile int curReachEndMonster = 0;
-  public volatile int curLevel = 1;
-  public volatile bool isGameOver = false;
+    public volatile int curOriginalMonster = 0;
+    public volatile int curMonsterNum = 0;
+    public volatile int curDiedMonster = 0;
+    public volatile int curReachEndMonster = 0;
+    public volatile int curLevel = 1;
+    public volatile bool isGameOver = false;
 
-  public volatile int numOfOriginalMonster = 0; //finished
-  public volatile int numOfReachEndMonster = 0;  //finished
-  public volatile int numOfDiedMonster = 0; //finished
-  public System.DateTime beginTime = System.DateTime.Now;
+    public volatile int numOfOriginalMonster = 0; //finished
+    public volatile int numOfReachEndMonster = 0;  //finished
+    public volatile int numOfDiedMonster = 0; //finished
+    public System.DateTime beginTime = System.DateTime.Now;
 
-  public volatile int numOfSpringReachEndMonster = 0; //finished
-  public volatile int numOfSummerReachEndMonster = 0; //finished
-  public volatile int numOfFallReachEndMonster = 0; //finished
-  public volatile int numOfWinterReachEndMonster = 0; //finished
+    public volatile int numOfSpringReachEndMonster = 0; //finished
+    public volatile int numOfSummerReachEndMonster = 0; //finished
+    public volatile int numOfFallReachEndMonster = 0; //finished
+    public volatile int numOfWinterReachEndMonster = 0; //finished
 
-  public volatile int timeOfSpring = 0; //finished
-  public volatile int timeOfSummer = 0; //finished
-  public volatile int timeOfFall = 0; //finished
-  public volatile int timeOfWinter = 0; //finished
-  public System.DateTime lastEndTime = System.DateTime.Now;
+    public volatile int timeOfSpring = 0; //finished
+    public volatile int timeOfSummer = 0; //finished
+    public volatile int timeOfFall = 0; //finished
+    public volatile int timeOfWinter = 0; //finished
+    public System.DateTime lastEndTime = System.DateTime.Now;
 
-  public volatile int numOfCoins = 0;
-  public volatile int totalTime = 0; // finished
+    public volatile int numOfCoins = 0;
+    public volatile int totalTime = 0; // finished
 
 
 
-  private static Singleton instance;
+    private static Singleton instance;
 
-  public static Singleton Instance
-  {
-    get
+    public static Singleton Instance
     {
-      if (instance == null)
-      {
-        GameObject obj = new GameObject();
-        obj.name = "Singleton";
-        instance = obj.AddComponent<Singleton>();
-      }
-      return instance;
+        get
+        {
+            if (instance == null)
+            {
+                GameObject obj = new GameObject();
+                obj.name = "Singleton";
+                instance = obj.AddComponent<Singleton>();
+            }
+            return instance;
+        }
     }
-  }
 
-  void Start()
-  {
+    void Start()
+    {
         EventBus.register<SeasonChangeEvent>(this);
         EventBus.register<WeatherEvent>(this);
-        HandleEvent(new SeasonChangeEvent() { changedSeason = SeasonController.GetSeason() });
-
+        HandleEvent(new SeasonChangeEvent() { ChangedSeason = SeasonController.GetSeason() });
     }
 
-  // Update is called once per frame
-  void Update()
-  {
 
-  }
-  void Awake()
-  {
-    instance = this;
-  }
+    void Awake()
+    {
+        instance = this;
+    }
+
 
     void OnDestroy()
     {
@@ -78,28 +74,28 @@ public class Singleton : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
 
 
     public void updateTime()
-  {
-    int gapTime = (int)(System.DateTime.Now - Singleton.Instance.lastEndTime).TotalSeconds;
-    if (SeasonController.GetSeason() == Season.SPRING)
     {
-      Singleton.Instance.timeOfSpring += gapTime;
-    }
-    else if (SeasonController.GetSeason() == Season.SUMMER)
-    {
-      Singleton.Instance.timeOfSummer += gapTime;
-    }
-    else if (SeasonController.GetSeason() == Season.AUTUMN)
-    {
-      Singleton.Instance.timeOfFall += gapTime;
-    }
-    else if (SeasonController.GetSeason() == Season.WINTER)
-    {
-      Singleton.Instance.timeOfWinter += gapTime;
-    }
-    Singleton.Instance.totalTime += gapTime;
+        int gapTime = (int)(System.DateTime.Now - Singleton.Instance.lastEndTime).TotalSeconds;
+        if (SeasonController.GetSeason() == Season.SPRING)
+        {
+            Singleton.Instance.timeOfSpring += gapTime;
+        }
+        else if (SeasonController.GetSeason() == Season.SUMMER)
+        {
+            Singleton.Instance.timeOfSummer += gapTime;
+        }
+        else if (SeasonController.GetSeason() == Season.AUTUMN)
+        {
+            Singleton.Instance.timeOfFall += gapTime;
+        }
+        else if (SeasonController.GetSeason() == Season.WINTER)
+        {
+            Singleton.Instance.timeOfWinter += gapTime;
+        }
+        Singleton.Instance.totalTime += gapTime;
 
-    Singleton.Instance.lastEndTime = System.DateTime.Now;
-  }
+        Singleton.Instance.lastEndTime = System.DateTime.Now;
+    }
 
     public void HandleEvent(SeasonChangeEvent eventData)
     {
