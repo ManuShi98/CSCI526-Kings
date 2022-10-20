@@ -1914,7 +1914,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: introductiuons.Array.data[1]
-      value: 'Arrow Tower: Less attck power, more attack range!'
+      value: 'Arrow Tower: Less attck power, more attack range! It can also slow
+        down enemyies!'
       objectReference: {fileID: 0}
     - target: {fileID: 5964091669926470054, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
