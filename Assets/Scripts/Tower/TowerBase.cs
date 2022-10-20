@@ -101,7 +101,7 @@ public class TowerBase : MonoBehaviour, IEventHandler<CollidersClickEvent>, IEve
         int cost = int.Parse(price);
         if (GamingDataController.GetInstance().GetCoinCount() < cost)
         {
-            //TODO:添加金额不足提示
+            Toast.INSTANCE().MakeText("No enough money!");
             return;
         }
         EventBus.post<TowerBuildEvent>(new TowerBuildEvent() { price = cost, towerType = towerType});
