@@ -51,9 +51,14 @@ public class DataManager : MonoBehaviour
     public static volatile int buttonClickLevel6Weather = 0;
     public static volatile int buttonClickLevel7Weather = 0;
 
+    public static volatile int numOfTower1 = 0;
+    public static volatile int numOfTower2 = 0;
+    public static volatile int numOfTower3 = 0;
+    public static volatile int numOfDestroyTower = 0;
 
 
-    public static int level1Index = 7;
+
+    public static int level1Index = 11;
 
 
     // Start is called before the first frame update

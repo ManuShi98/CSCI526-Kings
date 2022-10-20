@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Singleton : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHandler<WeatherEvent>
+public class Singleton : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHandler<WeatherEvent>, IEventHandler<TowerBuildEvent>
 // public sealed class Singleton
 {
 
@@ -55,6 +55,7 @@ public class Singleton : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
     {
         EventBus.register<SeasonChangeEvent>(this);
         EventBus.register<WeatherEvent>(this);
+        EventBus.register<TowerBuildEvent>(this);
         HandleEvent(new SeasonChangeEvent() { ChangedSeason = SeasonController.GetSeason() });
     }
 
@@ -69,6 +70,7 @@ public class Singleton : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
     {
         EventBus.unregister<SeasonChangeEvent>(this);
         EventBus.unregister<WeatherEvent>(this);
+        EventBus.unregister<TowerBuildEvent>(this);
     }
 
 
@@ -162,5 +164,22 @@ public class Singleton : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
             DataManager.buttonClickLevel7Weather++;
         }
 
+    }
+
+    public void HandleEvent(TowerBuildEvent eventData)
+    {
+        if(eventData.towerType == TowerType.CANNON_TOWER_1 || eventData.towerType == TowerType.CANNON_TOWER_2 || eventData.towerType == TowerType.CANNON_TOWER_3)
+        {
+            DataManager.numOfTower1++;
+        }else if(eventData.towerType == TowerType.ARROW_TOWER_1 || eventData.towerType == TowerType.ARROW_TOWER_2 || eventData.towerType == TowerType.ARROW_TOWER_3)
+        {
+            DataManager.numOfTower2++;
+        }else if(eventData.towerType == TowerType.MAGE_TOWER_1 || eventData.towerType == TowerType.MAGE_TOWER_2 || eventData.towerType == TowerType.MAGE_TOWER_3)
+        {
+            DataManager.numOfTower3++;
+        }else if(eventData.towerType == TowerType.DESTROY_TOWER)
+        {
+            DataManager.numOfDestroyTower++;
+        }
     }
 }
