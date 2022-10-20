@@ -24,6 +24,7 @@ public class SeasonController : MonoBehaviour
         else
         {
             // Notify that season has changed
+            GameObject.Find("SeasonPanelFrame").GetComponent<UIBtnScaleEffect>().ChangeBtnSeason(seasonBtn);
             currentSeason = seasonBtn.season;
             GamingDataController.GetInstance().SetCoinCount(coin - 5);
             EventBus.post(new SeasonChangeEvent() { ChangedSeason = seasonBtn.season });
