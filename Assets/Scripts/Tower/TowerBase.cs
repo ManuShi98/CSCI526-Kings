@@ -154,6 +154,10 @@ public class TowerBase : MonoBehaviour, IEventHandler<CollidersClickEvent>, IEve
         }
         else
         {
+            if(spriteRenderer == null || weapon == null)
+            {
+                return;
+            }
             if (powered < 4)
             {
                 weapon.rate *= 2;
@@ -180,11 +184,14 @@ public class TowerBase : MonoBehaviour, IEventHandler<CollidersClickEvent>, IEve
         {
             Color color;
             ColorUtility.TryParseHtmlString("#FFFFFF", out color);
-            if (color != null)
+            if (color != null && spriteRenderer != null)
             {
                 spriteRenderer.color = color;
             }
-            weapon.rate = 1f;
+            if(weapon != null)
+            {
+                weapon.rate = 1f;
+            }
         }
     }
 }
