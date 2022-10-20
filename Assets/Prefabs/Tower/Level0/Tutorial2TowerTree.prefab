@@ -243,6 +243,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   price: 5
   towerPrefab: {fileID: 7061294995574057117, guid: be940c44fda08475091fe476cd105f09, type: 3}
+  towerType: 0
 --- !u!222 &8421971850946861796
 CanvasRenderer:
   m_ObjectHideFlags: 0

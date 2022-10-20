@@ -8,6 +8,7 @@ public class BuildingIcon : MonoBehaviour, IEventHandler<UIClickEvent>
 
     public int price;
     public GameObject towerPrefab;
+    public TowerType towerType;
 
     private TextMeshProUGUI priceText;
     private TowerRoulette towerRoulette;
@@ -41,7 +42,7 @@ public class BuildingIcon : MonoBehaviour, IEventHandler<UIClickEvent>
     {
         if (eventData.obj == gameObject)
         {
-            towerRoulette.Build(towerPrefab, price.ToString());
+            towerRoulette.Build(towerPrefab, price.ToString(), towerType);
         }
     }
 }
