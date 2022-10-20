@@ -9,12 +9,7 @@ public class Bullet : MonoBehaviour
 
     private GameObject target;
 
-    /// <summary>
-    /// Open fire. The initial rotation refers to the fire point's rotation.
-    /// And bullets always fly from the right direction,
-    /// so the bullet prefabs need to guarantee their head is to the right side.
-    /// </summary>
-    /// <param name="rotation"></param>
+    // Set speed and direction to the enemy
     public void Fire(GameObject enemy)
     {
         target = enemy;
@@ -31,30 +26,13 @@ public class Bullet : MonoBehaviour
         Destroy(gameObject);
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public float GetDamage()
     {
-        if (!collision.CompareTag("Enemy"))
-            return;
-
-        EnemyUnit enemy = collision.GetComponent<EnemyUnit>();
-
-        if (enemy.GetHealth() > 0)
-        {
-            enemy.TakeDamage(damage);
-        }
-        Instantiate(effect, transform.position, transform.rotation);
-        Destroy(gameObject);
+        return damage;
     }
 
-    private void Update()
+    public void DisplayHittingEffect()
     {
-        //if(target != null)
-        //{
-        //    Vector2 dir = target.transform.position - transform.position;
-        //    float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        //    transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-
-        //    bullet.velocity = transform.right * speed;
-        //}
+        Instantiate(effect, transform.position, transform.rotation);
     }
 }
