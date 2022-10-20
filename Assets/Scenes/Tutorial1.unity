@@ -246,6 +246,18 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -42
       objectReference: {fileID: 0}
+    - target: {fileID: 6170113329449019504, guid: 7e9d41285102d48028c32b0f879b9903, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170113329449019504, guid: 7e9d41285102d48028c32b0f879b9903, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 6170113329449019504, guid: 7e9d41285102d48028c32b0f879b9903, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 8657089136807611129, guid: 7e9d41285102d48028c32b0f879b9903, type: 3}
       propertyPath: m_fontSize
       value: 30
@@ -951,6 +963,18 @@ PrefabInstance:
     - target: {fileID: 4692745948562719166, guid: d98d0e160c78be547b16593b1c53ab03, type: 3}
       propertyPath: m_AnchoredPosition.y
       value: -39
+      objectReference: {fileID: 0}
+    - target: {fileID: 4692745948861274875, guid: d98d0e160c78be547b16593b1c53ab03, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4692745948861274875, guid: d98d0e160c78be547b16593b1c53ab03, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 4692745948861274875, guid: d98d0e160c78be547b16593b1c53ab03, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
       objectReference: {fileID: 0}
     - target: {fileID: 6082351619728739577, guid: d98d0e160c78be547b16593b1c53ab03, type: 3}
       propertyPath: m_IsActive
