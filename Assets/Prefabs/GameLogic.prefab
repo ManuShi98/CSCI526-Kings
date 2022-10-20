@@ -3566,6 +3566,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: PreGamePanel
       objectReference: {fileID: 0}
+    - target: {fileID: 6851820096835390564, guid: 689ab82378313448486fe572c4092089, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6851820096835390564, guid: 689ab82378313448486fe572c4092089, type: 3}
+      propertyPath: m_MatchWidthOrHeight
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6851820096835390564, guid: 689ab82378313448486fe572c4092089, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 6851820096835390564, guid: 689ab82378313448486fe572c4092089, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 9014359555695979642, guid: 689ab82378313448486fe572c4092089, type: 3}
       propertyPath: images.Array.size
       value: 0
