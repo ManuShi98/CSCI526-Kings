@@ -6,6 +6,7 @@ public class Weapon : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHan
     protected float startRadius = 5;
     protected float radius = 5; // Weapon's firing radius
     public float FiringRate = 10;  // Fire per second
+    public float startFiringRate;
 
     [SerializeField]
     protected float startDamage = 20f;
@@ -29,6 +30,7 @@ public class Weapon : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHan
 
     protected virtual void OnStart()
     {
+        startFiringRate = FiringRate;
         damage = startDamage;
         FiringIntervalTime = 1.0f / FiringRate;
         timer = FiringIntervalTime;
@@ -161,12 +163,12 @@ public class Weapon : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHan
     {
         if (eventData.weather == Weather.CLOUDY)
         {
-            FiringRate = 4f;
+            FiringRate = startFiringRate / 2f;
             FiringIntervalTime = 1.0f / FiringRate;
         }
         else
         {
-            FiringRate = 10f;
+            FiringRate = startFiringRate;
             FiringIntervalTime = 1.0f / FiringRate;
         }
     }
