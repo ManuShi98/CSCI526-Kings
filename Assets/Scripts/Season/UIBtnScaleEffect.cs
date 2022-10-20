@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
 
-public class UIBtnScaleEffect : MonoBehaviour, IPointerDownHandler
+public class UIBtnScaleEffect : MonoBehaviour/*, IPointerDownHandler*/
 {
     [SerializeField, Header("Scale to"), Range(0, 1)]
     private float _downScale = 0.7f;
@@ -18,7 +18,14 @@ public class UIBtnScaleEffect : MonoBehaviour, IPointerDownHandler
     public RectTransform AutumnBtn;
     public RectTransform WinterBtn;
 
-    public Season currentSeason;
+    private Season currentSeason;
+
+    private SeasonBtn CurrentBtn;
+
+    public SeasonBtn SpringButton;
+    public SeasonBtn SummerButton;
+    public SeasonBtn AutumnButton;
+    public SeasonBtn WinterButton;
 
     public RectTransform RectTransform
     {
@@ -37,36 +44,47 @@ public class UIBtnScaleEffect : MonoBehaviour, IPointerDownHandler
 
     }
 
+    void update ()
+    {
+        
+    }
+
     private RectTransform _rectTransform;
 
-    public void OnPointerDown(PointerEventData eventData)
+    public void ChangeBtnSeason(SeasonBtn seasonBtn)
     {
-        if(currentSeason == Season.SPRING)
+        CurrentBtn = seasonBtn;
+        Debug.Log(CurrentBtn);
+        if(CurrentBtn == SpringButton)
         {
+            Debug.Log("1");
             StopAllCoroutines();
             StartCoroutine(ChangeScaleCoroutine(SpringBtn, 1, _downScale, _downDuration));
             StartCoroutine(ChangeScaleCoroutine(SummerBtn, SummerBtn.localScale.x, 1, _upDuration));
             StartCoroutine(ChangeScaleCoroutine(AutumnBtn, AutumnBtn.localScale.x, 1, _upDuration));
             StartCoroutine(ChangeScaleCoroutine(WinterBtn, WinterBtn.localScale.x, 1, _upDuration));
         }
-        if(currentSeason == Season.SUMMER)
+        if(CurrentBtn == SummerButton)
         {
+            Debug.Log("2");
             StopAllCoroutines();
             StartCoroutine(ChangeScaleCoroutine(SummerBtn, 1, _downScale, _downDuration));
             StartCoroutine(ChangeScaleCoroutine(SpringBtn, SpringBtn.localScale.x, 1, _upDuration));
             StartCoroutine(ChangeScaleCoroutine(AutumnBtn, AutumnBtn.localScale.x, 1, _upDuration));
             StartCoroutine(ChangeScaleCoroutine(WinterBtn, WinterBtn.localScale.x, 1, _upDuration));
         }
-        if(currentSeason == Season.AUTUMN)
+        if(CurrentBtn == AutumnButton)
         {
+            Debug.Log("3");
             StopAllCoroutines();
             StartCoroutine(ChangeScaleCoroutine(AutumnBtn, 1, _downScale, _downDuration));
             StartCoroutine(ChangeScaleCoroutine(SpringBtn, SpringBtn.localScale.x, 1, _upDuration));
             StartCoroutine(ChangeScaleCoroutine(SummerBtn, SummerBtn.localScale.x, 1, _upDuration));
             StartCoroutine(ChangeScaleCoroutine(WinterBtn, WinterBtn.localScale.x, 1, _upDuration));
         }
-        if(currentSeason == Season.WINTER)
+        if(CurrentBtn == WinterButton)
         {
+            Debug.Log("4");
             StopAllCoroutines();
             StartCoroutine(ChangeScaleCoroutine(WinterBtn, 1, _downScale, _downDuration));
             StartCoroutine(ChangeScaleCoroutine(SpringBtn, SpringBtn.localScale.x, 1, _upDuration));

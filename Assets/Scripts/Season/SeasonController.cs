@@ -16,9 +16,19 @@ public class SeasonController : MonoBehaviour
 
     public void PickSeason(SeasonBtn seasonBtn)
     {
-        // Notify that season has changed
-        currentSeason = seasonBtn.season;
-        EventBus.post(new SeasonChangeEvent() { ChangedSeason = seasonBtn.season });
+        var coin = GamingDataController.GetInstance().GetCoinCount();
+        if (coin < 5)
+        {
+            Debug.Log("No enough money");
+        }
+        else
+        {
+            // Notify that season has changed
+            GameObject.Find("SeasonPanelFrame").GetComponent<UIBtnScaleEffect>().ChangeBtnSeason(seasonBtn);
+            currentSeason = seasonBtn.season;
+            GamingDataController.GetInstance().SetCoinCount(coin - 5);
+            EventBus.post(new SeasonChangeEvent() { ChangedSeason = seasonBtn.season });
+        }
     }
 
     public static Season GetSeason()

@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 7990948045965913913}
   - component: {fileID: 7197714312947166548}
   - component: {fileID: 5336394719107748173}
-  - component: {fileID: 8936060476474549455}
   m_Layer: 5
   m_Name: WinterBtn
   m_TagString: Untagged
@@ -137,26 +136,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   season: 0
---- !u!114 &8936060476474549455
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 175517622694389404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc020553af4898d40b0c9a0cb739d214, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _downScale: 0.7
-  _downDuration: 1
-  _upDuration: 1
-  SpringBtn: {fileID: 8874995050260051096}
-  SummerBtn: {fileID: 4815602629043379443}
-  AutumnBtn: {fileID: 2161683567877949127}
-  WinterBtn: {fileID: 1216522439039992223}
-  currentSeason: 3
 --- !u!1 &789756534144037753
 GameObject:
   m_ObjectHideFlags: 0
@@ -1739,7 +1718,6 @@ GameObject:
   - component: {fileID: 2738303619447148720}
   - component: {fileID: 4782583351915781627}
   - component: {fileID: 6627085482019988246}
-  - component: {fileID: 7007552507887438653}
   m_Layer: 5
   m_Name: AutumnBtn
   m_TagString: Untagged
@@ -1863,26 +1841,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   season: 0
---- !u!114 &7007552507887438653
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5176694935206114883}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc020553af4898d40b0c9a0cb739d214, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _downScale: 0.7
-  _downDuration: 1
-  _upDuration: 1
-  SpringBtn: {fileID: 8874995050260051096}
-  SummerBtn: {fileID: 4815602629043379443}
-  AutumnBtn: {fileID: 2161683567877949127}
-  WinterBtn: {fileID: 1216522439039992223}
-  currentSeason: 2
 --- !u!1 &5505264227152022152
 GameObject:
   m_ObjectHideFlags: 0
@@ -1896,7 +1854,6 @@ GameObject:
   - component: {fileID: 2102611187203200517}
   - component: {fileID: 6714215682921210454}
   - component: {fileID: 4488363387798625057}
-  - component: {fileID: 1185476574240905122}
   m_Layer: 5
   m_Name: SummerBtn
   m_TagString: Untagged
@@ -2020,26 +1977,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   season: 0
---- !u!114 &1185476574240905122
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5505264227152022152}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc020553af4898d40b0c9a0cb739d214, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _downScale: 0.7
-  _downDuration: 1
-  _upDuration: 1
-  SpringBtn: {fileID: 8874995050260051096}
-  SummerBtn: {fileID: 4815602629043379443}
-  AutumnBtn: {fileID: 2161683567877949127}
-  WinterBtn: {fileID: 1216522439039992223}
-  currentSeason: 1
 --- !u!1 &5889901421409738351
 GameObject:
   m_ObjectHideFlags: 0
@@ -2310,7 +2247,6 @@ GameObject:
   - component: {fileID: 8837012878512470263}
   - component: {fileID: 5881666120352968398}
   - component: {fileID: 4029693619755863774}
-  - component: {fileID: 4469036825443643520}
   m_Layer: 5
   m_Name: SpringBtn
   m_TagString: Untagged
@@ -2434,26 +2370,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   season: 0
---- !u!114 &4469036825443643520
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7555103596629407314}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bc020553af4898d40b0c9a0cb739d214, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _downScale: 0.7
-  _downDuration: 1
-  _upDuration: 1
-  SpringBtn: {fileID: 8874995050260051096}
-  SummerBtn: {fileID: 4815602629043379443}
-  AutumnBtn: {fileID: 2161683567877949127}
-  WinterBtn: {fileID: 1216522439039992223}
-  currentSeason: 0
 --- !u!1 &7885553697363481710
 GameObject:
   m_ObjectHideFlags: 0
@@ -2945,6 +2861,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3237144547818894614}
   - component: {fileID: 4842746001031295406}
+  - component: {fileID: 6254167354735014592}
   m_Layer: 5
   m_Name: SeasonPanelFrame
   m_TagString: Untagged
@@ -2984,3 +2901,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 9100073022107204627}
   m_CullTransparentMesh: 1
+--- !u!114 &6254167354735014592
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9100073022107204627}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc020553af4898d40b0c9a0cb739d214, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _downScale: 0.7
+  _downDuration: 1
+  _upDuration: 1
+  SpringBtn: {fileID: 8874995050260051096}
+  SummerBtn: {fileID: 4815602629043379443}
+  AutumnBtn: {fileID: 2161683567877949127}
+  WinterBtn: {fileID: 1216522439039992223}
+  SpringButton: {fileID: 4029693619755863774}
+  SummerButton: {fileID: 4488363387798625057}
+  AutumnButton: {fileID: 6627085482019988246}
+  WinterButton: {fileID: 5336394719107748173}
