@@ -20,7 +20,7 @@ public class TowerBuildEvent : IEventData
     public TowerType towerType;
 }
 
-public class TowerBase : MonoBehaviour, IEventHandler<CollidersClickEvent>, IEventHandler<ThunderHitEvent>
+public class TowerBase : MonoBehaviour, IEventHandler<CollidersClickEvent>, IEventHandler<ThunderHitEvent>, IEventHandler<WeatherEvent>
 {
 
     // The build tree
@@ -47,12 +47,14 @@ public class TowerBase : MonoBehaviour, IEventHandler<CollidersClickEvent>, IEve
     {
         EventBus.register<CollidersClickEvent>(this);
         EventBus.register<ThunderHitEvent>(this);
+        EventBus.register<WeatherEvent>(this);
     }
 
     private void OnDisable()
     {
         EventBus.unregister<CollidersClickEvent>(this);
         EventBus.unregister<ThunderHitEvent>(this);
+        EventBus.unregister<WeatherEvent>(this);
     }
 
     // Start is called before the first frame update
@@ -169,6 +171,20 @@ public class TowerBase : MonoBehaviour, IEventHandler<CollidersClickEvent>, IEve
                         break;
                 }
             }
+        }
+    }
+
+    public void HandleEvent(WeatherEvent eventData)
+    {
+        if (eventData.weather != Weather.RAINY)
+        {
+            Color color;
+            ColorUtility.TryParseHtmlString("#FFFFFF", out color);
+            if (color != null)
+            {
+                spriteRenderer.color = color;
+            }
+            weapon.rate = 1f;
         }
     }
 }
