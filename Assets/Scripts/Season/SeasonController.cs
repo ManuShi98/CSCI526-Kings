@@ -19,6 +19,7 @@ public class SeasonController : MonoBehaviour
         var coin = GamingDataController.GetInstance().GetCoinCount();
         if (coin < 5)
         {
+            Toast.INSTANCE().MakeText("No enough money!");
             Debug.Log("No enough money");
         }
         else
