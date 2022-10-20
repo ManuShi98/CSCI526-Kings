@@ -52,6 +52,11 @@ public class SendToGoogle : MonoBehaviour
     private int _buttonClickLevel6Weather;
     private int _buttonClickLevel7Weather;
 
+    public int _numOfTower1;
+    public int _numOfTower2;
+    public int _numOfTower3;
+    public int _numOfDestroyTower;
+
 
     // Start is called before the first frame update
     void Start()
@@ -167,6 +172,10 @@ public class SendToGoogle : MonoBehaviour
         _buttonClickLevel5Weather = DataManager.buttonClickLevel5Weather;
         _buttonClickLevel6Weather = DataManager.buttonClickLevel6Weather;
         _buttonClickLevel7Weather = DataManager.buttonClickLevel7Weather;
+        _numOfTower1 = DataManager.numOfTower1;
+        _numOfTower2 = DataManager.numOfTower2;
+        _numOfTower3 = DataManager.numOfTower3;
+        _numOfDestroyTower = DataManager.numOfDestroyTower;
 
 
         StartCoroutine(Post(_sessionId.ToString(), _gameTime.ToString(), _originalMonsterNumber.ToString(), _diedMonsterNumber.ToString(),
@@ -177,7 +186,8 @@ public class SendToGoogle : MonoBehaviour
         _buttonClickLevel2Season.ToString(), _buttonClickLevel3Season.ToString(), _buttonClickLevel4Season.ToString(), _buttonClickLevel5Season.ToString(),
         _buttonClickLevel6Season.ToString(), _buttonClickLevel7Season.ToString(), _buttonClickLevel1Weather.ToString(),
         _buttonClickLevel2Weather.ToString(), _buttonClickLevel3Weather.ToString(), _buttonClickLevel4Weather.ToString(), _buttonClickLevel5Weather.ToString(),
-        _buttonClickLevel6Weather.ToString(), _buttonClickLevel7Weather.ToString()));
+        _buttonClickLevel6Weather.ToString(), _buttonClickLevel7Weather.ToString(), _numOfTower1.ToString(), _numOfTower2.ToString(), _numOfTower3.ToString(),
+        _numOfDestroyTower.ToString() ));
     }
 
     private IEnumerator Post(string sessionID, string gameTime, string originalMonsterNumber, string diedMonsterNumber, string totalCoins,
@@ -187,7 +197,7 @@ public class SendToGoogle : MonoBehaviour
     string buttonClickLevel1Season, string buttonClickLevel2Season, string buttonClickLevel3Season, string buttonClickLevel4Season,
     string buttonClickLevel5Season, string buttonClickLevel6Season, string buttonClickLevel7Season, string buttonClickLevel1Weather, string buttonClickLevel2Weather,
     string buttonClickLevel3Weather, string buttonClickLevel4Weather,
-    string buttonClickLevel5Weather, string buttonClickLevel6Weather, string buttonClickLevel7Weather)
+    string buttonClickLevel5Weather, string buttonClickLevel6Weather, string buttonClickLevel7Weather, string numOfTower1, string numOfTower2, string numOfTower3, string numOfDestroyTower)
     {
         
 
@@ -228,6 +238,10 @@ public class SendToGoogle : MonoBehaviour
         form.AddField("entry.120758482", buttonClickLevel5Weather);
         form.AddField("entry.1055238420", buttonClickLevel6Weather);
         form.AddField("entry.1889252841", buttonClickLevel7Weather);
+        form.AddField("entry.1394229611", numOfTower1);
+        form.AddField("entry.486050046", numOfTower2);
+        form.AddField("entry.320912087", numOfTower3);
+        form.AddField("entry.1528686406", numOfDestroyTower);
 
 
         using (UnityWebRequest www = UnityWebRequest.Post(URL, form))
