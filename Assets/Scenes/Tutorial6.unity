@@ -652,11 +652,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0243939f3d8c541059aff726d3469ae6, type: 3}
---- !u!20 &632467716 stripped
-Camera:
-  m_CorrespondingSourceObject: {fileID: 3323727299272450938, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
-  m_PrefabInstance: {fileID: 3323727299443071749}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &658848477
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -702,11 +697,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6943716003264899386, guid: 12b724dfd9d5144b1ae435727f709998, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -8.63
+      value: -4.97
       objectReference: {fileID: 0}
     - target: {fileID: 6943716003264899386, guid: 12b724dfd9d5144b1ae435727f709998, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 3.98
+      value: 4.03
       objectReference: {fileID: 0}
     - target: {fileID: 6943716003264899386, guid: 12b724dfd9d5144b1ae435727f709998, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1170,7 +1165,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1136448410}
-  - component: {fileID: 1136448412}
+  - component: {fileID: 1136448411}
   m_Layer: 20
   m_Name: ChargeableTowerTutorial
   m_TagString: Untagged
@@ -1196,7 +1191,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1136448412
+--- !u!114 &1136448411
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1205,7 +1200,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1136448409}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c93183f0ae6f449797ac1f8aa46725c, type: 3}
+  m_Script: {fileID: 11500000, guid: 4c6caa4d306c14632b54b15b933334f2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   blockTowers:
@@ -1875,7 +1870,7 @@ PrefabInstance:
     - target: {fileID: 5208281055558755134, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: m_Camera
       value: 
-      objectReference: {fileID: 632467716}
+      objectReference: {fileID: 3323727299443071752}
     - target: {fileID: 5208281055558755134, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: m_RenderMode
       value: 1
@@ -1895,7 +1890,7 @@ PrefabInstance:
     - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: images.Array.data[0]
       value: 
-      objectReference: {fileID: 21300000, guid: af238f2fa9d224d168139b847b937a0e, type: 3}
+      objectReference: {fileID: 21300000, guid: 49c0995dc45854a73a08fca6257348a0, type: 3}
     - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: images.Array.data[1]
       value: 
@@ -1906,7 +1901,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: introductiuons.Array.data[0]
-      value: In spring, everything is 'NORMAL'.
+      value: During winter, the movement speed of monsters and the player's gain
+        will be significantly reduced.
       objectReference: {fileID: 0}
     - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: introductiuons.Array.data[1]
@@ -2026,5 +2022,10 @@ Transform:
 --- !u!4 &3323727299443071751 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6481905474466119037, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+  m_PrefabInstance: {fileID: 3323727299443071749}
+  m_PrefabAsset: {fileID: 0}
+--- !u!20 &3323727299443071752 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 3323727299272450938, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
   m_PrefabInstance: {fileID: 3323727299443071749}
   m_PrefabAsset: {fileID: 0}
