@@ -1,16 +1,9 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.Collections.Generic;
-using UnityEngine.SceneManagement;
-using System;
-using UnityEngine.EventSystems;
 
-public class GameStartEvent : IEventData
-{
-}
-public class GamePauseEvent : IEventData
-{
-}
+public class GameStartEvent : IEventData { }
+public class GamePauseEvent : IEventData { }
 
 public class SceneController : MonoBehaviour, IEventHandler<SeasonChangeEvent>
 {
@@ -60,19 +53,13 @@ public class SceneController : MonoBehaviour, IEventHandler<SeasonChangeEvent>
         isPaused = true;
         currentSeasonalMap = new Queue<GameObject>();
         ChangeSeasonalMap();
-        EventBus.register<SeasonChangeEvent>(this);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
+        EventBus.register(this);
     }
 
     public void GameBegin(GameObject ReadyBtn)
     {
         isPaused = false;
-        EventBus.post<GameStartEvent>(new GameStartEvent() { });
+        EventBus.post(new GameStartEvent() { });
         foreach (EnemySpawner spawner in SpawnerList)
         {
             spawner.OnGenerateEnemyBtnClicked();
@@ -84,7 +71,7 @@ public class SceneController : MonoBehaviour, IEventHandler<SeasonChangeEvent>
     public void GamePause()
     {
         isPaused = true;
-        EventBus.post<GamePauseEvent>(new GamePauseEvent() { });
+        EventBus.post(new GamePauseEvent() { });
         Instantiate(PausePanelPrefab, transform.position, Quaternion.identity);
     }
 
