@@ -13,6 +13,7 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
 
     [SerializeField]
     private float health;
+    private float previousHealthRate = 1f;
 
     [SerializeField]
     private int startCoinValue;
@@ -78,7 +79,8 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
             arrowBulletSlowDownEffectTimer -= Time.deltaTime;
             if (arrowBulletSlowDownEffectTimer <= 0)
             {
-                speed = startSpeed;
+                speedRatio += 0.1f;
+                speed = startSpeed * speedRatio;
                 //Debug.Log("当前移动速度：" + speed);
             }
         }
@@ -142,34 +144,40 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
         {
             if (currSeason == Season.SUMMER)
             {
-                damageRatio -= 0.2f;
+                //damageRatio -= 0.1f;
                 speedRatio -= 0.2f;
+                coinValue += 1;
             }
             else if (currSeason == Season.AUTUMN)
             {
-                damageRatio += 0.2f;
+                //damageRatio += 0.1f;
             }
             else if (currSeason == Season.WINTER)
             {
                 speedRatio += 0.2f;
+                coinValue += 1;
             }
 
             coinValue = startCoinValue;
+            health = health / previousHealthRate * 1f;
+            previousHealthRate = 1f;
         }
 
         currSeason = eventData.ChangedSeason;
 
-        if(currSeason != Season.SPRING)
+        if (currSeason != Season.SPRING)
         {
             if (currSeason == Season.SUMMER)
             {
-                damageRatio += 0.2f;
+                //damageRatio += 0.1f;
                 speedRatio += 0.2f;
                 coinValue -= 1;
+                previousHealthRate = 0.8f;
             }
             else if (currSeason == Season.AUTUMN)
             {
-                damageRatio -= 0.2f;
+                //damageRatio -= 0.1f;
+                previousHealthRate = 1.1f;
             }
             else if (currSeason == Season.WINTER)
             {
@@ -178,8 +186,40 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
             }
         }
 
+        health *= previousHealthRate;
         speed = startSpeed * speedRatio;
         SizeAndColorChange();
+
+
+
+        //if (eventData.ChangedSeason == Season.SPRING)
+        //{
+        //    speed = startSpeed;
+        //    health = health / previousHealthRate * 1f;
+        //    previousHealthRate = 1f;
+        //    coinValue = startCoinValue + 1;
+        //}
+        //else if (eventData.ChangedSeason == Season.SUMMER)
+        //{
+        //    speed = startSpeed;
+        //    health = health / previousHealthRate * 0.8f;
+        //    previousHealthRate = 0.8f;
+        //    coinValue = startCoinValue - 1;
+        //}
+        //else if (eventData.ChangedSeason == Season.AUTUMN)
+        //{
+        //    speed = 0.8f * startSpeed;
+        //    health = health / previousHealthRate * 1f;
+        //    previousHealthRate = 1f;
+        //    coinValue = startCoinValue + 1;
+        //}
+        //else if (eventData.ChangedSeason == Season.WINTER)
+        //{
+        //    speed = 0.7f * startSpeed;
+        //    health = health / previousHealthRate * 1f;
+        //    previousHealthRate = 1f;
+        //    coinValue = startCoinValue - 1;
+        //}
     }
 
     // Deal with the bullet and monster collision logic.
