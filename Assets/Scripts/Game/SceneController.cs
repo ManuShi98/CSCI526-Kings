@@ -12,7 +12,7 @@ public class GamePauseEvent : IEventData
 {
 }
 
-public class SceneController : MonoBehaviour, IEventData, IEventHandler<SeasonChangeEvent>
+public class SceneController : MonoBehaviour, IEventHandler<SeasonChangeEvent>
 {
 
     [SerializeField]

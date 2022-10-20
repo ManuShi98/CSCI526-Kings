@@ -32,7 +32,7 @@ public class WeatherSystem : MonoBehaviour
             return;
         }
         currentWeather = weather;
-        EventBus.post<WeatherEvent>(new WeatherEvent() { weather = weather });
+        EventBus.postSticky<WeatherEvent>(new WeatherEvent() { weather = weather });
     }
 
     // Start is called before the first frame update
