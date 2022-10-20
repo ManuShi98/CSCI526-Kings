@@ -184,6 +184,7 @@ public class TowerBase : MonoBehaviour, IEventHandler<CollidersClickEvent>, IEve
             {
                 spriteRenderer.color = color;
             }
+            weapon.rate = 1f;
         }
     }
 }
