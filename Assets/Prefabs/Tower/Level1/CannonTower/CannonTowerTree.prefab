@@ -242,7 +242,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45b5b50b8c7da4980b1260061ed4f040, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  price: 5
+  price: 10
   towerPrefab: {fileID: 7061294995574057117, guid: 6b1f8600306bf419180c426d6df0fb40, type: 3}
   towerType: 1
 --- !u!222 &8421971850946861796

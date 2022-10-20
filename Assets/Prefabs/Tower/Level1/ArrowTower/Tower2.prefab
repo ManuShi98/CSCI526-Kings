@@ -134,7 +134,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startRadius: 5
   FiringRate: 5
-  startDamage: 20
+  startFiringRate: 0
+  startDamage: 18
+  rate: 1
   firePoint: {fileID: 8833303033463313959}
   enemy: {fileID: 0}
   bulletPrefab: {fileID: 8695383031998055783, guid: 97fc70fd4ba674ae38923b423867cd83, type: 3}
@@ -179,8 +181,6 @@ MonoBehaviour:
   towerRoulette: {fileID: 1911646862957551930, guid: 7d1caec574da747019b40cf9a1488361, type: 3}
   downGradeObject: {fileID: 250404430451689136, guid: 0243939f3d8c541059aff726d3469ae6, type: 3}
   canBeDestroyedByThunder: 1
-  emptyColor: {r: 0, g: 0, b: 0, a: 0}
-  circleColor: {r: 96, g: 96, b: 96, a: 0.5}
 --- !u!1 &7649369351030457650
 GameObject:
   m_ObjectHideFlags: 0
@@ -225,3 +225,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fec270f2e2c674758a517964075000ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  emptyColor: {r: 0, g: 0, b: 0, a: 0}
+  circleColor: {r: 96, g: 96, b: 96, a: 0.5}

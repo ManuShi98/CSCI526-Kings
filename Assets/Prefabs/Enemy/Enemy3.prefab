@@ -146,8 +146,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c82af749e1b68486987cdc9382299740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSpeed: 1
-  health: 200
+  startSpeed: 1.2
+  health: 700
   startCoinValue: 4
-  _rigidbody: {fileID: 8787248945273140939}
   canCauseSandstorm: 0
