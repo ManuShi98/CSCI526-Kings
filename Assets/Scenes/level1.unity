@@ -258,6 +258,14 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7135742042177172555, guid: c214c43078f30164eac4f955b9aa5809, type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135742042177172555, guid: c214c43078f30164eac4f955b9aa5809, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -523522147, guid: 3f2f055dec8d44d6083076061cf47cf0, type: 3}
     - target: {fileID: 7135742043175787084, guid: c214c43078f30164eac4f955b9aa5809, type: 3}
       propertyPath: m_SizeDelta.x
       value: 713.5376
@@ -268,16 +276,42 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7135742043175787084, guid: c214c43078f30164eac4f955b9aa5809, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -9.6502
+      value: 39
       objectReference: {fileID: 0}
     - target: {fileID: 7135742043175787084, guid: c214c43078f30164eac4f955b9aa5809, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -18.7624
+      value: -0.0000095367
       objectReference: {fileID: 0}
     - target: {fileID: 7135742043175787085, guid: c214c43078f30164eac4f955b9aa5809, type: 3}
       propertyPath: m_text
-      value: Game start, the nightmare will come when you run out of blood! After
-        the prompt box disappears, you can start building the tower.
+      value: 'BLOCK THE ENEMY IN THE PATH
+
+
+        CLICK THE PIT AND BUILD TOWER'
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135742043175787085, guid: c214c43078f30164eac4f955b9aa5809, type: 3}
+      propertyPath: m_fontStyle
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135742043175787085, guid: c214c43078f30164eac4f955b9aa5809, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.1231043
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135742043175787085, guid: c214c43078f30164eac4f955b9aa5809, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.1695185
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135742043175787085, guid: c214c43078f30164eac4f955b9aa5809, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.3584906
+      objectReference: {fileID: 0}
+    - target: {fileID: 7135742043175787085, guid: c214c43078f30164eac4f955b9aa5809, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2100000, guid: e73a58f6e2794ae7b1b7e50b7fb811b0, type: 2}
+    - target: {fileID: 7135742043175787085, guid: c214c43078f30164eac4f955b9aa5809, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4280232795
       objectReference: {fileID: 0}
     - target: {fileID: 7135742043556577736, guid: c214c43078f30164eac4f955b9aa5809, type: 3}
       propertyPath: m_RootOrder
@@ -854,7 +888,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1158429302}
-  m_RootOrder: 16
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1508758560
 MonoBehaviour:
