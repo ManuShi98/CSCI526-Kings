@@ -38,6 +38,10 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
     private SpriteRenderer spriteRenderer;
     private GamingDataController gamingDataController;
 
+    // HP bar
+    [SerializeField]
+    private HPBar bar;
+
     public bool canCauseSandstorm;
 
     // Duration of special effects
@@ -53,6 +57,8 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
 
         spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
         startColor = spriteRenderer.color;
+
+        bar.SetMaxHP(health);
 
         positions = path.positions;
 
@@ -187,6 +193,7 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
         }
 
         health *= previousHealthRate;
+        bar.HPRateEffect(previousHealthRate);
         speed = startSpeed * speedRatio;
         SizeAndColorChange();
 
@@ -249,6 +256,7 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
     private void TakeDamage(float damage)
     {
         health -= damage * damageRatio;
+        bar.SetHP(health);
 
         if (health <= 0)
         {
