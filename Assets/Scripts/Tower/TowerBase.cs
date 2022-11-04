@@ -76,7 +76,7 @@ public class TowerBase : MonoBehaviour, IEventHandler<CollidersClickEvent>, IEve
         Debug.Log("Build Tree open");
         if (towerRoulette != null)
         {
-            activeBuildingTree = Instantiate<GameObject>(towerRoulette, transform).GetComponent<TowerRoulette>();
+            activeBuildingTree = Instantiate(towerRoulette, transform).GetComponent<TowerRoulette>();
             activeBuildingTree.transform.position = transform.position;
 
             activeBuildingTree.myTower = this;
@@ -91,6 +91,8 @@ public class TowerBase : MonoBehaviour, IEventHandler<CollidersClickEvent>, IEve
         {
             Destroy(activeBuildingTree.gameObject);
             thisCollider.enabled = true;
+
+            ShowRange(false);
         }
     }
 
@@ -104,11 +106,10 @@ public class TowerBase : MonoBehaviour, IEventHandler<CollidersClickEvent>, IEve
             Toast.INSTANCE().MakeText("No enough money!");
             return;
         }
-        EventBus.post<TowerBuildEvent>(new TowerBuildEvent() { price = cost, towerType = towerType});
+        EventBus.post(new TowerBuildEvent() { price = cost, towerType = towerType});
         GamingDataController.GetInstance().ReduceCoins(cost);
         GameObject newTower = Instantiate(towerPrefab, transform.parent);
-        newTower.transform.position = transform.position;
-        newTower.transform.rotation = transform.rotation;
+        newTower.transform.SetPositionAndRotation(transform.position, transform.rotation);
         Destroy(gameObject);
     }
 
@@ -147,9 +148,8 @@ public class TowerBase : MonoBehaviour, IEventHandler<CollidersClickEvent>, IEve
         if (canBeDestroyedByThunder)
         {
             CloseBuildingTree();
-            GameObject newTower = Instantiate<GameObject>(downGradeObject, transform.parent);
-            newTower.transform.position = transform.position;
-            newTower.transform.rotation = transform.rotation;
+            GameObject newTower = Instantiate(downGradeObject, transform.parent);
+            newTower.transform.SetPositionAndRotation(transform.position, transform.rotation);
             Destroy(gameObject);
         }
         else
@@ -182,8 +182,7 @@ public class TowerBase : MonoBehaviour, IEventHandler<CollidersClickEvent>, IEve
     {
         if (eventData.weather != Weather.RAINY)
         {
-            Color color;
-            ColorUtility.TryParseHtmlString("#FFFFFF", out color);
+            ColorUtility.TryParseHtmlString("#FFFFFF", out Color color);
             if (color != null && spriteRenderer != null)
             {
                 spriteRenderer.color = color;
