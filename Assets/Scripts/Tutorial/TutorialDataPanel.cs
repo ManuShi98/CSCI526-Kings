@@ -15,10 +15,14 @@ public class TutorialDataPanel : MonoBehaviour
     private Transform secondArrow;
     private Transform thirdArrow;
     private Transform forthArrow;
+    private Transform fifthArrow;
+    private Transform sixthArrow;
     private float firstY;
     private float secondY;
     private float thirdY;
     private float forthY;
+    private float fifthY;
+    private float sixthY;
 
     private GameObject TutorialLetsgoBtn;
 
@@ -34,6 +38,8 @@ public class TutorialDataPanel : MonoBehaviour
         secondArrow = transform.FindDeepChild("Arrow 2");
         thirdArrow = transform.FindDeepChild("Arrow 3");
         forthArrow = transform.FindDeepChild("Arrow 4");
+        fifthArrow = transform.FindDeepChild("Arrow 5");
+        sixthArrow = transform.FindDeepChild("Arrow 6");
 
         if (firstArrow == null)
         {
@@ -66,6 +72,22 @@ public class TutorialDataPanel : MonoBehaviour
         {
             forthY = forthArrow.position.y;
         }
+        if (fifthArrow == null)
+        {
+            Debug.Log("Can't find fifth arrow for tutorial 1");
+        }
+        else
+        {
+            fifthY = fifthArrow.position.y;
+        }
+        if (sixthArrow == null)
+        {
+            Debug.Log("Can't find six arrow for tutorial 1");
+        }
+        else
+        {
+            sixthY = sixthArrow.position.y;
+        }
     }
 
     // Update is called once per frame
@@ -90,6 +112,14 @@ public class TutorialDataPanel : MonoBehaviour
         if (forthArrow != null && forthArrow.gameObject.activeSelf == true)
         {
             forthArrow.position = new Vector3(forthArrow.position.x, Mathf.PingPong(Time.time, 0.5f) + forthY, forthArrow.position.z);
+        }
+        if (fifthArrow != null && fifthArrow.gameObject.activeSelf == true)
+        {
+            fifthArrow.position = new Vector3(fifthArrow.position.x, Mathf.PingPong(Time.time, 0.5f) + fifthY, fifthArrow.position.z);
+        }
+        if (sixthArrow != null && sixthArrow.gameObject.activeSelf == true)
+        {
+            sixthArrow.position = new Vector3(sixthArrow.position.x, Mathf.PingPong(Time.time, 0.5f) + sixthY, sixthArrow.position.z);
         }
     }
 
