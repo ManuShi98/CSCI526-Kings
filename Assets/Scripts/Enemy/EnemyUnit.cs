@@ -142,6 +142,7 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
     /// <param name="eventData"></param>
     public void HandleEvent(SeasonChangeEvent eventData)
     {
+        SizeAndColorChange();
         if (currSeason == eventData.ChangedSeason)
             return;
 
@@ -195,7 +196,6 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
         health *= previousHealthRate;
         bar.HPRateEffect(previousHealthRate);
         speed = startSpeed * speedRatio;
-        SizeAndColorChange();
 
 
 
