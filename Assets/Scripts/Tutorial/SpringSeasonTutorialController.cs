@@ -1,7 +1,7 @@
 using UnityEngine;
 using TransformUtil;
 
-public class SpringSeasonTutorialController : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHandler<CollidersClickEvent>, IEventHandler<UIClickEvent>
+public class SpringSeasonTutorialController : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHandler<CollidersClickEvent>, IEventHandler<GameStartEvent>
 {
     private int step;
     private Transform arrow1;
@@ -19,14 +19,14 @@ public class SpringSeasonTutorialController : MonoBehaviour, IEventHandler<Seaso
     {
         EventBus.register<SeasonChangeEvent>(this);
         EventBus.register<CollidersClickEvent>(this);
-        EventBus.register<UIClickEvent>(this);
+        EventBus.register<GameStartEvent>(this);
     }
 
     private void OnDisable()
     {
         EventBus.unregister<SeasonChangeEvent>(this);
         EventBus.unregister<CollidersClickEvent>(this);
-        EventBus.unregister<UIClickEvent>(this);
+        EventBus.unregister<GameStartEvent>(this);
     }
     // Start is called before the first frame update
     void Start()
@@ -74,13 +74,7 @@ public class SpringSeasonTutorialController : MonoBehaviour, IEventHandler<Seaso
 
     public void HandleEvent(CollidersClickEvent eventData)
     {
-        if (eventData.obj == null && step == 3)
-        {
-            step = 2;
-            arrow2.gameObject.SetActive(true);
-            arrow3.gameObject.SetActive(false);
-        }
-        else if (eventData.obj == targetTower && step == 2)
+        if (eventData.obj == targetTower && step == 2)
         {
             step = 3;
             arrow2.gameObject.SetActive(false);
@@ -88,18 +82,15 @@ public class SpringSeasonTutorialController : MonoBehaviour, IEventHandler<Seaso
         }
     }
 
-    public void HandleEvent(UIClickEvent eventData)
+    public void HandleEvent(GameStartEvent eventData)
     {
-        if (eventData.obj != null && eventData.obj.CompareTag("StartButton") && step == 3)
+        step = 4;
+        arrow1.gameObject.SetActive(false);
+        arrow2.gameObject.SetActive(false);
+        arrow3.gameObject.SetActive(false);
+        foreach (var tower in blockTowers)
         {
-            Debug.Log(eventData.obj.tag);
-            Debug.Log("eventData.obj: " + eventData.obj);
-            step = 4;
-            arrow3.gameObject.SetActive(false);
-            foreach (var tower in blockTowers)
-            {
-                UIManager.unblockTower(tower);
-            }
+            UIManager.unblockTower(tower);
         }
     }
 }
