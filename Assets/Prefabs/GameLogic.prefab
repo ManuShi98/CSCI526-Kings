@@ -133,6 +133,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   URL: https://docs.google.com/forms/u/0/d/e/1FAIpQLSfD8V_JN0t_oowN-vi0JkNkBzZGJxBdYXgVsfuUfTJKtv5gzg/formResponse
+  _numOfTower1: 0
+  _numOfTower2: 0
+  _numOfTower3: 0
+  _numOfDestroyTower: 0
 --- !u!1 &3323727297829217003
 GameObject:
   m_ObjectHideFlags: 0
@@ -3947,6 +3951,70 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: SeasonBtn, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 5214164848818937810, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5214164848818937810, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5214164848818937810, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5927094259350523372}
+    - target: {fileID: 5214164848818937810, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5214164848818937810, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeBtnSeason
+      objectReference: {fileID: 0}
+    - target: {fileID: 5214164848818937810, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIBtnScaleEffectWeather, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5214164848818937810, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 28353558089727102}
+    - target: {fileID: 5214164848818937810, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: WeatherIcon, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5430434665684031530, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5430434665684031530, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5430434665684031530, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5927094259350523372}
+    - target: {fileID: 5430434665684031530, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5430434665684031530, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeBtnSeason
+      objectReference: {fileID: 0}
+    - target: {fileID: 5430434665684031530, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIBtnScaleEffectWeather, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 5430434665684031530, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 293494282106100970}
+    - target: {fileID: 5430434665684031530, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: WeatherIcon, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 5742241827198371596, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
       propertyPath: m_AnchorMax.x
       value: 1
@@ -4018,6 +4086,70 @@ PrefabInstance:
     - target: {fileID: 6241351776775508994, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6448380369314273451, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6448380369314273451, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6448380369314273451, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5927094259350523372}
+    - target: {fileID: 6448380369314273451, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6448380369314273451, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeBtnSeason
+      objectReference: {fileID: 0}
+    - target: {fileID: 6448380369314273451, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIBtnScaleEffectWeather, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6448380369314273451, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 7164073270550612994}
+    - target: {fileID: 6448380369314273451, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: WeatherIcon, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6794204768078076009, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6794204768078076009, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6794204768078076009, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 5927094259350523372}
+    - target: {fileID: 6794204768078076009, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6794204768078076009, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: ChangeBtnSeason
+      objectReference: {fileID: 0}
+    - target: {fileID: 6794204768078076009, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: UIBtnScaleEffectWeather, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6794204768078076009, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgument
+      value: 
+      objectReference: {fileID: 5899040700944091869}
+    - target: {fileID: 6794204768078076009, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: WeatherIcon, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 7288818659230266737, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -4222,6 +4354,56 @@ PrefabInstance:
     m_RemovedComponents:
     - {fileID: 7379086796719106357, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+--- !u!114 &28353558089727102 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3334065839278894386, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+  m_PrefabInstance: {fileID: 3323727299516682572}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 882298ee518104e1abe38b454302b915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &293494282106100970 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3040760021043318182, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+  m_PrefabInstance: {fileID: 3323727299516682572}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 882298ee518104e1abe38b454302b915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &3760788736165347449 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1878354195876729141, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+  m_PrefabInstance: {fileID: 3323727299516682572}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &5927094259350523372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3760788736165347449}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157b7063b82fc394e821031db7538082, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _downScale: 0.7
+  _downDuration: 1
+  _upDuration: 1
+  SunnyBtn: {fileID: 5968791329858565498}
+  RainyBtn: {fileID: 5062441905422282385}
+  CloudyBtn: {fileID: 7314019439684485661}
+  FoggyBtn: {fileID: 4496023403693503119}
+  SunnyButton: {fileID: 5899040700944091869}
+  RainyButton: {fileID: 293494282106100970}
+  CloudyButton: {fileID: 7164073270550612994}
+  FoggyButton: {fileID: 28353558089727102}
 --- !u!114 &3968143156303979239 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1815493204201485227, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
@@ -4233,6 +4415,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ba0ebb58f61f44b1ba69544d7350224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &4496023403693503119 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 1172436910686839747, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+  m_PrefabInstance: {fileID: 3323727299516682572}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &4518284062821627672 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 1194697676390622804, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
@@ -4255,6 +4442,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ba0ebb58f61f44b1ba69544d7350224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &5062441905422282385 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 7521337147577270237, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+  m_PrefabInstance: {fileID: 3323727299516682572}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5208281053642520679 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7379086796719106347, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
@@ -4301,6 +4493,17 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 7379086796016174425, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
   m_PrefabInstance: {fileID: 3323727299516682572}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &5899040700944091869 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 9222767430796696465, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+  m_PrefabInstance: {fileID: 3323727299516682572}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 882298ee518104e1abe38b454302b915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5953847458219776720 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8971189053117991836, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
@@ -4312,9 +4515,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6ba0ebb58f61f44b1ba69544d7350224, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!224 &5968791329858565498 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 9004147325392872502, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+  m_PrefabInstance: {fileID: 3323727299516682572}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &6715052892829152575 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8291383483742266483, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+  m_PrefabInstance: {fileID: 3323727299516682572}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7164073270550612994 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5569728917083757902, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
+  m_PrefabInstance: {fileID: 3323727299516682572}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 882298ee518104e1abe38b454302b915, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!224 &7314019439684485661 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 5449599312927904593, guid: 5150a8dea164e453aadf35f684128ca7, type: 3}
   m_PrefabInstance: {fileID: 3323727299516682572}
   m_PrefabAsset: {fileID: 0}
 --- !u!4 &8700387136592987470 stripped
