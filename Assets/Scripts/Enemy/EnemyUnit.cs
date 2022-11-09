@@ -70,7 +70,7 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
         EventBus.register<SeasonChangeEvent>(this);
         EventBus.register<WeatherEvent>(this);
 
-        SeasonChangeHandleEvent(new SeasonChangeEvent() { ChangedSeason = SeasonController.GetSeason() });
+        HandleEvent(new SeasonChangeEvent() { ChangedSeason = SeasonController.GetSeason() });
         HandleEvent(new WeatherEvent() { weather = WeatherSystem.GetWeather() });
 
         gamingDataController = GamingDataController.GetInstance();
@@ -151,11 +151,6 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
     /// </summary>
     /// <param name="eventData"></param>
     public void HandleEvent(SeasonChangeEvent eventData)
-    {
-        SeasonChangeHandleEvent(eventData);
-    }
-
-    protected void SeasonChangeHandleEvent(SeasonChangeEvent eventData)
     {
         SizeAndColorChange();
         if (currSeason == eventData.ChangedSeason)
