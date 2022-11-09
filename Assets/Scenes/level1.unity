@@ -581,16 +581,40 @@ PrefabInstance:
       value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 1562481142775279835, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1562481142775279835, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1562481142775279835, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 82.46698
+      objectReference: {fileID: 0}
+    - target: {fileID: 1562481142775279835, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 428
       objectReference: {fileID: 0}
     - target: {fileID: 1562481142775279835, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 494.77
+      value: -45.23001
       objectReference: {fileID: 0}
     - target: {fileID: 2585160092829309797, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: coins
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2717032067365342416, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2717032067365342416, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2717032067365342416, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -39
       objectReference: {fileID: 0}
     - target: {fileID: 3323727297783418597, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: autumnMapPrefab
