@@ -211,7 +211,6 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
             else if (currSeason == Season.AUTUMN)
             {
                 //damageRatio -= 0.1f;
-                previousHealthRate = 1.1f;
             }
             else if (currSeason == Season.WINTER)
             {
