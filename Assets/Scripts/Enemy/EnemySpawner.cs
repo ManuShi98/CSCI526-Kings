@@ -12,6 +12,8 @@ public class EnemySpawner : MonoBehaviour
   public Wave[] waves;
   public Transform START;
   public Path path;
+  [SerializeField]
+  private int waveInterval = 5;
 
   void Start()
   {
@@ -44,6 +46,7 @@ public class EnemySpawner : MonoBehaviour
         newEnemy.SetPath(path);
         yield return new WaitForSeconds(wave.rate);
       }
+      yield return new WaitForSeconds(waveInterval);
     }
   }
 }

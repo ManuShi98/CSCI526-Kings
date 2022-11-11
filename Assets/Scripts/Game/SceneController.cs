@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.Collections.Generic;
+using TMPro;
 
 public class GameStartEvent : IEventData { }
 public class GamePauseEvent : IEventData { }
@@ -46,6 +47,8 @@ public class SceneController : MonoBehaviour, IEventHandler<SeasonChangeEvent>
     public GameObject summerMapPrefab;
     public GameObject autumnMapPrefab;
     public GameObject winterMapPrefab;
+
+    private int speedMode = 0;
 
     // Start is called before the first frame update
     void Start()
@@ -141,5 +144,29 @@ public class SceneController : MonoBehaviour, IEventHandler<SeasonChangeEvent>
     {
         UpdateTimeData();
         ChangeSeasonalMap();
+    }
+
+    // Gaming process speedup and slow down
+    public void ChangeGamePlaySpeed(GameObject speedDisplayText)
+    {
+        speedMode = (speedMode + 1) % 3;
+        // Normal speed
+        if(speedMode == 0)
+        {
+            Time.timeScale = 1;
+            speedDisplayText.GetComponent<TextMeshProUGUI>().text = "1x";
+        } else if(speedMode == 1)
+        {
+            // 2x mode
+            Time.timeScale = 2;
+            speedDisplayText.GetComponent<TextMeshProUGUI>().text = "2x";
+        } else
+        {
+            // 0.5x mode
+            Time.timeScale = 0.5f;
+            speedDisplayText.GetComponent<TextMeshProUGUI>().text = "0.5x";
+        }
+
+        Debug.Log("Current time scale:" + Time.timeScale);
     }
 }
