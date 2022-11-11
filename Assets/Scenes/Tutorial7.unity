@@ -1779,11 +1779,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1562481142775279835, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 418
+      value: 317.7
       objectReference: {fileID: 0}
     - target: {fileID: 1562481142775279835, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -47.039
+      value: -41.234
       objectReference: {fileID: 0}
     - target: {fileID: 2551656656684115127, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: m_IsActive
@@ -1865,9 +1865,25 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4675799168371594671, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -208
+      objectReference: {fileID: 0}
+    - target: {fileID: 4675799168371594671, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -43.48
+      objectReference: {fileID: 0}
     - target: {fileID: 5163251106941325198, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: m_Name
       value: GameLogic
+      objectReference: {fileID: 0}
+    - target: {fileID: 5208281053642520696, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 480.0642
+      objectReference: {fileID: 0}
+    - target: {fileID: 5208281053642520696, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -182.25336
       objectReference: {fileID: 0}
     - target: {fileID: 5208281053642520697, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: health
@@ -1948,6 +1964,10 @@ PrefabInstance:
     - target: {fileID: 5964091669926470054, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.GameObject, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 6831911054273227251, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -306
       objectReference: {fileID: 0}
     - target: {fileID: 7937574466510233471, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: m_RootOrder
