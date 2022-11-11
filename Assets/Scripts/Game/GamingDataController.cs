@@ -10,7 +10,7 @@ public class GamingDataController : MonoBehaviour
     public volatile int health = 3;
     public static int maxRound = 7;
     public static int currRound = 1;
-    private volatile int energy = 0;
+    public volatile int energy = 0;
     public static readonly int maxEnergy = 100;
 
     private bool isDataChanged = false;
