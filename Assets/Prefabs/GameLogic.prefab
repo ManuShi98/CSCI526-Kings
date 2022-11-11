@@ -519,6 +519,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0a5ba50a5da94dbbb9bb990a9103652, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  unlockedLevelIndex: 0
+  currentLevel: 0
 --- !u!114 &3114761495860134266
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4118,6 +4120,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   textObject: {fileID: 3847747522747443419}
+  barImage: {fileID: 548103397060744386}
 --- !u!1 &7575350644219308681
 GameObject:
   m_ObjectHideFlags: 0
