@@ -241,7 +241,7 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
             {
                 speedRatio -= 0.1f;
                 speed = startSpeed * speedRatio;
-                Debug.Log("减速后移动速度：" + speed);
+                //Debug.Log("减速后移动速度：" + speed);
                 arrowBulletSlowDownEffectTimer = 0.2f;
             }
 
