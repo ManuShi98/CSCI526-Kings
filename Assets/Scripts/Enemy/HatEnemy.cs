@@ -25,8 +25,7 @@ public class HatEnemy : EnemyUnit, IEventHandler<SeasonChangeEvent>
         SizeAndColorChange();
 
         ResetProperties();
-        Debug.Log("reset speed: " + speed);
-        Debug.Log("reset speed ratio: " + speedRatio);
+        
 
         Season currentSeson = eventData.ChangedSeason;
         if (currentSeson == Season.SUMMER)
@@ -41,7 +40,6 @@ public class HatEnemy : EnemyUnit, IEventHandler<SeasonChangeEvent>
 
         ChangeProperties(eventData);
         SetProperties();
-        Debug.Log("after speed: " + speed);
-        Debug.Log("after speed ratio: " + speedRatio);
+        
     }
 }
