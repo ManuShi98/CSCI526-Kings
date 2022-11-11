@@ -14,7 +14,9 @@ public class ActivateDialog : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if ((Singleton.Instance.curDiedMonster + Singleton.Instance.numOfReachEndMonster == Singleton.Instance.curOriginalMonster) /*&& (Singleton.Instance.curOriginalMonster == Singleton.Instance.curMonsterNum)*/)
+        Debug.Log(Singleton.Instance.curOriginalMonster);
+        Debug.Log(Singleton.Instance.numOfDiedMonster + " + " + Singleton.Instance.numOfReachEndMonster + " + " + Singleton.Instance.curMonsterNum);
+        if ((Singleton.Instance.curDiedMonster + Singleton.Instance.numOfReachEndMonster == Singleton.Instance.curOriginalMonster)  )
             {
                 Singleton.Instance.curDiedMonster = 0;
                 Singleton.Instance.curMonsterNum = 0;

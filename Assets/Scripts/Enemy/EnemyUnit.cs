@@ -12,7 +12,7 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
     protected float speed;
 
     [SerializeField]
-    private float health;
+    private volatile float health;
     protected float previousHealthRate = 1f;
 
     [SerializeField]
