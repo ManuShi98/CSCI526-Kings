@@ -7,6 +7,8 @@ public class jumpPage : MonoBehaviour
 { 
     private static int lastTutorialIndex;
     private static int endGameTrigger;
+    public int unlockedLevelIndex;
+    public int currentLevel;
 
     // Start is called before the first frame update
     void Start()
@@ -43,6 +45,16 @@ public class jumpPage : MonoBehaviour
             else
             {
                 Singleton.Instance.updateTime();
+
+
+                unlockedLevelIndex = PlayerPrefs.GetInt("unlockedLevelIndex");
+                currentLevel = SceneManager.GetActiveScene().buildIndex;
+                currentLevel = currentLevel - 10;
+                if(currentLevel > unlockedLevelIndex)
+                {
+                    PlayerPrefs.SetInt("unlockedLevelIndex",currentLevel);
+                }
+
                 DataManager.SumCurrentLevelData();
                 recordLevelTime();
                 SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
@@ -54,6 +66,14 @@ public class jumpPage : MonoBehaviour
 
     public void returnMenu()
     {
+        unlockedLevelIndex = PlayerPrefs.GetInt("unlockedLevelIndex");
+        currentLevel = SceneManager.GetActiveScene().buildIndex;
+        currentLevel = currentLevel - 10;
+        if(currentLevel > unlockedLevelIndex)
+        {
+            PlayerPrefs.SetInt("unlockedLevelIndex",currentLevel);
+        }    
+
         SceneManager.LoadScene("Menu");
     }
 
