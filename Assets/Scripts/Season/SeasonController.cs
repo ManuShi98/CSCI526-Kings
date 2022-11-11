@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class SeasonChangeEvent : IEventData
 {
@@ -16,18 +17,27 @@ public class SeasonController : MonoBehaviour
 
     public void PickSeason(SeasonBtn seasonBtn)
     {
-        var coin = GamingDataController.GetInstance().GetCoinCount();
-        if (coin < 5)
+        // Same season
+        if (currentSeason == seasonBtn.season)
+            return;
+
+        int energy = GamingDataController.GetInstance().GetEnergy();
+        if (energy != GamingDataController.maxEnergy)
         {
-            Toast.INSTANCE().MakeText("No enough money!");
-            Debug.Log("No enough money");
+            Toast.INSTANCE().MakeText("No enough resource to change season!");
+            Debug.Log("No enough energy");
         }
         else
         {
+            // In this function, all the buttons will be faded(interactable = false)
+            GamingDataController.GetInstance().EmptyEnergy();
+            //GameObject.Find("SeasonPanelFrame").GetComponent<UIBtnScaleEffect>().ChangeBtnSeason(seasonBtn);
+
+            // Highlight current season button
+            seasonBtn.gameObject.GetComponent<Button>().interactable = true;
+
             // Notify that season has changed
-            GameObject.Find("SeasonPanelFrame").GetComponent<UIBtnScaleEffect>().ChangeBtnSeason(seasonBtn);
             currentSeason = seasonBtn.season;
-            GamingDataController.GetInstance().SetCoinCount(coin - 5);
             EventBus.post(new SeasonChangeEvent() { ChangedSeason = seasonBtn.season });
         }
     }
