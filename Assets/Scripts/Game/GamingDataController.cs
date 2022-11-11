@@ -48,7 +48,10 @@ public class GamingDataController : MonoBehaviour
     {
         GetInstance();
         maxRoundDigit.GetComponent<TextMeshProUGUI>().text = maxRound.ToString();
-        energyBar.value = energy;
+        if(energyBar != null)
+        {
+            energyBar.value = energy;
+        }
         UpdateGamingData();
     }
 
