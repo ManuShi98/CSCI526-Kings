@@ -20,6 +20,7 @@ public class EnergyBarAnimation : MonoBehaviour
         canvasGroup = gameObject.GetComponent<CanvasGroup>();
         slider = gameObject.GetComponent<Slider>();
         originalColor = barImage.color;
+        Debug.Log(originalColor);
     }
 
     // Update is called once per frame
@@ -28,7 +29,7 @@ public class EnergyBarAnimation : MonoBehaviour
         if(slider.value == slider.maxValue)
         {
             textObject.text = "Maximum season energy";
-            barImage.color = new Color(253, 201, 0, 255);
+            barImage.color = new Color(253/255f, 201/255f, 0, 1);
             if (isShow)
             {
                 if (canvasGroup.alpha != alpha)
