@@ -1,6 +1,7 @@
 using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GamingDataController : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class GamingDataController : MonoBehaviour
     public volatile int health = 3;
     public static int maxRound = 7;
     public static int currRound = 1;
+    private volatile int energy = 0;
+    public static readonly int maxEnergy = 100;
 
     private bool isDataChanged = false;
 
@@ -16,6 +19,12 @@ public class GamingDataController : MonoBehaviour
     public GameObject healthDigit;
     public GameObject maxRoundDigit;
     public GameObject currRoundDigit;
+    public Slider energyBar;
+
+    public Button spingBtn;
+    public Button summerBtn;
+    public Button autumnBtn;
+    public Button winterBtn;
 
     private GamingDataController() { }
 
@@ -39,6 +48,7 @@ public class GamingDataController : MonoBehaviour
     {
         GetInstance();
         maxRoundDigit.GetComponent<TextMeshProUGUI>().text = maxRound.ToString();
+        energyBar.value = energy;
         UpdateGamingData();
     }
 
@@ -106,7 +116,7 @@ public class GamingDataController : MonoBehaviour
         SetHealth(currHealth);
     }
 
-    public bool isAlive()
+    public bool IsAlive()
     {
         return health > 0;
     }
@@ -147,6 +157,63 @@ public class GamingDataController : MonoBehaviour
         else if (SceneManager.GetActiveScene().name == "level7")
         {
             currRoundDigit.GetComponent<TextMeshProUGUI>().text = "7";
+        }
+    }
+
+    public int GetEnergy()
+    {
+        return energy;
+    }
+
+    public void AddEnergy(int n)
+    {
+        // Energy can not exceed 100
+        // todo: Need to specify the rules of this part.
+        energy = Mathf.Min(energy + n, 100);
+        if (energy == 100)
+        {
+            spingBtn.interactable = true;
+            summerBtn.interactable = true;
+            autumnBtn.interactable = true;
+            winterBtn.interactable = true;
+        }
+
+        energyBar.value = energy;
+
+        Debug.Log("Current energy: " + energyBar.value);
+    }
+
+    public void ReduceEnergy(int n)
+    {
+        if(energy < n)
+        {
+            Debug.LogError("Energy is lower than the cost!");
+        }
+
+        energy -= n;
+        energyBar.value = energy;
+        UpdateSeasonButtonGroup();
+    }
+
+    public void EmptyEnergy()
+    {
+        ReduceEnergy(maxEnergy);
+    }
+
+    public void UpdateSeasonButtonGroup()
+    {
+        if(energy == maxEnergy)
+        {
+            spingBtn.interactable = true;
+            summerBtn.interactable = true;
+            autumnBtn.interactable = true;
+            winterBtn.interactable = true;
+        } else
+        {
+            spingBtn.interactable = false;
+            summerBtn.interactable = false;
+            autumnBtn.interactable = false;
+            winterBtn.interactable = false;
         }
     }
 }

@@ -67,7 +67,7 @@ public class SendToGoogle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        bool aliveTag = GamingDataController.GetInstance().isAlive();
+        bool aliveTag = GamingDataController.GetInstance().IsAlive();
         if(SceneManager.GetActiveScene().buildIndex >= DataManager.level1Index)
         {
             if (aliveTag == false && Singleton.Instance.isGameOver == false)
