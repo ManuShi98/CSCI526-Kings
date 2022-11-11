@@ -8,33 +8,33 @@ public class SandstormEnemyChangeEvent : IEventData
 public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHandler<WeatherEvent>
 {
     [SerializeField]
-    private float startSpeed;
-    private float speed;
+    protected float startSpeed;
+    protected float speed;
 
     [SerializeField]
     private float health;
-    private float previousHealthRate = 1f;
+    protected float previousHealthRate = 1f;
 
     [SerializeField]
     private int startCoinValue;
     private int coinValue;
 
     // Effect ratio
-    private float speedRatio = 1f;
+    protected float speedRatio = 1f;
     private float coinRatio = 1f;
     private float damageRatio = 1f;
 
     // Record current season
-    private Season currSeason;
+    protected Season currSeason;
 
     // Foggy paused speed
     private float pausedSpeed;
 
     private Vector3 startScale;
     private Color startColor;
-    private Transform[] positions;
+    protected Transform[] positions;
     private int index = 0;
-    private Path path;
+    protected Path path;
     private SpriteRenderer spriteRenderer;
     private GamingDataController gamingDataController;
 
@@ -48,6 +48,11 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
     private float arrowBulletSlowDownEffectTimer = 0f;
 
     void Start()
+    {
+        OnStart();
+    }
+
+    protected virtual void OnStart()
     {
         speed = startSpeed;
         coinValue = startCoinValue;
@@ -77,6 +82,11 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
     }
 
     void Update()
+    {
+        OnUpdate();
+    }
+
+    protected virtual void OnUpdate()
     {
         Move();
 
@@ -146,30 +156,47 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
         if (currSeason == eventData.ChangedSeason)
             return;
 
+        ResetProperties();
+        ChangeProperties(eventData);
+        SetProperties();
+    }
+
+    protected void ResetProperties()
+    {
         // Reset all the properties to normal(Spring)
-        if (currSeason != Season.SPRING)
-        {
-            if (currSeason == Season.SUMMER)
-            {
-                //damageRatio -= 0.1f;
-                speedRatio -= 0.2f;
-                coinValue += 1;
-            }
-            else if (currSeason == Season.AUTUMN)
-            {
-                //damageRatio += 0.1f;
-            }
-            else if (currSeason == Season.WINTER)
-            {
-                speedRatio += 0.2f;
-                coinValue += 1;
-            }
+        //if (currSeason != Season.SPRING)
+        //{
+        //    if (currSeason == Season.SUMMER)
+        //    {
+        //        //damageRatio -= 0.1f;
+        //        speedRatio -= 0.2f;
+        //        coinValue += 1;
+        //    }
+        //    else if (currSeason == Season.AUTUMN)
+        //    {
+        //        //damageRatio += 0.1f;
+        //    }
+        //    else if (currSeason == Season.WINTER)
+        //    {
+        //        speedRatio += 0.2f;
+        //        coinValue += 1;
+        //    }
 
-            coinValue = startCoinValue;
-            health = health / previousHealthRate * 1f;
-            previousHealthRate = 1f;
-        }
+        //    speed = startSpeed;
+        //    speedRatio = 1f;
+        //    coinValue = startCoinValue;
+        //    health = health / previousHealthRate * 1f;
+        //    previousHealthRate = 1f;
+        //}
+        speed = startSpeed;
+        speedRatio = 1f;
+        coinValue = startCoinValue;
+        health = health / previousHealthRate * 1f;
+        previousHealthRate = 1f;
+    }
 
+    protected void ChangeProperties(SeasonChangeEvent eventData)
+    {
         currSeason = eventData.ChangedSeason;
 
         if (currSeason != Season.SPRING)
@@ -184,7 +211,6 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
             else if (currSeason == Season.AUTUMN)
             {
                 //damageRatio -= 0.1f;
-                previousHealthRate = 1.1f;
             }
             else if (currSeason == Season.WINTER)
             {
@@ -192,41 +218,13 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
                 coinValue -= 1;
             }
         }
+    }
 
+    protected void SetProperties()
+    {
         health *= previousHealthRate;
         bar.HPRateEffect(previousHealthRate);
         speed = startSpeed * speedRatio;
-
-
-
-        //if (eventData.ChangedSeason == Season.SPRING)
-        //{
-        //    speed = startSpeed;
-        //    health = health / previousHealthRate * 1f;
-        //    previousHealthRate = 1f;
-        //    coinValue = startCoinValue + 1;
-        //}
-        //else if (eventData.ChangedSeason == Season.SUMMER)
-        //{
-        //    speed = startSpeed;
-        //    health = health / previousHealthRate * 0.8f;
-        //    previousHealthRate = 0.8f;
-        //    coinValue = startCoinValue - 1;
-        //}
-        //else if (eventData.ChangedSeason == Season.AUTUMN)
-        //{
-        //    speed = 0.8f * startSpeed;
-        //    health = health / previousHealthRate * 1f;
-        //    previousHealthRate = 1f;
-        //    coinValue = startCoinValue + 1;
-        //}
-        //else if (eventData.ChangedSeason == Season.WINTER)
-        //{
-        //    speed = 0.7f * startSpeed;
-        //    health = health / previousHealthRate * 1f;
-        //    previousHealthRate = 1f;
-        //    coinValue = startCoinValue - 1;
-        //}
     }
 
     // Deal with the bullet and monster collision logic.
@@ -243,7 +241,7 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
             {
                 speedRatio -= 0.1f;
                 speed = startSpeed * speedRatio;
-                Debug.Log("减速后移动速度：" + speed);
+                //Debug.Log("减速后移动速度：" + speed);
                 arrowBulletSlowDownEffectTimer = 0.2f;
             }
 
@@ -269,7 +267,7 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
 
 
     // Enemy will grow big and turn red in summer
-    private void SizeAndColorChange()
+    protected void SizeAndColorChange()
     {
         if (SeasonController.GetSeason() == Season.SUMMER)
         {
