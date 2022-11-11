@@ -167,32 +167,39 @@ public class GamingDataController : MonoBehaviour
 
     public void AddEnergy(int n)
     {
-        // Energy can not exceed 100
-        // todo: Need to specify the rules of this part.
-        energy = Mathf.Min(energy + n, 100);
-        if (energy == 100)
+
+        if(energyBar != null)
         {
-            spingBtn.interactable = true;
-            summerBtn.interactable = true;
-            autumnBtn.interactable = true;
-            winterBtn.interactable = true;
+            // Energy can not exceed 100
+            // todo: Need to specify the rules of this part.
+            energy = Mathf.Min(energy + n, 100);
+            if (energy == 100)
+            {
+                spingBtn.interactable = true;
+                summerBtn.interactable = true;
+                autumnBtn.interactable = true;
+                winterBtn.interactable = true;
+            }
+
+            energyBar.value = energy;
+
+            Debug.Log("Current energy: " + energyBar.value);
         }
-
-        energyBar.value = energy;
-
-        Debug.Log("Current energy: " + energyBar.value);
     }
 
     public void ReduceEnergy(int n)
     {
-        if(energy < n)
+        if(energyBar != null)
         {
-            Debug.LogError("Energy is lower than the cost!");
-        }
+            if (energy < n)
+            {
+                Debug.LogError("Energy is lower than the cost!");
+            }
 
-        energy -= n;
-        energyBar.value = energy;
-        UpdateSeasonButtonGroup();
+            energy -= n;
+            energyBar.value = energy;
+            UpdateSeasonButtonGroup();
+        }
     }
 
     public void EmptyEnergy()
