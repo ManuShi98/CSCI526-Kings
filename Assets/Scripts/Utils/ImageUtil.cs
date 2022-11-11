@@ -12,6 +12,14 @@ public class ImageUtil : MonoBehaviour
         return sprite;
     }
 
+    // Need to put image under assets/resource
+    public static Sprite GetSpriteByName(string name)
+    {
+        Texture2D tmp = (Texture2D)Resources.Load(name);
+        Sprite sprite = Sprite.Create(tmp, new Rect(0, 0, tmp.width, tmp.height), new Vector2(10, 10));
+        return sprite;
+    }
+
     private static Texture2D LoadFromFile(string path)
     {
         Texture2D tmp = new Texture2D(100, 100);

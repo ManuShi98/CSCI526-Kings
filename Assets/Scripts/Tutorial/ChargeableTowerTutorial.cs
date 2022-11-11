@@ -155,7 +155,7 @@ public class ChargeableTowerTutorial : MonoBehaviour, IEventHandler<WeatherEvent
             }
             PreGamePanel panel = guidancePanel.GetComponent<PreGamePanel>();
             panel.images = new Sprite[1];
-            panel.images[0] = ImageUtil.GetSpriteByPath("Assets/Images/tower_charge.jpg");
+            panel.images[0] = ImageUtil.GetSpriteByName("Tower_charge");
             panel.introductiuons = new string[1] { "The new tower can be charged by the thunder! Each time it get hit by lightning, it doubles its attack power" };
             guidancePanel.SetActive(true);
             panel.Start();
