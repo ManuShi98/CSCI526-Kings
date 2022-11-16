@@ -5,7 +5,11 @@ using System;
 using System.IO;
 using System.Runtime.InteropServices;
 
-
+public class EnemyWavesEvent : IEventData
+{
+    public int totalNumberOfWaves { get; set; }
+    public int curWave { get; set; }
+}
 
 public class EnemySpawner : MonoBehaviour
 {
@@ -17,6 +21,7 @@ public class EnemySpawner : MonoBehaviour
 
   void Start()
   {
+    EventBus.post(new EnemyWavesEvent() { totalNumberOfWaves = waves.Length, curWave = 0 });
     foreach (Wave wave in waves)
     {
       Singleton.Instance.curOriginalMonster += wave.count;
@@ -35,8 +40,11 @@ public class EnemySpawner : MonoBehaviour
 
   IEnumerator SpawnEnemy()
   {
+    int index = 0;
     foreach (Wave wave in waves)
     {
+      index++;
+      EventBus.post(new EnemyWavesEvent() { totalNumberOfWaves = waves.Length, curWave = index });
       for (int i = 0; i < wave.count; i++)
       {
         Singleton.Instance.numOfOriginalMonster++;
