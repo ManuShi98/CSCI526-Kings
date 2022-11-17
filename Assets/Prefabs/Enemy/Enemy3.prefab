@@ -760,10 +760,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05add20c80778467ca23b98a626d24cd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSpeed: 1.2
-  health: 700
-  startCoinValue: 4
+  startSpeed: 0.9
+  health: 600
+  startCoinValue: 5
   bar: {fileID: 1001234565930999387}
+  energyValue: 10
   canCauseSandstorm: 0
   Snowman: {fileID: 3567213038108693548}
   LeftEye: {fileID: 4764915368713912748}

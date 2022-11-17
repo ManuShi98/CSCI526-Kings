@@ -299,10 +299,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c82af749e1b68486987cdc9382299740, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startSpeed: 3
-  health: 200
+  startSpeed: 1.3
+  health: 400
   startCoinValue: 2
   bar: {fileID: 6386035874918263451}
+  energyValue: 10
   canCauseSandstorm: 1
 --- !u!1 &6778174150905961043
 GameObject:

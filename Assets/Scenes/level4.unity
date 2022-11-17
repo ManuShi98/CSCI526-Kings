@@ -237,11 +237,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
       propertyPath: waves.Array.data[0].count
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
       propertyPath: waves.Array.data[1].count
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
       propertyPath: waves.Array.data[2].count
@@ -445,7 +445,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 953435417}
-  m_RootOrder: 17
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &474451833
 MonoBehaviour:
@@ -692,28 +692,32 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2698227357051123730}
     - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
+      propertyPath: waveInterval
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
       propertyPath: waves.Array.size
       value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
       propertyPath: waves.Array.data[0].rate
-      value: 1.4
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
       propertyPath: waves.Array.data[1].rate
-      value: 1.4
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
       propertyPath: waves.Array.data[2].rate
-      value: 1.4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
       propertyPath: waves.Array.data[0].count
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
       propertyPath: waves.Array.data[1].count
-      value: 8
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
       propertyPath: waves.Array.data[2].count
@@ -863,7 +867,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 953435417}
-  m_RootOrder: 18
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1318,6 +1322,14 @@ PrefabInstance:
       propertyPath: m_RootOrder
       value: 16
       objectReference: {fileID: 0}
+    - target: {fileID: 1782444074845928734, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1782444074845928734, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2585160092829309797, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: coins
       value: 10
@@ -1358,6 +1370,10 @@ PrefabInstance:
       propertyPath: SpawnerList.Array.data[1]
       value: 
       objectReference: {fileID: 595084176}
+    - target: {fileID: 3323727298261354583, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: m_InputActionsPerSecond
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 3323727298889485561, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: path
       value: 
@@ -1740,6 +1756,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 953435417}
     m_Modifications:
+    - target: {fileID: -3534129396023475147, guid: 40a46b7f1556e47a58caf98442f9e201, type: 3}
+      propertyPath: positions.Array.size
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4440016613557375029, guid: 40a46b7f1556e47a58caf98442f9e201, type: 3}
       propertyPath: m_RootOrder
       value: 11
