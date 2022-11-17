@@ -7,9 +7,11 @@ public class SpringSeasonTutorialController : MonoBehaviour, IEventHandler<Seaso
     private Transform arrow1;
     private Transform arrow2;
     private Transform arrow3;
-    private float firstY;
+    private float firstX;
     private float secondY;
     private float thirdY;
+
+    private float timer = 3;
 
     public GameObject[] blockTowers;
 
@@ -40,7 +42,7 @@ public class SpringSeasonTutorialController : MonoBehaviour, IEventHandler<Seaso
         arrow2 = transform.FindDeepChild("Arrow 2");
         arrow3 = transform.FindDeepChild("Arrow 3");
 
-        firstY = arrow1.position.y;
+        firstX = arrow1.position.x;
         secondY = arrow2.position.y;
         thirdY = arrow3.position.y;
     }
@@ -50,7 +52,7 @@ public class SpringSeasonTutorialController : MonoBehaviour, IEventHandler<Seaso
     {
         if (arrow1 != null && arrow1.gameObject.activeSelf == true)
         {
-            arrow1.position = new Vector3(arrow1.position.x, Mathf.PingPong(Time.time, 0.5f) + firstY, arrow1.position.z);
+            arrow1.position = new Vector3(firstX + Mathf.PingPong(Time.time, 0.5f), arrow1.position.y, arrow1.position.z);
         }
         if (arrow2 != null && arrow2.gameObject.activeSelf == true)
         {
@@ -60,16 +62,27 @@ public class SpringSeasonTutorialController : MonoBehaviour, IEventHandler<Seaso
         {
             arrow3.position = new Vector3(arrow3.position.x, Mathf.PingPong(Time.time, 0.5f) + thirdY, arrow3.position.z);
         }
-    }
 
-    public void HandleEvent(SeasonChangeEvent eventData)
-    {
-        if (step == 1 && eventData.ChangedSeason == Season.SPRING)
+        if(timer >= 0)
+        {
+            timer -= Time.deltaTime;
+        } else if(arrow1.gameObject.activeInHierarchy)
         {
             step = 2;
             arrow1.gameObject.SetActive(false);
             arrow2.gameObject.SetActive(true);
+            Debug.Log("active arrow 2");
         }
+    }
+
+    public void HandleEvent(SeasonChangeEvent eventData)
+    {
+        //if (step == 1 && eventData.ChangedSeason == Season.SPRING)
+        //{
+        //    step = 2;
+        //    arrow1.gameObject.SetActive(false);
+        //    arrow2.gameObject.SetActive(true);
+        //}
     }
 
     public void HandleEvent(CollidersClickEvent eventData)
