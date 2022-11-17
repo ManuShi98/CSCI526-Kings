@@ -4,7 +4,7 @@ using Newtonsoft.Json;
 using System;
 using System.IO;
 using System.Runtime.InteropServices;
-
+using UnityEngine.SceneManagement;
 
 
 public class EnemySpawner : MonoBehaviour
@@ -21,7 +21,8 @@ public class EnemySpawner : MonoBehaviour
     {
       Singleton.Instance.curOriginalMonster += wave.count;
     }
-  }
+    
+    }
 
   void Update()
   {
