@@ -6,10 +6,8 @@ using TMPro;
 
 public class PreGamePanel : MonoBehaviour
 {
-    [SerializeField]
-    private Sprite[] images;
-    [SerializeField]
-    private string[] introductiuons;
+    public Sprite[] images;
+    public string[] introductiuons;
     private int curIndex;
 
     [SerializeField]
@@ -24,7 +22,7 @@ public class PreGamePanel : MonoBehaviour
     private TextMeshProUGUI contentText;
 
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         curIndex = 0;
         Time.timeScale = 0;
@@ -55,7 +53,7 @@ public class PreGamePanel : MonoBehaviour
     public void OnOverBtnClicked()
     {
         Time.timeScale = 1;
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 
     private void UpdateContents()

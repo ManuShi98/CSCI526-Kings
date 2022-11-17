@@ -75,6 +75,17 @@ public class ThunderSystem : MonoBehaviour, IEventHandler<WeatherEvent>, IEventH
         EventBus.post<ThunderHitEvent>(new ThunderHitEvent() { obj = towers[target] });
     }
 
+    public void generateCertainThunder(GameObject tower)
+    {
+        GameObject thunder = Instantiate<GameObject>(thunderObject);
+        Vector2 position = tower.transform.position;
+        position.x -= width / 2;
+        position.y += height / 2;
+        thunder.transform.position = position;
+        Destroy(thunder, 2f);
+        EventBus.post<ThunderHitEvent>(new ThunderHitEvent() { obj = tower });
+    }
+
     public void HandleEvent(GameStartEvent eventData)
     {
         if(WeatherSystem.GetWeather() == Weather.RAINY && paused)

@@ -42,6 +42,10 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
     [SerializeField]
     private HPBar bar;
 
+    // Energy value property
+    [SerializeField]
+    private int energyValue = 10;
+
     public bool canCauseSandstorm;
 
     // Duration of special effects
@@ -261,6 +265,7 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
             Singleton.Instance.numOfDiedMonster++;
             Singleton.Instance.curDiedMonster++;
             GamingDataController.GetInstance().AddCoins(coinValue);
+            GamingDataController.GetInstance().AddEnergy(energyValue);
             Destroy(gameObject);
         }
     }

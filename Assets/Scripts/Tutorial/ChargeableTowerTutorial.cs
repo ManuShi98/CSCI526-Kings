@@ -12,6 +12,8 @@ public class ChargeableTowerTutorial : MonoBehaviour, IEventHandler<WeatherEvent
     private float firstY;
     private float secondX;
     private float thirdX;
+    private ThunderSystem thunderSystem;
+    public GameObject guidancePanel;
 
     public GameObject[] blockTowers;
 
@@ -33,10 +35,13 @@ public class ChargeableTowerTutorial : MonoBehaviour, IEventHandler<WeatherEvent
     // Start is called before the first frame update
     void Start()
     {
-        foreach(var tower in blockTowers)
+        UIManager.blockByTag("Tower");
+        thunderSystem = GameObject.Find("Thunder").GetComponent<ThunderSystem>();
+        if(thunderSystem == null)
         {
-            UIManager.blockTower(tower);
+            Debug.Log("Can't find thunder system");
         }
+        
         step = 1;
         GameObject rainyBtn = GameObject.Find("RainyBtn");
         arrow1 = transform.FindDeepChild("Arrow 1");
@@ -89,13 +94,36 @@ public class ChargeableTowerTutorial : MonoBehaviour, IEventHandler<WeatherEvent
         }
     }
 
+    private void StrikeTower()
+    {
+        if(thunderSystem != null)
+        {
+            thunderSystem.generateCertainThunder(targetTower);
+        }
+    }
+
+    private void DisplayFirstGuidance()
+    {
+        if (guidancePanel != null)
+        {
+            guidancePanel.SetActive(true);
+        }
+        step = 2;
+        arrow2.gameObject.SetActive(true);
+        UIManager.unblockByTag("Tower");
+        foreach (var tower in blockTowers)
+        {
+            UIManager.blockTower(tower);
+        }
+    }
+
     public void HandleEvent(WeatherEvent eventData)
     {
         if(step == 1 && eventData.weather == Weather.RAINY)
         {
-            step = 2;
             arrow1.gameObject.SetActive(false);
-            arrow2.gameObject.SetActive(true);
+            StrikeTower();
+            Invoke("DisplayFirstGuidance", 2f);
         }
     }
 
@@ -107,7 +135,7 @@ public class ChargeableTowerTutorial : MonoBehaviour, IEventHandler<WeatherEvent
             arrow2.gameObject.SetActive(true);
             arrow3.gameObject.SetActive(false);
         }
-        else if (eventData.obj == targetTower && step == 2)
+        else if (eventData.obj!=null && eventData.obj.tag == "Tower" && step == 2)
         {
             step = 3;
             arrow2.gameObject.SetActive(false);
@@ -125,6 +153,12 @@ public class ChargeableTowerTutorial : MonoBehaviour, IEventHandler<WeatherEvent
             {
                 UIManager.unblockTower(tower);
             }
+            PreGamePanel panel = guidancePanel.GetComponent<PreGamePanel>();
+            panel.images = new Sprite[1];
+            panel.images[0] = ImageUtil.GetSpriteByName("Tower_charge");
+            panel.introductiuons = new string[1] { "The new tower can be charged by the thunder! Each time it get hit by lightning, it doubles its attack power" };
+            guidancePanel.SetActive(true);
+            panel.Start();
         }
     }
 }
