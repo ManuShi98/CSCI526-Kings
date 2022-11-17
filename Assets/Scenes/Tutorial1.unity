@@ -1448,7 +1448,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 191574261878982280, guid: 2c696652a79c7044c9004a216461aa49, type: 3}
       propertyPath: m_text
-      value: Enemy dies, coins increase
+      value: 'Current level
+
+        Total level'
       objectReference: {fileID: 0}
     - target: {fileID: 191574261907032322, guid: 2c696652a79c7044c9004a216461aa49, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1512,11 +1514,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 191574262290512836, guid: 2c696652a79c7044c9004a216461aa49, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 191574262414502374, guid: 2c696652a79c7044c9004a216461aa49, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 191574262639003446, guid: 2c696652a79c7044c9004a216461aa49, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1532,15 +1534,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 191574262936969224, guid: 2c696652a79c7044c9004a216461aa49, type: 3}
       propertyPath: m_text
-      value: Current levels!
+      value: 'Clear enemies
+
+        Earn coins'
       objectReference: {fileID: 0}
     - target: {fileID: 191574263099341402, guid: 2c696652a79c7044c9004a216461aa49, type: 3}
       propertyPath: m_text
-      value: Home health!
+      value: Home health
       objectReference: {fileID: 0}
     - target: {fileID: 4956215564970641782, guid: 2c696652a79c7044c9004a216461aa49, type: 3}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441199687050282547, guid: 2c696652a79c7044c9004a216461aa49, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.048
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441199687050282547, guid: 2c696652a79c7044c9004a216461aa49, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.638
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441199688463710160, guid: 2c696652a79c7044c9004a216461aa49, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0.024
+      objectReference: {fileID: 0}
+    - target: {fileID: 6441199688463710160, guid: 2c696652a79c7044c9004a216461aa49, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.259
       objectReference: {fileID: 0}
     - target: {fileID: 7130767404668743431, guid: 2c696652a79c7044c9004a216461aa49, type: 3}
       propertyPath: m_LocalPosition.x
