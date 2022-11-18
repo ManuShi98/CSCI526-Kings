@@ -247,18 +247,32 @@ public class GamingDataController : MonoBehaviour, IEventHandler<EnemyWavesEvent
 
     public void UpdateButtonGroups()
     {
-        springBtn.interactable = false;
-        summerBtn.interactable = false;
-        autumnBtn.interactable = false;
-        winterBtn.interactable = false;
+        if(energy == maxEnergy)
+        {
+            springBtn.interactable = true;
+            summerBtn.interactable = true;
+            autumnBtn.interactable = true;
+            winterBtn.interactable = true;
 
-        sunnyBtn.interactable = false;
-        rainyBtn.interactable = false;
-        cloudyBtn.interactable = false;
-        foggyBtn.interactable = false;
+            sunnyBtn.interactable = true;
+            rainyBtn.interactable = true;
+            cloudyBtn.interactable = true;
+            foggyBtn.interactable = true;
+        } else
+        {
+            springBtn.interactable = false;
+            summerBtn.interactable = false;
+            autumnBtn.interactable = false;
+            winterBtn.interactable = false;
 
-        GetCurrentSeasonButton().interactable = true;
-        GetCurrentWeatherButton().interactable = true;
+            sunnyBtn.interactable = false;
+            rainyBtn.interactable = false;
+            cloudyBtn.interactable = false;
+            foggyBtn.interactable = false;
+
+            GetCurrentSeasonButton().interactable = true;
+            GetCurrentWeatherButton().interactable = true;
+        }
     }
 
     // Enemy wave event handler
