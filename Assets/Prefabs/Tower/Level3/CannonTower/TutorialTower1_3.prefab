@@ -179,7 +179,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startRadius: 5
-  FiringRate: 5
+  FiringRate: 2
   startFiringRate: 0
   startDamage: 40
   rate: 1
