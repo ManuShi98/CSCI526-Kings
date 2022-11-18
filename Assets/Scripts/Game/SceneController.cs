@@ -69,6 +69,9 @@ public class SceneController : MonoBehaviour, IEventHandler<SeasonChangeEvent>
         }
         Destroy(ReadyBtn);
         StartGeneratingEnemies = true;
+
+        // Reset the speed to normal.
+        Time.timeScale = 1;
     }
 
     public void GamePause()

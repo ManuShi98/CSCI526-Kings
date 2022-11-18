@@ -1,11 +1,16 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WeatherIcon : MonoBehaviour, IEventHandler<UIClickEvent>
 {
 
     public Weather weatherType;
+    private GamingDataController gamingDataController;
+
+    private void Start()
+    {
+        gamingDataController = GamingDataController.GetInstance();
+    }
 
     private void OnEnable()
     {
@@ -19,10 +24,15 @@ public class WeatherIcon : MonoBehaviour, IEventHandler<UIClickEvent>
 
     public void HandleEvent(UIClickEvent eventData)
     {
-        if (eventData.obj == gameObject)
+        if ((eventData.obj == gameObject) && gamingDataController.IsFullEnergy())
         {
-            WeatherSystem.setWeather(weatherType);
+            WeatherSystem.SetWeather(weatherType);
+            // Cost all the energy when change the weather.
+            GamingDataController.GetInstance().EmptyEnergy();
+
+            Debug.Log(gameObject);
+            Debug.Log(gameObject.name);
+            Debug.Log(gameObject.GetComponent<Button>().name);
         }
     }
-
 }

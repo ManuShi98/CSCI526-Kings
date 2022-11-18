@@ -29,16 +29,13 @@ public class SeasonController : MonoBehaviour
         }
         else
         {
-            // In this function, all the buttons will be faded(interactable = false)
-            GamingDataController.GetInstance().EmptyEnergy();
-            //GameObject.Find("SeasonPanelFrame").GetComponent<UIBtnScaleEffect>().ChangeBtnSeason(seasonBtn);
-
-            // Highlight current season button
-            seasonBtn.gameObject.GetComponent<Button>().interactable = true;
-
             // Notify that season has changed
             currentSeason = seasonBtn.season;
             EventBus.post(new SeasonChangeEvent() { ChangedSeason = seasonBtn.season });
+
+            // In this function, all the buttons will be faded(interactable = false)
+            GamingDataController.GetInstance().EmptyEnergy();
+            //GameObject.Find("SeasonPanelFrame").GetComponent<UIBtnScaleEffect>().ChangeBtnSeason(seasonBtn)
         }
     }
 

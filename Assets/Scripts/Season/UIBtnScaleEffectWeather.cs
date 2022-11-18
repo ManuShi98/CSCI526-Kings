@@ -1,9 +1,5 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
-using UnityEngine.EventSystems;
-using UnityEngine.Serialization;
 
 public class UIBtnScaleEffectWeather : MonoBehaviour/*, IPointerDownHandler*/
 {
@@ -18,9 +14,6 @@ public class UIBtnScaleEffectWeather : MonoBehaviour/*, IPointerDownHandler*/
     public RectTransform RainyBtn;
     public RectTransform CloudyBtn;
     public RectTransform FoggyBtn;
-
-    private Season currentWeather;
-
     private WeatherIcon CurrentBtn;
 
     public WeatherIcon SunnyButton;
@@ -38,16 +31,6 @@ public class UIBtnScaleEffectWeather : MonoBehaviour/*, IPointerDownHandler*/
             }
             return _rectTransform;
         }
-    }
-
-    void start () 
-    {
-
-    }
-
-    void update ()
-    {
-        
     }
 
     private RectTransform _rectTransform;

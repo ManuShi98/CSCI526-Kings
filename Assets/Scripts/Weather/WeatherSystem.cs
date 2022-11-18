@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum Weather
@@ -25,7 +23,7 @@ public class WeatherSystem : MonoBehaviour
         return currentWeather;
     }
 
-    public static void setWeather(Weather weather)
+    public static void SetWeather(Weather weather)
     {
         if(weather == currentWeather)
         {
@@ -39,11 +37,5 @@ public class WeatherSystem : MonoBehaviour
     void Start()
     {
         currentWeather = Weather.SUNNY;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }
