@@ -57,6 +57,8 @@ public class SendToGoogle : MonoBehaviour
     public int _numOfTower3;
     public int _numOfDestroyTower;
 
+    public GameObject LoselogBox;
+
 
     // Start is called before the first frame update
     void Start()
@@ -121,7 +123,9 @@ public class SendToGoogle : MonoBehaviour
                 }
                 else
                 {
-                    SceneManager.LoadScene("GameOver");
+                    LoselogBox.SetActive(true);
+                    Time.timeScale = 0;
+                    // SceneManager.LoadScene("GameOver");
                 }
             
 
