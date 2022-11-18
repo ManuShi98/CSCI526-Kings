@@ -1893,6 +1893,11 @@ PrefabInstance:
       propertyPath: currRoundDigit
       value: 
       objectReference: {fileID: 1532941255}
+    - target: {fileID: 2659715974461799559, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: m_text
+      value: You lose. The wolf will bring sandstorm and halve the attack range.
+        Why not try autumn?
+      objectReference: {fileID: 0}
     - target: {fileID: 3323727297731026287, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: path
       value: 

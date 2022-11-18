@@ -70,8 +70,23 @@ public class SendToGoogle : MonoBehaviour
     void Update()
     {
         bool aliveTag = GamingDataController.GetInstance().IsAlive();
-        if(SceneManager.GetActiveScene().buildIndex >= DataManager.level1Index)
+        if (aliveTag == false && Singleton.Instance.isGameOver == false)
         {
+            if (DataManager.isPass == true)
+            {
+                SceneManager.LoadScene("Menu");
+                DataManager.isPass = false;
+            }
+            else
+            {
+                LoselogBox.SetActive(true);
+                Time.timeScale = 0;
+                // SceneManager.LoadScene("GameOver");
+            }
+        }
+        if (SceneManager.GetActiveScene().buildIndex >= DataManager.level1Index)
+        {
+            
             if (aliveTag == false && Singleton.Instance.isGameOver == false)
             {
             
@@ -116,17 +131,7 @@ public class SendToGoogle : MonoBehaviour
                 Send();
 
                     //DataManager.Init();
-                if (DataManager.isPass == true)
-                {
-                    SceneManager.LoadScene("Menu");
-                    DataManager.isPass = false;
-                }
-                else
-                {
-                    LoselogBox.SetActive(true);
-                    Time.timeScale = 0;
-                    // SceneManager.LoadScene("GameOver");
-                }
+                
             
 
             }
