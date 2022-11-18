@@ -79,6 +79,7 @@ public class jumpPage : MonoBehaviour
 
     public void restart()
     {
+        Time.timeScale = 1;
         Debug.Log(SceneManager.GetActiveScene().name);
         if(DataManager.currentLevelIndex == "level1")
         {
