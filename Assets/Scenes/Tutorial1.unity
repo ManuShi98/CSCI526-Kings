@@ -1432,7 +1432,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 191574261859986971, guid: 2c696652a79c7044c9004a216461aa49, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.59
+      value: 0.33
       objectReference: {fileID: 0}
     - target: {fileID: 191574261859986971, guid: 2c696652a79c7044c9004a216461aa49, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1452,7 +1452,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 191574261907032322, guid: 2c696652a79c7044c9004a216461aa49, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -6.05
+      value: -5.79
       objectReference: {fileID: 0}
     - target: {fileID: 191574261907032322, guid: 2c696652a79c7044c9004a216461aa49, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1512,11 +1512,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 191574262290512836, guid: 2c696652a79c7044c9004a216461aa49, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 191574262414502374, guid: 2c696652a79c7044c9004a216461aa49, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 191574262639003446, guid: 2c696652a79c7044c9004a216461aa49, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1528,11 +1528,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 191574262746635438, guid: 2c696652a79c7044c9004a216461aa49, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 191574262936969224, guid: 2c696652a79c7044c9004a216461aa49, type: 3}
       propertyPath: m_text
-      value: Current levels!
+      value: Wave of enemies
       objectReference: {fileID: 0}
     - target: {fileID: 191574263099341402, guid: 2c696652a79c7044c9004a216461aa49, type: 3}
       propertyPath: m_text
@@ -1572,7 +1572,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7130767405410521490, guid: 2c696652a79c7044c9004a216461aa49, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.29
+      value: -4.87
       objectReference: {fileID: 0}
     - target: {fileID: 7130767405410521490, guid: 2c696652a79c7044c9004a216461aa49, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1628,7 +1628,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7130767406102519921, guid: 2c696652a79c7044c9004a216461aa49, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.57
+      value: -0.66
       objectReference: {fileID: 0}
     - target: {fileID: 7130767406102519921, guid: 2c696652a79c7044c9004a216461aa49, type: 3}
       propertyPath: m_LocalPosition.y
@@ -2103,6 +2103,10 @@ PrefabInstance:
     - target: {fileID: 1745948286923632306, guid: 840863be71c41cd41b0ffcfdc62bbdf5, type: 3}
       propertyPath: m_Name
       value: Tower1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6137227366332828767, guid: 840863be71c41cd41b0ffcfdc62bbdf5, type: 3}
+      propertyPath: FiringRate
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 8926918037167156903, guid: 840863be71c41cd41b0ffcfdc62bbdf5, type: 3}
       propertyPath: m_RootOrder
