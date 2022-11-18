@@ -538,7 +538,7 @@ MonoBehaviour:
   _numOfTower2: 0
   _numOfTower3: 0
   _numOfDestroyTower: 0
-  WinlogBox: {fileID: 885736328720242793}
+  LoselogBox: {fileID: 885736328720242793}
 --- !u!1 &3323727297829217003
 GameObject:
   m_ObjectHideFlags: 0
