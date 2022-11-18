@@ -9,6 +9,13 @@ public class LevelSelectManager : MonoBehaviour
     public GameObject levelSelectMenu;
     Button[] levelSelectButtons;
     int unlockedLevelIndex;
+    public GameObject levelLock1;
+    public GameObject levelLock2;
+    public GameObject levelLock3;
+    public GameObject levelLock4;
+    public GameObject levelLock5;
+    public GameObject levelLock6;
+    public GameObject levelLock7;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +37,58 @@ public class LevelSelectManager : MonoBehaviour
         for (int i = 0; i < unlockedLevelIndex + 1; i++)
         {
             levelSelectButtons[i].interactable = true;
+        }
+
+
+
+
+        if(levelSelectButtons[0].interactable == false)
+        {
+            levelLock1.SetActive(true);
+        }else{
+            levelLock1.SetActive(false);
+        }
+
+        if(levelSelectButtons[1].interactable == false)
+        {
+            levelLock2.SetActive(true);
+        }else{
+            levelLock2.SetActive(false);
+        }
+
+        if(levelSelectButtons[2].interactable == false)
+        {
+            levelLock3.SetActive(true);
+        }else{
+            levelLock3.SetActive(false);
+        }
+
+        if(levelSelectButtons[3].interactable == false)
+        {
+            levelLock4.SetActive(true);
+        }else{
+            levelLock4.SetActive(false);
+        }
+
+        if(levelSelectButtons[4].interactable == false)
+        {
+            levelLock5.SetActive(true);
+        }else{
+            levelLock5.SetActive(false);
+        }
+
+        if(levelSelectButtons[5].interactable == false)
+        {
+            levelLock6.SetActive(true);
+        }else{
+            levelLock6.SetActive(false);
+        }
+
+        if(levelSelectButtons[6].interactable == false)
+        {
+            levelLock7.SetActive(true);
+        }else{
+            levelLock7.SetActive(false);
         }
     }
 
