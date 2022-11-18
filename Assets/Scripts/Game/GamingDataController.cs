@@ -21,10 +21,20 @@ public class GamingDataController : MonoBehaviour, IEventHandler<EnemyWavesEvent
     public GameObject currRoundDigit;
     public Slider energyBar;
 
-    public Button spingBtn;
+    public Button springBtn;
     public Button summerBtn;
     public Button autumnBtn;
     public Button winterBtn;
+
+    public Button sunnyBtn;
+    public Button rainyBtn;
+    public Button cloudyBtn;
+    public Button foggyBtn;
+
+    [SerializeField]
+    private Button currSeasonBtn;
+    [SerializeField]
+    private Button currWeatherBtn;
 
     private GamingDataController() { }
 
@@ -46,14 +56,25 @@ public class GamingDataController : MonoBehaviour, IEventHandler<EnemyWavesEvent
 
     private void Start()
     {
-        EventBus.register<EnemyWavesEvent>(this);
+        EventBus.register(this);
         GetInstance();
+
         maxRoundDigit.GetComponent<TextMeshProUGUI>().text = maxRound.ToString();
-        if(energyBar != null)
+        if (energyBar != null)
         {
             energyBar.value = energy;
         }
+        if (currSeasonBtn == null)
+        {
+            currSeasonBtn = springBtn;
+        }
+        if (currWeatherBtn == null)
+        {
+            currWeatherBtn = sunnyBtn;
+        }
+
         UpdateGamingData();
+        UpdateButtonGroups();
     }
 
 
@@ -135,20 +156,30 @@ public class GamingDataController : MonoBehaviour, IEventHandler<EnemyWavesEvent
         return energy;
     }
 
+    public bool IsFullEnergy()
+    {
+        return energy == maxEnergy;
+    }
+
     public void AddEnergy(int n)
     {
 
-        if(energyBar != null)
+        if (energyBar != null)
         {
             // Energy can not exceed 100
             // todo: Need to specify the rules of this part.
             energy = Mathf.Min(energy + n, 100);
-            if (energy == 100)
+            if (energy == maxEnergy)
             {
-                spingBtn.interactable = true;
+                springBtn.interactable = true;
                 summerBtn.interactable = true;
                 autumnBtn.interactable = true;
                 winterBtn.interactable = true;
+
+                sunnyBtn.interactable = true;
+                rainyBtn.interactable = true;
+                cloudyBtn.interactable = true;
+                foggyBtn.interactable = true;
             }
 
             energyBar.value = energy;
@@ -159,7 +190,7 @@ public class GamingDataController : MonoBehaviour, IEventHandler<EnemyWavesEvent
 
     public void ReduceEnergy(int n)
     {
-        if(energyBar != null)
+        if (energyBar != null)
         {
             if (energy < n)
             {
@@ -168,7 +199,8 @@ public class GamingDataController : MonoBehaviour, IEventHandler<EnemyWavesEvent
 
             energy -= n;
             energyBar.value = energy;
-            UpdateSeasonButtonGroup();
+
+            UpdateButtonGroups();
         }
     }
 
@@ -177,21 +209,56 @@ public class GamingDataController : MonoBehaviour, IEventHandler<EnemyWavesEvent
         ReduceEnergy(maxEnergy);
     }
 
-    public void UpdateSeasonButtonGroup()
+    //public void UpdateSeasonButtonGroup()
+    //{
+    //    if (energy == maxEnergy)
+    //    {
+    //        springBtn.interactable = true;
+    //        summerBtn.interactable = true;
+    //        autumnBtn.interactable = true;
+    //        winterBtn.interactable = true;
+    //    }
+    //    else
+    //    {
+    //        springBtn.interactable = false;
+    //        summerBtn.interactable = false;
+    //        autumnBtn.interactable = false;
+    //        winterBtn.interactable = false;
+    //    }
+    //}
+
+    //public void UpdateWeatherButtonGroup()
+    //{
+    //    if (energy == maxEnergy)
+    //    {
+    //        sunnyBtn.interactable = true;
+    //        rainyBtn.interactable = true;
+    //        cloudyBtn.interactable = true;
+    //        foggyBtn.interactable = true;
+    //    }
+    //    else
+    //    {
+    //        sunnyBtn.interactable = false;
+    //        rainyBtn.interactable = false;
+    //        cloudyBtn.interactable = false;
+    //        foggyBtn.interactable = false;
+    //    }
+    //}
+
+    public void UpdateButtonGroups()
     {
-        if(energy == maxEnergy)
-        {
-            spingBtn.interactable = true;
-            summerBtn.interactable = true;
-            autumnBtn.interactable = true;
-            winterBtn.interactable = true;
-        } else
-        {
-            spingBtn.interactable = false;
-            summerBtn.interactable = false;
-            autumnBtn.interactable = false;
-            winterBtn.interactable = false;
-        }
+        springBtn.interactable = false;
+        summerBtn.interactable = false;
+        autumnBtn.interactable = false;
+        winterBtn.interactable = false;
+
+        sunnyBtn.interactable = false;
+        rainyBtn.interactable = false;
+        cloudyBtn.interactable = false;
+        foggyBtn.interactable = false;
+
+        GetCurrentSeasonButton().interactable = true;
+        GetCurrentWeatherButton().interactable = true;
     }
 
     // Enemy wave event handler
@@ -201,5 +268,49 @@ public class GamingDataController : MonoBehaviour, IEventHandler<EnemyWavesEvent
         maxRoundDigit.GetComponent<TextMeshProUGUI>().text = totalNumberOfWaves.ToString();
         int curWave = eventData.curWave;
         currRoundDigit.GetComponent<TextMeshProUGUI>().text = curWave.ToString();
+    }
+
+    private Button GetCurrentSeasonButton()
+    {
+        Season season = SeasonController.GetSeason();
+
+        if (season == Season.SPRING)
+        {
+            return springBtn;
+        }
+        else if (season == Season.SUMMER)
+        {
+            return summerBtn;
+        }
+        else if (season == Season.AUTUMN)
+        {
+            return autumnBtn;
+        }
+        else
+        {
+            return winterBtn;
+        }
+    }
+
+    private Button GetCurrentWeatherButton()
+    {
+        Weather weather = WeatherSystem.GetWeather();
+
+        if (weather == Weather.SUNNY)
+        {
+            return sunnyBtn;
+        }
+        else if (weather == Weather.RAINY)
+        {
+            return rainyBtn;
+        }
+        else if (weather == Weather.FOGGY)
+        {
+            return foggyBtn;
+        }
+        else
+        {
+            return cloudyBtn;
+        }
     }
 }
