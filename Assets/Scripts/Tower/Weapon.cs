@@ -114,7 +114,7 @@ public class Weapon : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHan
     {
         if (eventData.isSandstormStart)
         {
-            radius = (float)(startRadius * 0.8);
+            radius = (float)(startRadius * 0.5);
         }
         else
         {
@@ -126,7 +126,7 @@ public class Weapon : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHan
     {
         if (eventData.ChangedSeason == Season.SPRING)
         {
-            damage *= 0.7f;
+            damage = startDamage;
             radius = startRadius;
         }
         else if (eventData.ChangedSeason == Season.SUMMER)
