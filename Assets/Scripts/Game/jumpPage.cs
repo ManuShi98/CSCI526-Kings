@@ -81,7 +81,47 @@ public class jumpPage : MonoBehaviour
     {
         Time.timeScale = 1;
         Debug.Log(SceneManager.GetActiveScene().name);
-        if(DataManager.currentLevelIndex == "level1")
+        if (SceneManager.GetActiveScene().name == "Tutorial1")
+        {
+            SceneManager.LoadScene("Tutorial1");
+        }
+        else if (SceneManager.GetActiveScene().name == "Tutorial2")
+        {
+            SceneManager.LoadScene("Tutorial2");
+        }
+        else if (SceneManager.GetActiveScene().name == "Tutorial3")
+        {
+            SceneManager.LoadScene("Tutorial3");
+        }
+        else if (SceneManager.GetActiveScene().name == "Tutorial4")
+        {
+            SceneManager.LoadScene("Tutorial4");
+        }
+        else if (SceneManager.GetActiveScene().name == "Tutorial5")
+        {
+            SceneManager.LoadScene("Tutorial5");
+        }
+        else if (SceneManager.GetActiveScene().name == "Tutorial6")
+        {
+            SceneManager.LoadScene("Tutorial6");
+        }
+        else if (SceneManager.GetActiveScene().name == "Tutorial7")
+        {
+            SceneManager.LoadScene("Tutorial7");
+        }
+        else if (SceneManager.GetActiveScene().name == "Tutorial8")
+        {
+            SceneManager.LoadScene("Tutorial8");
+        }
+        else if (SceneManager.GetActiveScene().name == "Tutorial9")
+        {
+            SceneManager.LoadScene("Tutorial9");
+        }
+
+
+
+
+        else if (DataManager.currentLevelIndex == "level1")
         {
             SceneManager.LoadScene("level1");
         }
