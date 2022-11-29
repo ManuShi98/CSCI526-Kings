@@ -1,12 +1,8 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class ActivateDialog : MonoBehaviour, IEventHandler<EnemyChangeEvent>
 {
     public GameObject dialogBox;
-
-   
 
     // Start is called before the first frame update
     void Start()

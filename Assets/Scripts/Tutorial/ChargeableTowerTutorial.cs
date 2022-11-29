@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TransformUtil;
 
@@ -32,6 +30,7 @@ public class ChargeableTowerTutorial : MonoBehaviour, IEventHandler<WeatherEvent
         EventBus.unregister<CollidersClickEvent>(this);
         EventBus.unregister<UIClickEvent>(this);
     }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -99,6 +98,9 @@ public class ChargeableTowerTutorial : MonoBehaviour, IEventHandler<WeatherEvent
         if(thunderSystem != null)
         {
             thunderSystem.generateCertainThunder(targetTower);
+        } else
+        {
+            Debug.Log("Thunder System is not exists!");
         }
     }
 
@@ -135,7 +137,7 @@ public class ChargeableTowerTutorial : MonoBehaviour, IEventHandler<WeatherEvent
             arrow2.gameObject.SetActive(true);
             arrow3.gameObject.SetActive(false);
         }
-        else if (eventData.obj!=null && eventData.obj.tag == "Tower" && step == 2)
+        else if (eventData.obj!=null && eventData.obj.CompareTag("Tower") && step == 2)
         {
             step = 3;
             arrow2.gameObject.SetActive(false);
