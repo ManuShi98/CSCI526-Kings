@@ -275,8 +275,8 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
 
         if (health <= 0)
         {
-            Singleton.Instance.numOfDiedMonster++;
-            Singleton.Instance.curDiedMonster++;
+            //Singleton.Instance.numOfDiedMonster++;
+            //Singleton.Instance.curDiedMonster++;
             GamingDataController.GetInstance().AddCoins(coinValue);
             GamingDataController.GetInstance().AddEnergy(energyValue);
             Destroy(gameObject);
@@ -331,8 +331,8 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
     // Data Collection Part
     private void UpdateReachEndData()
     {
-        Singleton.Instance.numOfReachEndMonster++;
-        Singleton.Instance.curReachEndMonster++;
+        //Singleton.Instance.numOfReachEndMonster++;
+        //Singleton.Instance.curReachEndMonster++;
         if (SeasonController.GetSeason() == Season.SPRING)
         {
             Singleton.Instance.numOfSpringReachEndMonster++;
