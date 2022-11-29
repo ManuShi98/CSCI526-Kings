@@ -3,7 +3,6 @@ using TransformUtil;
 
 public class ChargeableTowerTutorial : MonoBehaviour, IEventHandler<WeatherEvent>, IEventHandler<CollidersClickEvent>, IEventHandler<UIClickEvent>
 {
-    [SerializeField]
     private int step;
     private Transform arrow1;
     private Transform arrow2;
@@ -114,10 +113,8 @@ public class ChargeableTowerTutorial : MonoBehaviour, IEventHandler<WeatherEvent
         step = 2;
         arrow2.gameObject.SetActive(true);
         UIManager.unblockByTag("Tower");
-        Debug.Log("Blocked tower length: " + blockTowers.Length);
         foreach (var tower in blockTowers)
         {
-            Debug.Log("Blocked tower: " + tower.name);
             UIManager.blockTower(tower);
         }
     }
@@ -129,9 +126,6 @@ public class ChargeableTowerTutorial : MonoBehaviour, IEventHandler<WeatherEvent
             arrow1.gameObject.SetActive(false);
             StrikeTower();
             Invoke("DisplayFirstGuidance", 2f);
-        } else
-        {
-            Debug.Log("Step: " + step + "Weather: " + eventData.weather);
         }
     }
 
@@ -143,7 +137,7 @@ public class ChargeableTowerTutorial : MonoBehaviour, IEventHandler<WeatherEvent
             arrow2.gameObject.SetActive(true);
             arrow3.gameObject.SetActive(false);
         }
-        else if (eventData.obj!=null && eventData.obj.tag == "Tower" && step == 2)
+        else if (eventData.obj!=null && eventData.obj.CompareTag("Tower") && step == 2)
         {
             step = 3;
             arrow2.gameObject.SetActive(false);

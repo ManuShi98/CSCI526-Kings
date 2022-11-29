@@ -40,4 +40,9 @@ public class WeatherSystem : MonoBehaviour
     {
         currentWeather = Weather.SUNNY;
     }
+
+    public static void ResetWeather()
+    {
+        currentWeather = Weather.SUNNY;
+    }
 }

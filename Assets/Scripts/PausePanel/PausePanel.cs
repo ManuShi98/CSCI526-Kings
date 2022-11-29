@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -9,12 +7,6 @@ public class PausePanel : MonoBehaviour
     void Start()
     {
         Time.timeScale = 0;
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-
     }
 
     public void BackToGame()
@@ -34,7 +26,7 @@ public class PausePanel : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        WeatherSystem.SetWeather(Weather.SUNNY);
+        WeatherSystem.ResetWeather();
         SeasonController.ResetSeason();
     }
 }
