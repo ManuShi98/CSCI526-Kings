@@ -4650,7 +4650,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 990815240098598028, guid: b142cbba009e24876ae884b9c89183c2, type: 3}
       propertyPath: energy
-      value: 0
+      value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 990815240098598028, guid: b142cbba009e24876ae884b9c89183c2, type: 3}
       propertyPath: foggyBtn
