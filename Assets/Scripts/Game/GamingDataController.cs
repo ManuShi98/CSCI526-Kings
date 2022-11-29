@@ -2,6 +2,8 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections.Generic;
+using UnityEngine.Rendering;
 
 public class GamingDataController : MonoBehaviour, IEventHandler<EnemyWavesEvent>
 {
@@ -41,6 +43,10 @@ public class GamingDataController : MonoBehaviour, IEventHandler<EnemyWavesEvent
     private static GamingDataController controller;
     private static readonly object locker = new();
 
+    private Dictionary<Season, Button> seasonToButtons;
+    private Dictionary<Weather, Button> weatherToButtons;
+    private Dictionary<Button, Color> buttonColor;
+
     public static GamingDataController GetInstance()
     {
         if (controller == null)
@@ -72,6 +78,32 @@ public class GamingDataController : MonoBehaviour, IEventHandler<EnemyWavesEvent
         {
             currWeatherBtn = sunnyBtn;
         }
+        
+        seasonToButtons =  
+        new Dictionary<Season, Button>(){
+            {Season.SPRING, springBtn},
+            {Season.SUMMER, summerBtn},
+            {Season.AUTUMN, autumnBtn},
+            { Season.WINTER, winterBtn }
+        }; 
+        buttonColor =         
+            new Dictionary<Button, Color>(){
+            {springBtn, springBtn.GetComponent<Image>().color},
+            {summerBtn, summerBtn.GetComponent<Image>().color},
+            {autumnBtn, autumnBtn.GetComponent<Image>().color},
+            {winterBtn, winterBtn.GetComponent<Image>().color},
+            {foggyBtn, foggyBtn.GetComponent<Image>().color},
+            {rainyBtn, rainyBtn.GetComponent<Image>().color},
+            {sunnyBtn, sunnyBtn.GetComponent<Image>().color},
+            {cloudyBtn, cloudyBtn.GetComponent<Image>().color},
+        }; 
+        weatherToButtons =  
+            new Dictionary<Weather, Button>(){
+                {Weather.FOGGY, foggyBtn},
+                {Weather.RAINY, rainyBtn},
+                {Weather.SUNNY, sunnyBtn},
+                { Weather.CLOUDY, cloudyBtn }
+            }; 
 
         UpdateGamingData();
         UpdateButtonGroups();
@@ -169,18 +201,7 @@ public class GamingDataController : MonoBehaviour, IEventHandler<EnemyWavesEvent
             // Energy can not exceed 100
             // todo: Need to specify the rules of this part.
             energy = Mathf.Min(energy + n, 100);
-            if (energy == maxEnergy)
-            {
-                springBtn.interactable = true;
-                summerBtn.interactable = true;
-                autumnBtn.interactable = true;
-                winterBtn.interactable = true;
-
-                sunnyBtn.interactable = true;
-                rainyBtn.interactable = true;
-                cloudyBtn.interactable = true;
-                foggyBtn.interactable = true;
-            }
+            UpdateButtonGroups();
 
             energyBar.value = energy;
 
@@ -249,29 +270,68 @@ public class GamingDataController : MonoBehaviour, IEventHandler<EnemyWavesEvent
     {
         if(energy == maxEnergy)
         {
-            springBtn.interactable = true;
-            summerBtn.interactable = true;
-            autumnBtn.interactable = true;
-            winterBtn.interactable = true;
-
-            sunnyBtn.interactable = true;
-            rainyBtn.interactable = true;
-            cloudyBtn.interactable = true;
-            foggyBtn.interactable = true;
+            foreach (KeyValuePair<Season, Button> ele in seasonToButtons)
+            {
+                if (SeasonController.GetSeason() == ele.Key)
+                {
+                    var tmpColor = buttonColor[ele.Value];
+                    tmpColor.a = 1f;
+                    ele.Value.GetComponent<Image>().color = tmpColor;
+                }
+                else
+                {
+                    var tmpColor = buttonColor[ele.Value];
+                    tmpColor.a = 0.5f;
+                    ele.Value.GetComponent<Image>().color = tmpColor;
+                }
+            }
+            foreach (KeyValuePair<Weather, Button> ele in weatherToButtons)
+            {
+                if (WeatherSystem.GetWeather() == ele.Key)
+                {
+                    var tmpColor = buttonColor[ele.Value];
+                    tmpColor.a = 1f;
+                    ele.Value.GetComponent<Image>().color = tmpColor;
+                }
+                else
+                {
+                    var tmpColor = buttonColor[ele.Value];
+                    tmpColor.a = 0.5f;
+                    ele.Value.GetComponent<Image>().color = tmpColor;
+                }
+            }
         } else
         {
-            springBtn.interactable = false;
-            summerBtn.interactable = false;
-            autumnBtn.interactable = false;
-            winterBtn.interactable = false;
-
-            sunnyBtn.interactable = false;
-            rainyBtn.interactable = false;
-            cloudyBtn.interactable = false;
-            foggyBtn.interactable = false;
-
-            GetCurrentSeasonButton().interactable = true;
-            GetCurrentWeatherButton().interactable = true;
+            foreach (KeyValuePair<Season, Button> ele in seasonToButtons)
+            {
+                if (SeasonController.GetSeason() == ele.Key)
+                {
+                    var tmpColor = buttonColor[ele.Value];
+                    tmpColor.a = 1f;
+                    ele.Value.GetComponent<Image>().color = tmpColor;
+                }
+                else
+                {
+                    var tmpColor = buttonColor[ele.Value];
+                    tmpColor.a = 0f;
+                    ele.Value.GetComponent<Image>().color = tmpColor;
+                }
+            }
+            foreach (KeyValuePair<Weather, Button> ele in weatherToButtons)
+            {
+                if (WeatherSystem.GetWeather() == ele.Key)
+                {
+                    var tmpColor = buttonColor[ele.Value];
+                    tmpColor.a = 1f;
+                    ele.Value.GetComponent<Image>().color = tmpColor;
+                }
+                else
+                {
+                    var tmpColor = buttonColor[ele.Value];
+                    tmpColor.a = 0f;
+                    ele.Value.GetComponent<Image>().color = tmpColor;
+                }
+            }
         }
     }
 
