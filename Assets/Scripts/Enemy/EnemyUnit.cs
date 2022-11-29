@@ -5,6 +5,16 @@ public class SandstormEnemyChangeEvent : IEventData
     public int NumberOfEnemy { get; set; }
 }
 
+public class EnemyChangeEvent : IEventData
+{
+    // Enemy life status
+    public bool isDead { get; set; }
+    // Enemy arrive in the end
+    public bool isArrived { get; set; }
+    // Season when event happens
+    public Season curSeason { get; set; }
+}
+
 public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEventHandler<WeatherEvent>
 {
     [SerializeField]
@@ -128,6 +138,9 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
         {
             EventBus.post(new SandstormEnemyChangeEvent() { NumberOfEnemy = -1 });
         }
+        // When enemy dead, send the enemy change event
+        EventBus.post(new EnemyChangeEvent() { isDead = true, isArrived = false, curSeason = SeasonController.GetSeason() });
+
         EventBus.unregister<SeasonChangeEvent>(this);
         EventBus.unregister<WeatherEvent>(this);
     }
@@ -262,8 +275,8 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
 
         if (health <= 0)
         {
-            Singleton.Instance.numOfDiedMonster++;
-            Singleton.Instance.curDiedMonster++;
+            //Singleton.Instance.numOfDiedMonster++;
+            //Singleton.Instance.curDiedMonster++;
             GamingDataController.GetInstance().AddCoins(coinValue);
             GamingDataController.GetInstance().AddEnergy(energyValue);
             Destroy(gameObject);
@@ -324,8 +337,8 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
     // Data Collection Part
     private void UpdateReachEndData()
     {
-        Singleton.Instance.numOfReachEndMonster++;
-        Singleton.Instance.curReachEndMonster++;
+        //Singleton.Instance.numOfReachEndMonster++;
+        //Singleton.Instance.curReachEndMonster++;
         if (SeasonController.GetSeason() == Season.SPRING)
         {
             Singleton.Instance.numOfSpringReachEndMonster++;
