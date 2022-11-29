@@ -43,4 +43,9 @@ public class SeasonController : MonoBehaviour
     {
         return currentSeason;
     }
+
+    public static void ResetSeason()
+    {
+        currentSeason = Season.SPRING;
+    }
 }

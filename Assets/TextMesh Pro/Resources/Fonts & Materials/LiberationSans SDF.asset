@@ -39,7 +39,7 @@ Material:
     - _PerspectiveFilter: 0.875
     - _ScaleRatioA: 0.9
     - _ScaleRatioB: 1
-    - _ScaleRatioC: 0.53768384
+    - _ScaleRatioC: 0.5376838
     - _ScaleX: 1
     - _ScaleY: 1
     - _ShaderFlags: 0
