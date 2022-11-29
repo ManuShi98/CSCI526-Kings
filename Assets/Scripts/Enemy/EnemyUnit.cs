@@ -12,7 +12,7 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
     protected float speed;
 
     [SerializeField]
-    private volatile float health;
+    protected volatile float health;
     protected volatile float previousHealthRate = 1f;
 
     [SerializeField]
@@ -40,7 +40,7 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
 
     // HP bar
     [SerializeField]
-    private HPBar bar;
+    protected HPBar bar;
 
     // Energy value property
     [SerializeField]
@@ -288,12 +288,19 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
     }
 
     // Weather change handler
-    public void HandleEvent(WeatherEvent eventData)
+    public virtual void HandleEvent(WeatherEvent eventData)
     {
-        if (eventData.weather == Weather.FOGGY)
+        FoggyEffect(eventData.weather);
+    }
+
+    // Foggy effects
+    protected void FoggyEffect(Weather weather)
+    {
+        if (weather == Weather.FOGGY)
         {
             System.Random rd = new System.Random();
             int num = rd.Next(1, 11);
+            print("Poss: " + num);
             if (num <= 2)
             {
                 FoggyPause();
@@ -302,7 +309,6 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
         }
     }
 
-    // Foggy effects
     private void FoggyPause()
     {
         pausedSpeed = speed;
