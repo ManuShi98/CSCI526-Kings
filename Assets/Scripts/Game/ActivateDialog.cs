@@ -18,7 +18,7 @@ public class ActivateDialog : MonoBehaviour, IEventHandler<EnemyChangeEvent>
     void Update()
     {
         Debug.Log("curDiedMonster: " + Singleton.Instance.curDiedMonster + " reach: " + Singleton.Instance.curReachEndMonster + " curOriginal: " + Singleton.Instance.curOriginalMonster);
-        if ((Singleton.Instance.curDiedMonster + Singleton.Instance.curReachEndMonster == Singleton.Instance.curOriginalMonster))
+        if ((Singleton.Instance.curDiedMonster == Singleton.Instance.curOriginalMonster))
             {
                 Singleton.Instance.curDiedMonster = 0;
                 Singleton.Instance.curMonsterNum = 0;
