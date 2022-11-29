@@ -1,6 +1,5 @@
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class GamingDataController : MonoBehaviour, IEventHandler<EnemyWavesEvent>
@@ -208,42 +207,6 @@ public class GamingDataController : MonoBehaviour, IEventHandler<EnemyWavesEvent
     {
         ReduceEnergy(maxEnergy);
     }
-
-    //public void UpdateSeasonButtonGroup()
-    //{
-    //    if (energy == maxEnergy)
-    //    {
-    //        springBtn.interactable = true;
-    //        summerBtn.interactable = true;
-    //        autumnBtn.interactable = true;
-    //        winterBtn.interactable = true;
-    //    }
-    //    else
-    //    {
-    //        springBtn.interactable = false;
-    //        summerBtn.interactable = false;
-    //        autumnBtn.interactable = false;
-    //        winterBtn.interactable = false;
-    //    }
-    //}
-
-    //public void UpdateWeatherButtonGroup()
-    //{
-    //    if (energy == maxEnergy)
-    //    {
-    //        sunnyBtn.interactable = true;
-    //        rainyBtn.interactable = true;
-    //        cloudyBtn.interactable = true;
-    //        foggyBtn.interactable = true;
-    //    }
-    //    else
-    //    {
-    //        sunnyBtn.interactable = false;
-    //        rainyBtn.interactable = false;
-    //        cloudyBtn.interactable = false;
-    //        foggyBtn.interactable = false;
-    //    }
-    //}
 
     public void UpdateButtonGroups()
     {

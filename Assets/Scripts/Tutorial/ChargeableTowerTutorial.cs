@@ -1,10 +1,9 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using TransformUtil;
 
 public class ChargeableTowerTutorial : MonoBehaviour, IEventHandler<WeatherEvent>, IEventHandler<CollidersClickEvent>, IEventHandler<UIClickEvent>
 {
+    [SerializeField]
     private int step;
     private Transform arrow1;
     private Transform arrow2;
@@ -32,6 +31,7 @@ public class ChargeableTowerTutorial : MonoBehaviour, IEventHandler<WeatherEvent
         EventBus.unregister<CollidersClickEvent>(this);
         EventBus.unregister<UIClickEvent>(this);
     }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -99,6 +99,9 @@ public class ChargeableTowerTutorial : MonoBehaviour, IEventHandler<WeatherEvent
         if(thunderSystem != null)
         {
             thunderSystem.generateCertainThunder(targetTower);
+        } else
+        {
+            Debug.Log("Thunder System is not exists!");
         }
     }
 
@@ -111,8 +114,10 @@ public class ChargeableTowerTutorial : MonoBehaviour, IEventHandler<WeatherEvent
         step = 2;
         arrow2.gameObject.SetActive(true);
         UIManager.unblockByTag("Tower");
+        Debug.Log("Blocked tower length: " + blockTowers.Length);
         foreach (var tower in blockTowers)
         {
+            Debug.Log("Blocked tower: " + tower.name);
             UIManager.blockTower(tower);
         }
     }
@@ -124,6 +129,9 @@ public class ChargeableTowerTutorial : MonoBehaviour, IEventHandler<WeatherEvent
             arrow1.gameObject.SetActive(false);
             StrikeTower();
             Invoke("DisplayFirstGuidance", 2f);
+        } else
+        {
+            Debug.Log("Step: " + step + "Weather: " + eventData.weather);
         }
     }
 

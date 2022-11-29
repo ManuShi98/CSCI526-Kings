@@ -34,5 +34,7 @@ public class PausePanel : MonoBehaviour
     {
         Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        WeatherSystem.SetWeather(Weather.SUNNY);
+        SeasonController.ResetSeason();
     }
 }
