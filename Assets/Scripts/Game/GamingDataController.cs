@@ -276,7 +276,7 @@ public class GamingDataController : MonoBehaviour, IEventHandler<EnemyWavesEvent
                 else
                 {
                     var tmpColor = buttonColor[ele.Value];
-                    tmpColor.a = 0f;
+                    tmpColor.a = 0.15f;
                     ele.Value.GetComponent<Image>().color = tmpColor;
                 }
             }
@@ -291,7 +291,7 @@ public class GamingDataController : MonoBehaviour, IEventHandler<EnemyWavesEvent
                 else
                 {
                     var tmpColor = buttonColor[ele.Value];
-                    tmpColor.a = 0f;
+                    tmpColor.a = 0.15f;
                     ele.Value.GetComponent<Image>().color = tmpColor;
                 }
             }
