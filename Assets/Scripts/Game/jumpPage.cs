@@ -150,6 +150,8 @@ public class jumpPage : MonoBehaviour
             SceneManager.LoadScene("level7");
         }
 
+        WeatherSystem.ResetWeather();
+        SeasonController.ResetSeason();
     }
 
     private void recordLevelTime()
