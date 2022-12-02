@@ -208,7 +208,7 @@ PrefabInstance:
     - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
       propertyPath: waves.Array.data[0].enemyPrefab
       value: 
-      objectReference: {fileID: 4474539147077633825, guid: a4def063ca4b3ca49aab8114a4281f95, type: 3}
+      objectReference: {fileID: 4474539147077633825, guid: 5f299513b8ce54ffaa864f9772e00a77, type: 3}
     - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
       propertyPath: waves.Array.data[1].enemyPrefab
       value: 
@@ -933,11 +933,11 @@ PrefabInstance:
     - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
       propertyPath: waves.Array.data[0].enemyPrefab
       value: 
-      objectReference: {fileID: 4474539147077633825, guid: aaef72c375ac8450497b51eeee030268, type: 3}
+      objectReference: {fileID: 4474539147077633825, guid: 5f299513b8ce54ffaa864f9772e00a77, type: 3}
     - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
       propertyPath: waves.Array.data[1].enemyPrefab
       value: 
-      objectReference: {fileID: 4474539147077633825, guid: a4def063ca4b3ca49aab8114a4281f95, type: 3}
+      objectReference: {fileID: 4474539147077633825, guid: aaef72c375ac8450497b51eeee030268, type: 3}
     - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
       propertyPath: waves.Array.data[4].enemyPrefab
       value: 
@@ -1618,7 +1618,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2585160092829309797, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: health
-      value: 100
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2585160092829309797, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: coinDigit
@@ -1722,8 +1722,8 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: introductiuons.Array.data[1]
-      value: Zombies will be powerful in foggy days that their HP increase and they
-        can still find the way!
+      value: New Enemy:Zombies will be powerful in foggy days that their HP increase
+        and they can still find the way!
       objectReference: {fileID: 0}
     - target: {fileID: 5964091669926470054, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size

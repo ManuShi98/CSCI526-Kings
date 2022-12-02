@@ -178,10 +178,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b26b321168f944aca821c47839f4df0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startRadius: 8
-  FiringRate: 5
+  startRadius: 5
+  FiringRate: 1
   startFiringRate: 0
-  startDamage: 22
+  startDamage: 15
   rate: 1
   firePoint: {fileID: 8833303033463313959}
   enemy: {fileID: 0}

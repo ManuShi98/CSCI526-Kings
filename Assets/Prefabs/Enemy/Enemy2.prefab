@@ -506,7 +506,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startSpeed: 1.2
-  health: 400
+  health: 150
   startCoinValue: 4
   bar: {fileID: 8249108882300169035}
   energyValue: 10

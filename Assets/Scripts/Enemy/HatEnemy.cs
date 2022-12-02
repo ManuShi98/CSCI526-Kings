@@ -35,7 +35,7 @@ public class HatEnemy : EnemyUnit, IEventHandler<SeasonChangeEvent>
         else
         {
             Hat.SetActive(true);
-            previousHealthRate += 1f;
+            previousHealthRate += 2f;
         }
 
         ChangeProperties(eventData);
