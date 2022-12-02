@@ -322,8 +322,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startRadius: 5
-  FiringRate: 5
-  startDamage: 15
+  FiringRate: 1
+  startFiringRate: 0
+  startDamage: 40
+  rate: 1
   firePoint: {fileID: 4243429886321603087}
   enemy: {fileID: 0}
   bulletPrefab: {fileID: 1838902653398818568, guid: 59a8fa8e5b1c84a13ab44031fa6a44e9, type: 3}

@@ -153,7 +153,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1082240954}
-  m_RootOrder: 15
+  m_RootOrder: 18
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &59347291
 MonoBehaviour:
@@ -447,6 +447,14 @@ PrefabInstance:
       propertyPath: coins
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 2585160092829309797, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: health
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2659715974461799559, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: m_text
+      value: "Hat enemy will tripe its health outside summer. Why not try summer?\xDF"
+      objectReference: {fileID: 0}
     - target: {fileID: 3323727297783418597, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: autumnMapPrefab
       value: 
@@ -486,6 +494,31 @@ PrefabInstance:
     - target: {fileID: 5389399209085495220, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: m_LocalPosition.y
       value: 2.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: images.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: images.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: da1297c425bf546adaaa75d6cd0d53ce, type: 3}
+    - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: images.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: f2cb94f1b8a444eb5b61b68ccb566ffa, type: 3}
+    - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: introductiuons.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: introductiuons.Array.data[0]
+      value: 'Incoming enemy: Normal Enemy'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: introductiuons.Array.data[1]
+      value: "Incoming enemy: Hat Enemy. Keep in mind that hat enemy\u2018s health
+        is tripled outside summer."
       objectReference: {fileID: 0}
     - target: {fileID: 7937574466510233471, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: m_RootOrder
@@ -533,7 +566,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8881195365438294354, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
@@ -572,9 +605,25 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
-      propertyPath: waves.Array.data[1].count
-      value: 2
+      propertyPath: waves.Array.data[0].rate
+      value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
+      propertyPath: waves.Array.data[1].rate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
+      propertyPath: waves.Array.data[0].count
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
+      propertyPath: waves.Array.data[1].count
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
+      propertyPath: waves.Array.data[1].enemyPrefab
+      value: 
+      objectReference: {fileID: 2999470240303713101, guid: 23a656e675edb044eb58add2a853266e, type: 3}
     - target: {fileID: 73061382936717426, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -655,7 +704,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1082240954}
-  m_RootOrder: 16
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1264660433
 MonoBehaviour:

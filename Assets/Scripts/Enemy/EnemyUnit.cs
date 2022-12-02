@@ -109,7 +109,7 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
             arrowBulletSlowDownEffectTimer -= Time.deltaTime;
             if (arrowBulletSlowDownEffectTimer <= 0)
             {
-                speedRatio += 0.1f;
+                speedRatio += 0.7f;
                 speed = startSpeed * speedRatio;
                 //Debug.Log("当前移动速度：" + speed);
             }
@@ -256,10 +256,10 @@ public class EnemyUnit : MonoBehaviour, IEventHandler<SeasonChangeEvent>, IEvent
             // Special effect: slow down the enemy's moving speed.
             if ("BulletArrow(Clone)".Equals(bullet.name) && arrowBulletSlowDownEffectTimer <= 0)
             {
-                speedRatio -= 0.1f;
+                speedRatio -= 0.7f;
                 speed = startSpeed * speedRatio;
                 //Debug.Log("减速后移动速度：" + speed);
-                arrowBulletSlowDownEffectTimer = 0.2f;
+                arrowBulletSlowDownEffectTimer = 5f;
             }
 
             TakeDamage(bulletFunction.GetDamage());

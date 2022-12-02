@@ -175,7 +175,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 539259238}
-  m_RootOrder: 17
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &73268505
 MonoBehaviour:
@@ -378,11 +378,16 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2585160092829309797, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: coins
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2585160092829309797, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: health
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2659715974461799559, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: m_text
+      value: Do you remember that chargeable tower will double its power when it's
+        hit by the thunder?
       objectReference: {fileID: 0}
     - target: {fileID: 3323727297731026287, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: path
@@ -440,6 +445,38 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: -4.06
       objectReference: {fileID: 0}
+    - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: images.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: images.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: da1297c425bf546adaaa75d6cd0d53ce, type: 3}
+    - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: images.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: f2cb94f1b8a444eb5b61b68ccb566ffa, type: 3}
+    - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: images.Array.data[2]
+      value: 
+      objectReference: {fileID: 21300000, guid: 24987052a6ae445fa8777f0eafd65add, type: 3}
+    - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: introductiuons.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: introductiuons.Array.data[0]
+      value: 'Incoming enemy: Normal enemy'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: introductiuons.Array.data[1]
+      value: 'Incoming enemy: Hat enemy'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: introductiuons.Array.data[2]
+      value: 'Incoming enemy: Snowman enemy. Try to use winter to slow them down!'
+      objectReference: {fileID: 0}
     - target: {fileID: 6481905474466119037, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: m_RootOrder
       value: 13
@@ -494,7 +531,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8881195365438294354, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
@@ -526,6 +563,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   URL: https://docs.google.com/forms/u/0/d/e/1FAIpQLSfD8V_JN0t_oowN-vi0JkNkBzZGJxBdYXgVsfuUfTJKtv5gzg/formResponse
+  _numOfTower1: 0
+  _numOfTower2: 0
+  _numOfTower3: 0
+  _numOfDestroyTower: 0
+  LoselogBox: {fileID: 0}
 --- !u!1 &589411276
 GameObject:
   m_ObjectHideFlags: 0
@@ -652,28 +694,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
       propertyPath: waves.Array.data[1].rate
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
       propertyPath: waves.Array.data[2].rate
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
       propertyPath: waves.Array.data[0].count
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
       propertyPath: waves.Array.data[1].count
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
       propertyPath: waves.Array.data[2].count
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
       propertyPath: waves.Array.data[1].enemyPrefab
       value: 
-      objectReference: {fileID: 4474539147077633825, guid: 2294b60aa1ae242108bf631522fa3013, type: 3}
+      objectReference: {fileID: 8787248945273140940, guid: b60c3a33c2366e642b13c1b8f93e2d75, type: 3}
+    - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
+      propertyPath: waves.Array.data[2].enemyPrefab
+      value: 
+      objectReference: {fileID: 2999470240303713101, guid: 23a656e675edb044eb58add2a853266e, type: 3}
     - target: {fileID: 73061382936717426, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -884,28 +930,32 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
       propertyPath: waves.Array.data[1].rate
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
       propertyPath: waves.Array.data[2].rate
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
       propertyPath: waves.Array.data[0].count
-      value: 8
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
       propertyPath: waves.Array.data[1].count
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
       propertyPath: waves.Array.data[2].count
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
       propertyPath: waves.Array.data[1].enemyPrefab
       value: 
-      objectReference: {fileID: 4474539147077633825, guid: 2294b60aa1ae242108bf631522fa3013, type: 3}
+      objectReference: {fileID: 8787248945273140940, guid: b60c3a33c2366e642b13c1b8f93e2d75, type: 3}
+    - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
+      propertyPath: waves.Array.data[2].enemyPrefab
+      value: 
+      objectReference: {fileID: 2999470240303713101, guid: 23a656e675edb044eb58add2a853266e, type: 3}
     - target: {fileID: 73061382936717426, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
       propertyPath: m_RootOrder
       value: 1

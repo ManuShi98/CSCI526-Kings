@@ -364,7 +364,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1838066550}
-  m_RootOrder: 17
+  m_RootOrder: 19
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &477256655
 MonoBehaviour:
@@ -854,7 +854,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1838066550}
-  m_RootOrder: 18
+  m_RootOrder: 20
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1286425628
 MonoBehaviour:
@@ -940,6 +940,10 @@ PrefabInstance:
       propertyPath: waves.Array.data[1].count
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
+      propertyPath: waves.Array.data[1].enemyPrefab
+      value: 
+      objectReference: {fileID: 8787248945273140940, guid: b60c3a33c2366e642b13c1b8f93e2d75, type: 3}
     - target: {fileID: 73061382936717426, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -1036,6 +1040,10 @@ PrefabInstance:
       propertyPath: waves.Array.data[1].count
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1826548838, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
+      propertyPath: waves.Array.data[1].enemyPrefab
+      value: 
+      objectReference: {fileID: 8787248945273140940, guid: b60c3a33c2366e642b13c1b8f93e2d75, type: 3}
     - target: {fileID: 73061382936717426, guid: d5e001b8a0f314597aa493fe2937e4be, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -1232,11 +1240,16 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2585160092829309797, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: coins
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2585160092829309797, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: health
       value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2659715974461799559, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: m_text
+      value: Keep in mind that snowman monster will double their speed outside winter!
+        Why not try winter?
       objectReference: {fileID: 0}
     - target: {fileID: 3323727297783418597, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: autumnMapPrefab
@@ -1277,6 +1290,31 @@ PrefabInstance:
     - target: {fileID: 5389399209085495220, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: m_LocalPosition.y
       value: -4.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: images.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: images.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: da1297c425bf546adaaa75d6cd0d53ce, type: 3}
+    - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: images.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 24987052a6ae445fa8777f0eafd65add, type: 3}
+    - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: introductiuons.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: introductiuons.Array.data[0]
+      value: 'Incoming enemy: Normal monster'
+      objectReference: {fileID: 0}
+    - target: {fileID: 5833483386781814490, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
+      propertyPath: introductiuons.Array.data[1]
+      value: 'Incoming enemy: Snow Monster. Keep in mind that this monster will double
+        its speed outside winter.'
       objectReference: {fileID: 0}
     - target: {fileID: 6481905474466119037, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: m_RootOrder
@@ -1332,7 +1370,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8881195365438294354, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2a3c24718d82ed14c8dca94863616ec8, type: 3}
